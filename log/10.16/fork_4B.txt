@@ -1,0 +1,415 @@
+<4>[  189.197259] cache switch setup.
+
+<4>[  221.019181] PGD allocation:(average:37593ns per 31383)
+<4>[  221.019184] PMD allocation:(average:7136ns per 125528)
+<4>[  221.019186] PTE allocation:(average:19363ns per 157065)
+<4>[  221.019189] 
+<4>[  221.019191] PGD cache page numbers:137
+<4>[  221.019193] PGD table page numbers:7
+<4>[  221.019195] PMD cache page numbers:573
+<4>[  221.019197] PMD table page numbers:24
+<4>[  221.019199] PTE cache page numbers:2084
+<4>[  221.019201] PTE table page numbers:42
+<4>[  221.019203] 
+
+<4>[  254.782306] PGD allocation:(average:38283ns per 30095)
+<4>[  254.782310] PMD allocation:(average:29081ns per 120380)
+<4>[  254.782312] PTE allocation:(average:15046ns per 151392)
+<4>[  254.782314] 
+<4>[  254.782316] PGD cache page numbers:142
+<4>[  254.782318] PGD table page numbers:2
+<4>[  254.782320] PMD cache page numbers:593
+<4>[  254.782322] PMD table page numbers:4
+<4>[  254.782324] PTE cache page numbers:2109
+<4>[  254.782326] PTE table page numbers:17
+<4>[  254.782328] 
+<4>[  281.009310] PGD allocation:(average:37909ns per 28076)
+<4>[  281.009314] PMD allocation:(average:28981ns per 112304)
+<4>[  281.009316] PTE allocation:(average:15100ns per 141223)
+<4>[  281.009318] 
+<4>[  281.009320] PGD cache page numbers:138
+<4>[  281.009323] PGD table page numbers:6
+<4>[  281.009325] PMD cache page numbers:577
+<4>[  281.009327] PMD table page numbers:20
+<4>[  281.009329] PTE cache page numbers:2089
+<4>[  281.009331] PTE table page numbers:37
+<4>[  281.009332] 
+<4>[  311.024516] PGD allocation:(average:37975ns per 26806)
+<4>[  311.024520] PMD allocation:(average:29288ns per 107224)
+<4>[  311.024522] PTE allocation:(average:14925ns per 134850)
+<4>[  311.024524] 
+<4>[  311.024526] PGD cache page numbers:138
+<4>[  311.024528] PGD table page numbers:6
+<4>[  311.024530] PMD cache page numbers:577
+<4>[  311.024532] PMD table page numbers:20
+<4>[  311.024534] PTE cache page numbers:2089
+<4>[  311.024536] PTE table page numbers:37
+<4>[  311.024538] 
+
+<4>[  341.008574] PGD allocation:(average:38078ns per 26732)
+<4>[  341.008577] PMD allocation:(average:28959ns per 106928)
+<4>[  341.008579] PTE allocation:(average:14805ns per 134528)
+<4>[  341.008582] 
+<4>[  341.008584] PGD cache page numbers:134
+<4>[  341.008586] PGD table page numbers:10
+<4>[  341.008588] PMD cache page numbers:561
+<4>[  341.008590] PMD table page numbers:36
+<4>[  341.008592] PTE cache page numbers:2069
+<4>[  341.008594] PTE table page numbers:57
+<4>[  341.008596] 
+<4>[  371.007565] PGD allocation:(average:37931ns per 26397)
+<4>[  371.007568] PMD allocation:(average:28881ns per 105588)
+<4>[  371.007570] PTE allocation:(average:14945ns per 132752)
+<4>[  371.007572] 
+<4>[  371.007575] PGD cache page numbers:136
+<4>[  371.007577] PGD table page numbers:8
+<4>[  371.007579] PMD cache page numbers:569
+<4>[  371.007581] PMD table page numbers:28
+<4>[  371.007583] PTE cache page numbers:2079
+<4>[  371.007585] PTE table page numbers:47
+<4>[  371.007587] 
+
+<4>[  401.005215] PGD allocation:(average:33587ns per 35178)
+<4>[  401.005218] PMD allocation:(average:24822ns per 140712)
+<4>[  401.005220] PTE allocation:(average:14421ns per 176060)
+<4>[  401.005222] 
+<4>[  401.005225] PGD cache page numbers:128
+<4>[  401.005227] PGD table page numbers:16
+<4>[  401.005229] PMD cache page numbers:537
+<4>[  401.005231] PMD table page numbers:60
+<4>[  401.005233] PTE cache page numbers:2039
+<4>[  401.005235] PTE table page numbers:87
+<4>[  401.005237] 
+<4>[  431.006411] PGD allocation:(average:33659ns per 34587)
+<4>[  431.006415] PMD allocation:(average:25114ns per 138348)
+<4>[  431.006417] PTE allocation:(average:14256ns per 173021)
+<4>[  431.006419] 
+<4>[  431.006421] PGD cache page numbers:133
+<4>[  431.006423] PGD table page numbers:11
+<4>[  431.006425] PMD cache page numbers:557
+<4>[  431.006428] PMD table page numbers:40
+<4>[  431.006430] PTE cache page numbers:2060
+<4>[  431.006432] PTE table page numbers:66
+<4>[  431.006433] 
+
+<4>[  461.005255] PGD allocation:(average:33041ns per 35190)
+<4>[  461.005259] PMD allocation:(average:24686ns per 140760)
+<4>[  461.005261] PTE allocation:(average:14111ns per 175998)
+<4>[  461.005263] 
+<4>[  461.005265] PGD cache page numbers:123
+<4>[  461.005267] PGD table page numbers:21
+<4>[  461.005269] PMD cache page numbers:517
+<4>[  461.005271] PMD table page numbers:80
+<4>[  461.005273] PTE cache page numbers:2027
+<4>[  461.005275] PTE table page numbers:99
+<4>[  461.005277] 
+
+<4>[  494.354326] PGD allocation:(average:33750ns per 33015)
+<4>[  494.354329] PMD allocation:(average:24468ns per 132060)
+<4>[  494.354332] PTE allocation:(average:14395ns per 165090)
+<4>[  494.354334] 
+<4>[  494.354336] PGD cache page numbers:139
+<4>[  494.354338] PGD table page numbers:5
+<4>[  494.354340] PMD cache page numbers:581
+<4>[  494.354342] PMD table page numbers:16
+<4>[  494.354344] PTE cache page numbers:2119
+<4>[  494.354346] PTE table page numbers:7
+<4>[  494.354348] 
+<4>[  521.006279] PGD allocation:(average:33423ns per 31882)
+<4>[  521.006283] PMD allocation:(average:24601ns per 127528)
+<4>[  521.006285] PTE allocation:(average:14249ns per 159409)
+<4>[  521.006287] 
+<4>[  521.006289] PGD cache page numbers:133
+<4>[  521.006291] PGD table page numbers:11
+<4>[  521.006293] PMD cache page numbers:557
+<4>[  521.006295] PMD table page numbers:40
+<4>[  521.006297] PTE cache page numbers:2094
+<4>[  521.006299] PTE table page numbers:32
+<4>[  521.006301] 
+<4>[  551.015655] PGD allocation:(average:33374ns per 37247)
+<4>[  551.015659] PMD allocation:(average:24559ns per 148988)
+<4>[  551.015661] PTE allocation:(average:14361ns per 186241)
+<4>[  551.015663] 
+<4>[  551.015666] PGD cache page numbers:135
+<4>[  551.015668] PGD table page numbers:9
+<4>[  551.015670] PMD cache page numbers:565
+<4>[  551.015672] PMD table page numbers:32
+<4>[  551.015674] PTE cache page numbers:2100
+<4>[  551.015676] PTE table page numbers:26
+<4>[  551.015678] 
+
+<4>[  581.010537] PGD allocation:(average:33595ns per 36459)
+<4>[  581.010541] PMD allocation:(average:24533ns per 145836)
+<4>[  581.010543] PTE allocation:(average:14442ns per 182296)
+<4>[  581.010545] 
+<4>[  581.010547] PGD cache page numbers:134
+<4>[  581.010549] PGD table page numbers:10
+<4>[  581.010551] PMD cache page numbers:561
+<4>[  581.010553] PMD table page numbers:36
+<4>[  581.010555] PTE cache page numbers:2096
+<4>[  581.010558] PTE table page numbers:30
+<4>[  581.010559] 
+<4>[  611.025654] PGD allocation:(average:33505ns per 36514)
+<4>[  611.025658] PMD allocation:(average:24520ns per 146056)
+<4>[  611.025660] PTE allocation:(average:14330ns per 182572)
+<4>[  611.025662] 
+<4>[  611.025664] PGD cache page numbers:137
+<4>[  611.025666] PGD table page numbers:7
+<4>[  611.025668] PMD cache page numbers:573
+<4>[  611.025670] PMD table page numbers:24
+<4>[  611.025672] PTE cache page numbers:2110
+<4>[  611.025674] PTE table page numbers:16
+<4>[  611.025676] 
+
+<4>[  641.009370] PGD allocation:(average:33755ns per 36218)
+<4>[  641.009374] PMD allocation:(average:24636ns per 144872)
+<4>[  641.009376] PTE allocation:(average:14254ns per 181091)
+<4>[  641.009378] 
+<4>[  641.009380] PGD cache page numbers:136
+<4>[  641.009383] PGD table page numbers:8
+<4>[  641.009385] PMD cache page numbers:569
+<4>[  641.009387] PMD table page numbers:28
+<4>[  641.009389] PTE cache page numbers:2105
+<4>[  641.009391] PTE table page numbers:21
+<4>[  641.009393] 
+<4>[  671.005290] PGD allocation:(average:33235ns per 35341)
+<4>[  671.005294] PMD allocation:(average:24413ns per 141364)
+<4>[  671.005296] PTE allocation:(average:14549ns per 176699)
+<4>[  671.005298] 
+<4>[  671.005300] PGD cache page numbers:126
+<4>[  671.005302] PGD table page numbers:18
+<4>[  671.005304] PMD cache page numbers:529
+<4>[  671.005306] PMD table page numbers:68
+<4>[  671.005308] PTE cache page numbers:2063
+<4>[  671.005310] PTE table page numbers:63
+<4>[  671.005312] 
+
+<4>[  703.151525] PGD allocation:(average:33261ns per 32133)
+<4>[  703.151528] PMD allocation:(average:24594ns per 128532)
+<4>[  703.151530] PTE allocation:(average:14649ns per 160675)
+<4>[  703.151532] 
+<4>[  703.151535] PGD cache page numbers:139
+<4>[  703.151537] PGD table page numbers:5
+<4>[  703.151539] PMD cache page numbers:581
+<4>[  703.151541] PMD table page numbers:16
+<4>[  703.151543] PTE cache page numbers:2119
+<4>[  703.151545] PTE table page numbers:7
+<4>[  703.151547] 
+<4>[  731.015673] PGD allocation:(average:33318ns per 33918)
+<4>[  731.015676] PMD allocation:(average:24461ns per 135672)
+<4>[  731.015678] PTE allocation:(average:14347ns per 169594)
+<4>[  731.015680] 
+<4>[  731.015683] PGD cache page numbers:135
+<4>[  731.015685] PGD table page numbers:9
+<4>[  731.015687] PMD cache page numbers:565
+<4>[  731.015689] PMD table page numbers:32
+<4>[  731.015691] PTE cache page numbers:2100
+<4>[  731.015693] PTE table page numbers:26
+<4>[  731.015695] 
+
+<4>[  761.017733] PGD allocation:(average:32953ns per 36913)
+<4>[  761.017737] PMD allocation:(average:24603ns per 147652)
+<4>[  761.017739] PTE allocation:(average:13880ns per 175185)
+<4>[  761.017741] 
+<4>[  761.017743] PGD cache page numbers:136
+<4>[  761.017745] PGD table page numbers:8
+<4>[  761.017747] PMD cache page numbers:569
+<4>[  761.017749] PMD table page numbers:28
+<4>[  761.017751] PTE cache page numbers:2107
+<4>[  761.017753] PTE table page numbers:19
+<4>[  761.017755] 
+<4>[  791.005268] PGD allocation:(average:33463ns per 37302)
+<4>[  791.005271] PMD allocation:(average:24505ns per 149208)
+<4>[  791.005274] PTE allocation:(average:12971ns per 165134)
+<4>[  791.005276] 
+<4>[  791.005278] PGD cache page numbers:101
+<4>[  791.005280] PGD table page numbers:43
+<4>[  791.005282] PMD cache page numbers:429
+<4>[  791.005284] PMD table page numbers:168
+<4>[  791.005286] PTE cache page numbers:1966
+<4>[  791.005288] PTE table page numbers:160
+<4>[  791.005290] 
+
+<4>[  821.005837] PGD allocation:(average:33452ns per 36401)
+<4>[  821.005840] PMD allocation:(average:24597ns per 145604)
+<4>[  821.005842] PTE allocation:(average:14361ns per 182042)
+<4>[  821.005845] 
+<4>[  821.005847] PGD cache page numbers:137
+<4>[  821.005849] PGD table page numbers:7
+<4>[  821.005851] PMD cache page numbers:573
+<4>[  821.005853] PMD table page numbers:24
+<4>[  821.005855] PTE cache page numbers:2110
+<4>[  821.005857] PTE table page numbers:16
+<4>[  821.005859] 
+<4>[  851.044324] PGD allocation:(average:33002ns per 36100)
+<4>[  851.044328] PMD allocation:(average:24595ns per 144400)
+<4>[  851.044330] PTE allocation:(average:14368ns per 180501)
+<4>[  851.044332] 
+<4>[  851.044334] PGD cache page numbers:137
+<4>[  851.044336] PGD table page numbers:7
+<4>[  851.044338] PMD cache page numbers:573
+<4>[  851.044340] PMD table page numbers:24
+<4>[  851.044342] PTE cache page numbers:2110
+<4>[  851.044344] PTE table page numbers:16
+<4>[  851.044346] 
+
+<4>[  885.031891] PGD allocation:(average:33404ns per 34436)
+<4>[  885.031894] PMD allocation:(average:24577ns per 137744)
+<4>[  885.031896] PTE allocation:(average:14324ns per 172181)
+<4>[  885.031899] 
+<4>[  885.031901] PGD cache page numbers:139
+<4>[  885.031903] PGD table page numbers:5
+<4>[  885.031905] PMD cache page numbers:581
+<4>[  885.031907] PMD table page numbers:16
+<4>[  885.031909] PTE cache page numbers:2119
+<4>[  885.031911] PTE table page numbers:7
+<4>[  885.031913] 
+
+<4>[  912.210320] PGD allocation:(average:34215ns per 30726)
+<4>[  912.210324] PMD allocation:(average:24935ns per 122904)
+<4>[  912.210326] PTE allocation:(average:14656ns per 153681)
+<4>[  912.210328] 
+<4>[  912.210330] PGD cache page numbers:138
+<4>[  912.210332] PGD table page numbers:6
+<4>[  912.210334] PMD cache page numbers:577
+<4>[  912.210336] PMD table page numbers:20
+<4>[  912.210338] PTE cache page numbers:2109
+<4>[  912.210340] PTE table page numbers:17
+<4>[  912.210342] 
+<4>[  941.005950] PGD allocation:(average:34290ns per 33318)
+<4>[  941.005953] PMD allocation:(average:25256ns per 133272)
+<4>[  941.005956] PTE allocation:(average:14754ns per 166703)
+<4>[  941.005958] 
+<4>[  941.005960] PGD cache page numbers:131
+<4>[  941.005962] PGD table page numbers:13
+<4>[  941.005964] PMD cache page numbers:549
+<4>[  941.005966] PMD table page numbers:48
+<4>[  941.005968] PTE cache page numbers:2083
+<4>[  941.005970] PTE table page numbers:43
+<4>[  941.005972] 
+<4>[  971.009209] PGD allocation:(average:33726ns per 37224)
+<4>[  971.009212] PMD allocation:(average:24561ns per 148896)
+<4>[  971.009214] PTE allocation:(average:14466ns per 177048)
+<4>[  971.009217] 
+<4>[  971.009219] PGD cache page numbers:136
+<4>[  971.009221] PGD table page numbers:8
+<4>[  971.009223] PMD cache page numbers:569
+<4>[  971.009225] PMD table page numbers:28
+<4>[  971.009227] PTE cache page numbers:2100
+<4>[  971.009229] PTE table page numbers:26
+<4>[  971.009231] 
+
+<4>[ 1001.007999] PGD allocation:(average:33037ns per 36646)
+<4>[ 1001.008002] PMD allocation:(average:24666ns per 146584)
+<4>[ 1001.008004] PTE allocation:(average:14880ns per 161698)
+<4>[ 1001.008007] 
+<4>[ 1001.008009] PGD cache page numbers:134
+<4>[ 1001.008011] PGD table page numbers:10
+<4>[ 1001.008013] PMD cache page numbers:561
+<4>[ 1001.008015] PMD table page numbers:36
+<4>[ 1001.008017] PTE cache page numbers:2095
+<4>[ 1001.008019] PTE table page numbers:31
+<4>[ 1001.008021] 
+<4>[ 1031.012395] PGD allocation:(average:33480ns per 35818)
+<4>[ 1031.012399] PMD allocation:(average:24610ns per 143272)
+<4>[ 1031.012401] PTE allocation:(average:14456ns per 179169)
+<4>[ 1031.012403] 
+<4>[ 1031.012405] PGD cache page numbers:139
+<4>[ 1031.012407] PGD table page numbers:5
+<4>[ 1031.012409] PMD cache page numbers:581
+<4>[ 1031.012411] PMD table page numbers:16
+<4>[ 1031.012413] PTE cache page numbers:2119
+<4>[ 1031.012415] PTE table page numbers:19
+<4>[ 1031.012417] 
+
+<4>[ 1061.005295] PGD allocation:(average:33527ns per 35744)
+<4>[ 1061.005298] PMD allocation:(average:24896ns per 142976)
+<4>[ 1061.005300] PTE allocation:(average:14568ns per 178724)
+<4>[ 1061.005303] 
+<4>[ 1061.005305] PGD cache page numbers:114
+<4>[ 1061.005307] PGD table page numbers:30
+<4>[ 1061.005309] PMD cache page numbers:481
+<4>[ 1061.005311] PMD table page numbers:116
+<4>[ 1061.005313] PTE cache page numbers:2012
+<4>[ 1061.005315] PTE table page numbers:126
+<4>[ 1061.005317] 
+<4>[ 1091.014050] PGD allocation:(average:33695ns per 34505)
+<4>[ 1091.014054] PMD allocation:(average:25152ns per 138020)
+<4>[ 1091.014056] PTE allocation:(average:14429ns per 172609)
+<4>[ 1091.014058] 
+<4>[ 1091.014061] PGD cache page numbers:139
+<4>[ 1091.014063] PGD table page numbers:5
+<4>[ 1091.014065] PMD cache page numbers:581
+<4>[ 1091.014067] PMD table page numbers:16
+<4>[ 1091.014069] PTE cache page numbers:2119
+<4>[ 1091.014071] PTE table page numbers:19
+<4>[ 1091.014072] 
+
+<4>[ 1123.573896] PGD allocation:(average:32761ns per 32863)
+<4>[ 1123.573900] PMD allocation:(average:24705ns per 131452)
+<4>[ 1123.573902] PTE allocation:(average:15194ns per 133596)
+<4>[ 1123.573904] 
+<4>[ 1123.573906] PGD cache page numbers:143
+<4>[ 1123.573908] PGD table page numbers:1
+<4>[ 1123.573910] PMD cache page numbers:597
+<4>[ 1123.573913] PMD table page numbers:0
+<4>[ 1123.573915] PTE cache page numbers:2138
+<4>[ 1123.573917] PTE table page numbers:0
+<4>[ 1123.573918] 
+<4>[ 1151.008062] PGD allocation:(average:33653ns per 33288)
+<4>[ 1151.008066] PMD allocation:(average:24691ns per 133152)
+<4>[ 1151.008068] PTE allocation:(average:14346ns per 163883)
+<4>[ 1151.008070] 
+<4>[ 1151.008073] PGD cache page numbers:140
+<4>[ 1151.008075] PGD table page numbers:4
+<4>[ 1151.008077] PMD cache page numbers:585
+<4>[ 1151.008079] PMD table page numbers:12
+<4>[ 1151.008081] PTE cache page numbers:2125
+<4>[ 1151.008083] PTE table page numbers:13
+<4>[ 1151.008085] 
+
+<4>[ 1181.008107] PGD allocation:(average:33400ns per 37090)
+<4>[ 1181.008111] PMD allocation:(average:24604ns per 148360)
+<4>[ 1181.008113] PTE allocation:(average:12693ns per 157290)
+<4>[ 1181.008115] 
+<4>[ 1181.008117] PGD cache page numbers:136
+<4>[ 1181.008120] PGD table page numbers:8
+<4>[ 1181.008122] PMD cache page numbers:569
+<4>[ 1181.008124] PMD table page numbers:28
+<4>[ 1181.008126] PTE cache page numbers:2105
+<4>[ 1181.008128] PTE table page numbers:33
+<4>[ 1181.008129] 
+<4>[ 1211.005600] PGD allocation:(average:33692ns per 36850)
+<4>[ 1211.005604] PMD allocation:(average:24559ns per 147400)
+<4>[ 1211.005606] PTE allocation:(average:14585ns per 184253)
+<4>[ 1211.005609] 
+<4>[ 1211.005611] PGD cache page numbers:138
+<4>[ 1211.005613] PGD table page numbers:6
+<4>[ 1211.005615] PMD cache page numbers:577
+<4>[ 1211.005617] PMD table page numbers:20
+<4>[ 1211.005619] PTE cache page numbers:2114
+<4>[ 1211.005621] PTE table page numbers:24
+<4>[ 1211.005623] 
+
+<4>[ 1241.020919] PGD allocation:(average:33169ns per 36408)
+<4>[ 1241.020922] PMD allocation:(average:24732ns per 145632)
+<4>[ 1241.020925] PTE allocation:(average:14441ns per 182043)
+<4>[ 1241.020927] 
+<4>[ 1241.020929] PGD cache page numbers:141
+<4>[ 1241.020931] PGD table page numbers:3
+<4>[ 1241.020933] PMD cache page numbers:589
+<4>[ 1241.020935] PMD table page numbers:8
+<4>[ 1241.020937] PTE cache page numbers:2128
+<4>[ 1241.020939] PTE table page numbers:10
+<4>[ 1241.020941] 
+<4>[ 1271.020771] PGD allocation:(average:33377ns per 36100)
+<4>[ 1271.020775] PMD allocation:(average:24754ns per 144400)
+<4>[ 1271.020777] PTE allocation:(average:14533ns per 180502)
+<4>[ 1271.020779] 
+<4>[ 1271.020781] PGD cache page numbers:141
+<4>[ 1271.020783] PGD table page numbers:3
+<4>[ 1271.020785] PMD cache page numbers:589
+<4>[ 1271.020787] PMD table page numbers:8
+<4>[ 1271.020789] PTE cache page numbers:2128
+<4>[ 1271.020791] PTE table page numbers:10
+<4>[ 1271.020793] 

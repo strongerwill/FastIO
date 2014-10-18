@@ -1,0 +1,30 @@
+1. PGD: 
+入口：pgd_alloc();
+出口：pgd_free();
+注：该级页表没有特殊的入口和出口；
+
+2. PMD:
+入口：preallocate_pmds();
+出口：pmd_free(),___pmd_free_tlb();
+注：pmd_alloc_one()分配函数并没有被使用。源码静态跟踪下可能的执行路径有如下几条：
+
+handle_mm_fault()(mm\memory.c) -> pmd_alloc() -> __pmd_alloc() -> pmd_alloc_one()
+apply_to_pmd_range()(mm\memory.c) -> pmd_alloc() -> __pmd_alloc() -> pmd_alloc_one()
+remap_pmd_range()(mm\memory.c) -> pmd_alloc() -> __pmd_alloc() -> pmd_alloc_one()
+__get_locked_pte()(mm\memory.c) -> pmd_alloc() -> __pmd_alloc() -> pmd_alloc_one()
+***copy_pmd_range()(mm\memory.c) -> pmd_alloc() -> __pmd_alloc() -> pmd_alloc_one()
+vmap_pmd_range()(mm\vmalloc.c) -> pmd_alloc() -> __pmd_alloc() -> pmd_alloc_one()
+huge_pte_alloc()(arch\x86\mmhugetlbpage.c) -> pmd_alloc() -> __pmd_alloc() -> pmd_alloc_one()
+
+
+3. PTE:
+入口：pte_alloc_one();
+出口：___pte_free_tlb();
+注：pte_free()释放函数未被使用。通过源码静态跟踪，可能的执行有如下几条：
+
+handle_mm_fault() -> do_huge_pmd_anonymous_page() -> ___do_huge_pmd_anonymous_page() (mm\huge_memory.c) -> pte_free()   
+copy_pmd_range() -> copy_huge_pmd() (mm\huge_memory.c) -> pte_free()
+unmap_page_range() -> zap_pud_range() -> zap_pmd_range() -> zap_huge_pmd() (mm\huge_memory.c) -> pte_free()
+***copy_pmd_range -> copy_pte_range() -> pte_alloc_map_lock -> __pte_alloc() (mm\memory.c) -> pte_free()
+
+疑问：标注三个星号的函数路径应该被调用了才对，在pmd_alloc_one()和pte_free()两个函数内加上printk，但从系统启动到进入文字界面的过程中都没有输出，比较奇怪。
