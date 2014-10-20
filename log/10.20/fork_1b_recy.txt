@@ -1,0 +1,1487 @@
+
+<6>[    0.000000] Reserving virtual address space above 0xf5800000
+<6>[    0.000000] Initializing cgroup subsys cpuset
+<6>[    0.000000] Initializing cgroup subsys cpu
+<5>[    0.000000] Linux version 3.2.0-rc1 (root@zz) (gcc version 4.6.3 (Ubuntu/Linaro 4.6.3-1ubuntu5) ) #194 SMP Mon Oct 20 16:23:37 CST 2014
+<6>[    0.000000] KERNEL supported cpus:
+<6>[    0.000000]   Intel GenuineIntel
+<6>[    0.000000]   AMD AuthenticAMD
+<6>[    0.000000]   NSC Geode by NSC
+<6>[    0.000000]   Cyrix CyrixInstead
+<6>[    0.000000]   Centaur CentaurHauls
+<6>[    0.000000]   Transmeta GenuineTMx86
+<6>[    0.000000]   Transmeta TransmetaCPU
+<6>[    0.000000]   UMC UMC UMC UMC
+<6>[    0.000000] Freeing  9e-100 pfn range: 98 pages freed
+<7>[    0.000000] 1-1 mapping on 9e->100
+<6>[    0.000000] Freeing  ddea5-df091 pfn range: 4588 pages freed
+<7>[    0.000000] 1-1 mapping on ddea5->df091
+<6>[    0.000000] Freeing  df092-df0d5 pfn range: 67 pages freed
+<7>[    0.000000] 1-1 mapping on df092->df0d5
+<6>[    0.000000] Freeing  df4e1-df7f3 pfn range: 786 pages freed
+<7>[    0.000000] 1-1 mapping on df4e1->df7f3
+<6>[    0.000000] Freeing  df800-f1cda pfn range: 74970 pages freed
+<7>[    0.000000] 1-1 mapping on df800->100000
+<6>[    0.000000] Released 80509 pages of unused memory
+<6>[    0.000000] Set 138659 page(s) to 1-1 mapping
+<6>[    0.000000] BIOS-provided physical RAM map:
+<6>[    0.000000]  Xen: 0000000000000000 - 000000000009e000 (usable)
+<6>[    0.000000]  Xen: 000000000009ec00 - 0000000000100000 (reserved)
+<6>[    0.000000]  Xen: 0000000000100000 - 00000000ddea5000 (usable)
+<6>[    0.000000]  Xen: 00000000ddea5000 - 00000000ddf45000 (reserved)
+<6>[    0.000000]  Xen: 00000000ddf45000 - 00000000ddf57000 (ACPI data)
+<6>[    0.000000]  Xen: 00000000ddf57000 - 00000000de928000 (ACPI NVS)
+<6>[    0.000000]  Xen: 00000000de928000 - 00000000df091000 (reserved)
+<6>[    0.000000]  Xen: 00000000df091000 - 00000000df092000 (usable)
+<6>[    0.000000]  Xen: 00000000df092000 - 00000000df0d5000 (ACPI NVS)
+<6>[    0.000000]  Xen: 00000000df0d5000 - 00000000df4e1000 (usable)
+<6>[    0.000000]  Xen: 00000000df4e1000 - 00000000df7f3000 (reserved)
+<6>[    0.000000]  Xen: 00000000df7f3000 - 00000000df800000 (usable)
+<6>[    0.000000]  Xen: 00000000f8000000 - 00000000fc000000 (reserved)
+<6>[    0.000000]  Xen: 00000000fec00000 - 00000000fec01000 (reserved)
+<6>[    0.000000]  Xen: 00000000fed00000 - 00000000fed04000 (reserved)
+<6>[    0.000000]  Xen: 00000000fed1c000 - 00000000fed20000 (reserved)
+<6>[    0.000000]  Xen: 00000000fee00000 - 00000000fee01000 (reserved)
+<6>[    0.000000]  Xen: 00000000ff000000 - 0000000100000000 (reserved)
+<6>[    0.000000]  Xen: 0000000100000000 - 000000011f000000 (usable)
+<6>[    0.000000] NX (Execute Disable) protection: active
+<6>[    0.000000] DMI 2.7 present.
+<7>[    0.000000] DMI: LENOVO QiTianM4390/ , BIOS F1KT44AUS 12/21/2012
+<7>[    0.000000] e820 update range: 0000000000000000 - 0000000000010000 (usable) ==> (reserved)
+<7>[    0.000000] e820 remove range: 00000000000a0000 - 0000000000100000 (usable)
+<6>[    0.000000] last_pfn = 0x11f000 max_arch_pfn = 0x1000000
+<6>[    0.000000] found SMP MP-table at [c00fd9b0] fd9b0
+<7>[    0.000000] initial memory mapped : 0 - 053ff000
+<7>[    0.000000] Base memory trampoline at [c009a000] 9a000 size 16384
+<6>[    0.000000] init_memory_mapping: 0000000000000000-000000002d3fe000
+<7>[    0.000000]  0000000000 - 002d3fe000 page 4k
+<7>[    0.000000] kernel direct mapping tables up to 2d3fe000 @ 5292000-53ff000
+<7>[    0.000000] xen: setting RW the range 53d2000 - 53ff000
+<6>[    0.000000] RAMDISK: 01c21000 - 046ba000
+<4>[    0.000000] ACPI: RSDP 000f0490 00024 (v02 LENOVO)
+<4>[    0.000000] ACPI: XSDT ddf48080 0007C (v01 LENOVO TC-F1    00001440 AMI  00010013)
+<4>[    0.000000] ACPI: FACP ddf54268 000F4 (v04 LENOVO TC-F1    00001440 AMI  00010013)
+<4>[    0.000000] ACPI: DSDT ddf48188 0C0DC (v02 LENOVO TC-F1    00001440 INTL 20051117)
+<4>[    0.000000] ACPI: FACS de926f80 00040
+<4>[    0.000000] ACPI: APIC ddf54360 0005A (v03 LENOVO TC-F1    00001440 AMI  00010013)
+<4>[    0.000000] ACPI: FPDT ddf543c0 00044 (v01 LENOVO TC-F1    00001440 AMI  00010013)
+<4>[    0.000000] ACPI: MCFG ddf54408 0003C (v01 LENOVO TC-F1    00001440 MSFT 00000097)
+<4>[    0.000000] ACPI: HPET ddf54448 00038 (v01 LENOVO TC-F1    00001440 AMI. 00000005)
+<4>[    0.000000] ACPI: SSDT ddf54480 00495 (v01 LENOVO TC-F1    00001440 INTL 20091112)
+<4>[    0.000000] ACPI: SSDT ddf54918 009AA (v01 LENOVO TC-F1    00001440 INTL 20051117)
+<4>[    0.000000] ACPI: SSDT ddf552c8 0083B (v01 LENOVO TC-F1    00001440 INTL 20051117)
+<4>[    0.000000] ACPI: SSDT ddf55b08 00B22 (v01 LENOVO TC-F1    00001440 INTL 20051117)
+<4>[    0.000000] ACPI: XMAR ddf56630 00078 (v01 LENOVO TC-F1    00001440 INTL 00000001)
+<4>[    0.000000] ACPI: BGRT ddf566a8 00038 (v00 LENOVO TC-F1    00001440 AMI  00010013)
+<7>[    0.000000] ACPI: Local APIC address 0xfee00000
+<5>[    0.000000] 3868MB HIGHMEM available.
+<5>[    0.000000] 723MB LOWMEM available.
+<6>[    0.000000]   mapped low ram: 0 - 2d3fe000
+<6>[    0.000000]   low ram: 0 - 2d3fe000
+<4>[    0.000000] Zone PFN ranges:
+<4>[    0.000000]   DMA      0x00000010 -> 0x00001000
+<4>[    0.000000]   Normal   0x00001000 -> 0x0002d3fe
+<4>[    0.000000]   HighMem  0x0002d3fe -> 0x0011f000
+<4>[    0.000000] Movable zone start PFN for each node
+<4>[    0.000000] early_node_map[6] active PFN ranges
+<4>[    0.000000]     0: 0x00000010 -> 0x0000009e
+<4>[    0.000000]     0: 0x00000100 -> 0x000ddea5
+<4>[    0.000000]     0: 0x000df091 -> 0x000df092
+<4>[    0.000000]     0: 0x000df0d5 -> 0x000df4e1
+<4>[    0.000000]     0: 0x000df7f3 -> 0x000df800
+<4>[    0.000000]     0: 0x00100000 -> 0x0011f000
+<7>[    0.000000] On node 0 totalpages: 1036877
+<7>[    0.000000] free_area_init_node: node 0, pgdat c1805840, node_mem_map eb01d200
+<7>[    0.000000]   DMA zone: 32 pages used for memmap
+<7>[    0.000000]   DMA zone: 0 pages reserved
+<7>[    0.000000]   DMA zone: 3950 pages, LIFO batch:0
+<7>[    0.000000]   Normal zone: 1416 pages used for memmap
+<7>[    0.000000]   Normal zone: 179830 pages, LIFO batch:31
+<7>[    0.000000]   HighMem zone: 7737 pages used for memmap
+<7>[    0.000000]   HighMem zone: 843912 pages, LIFO batch:31
+<6>[    0.000000] Using APIC driver default
+<6>[    0.000000] ACPI: PM-Timer IO Port: 0x408
+<7>[    0.000000] ACPI: Local APIC address 0xfee00000
+<6>[    0.000000] ACPI: LAPIC (acpi_id[0x01] lapic_id[0x00] enabled)
+<4>[    0.000000] BIOS bug: APIC version is 0 for CPU 0/0x0, fixing up to 0x10
+<6>[    0.000000] ACPI: LAPIC_NMI (acpi_id[0xff] high edge lint[0x1])
+<6>[    0.000000] ACPI: IOAPIC (id[0x02] address[0xfec00000] gsi_base[0])
+<6>[    0.000000] IOAPIC[0]: apic_id 2, version 255, address 0xfec00000, GSI 0-255
+<6>[    0.000000] ACPI: INT_SRC_OVR (bus 0 bus_irq 0 global_irq 2 dfl dfl)
+<6>[    0.000000] ACPI: INT_SRC_OVR (bus 0 bus_irq 9 global_irq 9 high level)
+<7>[    0.000000] ACPI: IRQ0 used by override.
+<7>[    0.000000] ACPI: IRQ2 used by override.
+<7>[    0.000000] ACPI: IRQ9 used by override.
+<6>[    0.000000] Using ACPI (MADT) for SMP configuration information
+<6>[    0.000000] ACPI: HPET id: 0x8086a701 base: 0xfed00000
+<6>[    0.000000] SMP: Allowing 1 CPUs, 0 hotplug CPUs
+<7>[    0.000000] nr_irqs_gsi: 272
+<6>[    0.000000] PM: Registered nosave memory: 000000000009e000 - 000000000009f000
+<6>[    0.000000] PM: Registered nosave memory: 000000000009f000 - 0000000000100000
+<6>[    0.000000] Allocating PCI resources starting at df800000 (gap: df800000:18800000)
+<6>[    0.000000] Booting paravirtualized kernel on Xen
+<6>[    0.000000] Xen version: 4.2.1 (preserve-AD)
+<6>[    0.000000] setup_percpu: NR_CPUS:8 nr_cpumask_bits:8 nr_cpu_ids:1 nr_node_ids:1
+<6>[    0.000000] PERCPU: Embedded 14 pages/cpu @eaffd000 s34112 r0 d23232 u57344
+<7>[    0.000000] pcpu-alloc: s34112 r0 d23232 u57344 alloc=14*4096
+<7>[    0.000000] pcpu-alloc: [0] 0 
+<4>[    2.361466] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 1027692
+<5>[    2.361469] Kernel command line: placeholder root=UUID=6fd7a378-05d9-48a1-a62a-336376db583d ro apparmor=0 console=tty0 max_loop=128 xencons=ttyS0,115200
+<6>[    2.361958] PID hash table entries: 4096 (order: 2, 16384 bytes)
+<6>[    2.362005] Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
+<6>[    2.362153] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
+<6>[    2.362319] Initializing CPU#0
+<6>[    2.362346] xsave/xrstor: enabled xstate_bv 0x7, cntxt size 0x340
+<6>[    2.367023] allocated 18808576 bytes of page_cgroup
+<6>[    2.367027] please try 'cgroup_disable=memory' option if you don't want memory cgroups
+<6>[    2.416231] Placing 64MB software IO TLB between e5d49000 - e9d49000
+<6>[    2.416234] software IO TLB at phys 0x25d49000 - 0x29d49000
+<6>[    2.431758] Initializing HighMem for node 0 (0002d3fe:0011f000)
+<6>[    2.649118] Memory: 3458712k/4702208k available (5617k kernel code, 180892k reserved, 2650k data, 728k init, 2898692k highmem)
+<6>[    2.649124] virtual kernel memory layout:
+<6>[    2.649125]     fixmap  : 0xf5716000 - 0xf57ff000   ( 932 kB)
+<6>[    2.649126]     pkmap   : 0xf5400000 - 0xf5600000   (2048 kB)
+<6>[    2.649127]     vmalloc : 0xedbfe000 - 0xf53fe000   ( 120 MB)
+<6>[    2.649128]     lowmem  : 0xc0000000 - 0xed3fe000   ( 723 MB)
+<6>[    2.649129]       .init : 0xc1813000 - 0xc18c9000   ( 728 kB)
+<6>[    2.649130]       .data : 0xc157c77c - 0xc1812f80   (2650 kB)
+<6>[    2.649131]       .text : 0xc1000000 - 0xc157c77c   (5617 kB)
+<6>[    2.649171] SLUB: Genslabs=15, HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+<6>[    2.649191] Hierarchical RCU implementation.
+<6>[    2.649194] 	RCU dyntick-idle grace-period acceleration is enabled.
+<6>[    2.649200] NR_IRQS:2304 nr_irqs:256 16
+<7>[    2.649232] CPU 0 irqstacks, hard=e580c000 soft=e580e000
+<6>[    2.649236] xen: sci override: global_irq=9 trigger=0 polarity=0
+<7>[    2.649239] xen: registering gsi 9 triggering 0 polarity 0
+<7>[    2.649250] xen: --> pirq=9 -> irq=9 (gsi=9)
+<6>[    2.649257] xen: acpi sci 9
+<7>[    2.649262] xen: --> pirq=1 -> irq=1 (gsi=1)
+<7>[    2.649266] xen: --> pirq=2 -> irq=2 (gsi=2)
+<7>[    2.649270] xen: --> pirq=3 -> irq=3 (gsi=3)
+<7>[    2.649275] xen: --> pirq=4 -> irq=4 (gsi=4)
+<7>[    2.649279] xen: --> pirq=5 -> irq=5 (gsi=5)
+<7>[    2.649283] xen: --> pirq=6 -> irq=6 (gsi=6)
+<7>[    2.649287] xen: --> pirq=7 -> irq=7 (gsi=7)
+<7>[    2.649291] xen: --> pirq=8 -> irq=8 (gsi=8)
+<6>[    2.649294] xen_map_pirq_gsi: returning irq 9 for gsi 9
+<7>[    2.649297] xen: --> pirq=9 -> irq=9 (gsi=9)
+<7>[    2.649301] xen: --> pirq=10 -> irq=10 (gsi=10)
+<7>[    2.649305] xen: --> pirq=11 -> irq=11 (gsi=11)
+<7>[    2.649309] xen: --> pirq=12 -> irq=12 (gsi=12)
+<7>[    2.649314] xen: --> pirq=13 -> irq=13 (gsi=13)
+<7>[    2.649318] xen: --> pirq=14 -> irq=14 (gsi=14)
+<7>[    2.649322] xen: --> pirq=15 -> irq=15 (gsi=15)
+<6>[    2.651386] Console: colour VGA+ 80x25
+<6>[    2.657320] console [tty0] enabled
+<7>[    2.657381] Xen: using vcpuop timer interface
+<6>[    2.657387] installing Xen timer for CPU 0
+<4>[    2.657455] Detected 3192.792 MHz processor.
+<6>[    2.657505] Calibrating delay loop (skipped), value calculated using timer frequency.. 6385.58 BogoMIPS (lpj=12771168)
+<6>[    2.657606] pid_max: default: 32768 minimum: 301
+<6>[    2.657669] Security Framework initialized
+<6>[    2.657720] AppArmor: AppArmor disabled by boot time parameter
+<6>[    2.657800] Mount-cache hash table entries: 512
+<6>[    2.657945] Initializing cgroup subsys cpuacct
+<6>[    2.657997] Initializing cgroup subsys memory
+<6>[    2.658052] Initializing cgroup subsys devices
+<6>[    2.658101] Initializing cgroup subsys freezer
+<6>[    2.658150] Initializing cgroup subsys blkio
+<6>[    2.658205] Initializing cgroup subsys perf_event
+<6>[    2.658294] CPU: Physical Processor ID: 0
+<6>[    2.658343] CPU: Processor Core ID: 0
+<4>[    2.658392] ENERGY_PERF_BIAS: Set to 'normal', was 'performance'
+<4>[    2.658393] ENERGY_PERF_BIAS: View and update with x86_energy_perf_policy(8)
+<6>[    2.659409] SMP alternatives: switching to UP code
+<6>[    2.704255] Freeing SMP alternatives: 20k freed
+<6>[    2.704309] ACPI: Core revision 20110623
+<6>[    2.721265] ftrace: allocating 23384 entries in 46 pages
+<4>[    2.726657] cpu 0 spinlock event irq 273
+<6>[    2.726719] Performance Events: unsupported p6 CPU model 58 no PMU driver, software events only.
+<4>[    2.726963] NMI watchdog disabled (cpu0): hardware events not enabled
+<6>[    2.727029] Brought up 1 CPUs
+<6>[    2.727192] devtmpfs: initialized
+<6>[    2.727373] EVM: security.selinux
+<6>[    2.727421] EVM: security.SMACK64
+<6>[    2.727469] EVM: security.capability
+<6>[    2.727538] PM: Registering ACPI NVS region at ddf57000 (10293248 bytes)
+<6>[    2.727676] PM: Registering ACPI NVS region at df092000 (274432 bytes)
+<6>[    2.728354] pinctrl core: initialized pinctrl subsystem
+<4>[    2.728431] Grant table initialized
+<6>[    2.728508] print_constraints: dummy: 
+<6>[    2.728594] RTC time: 16:45:14, date: 10/20/14
+<6>[    2.728665] NET: Registered protocol family 16
+<6>[    2.728829] EISA bus registered
+<6>[    2.728891] ACPI: bus type pci registered
+<6>[    2.728982] PCI: MMCONFIG for domain 0000 [bus 00-3f] at [mem 0xf8000000-0xfbffffff] (base 0xf8000000)
+<6>[    2.729041] PCI: MMCONFIG at [mem 0xf8000000-0xfbffffff] reserved in E820
+<6>[    2.729091] PCI: Using MMCONFIG for extended config space
+<6>[    2.729140] PCI: Using configuration type 1 for base access
+<6>[    2.729829] bio: create slab <bio-0> at 0
+<6>[    2.729938] ACPI: Added _OSI(Module Device)
+<6>[    2.729990] ACPI: Added _OSI(Processor Device)
+<6>[    2.730039] ACPI: Added _OSI(3.0 _SCP Extensions)
+<6>[    2.730088] ACPI: Added _OSI(Processor Aggregator Device)
+<7>[    2.735327] ACPI: EC: Look up EC in DSDT
+<4>[    2.742395] ACPI: Executed 1 blocks of module-level executable AML code
+<6>[    2.750267] ACPI: Interpreter enabled
+<6>[    2.750319] ACPI: (supports S0 S3 S4 S5)
+<6>[    2.750552] ACPI: Using IOAPIC for interrupt routing
+<6>[    2.758371] ACPI: Power Resource [FN00] (off)
+<6>[    2.758522] ACPI: Power Resource [FN01] (off)
+<6>[    2.758670] ACPI: Power Resource [FN02] (off)
+<6>[    2.762292] ACPI: Power Resource [FN03] (off)
+<6>[    2.762443] ACPI: Power Resource [FN04] (off)
+<6>[    2.763966] ACPI: No dock devices found.
+<6>[    2.764016] HEST: Table not found.
+<6>[    2.764066] PCI: Using host bridge windows from ACPI; if necessary, use "pci=nocrs" and report a bug
+<6>[    2.764534] ACPI: PCI Root Bridge [PCI0] (domain 0000 [bus 00-3e])
+<6>[    2.765173] pci_root PNP0A08:00: host bridge window [io  0x0000-0x0cf7]
+<6>[    2.765225] pci_root PNP0A08:00: host bridge window [io  0x0d00-0xffff]
+<6>[    2.765276] pci_root PNP0A08:00: host bridge window [mem 0x000a0000-0x000bffff]
+<6>[    2.765334] pci_root PNP0A08:00: host bridge window [mem 0x000d4000-0x000d7fff]
+<6>[    2.765392] pci_root PNP0A08:00: host bridge window [mem 0x000d8000-0x000dbfff]
+<6>[    2.765449] pci_root PNP0A08:00: host bridge window [mem 0x000dc000-0x000dffff]
+<6>[    2.765505] pci_root PNP0A08:00: host bridge window [mem 0x000e0000-0x000e3fff]
+<6>[    2.765562] pci_root PNP0A08:00: host bridge window [mem 0x000e4000-0x000e7fff]
+<6>[    2.765620] pci_root PNP0A08:00: host bridge window [mem 0xe0000000-0xfeafffff]
+<7>[    2.765693] pci 0000:00:00.0: [8086:0150] type 0 class 0x000600
+<7>[    2.765787] pci 0000:00:01.0: [8086:0151] type 1 class 0x000604
+<7>[    2.765867] pci 0000:00:01.0: PME# supported from D0 D3hot D3cold
+<7>[    2.765872] pci 0000:00:01.0: PME# disabled
+<7>[    2.765989] pci 0000:00:16.0: [8086:1c3a] type 0 class 0x000780
+<7>[    2.766044] pci 0000:00:16.0: reg 10: [mem 0xf7f09000-0xf7f0900f 64bit]
+<7>[    2.766189] pci 0000:00:16.0: PME# supported from D0 D3hot D3cold
+<7>[    2.766197] pci 0000:00:16.0: PME# disabled
+<7>[    2.766274] pci 0000:00:1a.0: [8086:1c2d] type 0 class 0x000c03
+<7>[    2.766322] pci 0000:00:1a.0: reg 10: [mem 0xf7f07000-0xf7f073ff]
+<7>[    2.766483] pci 0000:00:1a.0: PME# supported from D0 D3hot D3cold
+<7>[    2.766491] pci 0000:00:1a.0: PME# disabled
+<7>[    2.766545] pci 0000:00:1b.0: [8086:1c20] type 0 class 0x000403
+<7>[    2.766587] pci 0000:00:1b.0: reg 10: [mem 0xf7f00000-0xf7f03fff 64bit]
+<7>[    2.766735] pci 0000:00:1b.0: PME# supported from D0 D3hot D3cold
+<7>[    2.766743] pci 0000:00:1b.0: PME# disabled
+<7>[    2.766797] pci 0000:00:1c.0: [8086:1c10] type 1 class 0x000604
+<7>[    2.766951] pci 0000:00:1c.0: PME# supported from D0 D3hot D3cold
+<7>[    2.766959] pci 0000:00:1c.0: PME# disabled
+<7>[    2.767024] pci 0000:00:1c.5: [8086:1c1a] type 1 class 0x000604
+<7>[    2.767177] pci 0000:00:1c.5: PME# supported from D0 D3hot D3cold
+<7>[    2.767185] pci 0000:00:1c.5: PME# disabled
+<7>[    2.767250] pci 0000:00:1d.0: [8086:1c26] type 0 class 0x000c03
+<7>[    2.767299] pci 0000:00:1d.0: reg 10: [mem 0xf7f06000-0xf7f063ff]
+<7>[    2.767473] pci 0000:00:1d.0: PME# supported from D0 D3hot D3cold
+<7>[    2.767480] pci 0000:00:1d.0: PME# disabled
+<7>[    2.767524] pci 0000:00:1f.0: [8086:1c5c] type 0 class 0x000601
+<7>[    2.767750] pci 0000:00:1f.2: [8086:1c00] type 0 class 0x000101
+<7>[    2.767793] pci 0000:00:1f.2: reg 10: [io  0xf0d0-0xf0d7]
+<7>[    2.767813] pci 0000:00:1f.2: reg 14: [io  0xf0c0-0xf0c3]
+<7>[    2.767834] pci 0000:00:1f.2: reg 18: [io  0xf0b0-0xf0b7]
+<7>[    2.767856] pci 0000:00:1f.2: reg 1c: [io  0xf0a0-0xf0a3]
+<7>[    2.767877] pci 0000:00:1f.2: reg 20: [io  0xf090-0xf09f]
+<7>[    2.767899] pci 0000:00:1f.2: reg 24: [io  0xf080-0xf08f]
+<7>[    2.767995] pci 0000:00:1f.3: [8086:1c22] type 0 class 0x000c05
+<7>[    2.768035] pci 0000:00:1f.3: reg 10: [mem 0xf7f05000-0xf7f050ff 64bit]
+<7>[    2.768094] pci 0000:00:1f.3: reg 20: [io  0xf000-0xf01f]
+<7>[    2.768179] pci 0000:00:1f.5: [8086:1c08] type 0 class 0x000101
+<7>[    2.768222] pci 0000:00:1f.5: reg 10: [io  0xf070-0xf077]
+<7>[    2.768244] pci 0000:00:1f.5: reg 14: [io  0xf060-0xf063]
+<7>[    2.768265] pci 0000:00:1f.5: reg 18: [io  0xf050-0xf057]
+<7>[    2.768286] pci 0000:00:1f.5: reg 1c: [io  0xf040-0xf043]
+<7>[    2.768306] pci 0000:00:1f.5: reg 20: [io  0xf030-0xf03f]
+<7>[    2.768327] pci 0000:00:1f.5: reg 24: [io  0xf020-0xf02f]
+<7>[    2.768504] pci 0000:01:00.0: [1002:677b] type 0 class 0x000300
+<7>[    2.768540] pci 0000:01:00.0: reg 10: [mem 0xe0000000-0xefffffff 64bit pref]
+<7>[    2.768567] pci 0000:01:00.0: reg 18: [mem 0xf7e20000-0xf7e3ffff 64bit]
+<7>[    2.768585] pci 0000:01:00.0: reg 20: [io  0xe000-0xe0ff]
+<7>[    2.768619] pci 0000:01:00.0: reg 30: [mem 0xf7e00000-0xf7e1ffff pref]
+<7>[    2.768665] pci 0000:01:00.0: supports D1 D2
+<7>[    2.768718] pci 0000:01:00.1: [1002:aa98] type 0 class 0x000403
+<7>[    2.768753] pci 0000:01:00.1: reg 10: [mem 0xf7e40000-0xf7e43fff 64bit]
+<7>[    2.768876] pci 0000:01:00.1: supports D1 D2
+<6>[    2.774621] pci 0000:00:01.0: PCI bridge to [bus 01-01]
+<7>[    2.774684] pci 0000:00:01.0:   bridge window [io  0xe000-0xefff]
+<7>[    2.774690] pci 0000:00:01.0:   bridge window [mem 0xf7e00000-0xf7efffff]
+<7>[    2.774698] pci 0000:00:01.0:   bridge window [mem 0xe0000000-0xefffffff 64bit pref]
+<6>[    2.774811] pci 0000:00:1c.0: PCI bridge to [bus 02-02]
+<7>[    2.775084] pci 0000:03:00.0: [10ec:8168] type 0 class 0x000200
+<7>[    2.775170] pci 0000:03:00.0: reg 10: [io  0xd000-0xd0ff]
+<7>[    2.775318] pci 0000:03:00.0: reg 18: [mem 0xf7d04000-0xf7d04fff 64bit pref]
+<7>[    2.775410] pci 0000:03:00.0: reg 20: [mem 0xf7d00000-0xf7d03fff 64bit pref]
+<7>[    2.775671] pci 0000:03:00.0: supports D1 D2
+<7>[    2.775674] pci 0000:03:00.0: PME# supported from D0 D1 D2 D3hot D3cold
+<7>[    2.775692] pci 0000:03:00.0: PME# disabled
+<6>[    2.782760] pci 0000:00:1c.5: PCI bridge to [bus 03-03]
+<7>[    2.782816] pci 0000:00:1c.5:   bridge window [io  0xd000-0xdfff]
+<7>[    2.782824] pci 0000:00:1c.5:   bridge window [mem 0xf7d00000-0xf7dfffff]
+<7>[    2.782868] pci_bus 0000:00: on NUMA node 0
+<7>[    2.782872] ACPI: PCI Interrupt Routing Table [\_SB_.PCI0._PRT]
+<7>[    2.782993] ACPI: PCI Interrupt Routing Table [\_SB_.PCI0.RP01._PRT]
+<7>[    2.783036] ACPI: PCI Interrupt Routing Table [\_SB_.PCI0.RP06._PRT]
+<7>[    2.783073] ACPI: PCI Interrupt Routing Table [\_SB_.PCI0.PEG0._PRT]
+<6>[    2.783254]  pci0000:00: Requesting ACPI _OSC control (0x1d)
+<6>[    2.783566]  pci0000:00: ACPI _OSC control (0x18) granted
+<6>[    2.788762] ACPI: PCI Interrupt Link [LNKA] (IRQs 3 4 5 6 *11 12 14 15)
+<6>[    2.789280] ACPI: PCI Interrupt Link [LNKB] (IRQs 3 4 5 6 *10 11 12 14 15)
+<6>[    2.789867] ACPI: PCI Interrupt Link [LNKC] (IRQs 3 4 5 6 *11 12 14 15)
+<6>[    2.790380] ACPI: PCI Interrupt Link [LNKD] (IRQs 3 4 *5 6 11 12 14 15)
+<6>[    2.790891] ACPI: PCI Interrupt Link [LNKE] (IRQs 3 4 5 6 11 12 14 15) *0, disabled.
+<6>[    2.791524] ACPI: PCI Interrupt Link [LNKF] (IRQs 3 4 5 6 11 12 14 15) *0, disabled.
+<6>[    2.792123] ACPI: PCI Interrupt Link [LNKG] (IRQs 3 4 *5 6 11 12 14 15)
+<6>[    2.792665] ACPI: PCI Interrupt Link [LNKH] (IRQs *3 4 5 6 11 12 14 15)
+<6>[    2.793153] xen/balloon: Initialising balloon driver.
+<6>[    2.793943] xen-balloon: Initialising balloon driver.
+<6>[    2.794006] xen/balloon: Xen selfballooning driver disabled for domain0.
+<6>[    2.794108] vgaarb: device added: PCI:0000:01:00.0,decodes=io+mem,owns=io+mem,locks=none
+<6>[    2.794167] vgaarb: loaded
+<6>[    2.794215] vgaarb: bridge control possible 0000:01:00.0
+<4>[    2.794328] i2c-core: driver [aat2870] using legacy suspend method
+<4>[    2.794379] i2c-core: driver [aat2870] using legacy resume method
+<5>[    2.794478] SCSI subsystem initialized
+<7>[    2.794558] libata version 3.00 loaded.
+<6>[    2.794585] usbcore: registered new interface driver usbfs
+<6>[    2.794641] usbcore: registered new interface driver hub
+<6>[    2.794712] usbcore: registered new device driver usb
+<6>[    2.794820] PCI: Using ACPI for IRQ routing
+<7>[    2.799429] PCI: pci_cache_line_size set to 64 bytes
+<7>[    2.799527] reserve RAM buffer: 000000000009e000 - 000000000009ffff 
+<7>[    2.799530] reserve RAM buffer: 00000000ddea5000 - 00000000dfffffff 
+<7>[    2.799533] reserve RAM buffer: 00000000df092000 - 00000000dfffffff 
+<7>[    2.799535] reserve RAM buffer: 00000000df4e1000 - 00000000dfffffff 
+<7>[    2.799538] reserve RAM buffer: 00000000df800000 - 00000000dfffffff 
+<7>[    2.799540] reserve RAM buffer: 000000011f000000 - 000000011fffffff 
+<6>[    2.799611] NetLabel: Initializing
+<6>[    2.799661] NetLabel:  domain hash size = 128
+<6>[    2.799710] NetLabel:  protocols = UNLABELED CIPSOv4
+<6>[    2.799765] NetLabel:  unlabeled traffic allowed by default
+<6>[    2.799850] Switching to clocksource xen
+<6>[    2.805728] pnp: PnP ACPI init
+<6>[    2.805784] ACPI: bus type pnp registered
+<7>[    2.806156] pnp 00:00: [bus 00-3e]
+<7>[    2.806159] pnp 00:00: [io  0x0000-0x0cf7 window]
+<7>[    2.806162] pnp 00:00: [io  0x0cf8-0x0cff]
+<7>[    2.806164] pnp 00:00: [io  0x0d00-0xffff window]
+<7>[    2.806167] pnp 00:00: [mem 0x000a0000-0x000bffff window]
+<7>[    2.806169] pnp 00:00: [mem 0x000c0000-0x000c3fff window]
+<7>[    2.806173] pnp 00:00: [mem 0x000c4000-0x000c7fff window]
+<7>[    2.806175] pnp 00:00: [mem 0x000c8000-0x000cbfff window]
+<7>[    2.806178] pnp 00:00: [mem 0x000cc000-0x000cffff window]
+<7>[    2.806180] pnp 00:00: [mem 0x000d0000-0x000d3fff window]
+<7>[    2.806183] pnp 00:00: [mem 0x000d4000-0x000d7fff window]
+<7>[    2.806185] pnp 00:00: [mem 0x000d8000-0x000dbfff window]
+<7>[    2.806187] pnp 00:00: [mem 0x000dc000-0x000dffff window]
+<7>[    2.806190] pnp 00:00: [mem 0x000e0000-0x000e3fff window]
+<7>[    2.806192] pnp 00:00: [mem 0x000e4000-0x000e7fff window]
+<7>[    2.806195] pnp 00:00: [mem 0x000e8000-0x000ebfff window]
+<7>[    2.806197] pnp 00:00: [mem 0x000ec000-0x000effff window]
+<7>[    2.806200] pnp 00:00: [mem 0x000f0000-0x000fffff window]
+<7>[    2.806202] pnp 00:00: [mem 0xe0000000-0xfeafffff window]
+<7>[    2.806204] pnp 00:00: [mem 0x00010000-0x0001ffff window]
+<7>[    2.806325] pnp 00:00: Plug and Play ACPI device, IDs PNP0a08 PNP0a03 (active)
+<7>[    2.806353] pnp 00:01: [mem 0xfed40000-0xfed44fff]
+<6>[    2.806385] system 00:01: [mem 0xfed40000-0xfed44fff] has been reserved
+<7>[    2.806437] system 00:01: Plug and Play ACPI device, IDs PNP0c01 (active)
+<7>[    2.806451] pnp 00:02: [io  0x0000-0x001f]
+<7>[    2.806454] pnp 00:02: [io  0x0081-0x0091]
+<7>[    2.806456] pnp 00:02: [io  0x0093-0x009f]
+<7>[    2.806458] pnp 00:02: [io  0x00c0-0x00df]
+<7>[    2.806461] pnp 00:02: [dma 4]
+<7>[    2.806482] pnp 00:02: Plug and Play ACPI device, IDs PNP0200 (active)
+<7>[    2.806492] pnp 00:03: [mem 0xff000000-0xffffffff]
+<7>[    2.806513] pnp 00:03: Plug and Play ACPI device, IDs INT0800 (active)
+<7>[    2.806587] pnp 00:04: [mem 0xfed00000-0xfed003ff]
+<7>[    2.806610] pnp 00:04: Plug and Play ACPI device, IDs PNP0103 (active)
+<7>[    2.806625] pnp 00:05: [io  0x002e-0x002f]
+<7>[    2.806627] pnp 00:05: [io  0x004e-0x004f]
+<7>[    2.806630] pnp 00:05: [io  0x0061]
+<7>[    2.806632] pnp 00:05: [io  0x0063]
+<7>[    2.806634] pnp 00:05: [io  0x0065]
+<7>[    2.806636] pnp 00:05: [io  0x0067]
+<7>[    2.806638] pnp 00:05: [io  0x0070]
+<7>[    2.806640] pnp 00:05: [io  0x0080]
+<7>[    2.806643] pnp 00:05: [io  0x0092]
+<7>[    2.806645] pnp 00:05: [io  0x00b2-0x00b3]
+<7>[    2.806647] pnp 00:05: [io  0x0680-0x069f]
+<7>[    2.806649] pnp 00:05: [io  0x1000-0x100f]
+<7>[    2.806652] pnp 00:05: [io  0xffff]
+<7>[    2.806654] pnp 00:05: [io  0xffff]
+<7>[    2.806656] pnp 00:05: [io  0x0400-0x0453]
+<7>[    2.806658] pnp 00:05: [io  0x0458-0x047f]
+<7>[    2.806661] pnp 00:05: [io  0x0500-0x057f]
+<7>[    2.806663] pnp 00:05: [io  0x164e-0x164f]
+<6>[    2.806699] system 00:05: [io  0x0680-0x069f] has been reserved
+<6>[    2.806750] system 00:05: [io  0x1000-0x100f] has been reserved
+<6>[    2.806800] system 00:05: [io  0xffff] has been reserved
+<6>[    2.806850] system 00:05: [io  0xffff] has been reserved
+<6>[    2.806899] system 00:05: [io  0x0400-0x0453] has been reserved
+<6>[    2.806949] system 00:05: [io  0x0458-0x047f] has been reserved
+<6>[    2.806999] system 00:05: [io  0x0500-0x057f] has been reserved
+<6>[    2.807049] system 00:05: [io  0x164e-0x164f] has been reserved
+<7>[    2.807100] system 00:05: Plug and Play ACPI device, IDs PNP0c02 (active)
+<7>[    2.807110] pnp 00:06: [io  0x0070-0x0077]
+<7>[    2.807113] xen: registering gsi 8 triggering 1 polarity 0
+<6>[    2.807118] xen_map_pirq_gsi: returning irq 8 for gsi 8
+<7>[    2.807168] xen: --> pirq=8 -> irq=8 (gsi=8)
+<7>[    2.807174] pnp 00:06: [irq 8]
+<7>[    2.807200] pnp 00:06: Plug and Play ACPI device, IDs PNP0b00 (active)
+<7>[    2.807231] pnp 00:07: [io  0x0454-0x0457]
+<6>[    2.807263] system 00:07: [io  0x0454-0x0457] has been reserved
+<7>[    2.807314] system 00:07: Plug and Play ACPI device, IDs INT3f0d PNP0c02 (active)
+<7>[    2.807434] pnp 00:08: [io  0x0000-0xffffffffffffffff disabled]
+<7>[    2.807437] pnp 00:08: [io  0x0a00-0x0a1f]
+<7>[    2.807439] pnp 00:08: [io  0x0a30-0x0a3f]
+<7>[    2.807441] pnp 00:08: [io  0x0a20-0x0a2f]
+<6>[    2.807475] system 00:08: [io  0x0a00-0x0a1f] has been reserved
+<6>[    2.807526] system 00:08: [io  0x0a30-0x0a3f] has been reserved
+<6>[    2.807576] system 00:08: [io  0x0a20-0x0a2f] has been reserved
+<7>[    2.807627] system 00:08: Plug and Play ACPI device, IDs PNP0c02 (active)
+<7>[    2.807882] pnp 00:09: [io  0x03f8-0x03ff]
+<7>[    2.807885] xen: registering gsi 4 triggering 1 polarity 0
+<6>[    2.807888] xen_map_pirq_gsi: returning irq 4 for gsi 4
+<7>[    2.807938] xen: --> pirq=4 -> irq=4 (gsi=4)
+<6>[    2.807940] Already setup the GSI :4
+<7>[    2.807990] pnp 00:09: [irq 4]
+<7>[    2.807992] pnp 00:09: [dma 0 disabled]
+<7>[    2.808054] pnp 00:09: Plug and Play ACPI device, IDs PNP0501 (active)
+<7>[    2.808173] pnp 00:0a: [io  0x0060]
+<7>[    2.808176] pnp 00:0a: [io  0x0064]
+<7>[    2.808178] xen: registering gsi 1 triggering 1 polarity 0
+<6>[    2.808181] xen_map_pirq_gsi: returning irq 1 for gsi 1
+<7>[    2.808231] xen: --> pirq=1 -> irq=1 (gsi=1)
+<7>[    2.808237] pnp 00:0a: [irq 1]
+<7>[    2.808268] pnp 00:0a: Plug and Play ACPI device, IDs PNP0303 PNP030b (active)
+<7>[    2.808399] pnp 00:0b: [io  0x0010-0x001f]
+<7>[    2.808401] pnp 00:0b: [io  0x0022-0x003f]
+<7>[    2.808403] pnp 00:0b: [io  0x0044-0x005f]
+<7>[    2.808406] pnp 00:0b: [io  0x0062-0x0063]
+<7>[    2.808408] pnp 00:0b: [io  0x0065-0x006f]
+<7>[    2.808410] pnp 00:0b: [io  0x0072-0x007f]
+<7>[    2.808412] pnp 00:0b: [io  0x0080]
+<7>[    2.808415] pnp 00:0b: [io  0x0084-0x0086]
+<7>[    2.808417] pnp 00:0b: [io  0x0088]
+<7>[    2.808419] pnp 00:0b: [io  0x008c-0x008e]
+<7>[    2.808421] pnp 00:0b: [io  0x0090-0x009f]
+<7>[    2.808423] pnp 00:0b: [io  0x00a2-0x00bf]
+<7>[    2.808426] pnp 00:0b: [io  0x00e0-0x00ef]
+<7>[    2.808428] pnp 00:0b: [io  0x04d0-0x04d1]
+<6>[    2.808477] system 00:0b: [io  0x04d0-0x04d1] has been reserved
+<7>[    2.808528] system 00:0b: Plug and Play ACPI device, IDs PNP0c02 (active)
+<7>[    2.808539] pnp 00:0c: [io  0x00f0-0x00ff]
+<7>[    2.808541] xen: registering gsi 13 triggering 1 polarity 0
+<6>[    2.808545] xen_map_pirq_gsi: returning irq 13 for gsi 13
+<7>[    2.808594] xen: --> pirq=13 -> irq=13 (gsi=13)
+<7>[    2.808599] pnp 00:0c: [irq 13]
+<7>[    2.808628] pnp 00:0c: Plug and Play ACPI device, IDs PNP0c04 (active)
+<7>[    2.809008] pnp 00:0d: [mem 0xfed1c000-0xfed1ffff]
+<7>[    2.809010] pnp 00:0d: [mem 0xfed10000-0xfed17fff]
+<7>[    2.809012] pnp 00:0d: [mem 0xfed18000-0xfed18fff]
+<7>[    2.809015] pnp 00:0d: [mem 0xfed19000-0xfed19fff]
+<7>[    2.809017] pnp 00:0d: [mem 0xf8000000-0xfbffffff]
+<7>[    2.809019] pnp 00:0d: [mem 0xfed20000-0xfed3ffff]
+<7>[    2.809022] pnp 00:0d: [mem 0xfed90000-0xfed93fff]
+<7>[    2.809054] pnp 00:0d: [mem 0xfed45000-0xfed8ffff]
+<7>[    2.809057] pnp 00:0d: [mem 0xff000000-0xffffffff]
+<7>[    2.809059] pnp 00:0d: [mem 0xfee00000-0xfeefffff]
+<7>[    2.809061] pnp 00:0d: [mem 0xf0000000-0xf0000fff]
+<6>[    2.809143] system 00:0d: [mem 0xfed1c000-0xfed1ffff] has been reserved
+<6>[    2.809194] system 00:0d: [mem 0xfed10000-0xfed17fff] has been reserved
+<6>[    2.809246] system 00:0d: [mem 0xfed18000-0xfed18fff] has been reserved
+<6>[    2.809296] system 00:0d: [mem 0xfed19000-0xfed19fff] has been reserved
+<6>[    2.809346] system 00:0d: [mem 0xf8000000-0xfbffffff] has been reserved
+<6>[    2.809398] system 00:0d: [mem 0xfed20000-0xfed3ffff] has been reserved
+<6>[    2.809448] system 00:0d: [mem 0xfed90000-0xfed93fff] has been reserved
+<6>[    2.809499] system 00:0d: [mem 0xfed45000-0xfed8ffff] has been reserved
+<6>[    2.809549] system 00:0d: [mem 0xff000000-0xffffffff] has been reserved
+<6>[    2.809600] system 00:0d: [mem 0xfee00000-0xfeefffff] could not be reserved
+<6>[    2.809651] system 00:0d: [mem 0xf0000000-0xf0000fff] has been reserved
+<7>[    2.809702] system 00:0d: Plug and Play ACPI device, IDs PNP0c02 (active)
+<6>[    2.809899] pnp: PnP ACPI: found 14 devices
+<6>[    2.809948] ACPI: ACPI bus type pnp unregistered
+<6>[    2.809998] PnPBIOS: Disabled
+<6>[    2.814540] PM-Timer failed consistency check  (0x0xffffff) - aborting.
+<7>[    2.814626] PCI: max bus depth: 1 pci_try_num: 2
+<6>[    2.814674] pci 0000:00:01.0: PCI bridge to [bus 01-01]
+<6>[    2.814725] pci 0000:00:01.0:   bridge window [io  0xe000-0xefff]
+<6>[    2.814779] pci 0000:00:01.0:   bridge window [mem 0xf7e00000-0xf7efffff]
+<6>[    2.814832] pci 0000:00:01.0:   bridge window [mem 0xe0000000-0xefffffff 64bit pref]
+<6>[    2.814895] pci 0000:00:1c.0: PCI bridge to [bus 02-02]
+<6>[    2.814969] pci 0000:00:1c.5: PCI bridge to [bus 03-03]
+<6>[    2.815021] pci 0000:00:1c.5:   bridge window [io  0xd000-0xdfff]
+<6>[    2.815079] pci 0000:00:1c.5:   bridge window [mem 0xf7d00000-0xf7dfffff]
+<7>[    2.815155] xen: registering gsi 16 triggering 0 polarity 1
+<7>[    2.815163] xen: --> pirq=16 -> irq=16 (gsi=16)
+<6>[    2.815168] pci 0000:00:01.0: PCI INT A -> GSI 16 (level, low) -> IRQ 16
+<7>[    2.815223] pci 0000:00:01.0: setting latency timer to 64
+<7>[    2.815234] xen: registering gsi 16 triggering 0 polarity 1
+<6>[    2.815237] xen_map_pirq_gsi: returning irq 16 for gsi 16
+<7>[    2.815287] xen: --> pirq=16 -> irq=16 (gsi=16)
+<6>[    2.815290] Already setup the GSI :16
+<6>[    2.815338] pci 0000:00:1c.0: PCI INT A -> GSI 16 (level, low) -> IRQ 16
+<7>[    2.815394] pci 0000:00:1c.0: setting latency timer to 64
+<7>[    2.815406] xen: registering gsi 17 triggering 0 polarity 1
+<7>[    2.815412] xen: --> pirq=17 -> irq=17 (gsi=17)
+<6>[    2.815415] pci 0000:00:1c.5: PCI INT B -> GSI 17 (level, low) -> IRQ 17
+<7>[    2.815471] pci 0000:00:1c.5: setting latency timer to 64
+<7>[    2.815477] pci_bus 0000:00: resource 4 [io  0x0000-0x0cf7]
+<7>[    2.815479] pci_bus 0000:00: resource 5 [io  0x0d00-0xffff]
+<7>[    2.815482] pci_bus 0000:00: resource 6 [mem 0x000a0000-0x000bffff]
+<7>[    2.815484] pci_bus 0000:00: resource 7 [mem 0x000d4000-0x000d7fff]
+<7>[    2.815487] pci_bus 0000:00: resource 8 [mem 0x000d8000-0x000dbfff]
+<7>[    2.815489] pci_bus 0000:00: resource 9 [mem 0x000dc000-0x000dffff]
+<7>[    2.815492] pci_bus 0000:00: resource 10 [mem 0x000e0000-0x000e3fff]
+<7>[    2.815495] pci_bus 0000:00: resource 11 [mem 0x000e4000-0x000e7fff]
+<7>[    2.815497] pci_bus 0000:00: resource 12 [mem 0xe0000000-0xfeafffff]
+<7>[    2.815500] pci_bus 0000:01: resource 0 [io  0xe000-0xefff]
+<7>[    2.815502] pci_bus 0000:01: resource 1 [mem 0xf7e00000-0xf7efffff]
+<7>[    2.815505] pci_bus 0000:01: resource 2 [mem 0xe0000000-0xefffffff 64bit pref]
+<7>[    2.815508] pci_bus 0000:03: resource 0 [io  0xd000-0xdfff]
+<7>[    2.815510] pci_bus 0000:03: resource 1 [mem 0xf7d00000-0xf7dfffff]
+<6>[    2.815534] NET: Registered protocol family 2
+<6>[    2.815615] IP route cache hash table entries: 32768 (order: 5, 131072 bytes)
+<6>[    2.815773] TCP established hash table entries: 131072 (order: 8, 1048576 bytes)
+<6>[    2.816040] TCP bind hash table entries: 65536 (order: 7, 524288 bytes)
+<6>[    2.816215] TCP: Hash tables configured (established 131072 bind 65536)
+<6>[    2.816266] TCP reno registered
+<6>[    2.816315] UDP hash table entries: 512 (order: 2, 16384 bytes)
+<6>[    2.816368] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
+<6>[    2.816457] NET: Registered protocol family 1
+<7>[    2.848034] pci 0000:01:00.0: Boot video device
+<7>[    2.848050] PCI: CLS 64 bytes, default 64
+<6>[    2.848081] Trying to unpack rootfs image as initramfs...
+<6>[    2.908660] Freeing initrd memory: 43620k freed
+<6>[    2.914541] audit: initializing netlink socket (disabled)
+<5>[    2.914600] type=2000 audit(1413823515.857:1): initialized
+<4>[    2.932948] highmem bounce pool size: 64 pages
+<6>[    2.933004] HugeTLB registered 2 MB page size, pre-allocated 0 pages
+<5>[    2.933996] VFS: Disk quotas dquot_6.5.2
+<4>[    2.934084] Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)
+<6>[    2.934471] fuse init (API version 7.17)
+<6>[    2.934576] msgmni has been set to 1179
+<6>[    2.934897] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 253)
+<6>[    2.934977] io scheduler noop registered
+<6>[    2.935026] io scheduler deadline registered
+<6>[    2.935078] io scheduler cfq registered (default)
+<7>[    2.935206] pcieport 0000:00:01.0: setting latency timer to 64
+<6>[    2.935578] pci_hotplug: PCI Hot Plug PCI Core version: 0.5
+<6>[    2.935642] pciehp: PCI Express Hot Plug Controller Driver version: 0.4
+<6>[    2.935814] input: Power Button as /devices/LNXSYSTM:00/device:00/PNP0C0C:00/input/input0
+<6>[    2.935876] ACPI: Power Button [PWRB]
+<6>[    2.935962] input: Power Button as /devices/LNXSYSTM:00/LNXPWRBN:00/input/input1
+<6>[    2.936021] ACPI: Power Button [PWRF]
+<6>[    2.936139] ACPI: Fan [FAN0] (off)
+<6>[    2.936213] ACPI: Fan [FAN1] (off)
+<6>[    2.936290] ACPI: Fan [FAN2] (off)
+<6>[    2.936362] ACPI: Fan [FAN3] (off)
+<6>[    2.936437] ACPI: Fan [FAN4] (off)
+<6>[    2.939084] thermal LNXTHERM:00: registered as thermal_zone0
+<6>[    2.939136] ACPI: Thermal Zone [TZ00] (28 C)
+<6>[    2.939380] thermal LNXTHERM:01: registered as thermal_zone1
+<6>[    2.939431] ACPI: Thermal Zone [TZ01] (30 C)
+<6>[    2.939544] ERST: Table is not found!
+<6>[    2.939593] GHES: HEST is not enabled!
+<6>[    2.939665] isapnp: Scanning for PnP cards...
+<6>[    3.294705] isapnp: No Plug & Play device found
+<6>[    3.294969] Serial: 8250/16550 driver, 32 ports, IRQ sharing enabled
+<4>[    3.296048] hpet_acpi_add: no address or irqs in _CRS
+<6>[    3.296111] Linux agpgart interface v0.103
+<6>[    3.297108] brd: module loaded
+<6>[    3.304227] loop: module loaded
+<7>[    3.304375] ata_piix 0000:00:1f.2: version 2.13
+<7>[    3.304390] xen: registering gsi 19 triggering 0 polarity 1
+<7>[    3.304402] xen: --> pirq=19 -> irq=19 (gsi=19)
+<6>[    3.304409] ata_piix 0000:00:1f.2: PCI INT B -> GSI 19 (level, low) -> IRQ 19
+<6>[    3.304467] ata_piix 0000:00:1f.2: MAP [ P0 P2 P1 P3 ]
+<7>[    3.460018] ata_piix 0000:00:1f.2: setting latency timer to 64
+<6>[    3.460229] scsi0 : ata_piix
+<6>[    3.460328] scsi1 : ata_piix
+<6>[    3.460597] ata1: SATA max UDMA/133 cmd 0xf0d0 ctl 0xf0c0 bmdma 0xf090 irq 19
+<6>[    3.460656] ata2: SATA max UDMA/133 cmd 0xf0b0 ctl 0xf0a0 bmdma 0xf098 irq 19
+<7>[    3.460725] xen: registering gsi 19 triggering 0 polarity 1
+<6>[    3.460729] xen_map_pirq_gsi: returning irq 19 for gsi 19
+<7>[    3.460779] xen: --> pirq=19 -> irq=19 (gsi=19)
+<6>[    3.460781] Already setup the GSI :19
+<6>[    3.460831] ata_piix 0000:00:1f.5: PCI INT B -> GSI 19 (level, low) -> IRQ 19
+<6>[    3.460887] ata_piix 0000:00:1f.5: MAP [ P0 -- P1 -- ]
+<7>[    3.616011] ata_piix 0000:00:1f.5: setting latency timer to 64
+<6>[    3.616160] scsi2 : ata_piix
+<6>[    3.616249] scsi3 : ata_piix
+<6>[    3.616441] ata3: SATA max UDMA/133 cmd 0xf070 ctl 0xf060 bmdma 0xf030 irq 19
+<6>[    3.616497] ata4: SATA max UDMA/133 cmd 0xf050 ctl 0xf040 bmdma 0xf038 irq 19
+<6>[    3.616760] Fixed MDIO Bus: probed
+<6>[    3.616819] tun: Universal TUN/TAP device driver, 1.6
+<6>[    3.616869] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+<4>[    3.616963] arcnet loaded.
+<6>[    3.617012] PPP generic driver version 2.4.2
+<6>[    3.617126] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+<7>[    3.617190] xen: registering gsi 16 triggering 0 polarity 1
+<6>[    3.617194] xen_map_pirq_gsi: returning irq 16 for gsi 16
+<7>[    3.617244] xen: --> pirq=16 -> irq=16 (gsi=16)
+<6>[    3.617246] Already setup the GSI :16
+<6>[    3.621023] ehci_hcd 0000:00:1a.0: PCI INT A -> GSI 16 (level, low) -> IRQ 16
+<7>[    3.621161] ehci_hcd 0000:00:1a.0: setting latency timer to 64
+<6>[    3.621167] ehci_hcd 0000:00:1a.0: EHCI Host Controller
+<6>[    3.621245] ehci_hcd 0000:00:1a.0: new USB bus registered, assigned bus number 1
+<6>[    3.621352] ehci_hcd 0000:00:1a.0: debug port 2
+<7>[    3.625296] ehci_hcd 0000:00:1a.0: cache line size of 64 is not supported
+<6>[    3.625317] ehci_hcd 0000:00:1a.0: irq 16, io mem 0xf7f07000
+<6>[    3.639971] ehci_hcd 0000:00:1a.0: USB 2.0 started, EHCI 1.00
+<6>[    3.640131] hub 1-0:1.0: USB hub found
+<6>[    3.640182] hub 1-0:1.0: 2 ports detected
+<7>[    3.640276] xen: registering gsi 23 triggering 0 polarity 1
+<7>[    3.640285] xen: --> pirq=23 -> irq=23 (gsi=23)
+<6>[    3.640290] ehci_hcd 0000:00:1d.0: PCI INT A -> GSI 23 (level, low) -> IRQ 23
+<7>[    3.640355] ehci_hcd 0000:00:1d.0: setting latency timer to 64
+<6>[    3.640360] ehci_hcd 0000:00:1d.0: EHCI Host Controller
+<6>[    3.640436] ehci_hcd 0000:00:1d.0: new USB bus registered, assigned bus number 2
+<6>[    3.640540] ehci_hcd 0000:00:1d.0: debug port 2
+<7>[    3.644491] ehci_hcd 0000:00:1d.0: cache line size of 64 is not supported
+<6>[    3.644510] ehci_hcd 0000:00:1d.0: irq 23, io mem 0xf7f06000
+<6>[    3.659974] ehci_hcd 0000:00:1d.0: USB 2.0 started, EHCI 1.00
+<6>[    3.660119] hub 2-0:1.0: USB hub found
+<6>[    3.660170] hub 2-0:1.0: 2 ports detected
+<6>[    3.660258] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+<6>[    3.660314] uhci_hcd: USB Universal Host Controller Interface driver
+<6>[    3.660392] usbcore: registered new interface driver libusual
+<6>[    3.660474] i8042: PNP: PS/2 Controller [PNP0303:PS2K] at 0x60,0x64 irq 1
+<4>[    3.660525] i8042: PNP: PS/2 appears to have AUX port disabled, if this is incorrect please boot with i8042.nopnp
+<6>[    3.661085] serio: i8042 KBD port at 0x60,0x64 irq 1
+<6>[    3.661204] mousedev: PS/2 mouse device common for all mice
+<6>[    3.661355] rtc_cmos 00:06: RTC can wake from S4
+<6>[    3.661518] rtc_cmos 00:06: rtc core: registered rtc_cmos as rtc0
+<6>[    3.661601] rtc0: alarms up to one month, y3k, 242 bytes nvram
+<6>[    3.661684] device-mapper: uevent: version 1.0.3
+<6>[    3.661776] device-mapper: ioctl: 4.22.0-ioctl (2011-10-19) initialised: dm-devel@redhat.com
+<6>[    3.661851] EISA: Probing bus 0 at eisa.0
+<4>[    3.661899] EISA: Cannot allocate resource for mainboard
+<4>[    3.661949] Cannot allocate resource for EISA slot 1
+<4>[    3.661998] Cannot allocate resource for EISA slot 2
+<4>[    3.662047] Cannot allocate resource for EISA slot 3
+<4>[    3.662096] Cannot allocate resource for EISA slot 4
+<4>[    3.662145] Cannot allocate resource for EISA slot 5
+<4>[    3.662194] Cannot allocate resource for EISA slot 6
+<4>[    3.662243] Cannot allocate resource for EISA slot 7
+<4>[    3.662291] Cannot allocate resource for EISA slot 8
+<6>[    3.662339] EISA: Detected 0 cards.
+<6>[    3.662392] cpufreq-nforce2: No nForce2 chipset.
+<6>[    3.662443] EFI Variables Facility v0.08 2004-May-17
+<6>[    3.662618] TCP cubic registered
+<6>[    3.662749] NET: Registered protocol family 10
+<6>[    3.663118] NET: Registered protocol family 17
+<5>[    3.663176] Registering the dns_resolver key type
+<6>[    3.663236] Using IPI No-Shortcut mode
+<7>[    3.663349] PM: Hibernation image not present or could not be loaded.
+<6>[    3.663358] registered taskstats version 1
+<6>[    3.671685]   Magic number: 2:461:793
+<6>[    3.671809] rtc_cmos 00:06: setting system clock to 2014-10-20 16:45:15 UTC (1413823515)
+<6>[    3.672108] BIOS EDD facility v0.16 2004-Jun-25, 0 devices found
+<6>[    3.672160] EDD information not available.
+<6>[    3.680787] input: AT Translated Set 2 keyboard as /devices/platform/i8042/serio0/input/input2
+<6>[    3.951974] usb 1-1: new high-speed USB device number 2 using ehci_hcd
+<6>[    4.084473] hub 1-1:1.0: USB hub found
+<6>[    4.084684] hub 1-1:1.0: 4 ports detected
+<6>[    4.096068] ata3: SATA link up 1.5 Gbps (SStatus 113 SControl 300)
+<6>[    4.104135] ata3.00: ATAPI: HL-DT-STDVD-RAM GH82N, KU02, max UDMA/133
+<6>[    4.120131] ata3.00: configured for UDMA/133
+<6>[    4.195996] usb 2-1: new high-speed USB device number 2 using ehci_hcd
+<6>[    4.328467] hub 2-1:1.0: USB hub found
+<6>[    4.328678] hub 2-1:1.0: 6 ports detected
+<6>[    4.400052] usb 1-1.1: new low-speed USB device number 3 using ehci_hcd
+<4>[    4.487982] ata2.00: failed to resume link (SControl 0)
+<4>[    4.655973] ata4: failed to resume link (SControl 0)
+<6>[    4.668039] ata4: SATA link down (SStatus 4 SControl 0)
+<4>[    4.807973] ata1.01: failed to resume link (SControl 0)
+<6>[    4.964113] ata1.00: SATA link up 3.0 Gbps (SStatus 123 SControl 300)
+<6>[    4.964191] ata1.01: SATA link down (SStatus 0 SControl 0)
+<6>[    4.972584] ata1.00: ATA-8: ST500DM002-1BD142, KC65, max UDMA/100
+<6>[    4.972636] ata1.00: 976773168 sectors, multi 16: LBA48 NCQ (depth 0/32)
+<6>[    4.988554] ata1.00: configured for UDMA/100
+<5>[    4.988691] scsi 0:0:0:0: Direct-Access     ATA      ST500DM002-1BD14 KC65 PQ: 0 ANSI: 5
+<5>[    4.988870] sd 0:0:0:0: [sda] 976773168 512-byte logical blocks: (500 GB/465 GiB)
+<5>[    4.988929] sd 0:0:0:0: [sda] 4096-byte physical blocks
+<5>[    4.989038] sd 0:0:0:0: [sda] Write Protect is off
+<7>[    4.989088] sd 0:0:0:0: [sda] Mode Sense: 00 3a 00 00
+<5>[    4.989113] sd 0:0:0:0: Attached scsi generic sg0 type 0
+<5>[    4.989201] sd 0:0:0:0: [sda] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+<6>[    5.091363]  sda: sda1 sda3 < sda5 sda6 sda7 sda8 sda9 sda10 >
+<5>[    5.091772] sd 0:0:0:0: [sda] Attached SCSI disk
+<4>[    5.515974] ata2.01: failed to resume link (SControl 0)
+<6>[    5.528055] ata2.00: SATA link down (SStatus 4 SControl 0)
+<6>[    5.528136] ata2.01: SATA link down (SStatus 0 SControl 0)
+<5>[    5.531315] scsi 2:0:0:0: CD-ROM            HL-DT-ST DVD-RAM GH82N    KU02 PQ: 0 ANSI: 5
+<4>[    5.539028] sr0: scsi3-mmc drive: 40x/40x writer dvd-ram cd/rw xa/form2 cdda tray
+<6>[    5.539087] cdrom: Uniform CD-ROM driver Revision: 3.20
+<7>[    5.539201] sr 2:0:0:0: Attached scsi CD-ROM sr0
+<5>[    5.539328] sr 2:0:0:0: Attached scsi generic sg1 type 5
+<6>[    5.539593] Freeing unused kernel memory: 728k freed
+<6>[    5.540878] Write protecting the kernel text: 5620k
+<6>[    5.541339] Write protecting the kernel read-only data: 2184k
+<6>[    5.541389] NX-protecting the kernel data: 4620k
+<30>[    5.575426] udevd[92]: starting version 175
+<6>[    5.999191] r8169 Gigabit Ethernet driver 2.3LK-NAPI loaded
+<7>[    5.999291] xen: registering gsi 17 triggering 0 polarity 1
+<6>[    5.999297] xen_map_pirq_gsi: returning irq 17 for gsi 17
+<7>[    5.999347] xen: --> pirq=17 -> irq=17 (gsi=17)
+<6>[    5.999350] Already setup the GSI :17
+<6>[    5.999400] r8169 0000:03:00.0: PCI INT A -> GSI 17 (level, low) -> IRQ 17
+<7>[    5.999485] r8169 0000:03:00.0: setting latency timer to 64
+<6>[    5.999913] r8169 0000:03:00.0: eth0: RTL8168e/8111e at 0xedc62000, 74:27:ea:17:c6:a8, XID 0c200000 IRQ 281
+<6>[    5.999974] r8169 0000:03:00.0: eth0: jumbo features [frames: 9200 bytes, tx checksumming: ko]
+<6>[    6.031548] input: Lenovo Optical USB Mouse as /devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.1/1-1.1:1.0/input/input3
+<6>[    6.031685] generic-usb 0003:17EF:6019.0001: input,hidraw0: USB HID v1.11 Mouse [Lenovo Optical USB Mouse] on usb-0000:00:1a.0-1.1/input0
+<6>[    6.031755] usbcore: registered new interface driver usbhid
+<6>[    6.031805] usbhid: USB HID core driver
+<6>[    6.504696] EXT4-fs (sda9): mounted filesystem with ordered data mode. Opts: (null)
+<4>[    7.258484] init: ureadahead main process (365) terminated with status 5
+<6>[    8.179623] Adding 3952636k swap on /dev/sda8.  Priority:-1 extents:1 across:3952636k 
+<6>[    8.523937] EXT4-fs (sda9): re-mounted. Opts: errors=remount-ro
+<30>[    9.322933] udevd[529]: starting version 175
+<6>[   10.125759] lp: driver loaded but no devices found
+<4>[   10.956745] mei: module is from the staging directory, the quality is unknown, you have been warned.
+<7>[   10.957287] xen: registering gsi 16 triggering 0 polarity 1
+<6>[   10.957294] xen_map_pirq_gsi: returning irq 16 for gsi 16
+<7>[   10.957296] xen: --> pirq=16 -> irq=16 (gsi=16)
+<6>[   10.957299] Already setup the GSI :16
+<6>[   10.957303] mei 0000:00:16.0: PCI INT A -> GSI 16 (level, low) -> IRQ 16
+<7>[   10.957312] mei 0000:00:16.0: setting latency timer to 64
+<6>[   10.966360] wmi: Mapper loaded
+<6>[   11.903754] ppdev: user-space parallel port driver
+<6>[   12.257464] Bluetooth: Core ver 2.16
+<6>[   12.266116] NET: Registered protocol family 31
+<6>[   12.266119] Bluetooth: HCI device and connection manager initialized
+<6>[   12.266122] Bluetooth: HCI socket layer initialized
+<6>[   12.266125] Bluetooth: L2CAP socket layer initialized
+<6>[   12.266131] Bluetooth: SCO socket layer initialized
+<6>[   12.300039] Bluetooth: RFCOMM TTY layer initialized
+<6>[   12.300044] Bluetooth: RFCOMM socket layer initialized
+<6>[   12.300046] Bluetooth: RFCOMM ver 1.11
+<6>[   12.490632] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+<6>[   12.490636] Bluetooth: BNEP filters: protocol multicast
+<7>[   13.243631] xen: registering gsi 22 triggering 0 polarity 1
+<7>[   13.243646] xen: --> pirq=22 -> irq=22 (gsi=22)
+<6>[   13.243654] snd_hda_intel 0000:00:1b.0: PCI INT A -> GSI 22 (level, low) -> IRQ 22
+<7>[   13.243792] snd_hda_intel 0000:00:1b.0: setting latency timer to 64
+<6>[   13.340017] input: HDA Intel PCH Headphone as /devices/pci0000:00/0000:00:1b.0/sound/card0/input4
+<7>[   13.340295] xen: registering gsi 17 triggering 0 polarity 1
+<6>[   13.340301] xen_map_pirq_gsi: returning irq 17 for gsi 17
+<7>[   13.340303] xen: --> pirq=17 -> irq=17 (gsi=17)
+<6>[   13.340306] Already setup the GSI :17
+<6>[   13.340310] snd_hda_intel 0000:01:00.1: PCI INT B -> GSI 17 (level, low) -> IRQ 17
+<7>[   13.340450] snd_hda_intel 0000:01:00.1: setting latency timer to 64
+<6>[   13.401444] HDMI status: Codec=0 Pin=3 Presence_Detect=0 ELD_Valid=0
+<6>[   13.402053] input: HD-Audio Generic HDMI/DP,pcm=3 as /devices/pci0000:00/0000:00:01.0/0000:01:00.1/sound/card1/input5
+<4>[   14.000448] init: failsafe main process (1190) killed by TERM signal
+<4>[   16.641726] init: udev-fallback-graphics main process (1330) terminated with status 1
+<6>[   18.247453] r8169 0000:03:00.0: eth0: link down
+<6>[   18.247470] r8169 0000:03:00.0: eth0: link down
+<6>[   18.248468] ADDRCONF(NETDEV_UP): eth0: link is not ready
+<6>[   20.162874] r8169 0000:03:00.0: eth0: link up
+<6>[   20.163010] ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+<7>[   30.535960] eth0: no IPv6 routers present
+<4>[   50.123411] init: plymouth-stop pre-start process (1848) terminated with status 1
+<4>[   94.300342] Disabling lock debugging due to kernel taint
+<4>[   94.301131] cache switch setup.
+<4>[  130.486080] PGD allocation:(average:35294ns per 30892)
+<4>[  130.486083] PMD allocation:(average:25039ns per 123564)
+<4>[  130.486085] PTE allocation:(average:14004ns per 155155)
+<4>[  130.486088] 
+<4>[  130.486090] PGD cache page numbers:43
+<4>[  130.486092] PGD table page numbers:4
+<4>[  130.486094] PMD cache page numbers:212
+<4>[  130.486096] PMD table page numbers:12
+<4>[  130.486098] PTE cache page numbers:199
+<4>[  130.486100] PTE table page numbers:84
+<4>[  130.486102] 
+<4>[  158.484440] PGD allocation:(average:35708ns per 33915)
+<4>[  158.484444] PMD allocation:(average:24647ns per 135660)
+<4>[  158.484446] PTE allocation:(average:13813ns per 169649)
+<4>[  158.484448] 
+<4>[  158.484450] PGD cache page numbers:30
+<4>[  158.484452] PGD table page numbers:11
+<4>[  158.484454] PMD cache page numbers:184
+<4>[  158.484456] PMD table page numbers:40
+<4>[  158.484458] PTE cache page numbers:179
+<4>[  158.484460] PTE table page numbers:123
+<4>[  158.484462] 
+<4>[  188.494121] PGD allocation:(average:35127ns per 37914)
+<4>[  188.494124] PMD allocation:(average:24618ns per 151656)
+<4>[  188.494127] PTE allocation:(average:13901ns per 189609)
+<4>[  188.494129] 
+<4>[  188.494131] PGD cache page numbers:42
+<4>[  188.494133] PGD table page numbers:7
+<4>[  188.494135] PMD cache page numbers:200
+<4>[  188.494137] PMD table page numbers:24
+<4>[  188.494139] PTE cache page numbers:193
+<4>[  188.494141] PTE table page numbers:114
+<4>[  188.494143] 
+<4>[  218.495087] PGD allocation:(average:35236ns per 37839)
+<4>[  218.495090] PMD allocation:(average:24800ns per 151356)
+<4>[  218.495092] PTE allocation:(average:14016ns per 189198)
+<4>[  218.495094] 
+<4>[  218.495097] PGD cache page numbers:29
+<4>[  218.495099] PGD table page numbers:9
+<4>[  218.495101] PMD cache page numbers:192
+<4>[  218.495103] PMD table page numbers:32
+<4>[  218.495105] PTE cache page numbers:194
+<4>[  218.495107] PTE table page numbers:124
+<4>[  218.495109] 
+<4>[  248.487095] PGD allocation:(average:35316ns per 36856)
+<4>[  248.487098] PMD allocation:(average:24912ns per 147424)
+<4>[  248.487101] PTE allocation:(average:14074ns per 184283)
+<4>[  248.487103] 
+<4>[  248.487105] PGD cache page numbers:31
+<4>[  248.487107] PGD table page numbers:9
+<4>[  248.487109] PMD cache page numbers:192
+<4>[  248.487111] PMD table page numbers:32
+<4>[  248.487113] PTE cache page numbers:194
+<4>[  248.487115] PTE table page numbers:125
+<4>[  248.487117] 
+<4>[  278.504960] PGD allocation:(average:35090ns per 36165)
+<4>[  278.504964] PMD allocation:(average:24856ns per 144660)
+<4>[  278.504966] PTE allocation:(average:13981ns per 180828)
+<4>[  278.504968] 
+<4>[  278.504970] PGD cache page numbers:42
+<4>[  278.504972] PGD table page numbers:7
+<4>[  278.504974] PMD cache page numbers:200
+<4>[  278.504976] PMD table page numbers:24
+<4>[  278.504978] PTE cache page numbers:204
+<4>[  278.504980] PTE table page numbers:115
+<4>[  278.504982] 
+<4>[  310.301393] PGD allocation:(average:89497ns per 32396)
+<4>[  310.301397] PMD allocation:(average:24807ns per 129584)
+<4>[  310.301399] PTE allocation:(average:13820ns per 161994)
+<4>[  310.301401] 
+<4>[  310.301403] PGD cache page numbers:36
+<4>[  310.301405] PGD table page numbers:5
+<4>[  310.301407] PMD cache page numbers:216
+<4>[  310.301409] PMD table page numbers:16
+<4>[  310.301411] PTE cache page numbers:225
+<4>[  310.301413] PTE table page numbers:106
+<4>[  310.301415] 
+<4>[  338.485671] PGD allocation:(average:35278ns per 34929)
+<4>[  338.485675] PMD allocation:(average:24918ns per 139716)
+<4>[  338.485677] PTE allocation:(average:14043ns per 174650)
+<4>[  338.485679] 
+<4>[  338.485681] PGD cache page numbers:38
+<4>[  338.485683] PGD table page numbers:9
+<4>[  338.485685] PMD cache page numbers:200
+<4>[  338.485687] PMD table page numbers:32
+<4>[  338.485689] PTE cache page numbers:207
+<4>[  338.485691] PTE table page numbers:124
+<4>[  338.485693] 
+<4>[  368.487718] PGD allocation:(average:35515ns per 38408)
+<4>[  368.487722] PMD allocation:(average:24924ns per 153632)
+<4>[  368.487724] PTE allocation:(average:13969ns per 192044)
+<4>[  368.487726] 
+<4>[  368.487729] PGD cache page numbers:40
+<4>[  368.487731] PGD table page numbers:8
+<4>[  368.487733] PMD cache page numbers:204
+<4>[  368.487735] PMD table page numbers:28
+<4>[  368.487737] PTE cache page numbers:211
+<4>[  368.487739] PTE table page numbers:120
+<4>[  368.487740] 
+<4>[  398.488565] PGD allocation:(average:35308ns per 37327)
+<4>[  398.488569] PMD allocation:(average:24824ns per 149308)
+<4>[  398.488571] PTE allocation:(average:14104ns per 186638)
+<4>[  398.488573] 
+<4>[  398.488575] PGD cache page numbers:37
+<4>[  398.488578] PGD table page numbers:10
+<4>[  398.488580] PMD cache page numbers:196
+<4>[  398.488582] PMD table page numbers:36
+<4>[  398.488584] PTE cache page numbers:201
+<4>[  398.488585] PTE table page numbers:130
+<4>[  398.488587] 
+<4>[  428.497930] PGD allocation:(average:80102ns per 37196)
+<4>[  428.497933] PMD allocation:(average:24745ns per 148784)
+<4>[  428.497936] PTE allocation:(average:12751ns per 161023)
+<4>[  428.497938] 
+<4>[  428.497940] PGD cache page numbers:41
+<4>[  428.497942] PGD table page numbers:7
+<4>[  428.497944] PMD cache page numbers:208
+<4>[  428.497946] PMD table page numbers:24
+<4>[  428.497948] PTE cache page numbers:216
+<4>[  428.497950] PTE table page numbers:115
+<4>[  428.497952] 
+<4>[  463.325485] PGD allocation:(average:35342ns per 36484)
+<4>[  463.325489] PMD allocation:(average:24861ns per 145936)
+<4>[  463.325491] PTE allocation:(average:13608ns per 176662)
+<4>[  463.325493] 
+<4>[  463.325495] PGD cache page numbers:43
+<4>[  463.325497] PGD table page numbers:5
+<4>[  463.325499] PMD cache page numbers:216
+<4>[  463.325501] PMD table page numbers:16
+<4>[  463.325503] PTE cache page numbers:225
+<4>[  463.325505] PTE table page numbers:106
+<4>[  463.325507] 
+<4>[  488.743428] PGD allocation:(average:84332ns per 30724)
+<4>[  488.743431] PMD allocation:(average:24848ns per 122896)
+<4>[  488.743434] PTE allocation:(average:14112ns per 153622)
+<4>[  488.743436] 
+<4>[  488.743438] PGD cache page numbers:41
+<4>[  488.743440] PGD table page numbers:4
+<4>[  488.743442] PMD cache page numbers:220
+<4>[  488.743444] PMD table page numbers:12
+<4>[  488.743446] PTE cache page numbers:255
+<4>[  488.743448] PTE table page numbers:76
+<4>[  488.743450] 
+<4>[  518.490872] PGD allocation:(average:70147ns per 37940)
+<4>[  518.490875] PMD allocation:(average:24791ns per 151760)
+<4>[  518.490877] PTE allocation:(average:12238ns per 158984)
+<4>[  518.490880] 
+<4>[  518.490882] PGD cache page numbers:39
+<4>[  518.490884] PGD table page numbers:10
+<4>[  518.490886] PMD cache page numbers:196
+<4>[  518.490888] PMD table page numbers:36
+<4>[  518.490890] PTE cache page numbers:227
+<4>[  518.490892] PTE table page numbers:104
+<4>[  518.490893] 
+<4>[  548.487258] PGD allocation:(average:35322ns per 37844)
+<4>[  548.487261] PMD allocation:(average:24886ns per 151376)
+<4>[  548.487263] PTE allocation:(average:14016ns per 189222)
+<4>[  548.487265] 
+<4>[  548.487268] PGD cache page numbers:39
+<4>[  548.487270] PGD table page numbers:8
+<4>[  548.487272] PMD cache page numbers:204
+<4>[  548.487274] PMD table page numbers:28
+<4>[  548.487276] PTE cache page numbers:236
+<4>[  548.487278] PTE table page numbers:95
+<4>[  548.487279] 
+<4>[  578.490543] PGD allocation:(average:35401ns per 36874)
+<4>[  578.490547] PMD allocation:(average:24894ns per 147496)
+<4>[  578.490549] PTE allocation:(average:13847ns per 184373)
+<4>[  578.490551] 
+<4>[  578.490553] PGD cache page numbers:42
+<4>[  578.490555] PGD table page numbers:6
+<4>[  578.490557] PMD cache page numbers:212
+<4>[  578.490559] PMD table page numbers:20
+<4>[  578.490561] PTE cache page numbers:246
+<4>[  578.490563] PTE table page numbers:85
+<4>[  578.490565] 
+<4>[  608.492277] PGD allocation:(average:85025ns per 36708)
+<4>[  608.492281] PMD allocation:(average:24825ns per 146832)
+<4>[  608.492283] PTE allocation:(average:13915ns per 183542)
+<4>[  608.492285] 
+<4>[  608.492287] PGD cache page numbers:42
+<4>[  608.492289] PGD table page numbers:7
+<4>[  608.492291] PMD cache page numbers:208
+<4>[  608.492293] PMD table page numbers:24
+<4>[  608.492295] PTE cache page numbers:241
+<4>[  608.492297] PTE table page numbers:90
+<4>[  608.492299] 
+<4>[  642.197396] PGD allocation:(average:35599ns per 34980)
+<4>[  642.197400] PMD allocation:(average:24790ns per 139920)
+<4>[  642.197402] PTE allocation:(average:14036ns per 174903)
+<4>[  642.197404] 
+<4>[  642.197406] PGD cache page numbers:44
+<4>[  642.197408] PGD table page numbers:4
+<4>[  642.197410] PMD cache page numbers:220
+<4>[  642.197412] PMD table page numbers:12
+<4>[  642.197414] PTE cache page numbers:255
+<4>[  642.197416] PTE table page numbers:76
+<4>[  642.197418] 
+<4>[  668.495404] PGD allocation:(average:35594ns per 32698)
+<4>[  668.495407] PMD allocation:(average:24928ns per 130792)
+<4>[  668.495410] PTE allocation:(average:14736ns per 130803)
+<4>[  668.495412] 
+<4>[  668.495414] PGD cache page numbers:40
+<4>[  668.495416] PGD table page numbers:7
+<4>[  668.495418] PMD cache page numbers:208
+<4>[  668.495420] PMD table page numbers:24
+<4>[  668.495422] PTE cache page numbers:243
+<4>[  668.495424] PTE table page numbers:88
+<4>[  668.495426] 
+<4>[  698.485438] PGD allocation:(average:35253ns per 38198)
+<4>[  698.485442] PMD allocation:(average:24826ns per 152792)
+<4>[  698.485444] PTE allocation:(average:14512ns per 162241)
+<4>[  698.485446] 
+<4>[  698.485448] PGD cache page numbers:37
+<4>[  698.485450] PGD table page numbers:11
+<4>[  698.485452] PMD cache page numbers:192
+<4>[  698.485455] PMD table page numbers:40
+<4>[  698.485457] PTE cache page numbers:222
+<4>[  698.485458] PTE table page numbers:109
+<4>[  698.485460] 
+<4>[  728.489302] PGD allocation:(average:35389ns per 37792)
+<4>[  728.489306] PMD allocation:(average:24865ns per 151168)
+<4>[  728.489308] PTE allocation:(average:13984ns per 188964)
+<4>[  728.489310] 
+<4>[  728.489312] PGD cache page numbers:40
+<4>[  728.489314] PGD table page numbers:6
+<4>[  728.489316] PMD cache page numbers:212
+<4>[  728.489318] PMD table page numbers:20
+<4>[  728.489320] PTE cache page numbers:246
+<4>[  728.489322] PTE table page numbers:85
+<4>[  728.489324] 
+<4>[  758.490767] PGD allocation:(average:68618ns per 37252)
+<4>[  758.490771] PMD allocation:(average:24880ns per 149008)
+<4>[  758.490773] PTE allocation:(average:13951ns per 186263)
+<4>[  758.490775] 
+<4>[  758.490777] PGD cache page numbers:42
+<4>[  758.490779] PGD table page numbers:6
+<4>[  758.490781] PMD cache page numbers:212
+<4>[  758.490783] PMD table page numbers:20
+<4>[  758.490785] PTE cache page numbers:246
+<4>[  758.490787] PTE table page numbers:85
+<4>[  758.490789] 
+<4>[  788.485497] PGD allocation:(average:82412ns per 36922)
+<4>[  788.485500] PMD allocation:(average:24877ns per 147688)
+<4>[  788.485502] PTE allocation:(average:13886ns per 184612)
+<4>[  788.485504] 
+<4>[  788.485507] PGD cache page numbers:42
+<4>[  788.485509] PGD table page numbers:7
+<4>[  788.485511] PMD cache page numbers:208
+<4>[  788.485513] PMD table page numbers:24
+<4>[  788.485515] PTE cache page numbers:241
+<4>[  788.485517] PTE table page numbers:90
+<4>[  788.485518] 
+<4>[  820.021399] PGD allocation:(average:35761ns per 32208)
+<4>[  820.021402] PMD allocation:(average:24999ns per 128832)
+<4>[  820.021405] PTE allocation:(average:14453ns per 161043)
+<4>[  820.021407] 
+<4>[  820.021409] PGD cache page numbers:43
+<4>[  820.021411] PGD table page numbers:3
+<4>[  820.021413] PMD cache page numbers:224
+<4>[  820.021415] PMD table page numbers:8
+<4>[  820.021417] PTE cache page numbers:261
+<4>[  820.021419] PTE table page numbers:70
+<4>[  820.021421] 
+<4>[  848.493815] PGD allocation:(average:35219ns per 35900)
+<4>[  848.493818] PMD allocation:(average:24812ns per 143600)
+<4>[  848.493820] PTE allocation:(average:13658ns per 174332)
+<4>[  848.493822] 
+<4>[  848.493825] PGD cache page numbers:41
+<4>[  848.493827] PGD table page numbers:7
+<4>[  848.493829] PMD cache page numbers:208
+<4>[  848.493831] PMD table page numbers:24
+<4>[  848.493833] PTE cache page numbers:244
+<4>[  848.493835] PTE table page numbers:87
+<4>[  848.493836] 
+<4>[  878.493119] PGD allocation:(average:35721ns per 38325)
+<4>[  878.493122] PMD allocation:(average:24940ns per 153300)
+<4>[  878.493124] PTE allocation:(average:13014ns per 153306)
+<4>[  878.493126] 
+<4>[  878.493129] PGD cache page numbers:42
+<4>[  878.493131] PGD table page numbers:7
+<4>[  878.493133] PMD cache page numbers:208
+<4>[  878.493135] PMD table page numbers:24
+<4>[  878.493137] PTE cache page numbers:245
+<4>[  878.493139] PTE table page numbers:86
+<4>[  878.493140] 
+<4>[  908.489326] PGD allocation:(average:35380ns per 37275)
+<4>[  908.489329] PMD allocation:(average:24999ns per 149100)
+<4>[  908.489331] PTE allocation:(average:14358ns per 168486)
+<4>[  908.489333] 
+<4>[  908.489336] PGD cache page numbers:41
+<4>[  908.489338] PGD table page numbers:7
+<4>[  908.489340] PMD cache page numbers:208
+<4>[  908.489342] PMD table page numbers:24
+<4>[  908.489344] PTE cache page numbers:226
+<4>[  908.489346] PTE table page numbers:105
+<4>[  908.489348] 
+<4>[  938.486843] PGD allocation:(average:36158ns per 35201)
+<4>[  938.486846] PMD allocation:(average:25713ns per 140804)
+<4>[  938.486848] PTE allocation:(average:14222ns per 176051)
+<4>[  938.486851] 
+<4>[  938.486853] PGD cache page numbers:40
+<4>[  938.486855] PGD table page numbers:8
+<4>[  938.486857] PMD cache page numbers:204
+<4>[  938.486859] PMD table page numbers:28
+<4>[  938.486861] PTE cache page numbers:242
+<4>[  938.486863] PTE table page numbers:89
+<4>[  938.486865] 
+<4>[  968.484541] PGD allocation:(average:37124ns per 33189)
+<4>[  968.484544] PMD allocation:(average:26309ns per 132756)
+<4>[  968.484547] PTE allocation:(average:14308ns per 165939)
+<4>[  968.484549] 
+<4>[  968.484551] PGD cache page numbers:17
+<4>[  968.484553] PGD table page numbers:21
+<4>[  968.484555] PMD cache page numbers:152
+<4>[  968.484557] PMD table page numbers:80
+<4>[  968.484559] PTE cache page numbers:191
+<4>[  968.484561] PTE table page numbers:140
+<4>[  968.484563] 
+<4>[ 1002.331878] PGD allocation:(average:35198ns per 35191)
+<4>[ 1002.331881] PMD allocation:(average:25021ns per 140764)
+<4>[ 1002.331883] PTE allocation:(average:14002ns per 176040)
+<4>[ 1002.331886] 
+<4>[ 1002.331888] PGD cache page numbers:44
+<4>[ 1002.331890] PGD table page numbers:3
+<4>[ 1002.331892] PMD cache page numbers:224
+<4>[ 1002.331894] PMD table page numbers:8
+<4>[ 1002.331896] PTE cache page numbers:259
+<4>[ 1002.331898] PTE table page numbers:72
+<4>[ 1002.331900] 
+<4>[ 1028.486115] PGD allocation:(average:35555ns per 31978)
+<4>[ 1028.486119] PMD allocation:(average:25139ns per 127912)
+<4>[ 1028.486121] PTE allocation:(average:14118ns per 161143)
+<4>[ 1028.486123] 
+<4>[ 1028.486125] PGD cache page numbers:39
+<4>[ 1028.486127] PGD table page numbers:8
+<4>[ 1028.486129] PMD cache page numbers:204
+<4>[ 1028.486131] PMD table page numbers:28
+<4>[ 1028.486133] PTE cache page numbers:233
+<4>[ 1028.486135] PTE table page numbers:98
+<4>[ 1028.486137] 
+<4>[ 1058.489740] PGD allocation:(average:35431ns per 38128)
+<4>[ 1058.489743] PMD allocation:(average:25046ns per 152512)
+<4>[ 1058.489745] PTE allocation:(average:13711ns per 220115)
+<4>[ 1058.489748] 
+<4>[ 1058.489750] PGD cache page numbers:41
+<4>[ 1058.489752] PGD table page numbers:8
+<4>[ 1058.489754] PMD cache page numbers:204
+<4>[ 1058.489756] PMD table page numbers:28
+<4>[ 1058.489758] PTE cache page numbers:236
+<4>[ 1058.489760] PTE table page numbers:96
+<4>[ 1058.489762] 
+<4>[ 1088.490871] PGD allocation:(average:34940ns per 37560)
+<4>[ 1088.490874] PMD allocation:(average:24915ns per 150240)
+<4>[ 1088.490876] PTE allocation:(average:14081ns per 187803)
+<4>[ 1088.490879] 
+<4>[ 1088.490881] PGD cache page numbers:44
+<4>[ 1088.490883] PGD table page numbers:5
+<4>[ 1088.490885] PMD cache page numbers:216
+<4>[ 1088.490887] PMD table page numbers:16
+<4>[ 1088.490889] PTE cache page numbers:251
+<4>[ 1088.490891] PTE table page numbers:81
+<4>[ 1088.490893] 
+<4>[ 1118.484439] PGD allocation:(average:37356ns per 34474)
+<4>[ 1118.484442] PMD allocation:(average:4902ns per 137896)
+<4>[ 1118.484444] PTE allocation:(average:18583ns per 172477)
+<4>[ 1118.484446] 
+<4>[ 1118.484449] PGD cache page numbers:38
+<4>[ 1118.484451] PGD table page numbers:9
+<4>[ 1118.484453] PMD cache page numbers:859
+<4>[ 1118.484455] PMD table page numbers:32
+<4>[ 1118.484457] PTE cache page numbers:1939
+<4>[ 1118.484459] PTE table page numbers:98
+<4>[ 1118.484461] 
+<4>[ 1148.507887] PGD allocation:(average:38106ns per 34664)
+<4>[ 1148.507890] PMD allocation:(average:26388ns per 138656)
+<4>[ 1148.507892] PTE allocation:(average:14700ns per 173332)
+<4>[ 1148.507894] 
+<4>[ 1148.507896] PGD cache page numbers:44
+<4>[ 1148.507898] PGD table page numbers:5
+<4>[ 1148.507900] PMD cache page numbers:875
+<4>[ 1148.507902] PMD table page numbers:16
+<4>[ 1148.507904] PTE cache page numbers:1961
+<4>[ 1148.507906] PTE table page numbers:76
+<4>[ 1148.507908] 
+
+<4>[ 1178.489951] PGD allocation:(average:36968ns per 35346)
+<4>[ 1178.489954] PMD allocation:(average:25509ns per 141384)
+<4>[ 1178.489957] PTE allocation:(average:14357ns per 177003)
+<4>[ 1178.489959] 
+<4>[ 1178.489961] PGD cache page numbers:39
+<4>[ 1178.489963] PGD table page numbers:9
+<4>[ 1178.489965] PMD cache page numbers:859
+<4>[ 1178.489967] PMD table page numbers:32
+<4>[ 1178.489969] PTE cache page numbers:1929
+<4>[ 1178.489971] PTE table page numbers:108
+<4>[ 1178.489973] 
+<4>[ 1211.488908] PGD allocation:(average:36317ns per 33740)
+<4>[ 1211.488912] PMD allocation:(average:25569ns per 134960)
+<4>[ 1211.488914] PTE allocation:(average:14423ns per 168703)
+<4>[ 1211.488916] 
+<4>[ 1211.488918] PGD cache page numbers:42
+<4>[ 1211.488921] PGD table page numbers:6
+<4>[ 1211.488923] PMD cache page numbers:871
+<4>[ 1211.488925] PMD table page numbers:20
+<4>[ 1211.488927] PTE cache page numbers:1943
+<4>[ 1211.488929] PTE table page numbers:94
+<4>[ 1211.488931] 
+
+<4>[ 1238.488339] PGD allocation:(average:36957ns per 32208)
+<4>[ 1238.488343] PMD allocation:(average:25150ns per 128832)
+<4>[ 1238.488345] PTE allocation:(average:14313ns per 161043)
+<4>[ 1238.488347] 
+<4>[ 1238.488349] PGD cache page numbers:39
+<4>[ 1238.488351] PGD table page numbers:10
+<4>[ 1238.488353] PMD cache page numbers:855
+<4>[ 1238.488355] PMD table page numbers:36
+<4>[ 1238.488357] PTE cache page numbers:1924
+<4>[ 1238.488359] PTE table page numbers:113
+<4>[ 1238.488361] 
+<4>[ 1268.488562] PGD allocation:(average:36426ns per 37913)
+<4>[ 1268.488565] PMD allocation:(average:25393ns per 151652)
+<4>[ 1268.488568] PTE allocation:(average:14297ns per 189567)
+<4>[ 1268.488570] 
+<4>[ 1268.488572] PGD cache page numbers:38
+<4>[ 1268.488574] PGD table page numbers:10
+<4>[ 1268.488576] PMD cache page numbers:855
+<4>[ 1268.488578] PMD table page numbers:36
+<4>[ 1268.488580] PTE cache page numbers:1924
+<4>[ 1268.488582] PTE table page numbers:113
+<4>[ 1268.488584] 
+
+<4>[ 1298.499562] PGD allocation:(average:36144ns per 37375)
+<4>[ 1298.499566] PMD allocation:(average:25012ns per 149500)
+<4>[ 1298.499568] PTE allocation:(average:14056ns per 186877)
+<4>[ 1298.499570] 
+<4>[ 1298.499572] PGD cache page numbers:37
+<4>[ 1298.499574] PGD table page numbers:10
+<4>[ 1298.499577] PMD cache page numbers:855
+<4>[ 1298.499579] PMD table page numbers:36
+<4>[ 1298.499581] PTE cache page numbers:1924
+<4>[ 1298.499583] PTE table page numbers:113
+<4>[ 1298.499584] 
+<4>[ 1328.487191] PGD allocation:(average:36235ns per 36398)
+<4>[ 1328.487195] PMD allocation:(average:25171ns per 145592)
+<4>[ 1328.487197] PTE allocation:(average:14356ns per 181993)
+<4>[ 1328.487199] 
+<4>[ 1328.487201] PGD cache page numbers:32
+<4>[ 1328.487203] PGD table page numbers:8
+<4>[ 1328.487205] PMD cache page numbers:863
+<4>[ 1328.487207] PMD table page numbers:28
+<4>[ 1328.487209] PTE cache page numbers:1934
+<4>[ 1328.487211] PTE table page numbers:103
+<4>[ 1328.487213] 
+
+<4>[ 1358.485265] PGD allocation:(average:36133ns per 36378)
+<4>[ 1358.485269] PMD allocation:(average:25382ns per 145512)
+<4>[ 1358.485271] PTE allocation:(average:14444ns per 181888)
+<4>[ 1358.485273] 
+<4>[ 1358.485276] PGD cache page numbers:33
+<4>[ 1358.485278] PGD table page numbers:16
+<4>[ 1358.485280] PMD cache page numbers:831
+<4>[ 1358.485282] PMD table page numbers:60
+<4>[ 1358.485284] PTE cache page numbers:1897
+<4>[ 1358.485286] PTE table page numbers:140
+<4>[ 1358.485287] 
+<4>[ 1392.387997] PGD allocation:(average:36493ns per 34798)
+<4>[ 1392.388000] PMD allocation:(average:25402ns per 139192)
+<4>[ 1392.388003] PTE allocation:(average:14557ns per 173994)
+<4>[ 1392.388005] 
+<4>[ 1392.388007] PGD cache page numbers:42
+<4>[ 1392.388009] PGD table page numbers:6
+<4>[ 1392.388011] PMD cache page numbers:871
+<4>[ 1392.388013] PMD table page numbers:20
+<4>[ 1392.388015] PTE cache page numbers:1943
+<4>[ 1392.388017] PTE table page numbers:94
+<4>[ 1392.388019] 
+
+<4>[ 1418.644307] PGD allocation:(average:36009ns per 30724)
+<4>[ 1418.644311] PMD allocation:(average:25542ns per 122896)
+<4>[ 1418.644313] PTE allocation:(average:14454ns per 153621)
+<4>[ 1418.644315] 
+<4>[ 1418.644317] PGD cache page numbers:43
+<4>[ 1418.644319] PGD table page numbers:6
+<4>[ 1418.644321] PMD cache page numbers:871
+<4>[ 1418.644323] PMD table page numbers:20
+<4>[ 1418.644325] PTE cache page numbers:1943
+<4>[ 1418.644327] PTE table page numbers:94
+<4>[ 1418.644329] 
+<4>[ 1448.500617] PGD allocation:(average:36307ns per 37759)
+<4>[ 1448.500620] PMD allocation:(average:25222ns per 151036)
+<4>[ 1448.500623] PTE allocation:(average:14248ns per 188798)
+<4>[ 1448.500625] 
+<4>[ 1448.500627] PGD cache page numbers:43
+<4>[ 1448.500629] PGD table page numbers:11
+<4>[ 1448.500631] PMD cache page numbers:851
+<4>[ 1448.500633] PMD table page numbers:40
+<4>[ 1448.500635] PTE cache page numbers:1920
+<4>[ 1448.500637] PTE table page numbers:117
+<4>[ 1448.500639] 
+
+<4>[ 1478.484525] PGD allocation:(average:36691ns per 37450)
+<4>[ 1478.484529] PMD allocation:(average:25417ns per 149800)
+<4>[ 1478.484531] PTE allocation:(average:14499ns per 187250)
+<4>[ 1478.484533] 
+<4>[ 1478.484535] PGD cache page numbers:37
+<4>[ 1478.484537] PGD table page numbers:10
+<4>[ 1478.484539] PMD cache page numbers:855
+<4>[ 1478.484541] PMD table page numbers:36
+<4>[ 1478.484543] PTE cache page numbers:1926
+<4>[ 1478.484545] PTE table page numbers:111
+<4>[ 1478.484547] 
+<4>[ 1508.484876] PGD allocation:(average:37016ns per 37228)
+<4>[ 1508.484879] PMD allocation:(average:25538ns per 148912)
+<4>[ 1508.484881] PTE allocation:(average:14845ns per 165882)
+<4>[ 1508.484883] 
+<4>[ 1508.484886] PGD cache page numbers:39
+<4>[ 1508.484888] PGD table page numbers:10
+<4>[ 1508.484890] PMD cache page numbers:855
+<4>[ 1508.484892] PMD table page numbers:36
+<4>[ 1508.484894] PTE cache page numbers:1927
+<4>[ 1508.484896] PTE table page numbers:110
+<4>[ 1508.484897] 
+
+<4>[ 1538.486661] PGD allocation:(average:87234ns per 36129)
+<4>[ 1538.486665] PMD allocation:(average:25617ns per 144516)
+<4>[ 1538.486667] PTE allocation:(average:14658ns per 170189)
+<4>[ 1538.486669] 
+<4>[ 1538.486671] PGD cache page numbers:40
+<4>[ 1538.486673] PGD table page numbers:9
+<4>[ 1538.486675] PMD cache page numbers:859
+<4>[ 1538.486677] PMD table page numbers:32
+<4>[ 1538.486679] PTE cache page numbers:1929
+<4>[ 1538.486681] PTE table page numbers:108
+<4>[ 1538.486683] 
+<4>[ 1573.313398] PGD allocation:(average:37341ns per 35780)
+<4>[ 1573.313402] PMD allocation:(average:25557ns per 143120)
+<4>[ 1573.313404] PTE allocation:(average:12654ns per 148183)
+<4>[ 1573.313406] 
+<4>[ 1573.313408] PGD cache page numbers:43
+<4>[ 1573.313410] PGD table page numbers:6
+<4>[ 1573.313412] PMD cache page numbers:871
+<4>[ 1573.313414] PMD table page numbers:20
+<4>[ 1573.313416] PTE cache page numbers:1943
+<4>[ 1573.313418] PTE table page numbers:94
+<4>[ 1573.313420] 
+
+<4>[ 1599.140049] PGD allocation:(average:36904ns per 30724)
+<4>[ 1599.140052] PMD allocation:(average:25545ns per 122896)
+<4>[ 1599.140055] PTE allocation:(average:14456ns per 153623)
+<4>[ 1599.140057] 
+<4>[ 1599.140059] PGD cache page numbers:41
+<4>[ 1599.140061] PGD table page numbers:6
+<4>[ 1599.140063] PMD cache page numbers:871
+<4>[ 1599.140065] PMD table page numbers:20
+<4>[ 1599.140067] PTE cache page numbers:1943
+<4>[ 1599.140069] PTE table page numbers:94
+<4>[ 1599.140071] 
+<4>[ 1628.488428] PGD allocation:(average:91718ns per 36959)
+<4>[ 1628.488431] PMD allocation:(average:25336ns per 147836)
+<4>[ 1628.488434] PTE allocation:(average:14339ns per 184798)
+<4>[ 1628.488436] 
+<4>[ 1628.488438] PGD cache page numbers:38
+<4>[ 1628.488440] PGD table page numbers:10
+<4>[ 1628.488442] PMD cache page numbers:855
+<4>[ 1628.488444] PMD table page numbers:36
+<4>[ 1628.488446] PTE cache page numbers:1925
+<4>[ 1628.488448] PTE table page numbers:112
+<4>[ 1628.488450] 
+
+<4>[ 1658.492706] PGD allocation:(average:36816ns per 37331)
+<4>[ 1658.492710] PMD allocation:(average:25227ns per 149324)
+<4>[ 1658.492712] PTE allocation:(average:14261ns per 186659)
+<4>[ 1658.492714] 
+<4>[ 1658.492716] PGD cache page numbers:40
+<4>[ 1658.492718] PGD table page numbers:9
+<4>[ 1658.492720] PMD cache page numbers:859
+<4>[ 1658.492722] PMD table page numbers:32
+<4>[ 1658.492724] PTE cache page numbers:1929
+<4>[ 1658.492726] PTE table page numbers:108
+<4>[ 1658.492728] 
+<4>[ 1688.498389] PGD allocation:(average:89344ns per 36265)
+<4>[ 1688.498392] PMD allocation:(average:25095ns per 145060)
+<4>[ 1688.498395] PTE allocation:(average:14190ns per 181327)
+<4>[ 1688.498397] 
+<4>[ 1688.498399] PGD cache page numbers:36
+<4>[ 1688.498401] PGD table page numbers:10
+<4>[ 1688.498403] PMD cache page numbers:855
+<4>[ 1688.498405] PMD table page numbers:36
+<4>[ 1688.498407] PTE cache page numbers:1924
+<4>[ 1688.498409] PTE table page numbers:113
+<4>[ 1688.498411] 
+
+<4>[ 1718.485299] PGD allocation:(average:37116ns per 36477)
+<4>[ 1718.485302] PMD allocation:(average:25458ns per 145908)
+<4>[ 1718.485305] PTE allocation:(average:14446ns per 182387)
+<4>[ 1718.485307] 
+<4>[ 1718.485309] PGD cache page numbers:39
+<4>[ 1718.485311] PGD table page numbers:10
+<4>[ 1718.485313] PMD cache page numbers:855
+<4>[ 1718.485315] PMD table page numbers:36
+<4>[ 1718.485317] PTE cache page numbers:1925
+<4>[ 1718.485319] PTE table page numbers:112
+<4>[ 1718.485321] 
+<4>[ 1748.497759] PGD allocation:(average:37136ns per 35776)
+<4>[ 1748.497762] PMD allocation:(average:25586ns per 143104)
+<4>[ 1748.497765] PTE allocation:(average:14313ns per 178884)
+<4>[ 1748.497767] 
+<4>[ 1748.497769] PGD cache page numbers:40
+<4>[ 1748.497771] PGD table page numbers:8
+<4>[ 1748.497773] PMD cache page numbers:863
+<4>[ 1748.497775] PMD table page numbers:28
+<4>[ 1748.497777] PTE cache page numbers:1933
+<4>[ 1748.497779] PTE table page numbers:104
+<4>[ 1748.497781] 
+
+<4>[ 1780.526350] PGD allocation:(average:37128ns per 32260)
+<4>[ 1780.526354] PMD allocation:(average:25624ns per 129040)
+<4>[ 1780.526356] PTE allocation:(average:14608ns per 161303)
+<4>[ 1780.526358] 
+<4>[ 1780.526360] PGD cache page numbers:35
+<4>[ 1780.526362] PGD table page numbers:6
+<4>[ 1780.526364] PMD cache page numbers:871
+<4>[ 1780.526366] PMD table page numbers:20
+<4>[ 1780.526368] PTE cache page numbers:1942
+<4>[ 1780.526370] PTE table page numbers:95
+<4>[ 1780.526372] 
+<4>[ 1808.492841] PGD allocation:(average:37526ns per 34568)
+<4>[ 1808.492845] PMD allocation:(average:25572ns per 138272)
+<4>[ 1808.492847] PTE allocation:(average:14389ns per 172844)
+<4>[ 1808.492849] 
+<4>[ 1808.492851] PGD cache page numbers:38
+<4>[ 1808.492853] PGD table page numbers:8
+<4>[ 1808.492855] PMD cache page numbers:863
+<4>[ 1808.492857] PMD table page numbers:28
+<4>[ 1808.492859] PTE cache page numbers:1933
+<4>[ 1808.492861] PTE table page numbers:104
+<4>[ 1808.492863] 
+
+<4>[ 1838.484812] PGD allocation:(average:74948ns per 37670)
+<4>[ 1838.484815] PMD allocation:(average:25269ns per 150680)
+<4>[ 1838.484818] PTE allocation:(average:14109ns per 188351)
+<4>[ 1838.484820] 
+<4>[ 1838.484822] PGD cache page numbers:29
+<4>[ 1838.484824] PGD table page numbers:10
+<4>[ 1838.484826] PMD cache page numbers:855
+<4>[ 1838.484828] PMD table page numbers:36
+<4>[ 1838.484830] PTE cache page numbers:1924
+<4>[ 1838.484832] PTE table page numbers:113
+<4>[ 1838.484834] 
+<4>[ 1868.484495] PGD allocation:(average:37180ns per 37098)
+<4>[ 1868.484498] PMD allocation:(average:25597ns per 148392)
+<4>[ 1868.484501] PTE allocation:(average:14424ns per 185495)
+<4>[ 1868.484503] 
+<4>[ 1868.484505] PGD cache page numbers:33
+<4>[ 1868.484507] PGD table page numbers:12
+<4>[ 1868.484509] PMD cache page numbers:847
+<4>[ 1868.484511] PMD table page numbers:44
+<4>[ 1868.484513] PTE cache page numbers:1917
+<4>[ 1868.484515] PTE table page numbers:120
+<4>[ 1868.484517] 
+
+<4>[ 1898.489382] PGD allocation:(average:37113ns per 36303)
+<4>[ 1898.489385] PMD allocation:(average:25580ns per 145212)
+<4>[ 1898.489387] PTE allocation:(average:14432ns per 181520)
+<4>[ 1898.489390] 
+<4>[ 1898.489392] PGD cache page numbers:39
+<4>[ 1898.489394] PGD table page numbers:11
+<4>[ 1898.489396] PMD cache page numbers:851
+<4>[ 1898.489398] PMD table page numbers:40
+<4>[ 1898.489400] PTE cache page numbers:1918
+<4>[ 1898.489402] PTE table page numbers:119
+<4>[ 1898.489404] 
+<4>[ 1928.498012] PGD allocation:(average:36926ns per 36186)
+<4>[ 1928.498015] PMD allocation:(average:25630ns per 144744)
+<4>[ 1928.498018] PTE allocation:(average:14397ns per 180933)
+<4>[ 1928.498020] 
+<4>[ 1928.498022] PGD cache page numbers:38
+<4>[ 1928.498024] PGD table page numbers:10
+<4>[ 1928.498026] PMD cache page numbers:855
+<4>[ 1928.498028] PMD table page numbers:36
+<4>[ 1928.498030] PTE cache page numbers:1923
+<4>[ 1928.498032] PTE table page numbers:114
+<4>[ 1928.498034] 
+
+<4>[ 1959.564277] PGD allocation:(average:37075ns per 33275)
+<4>[ 1959.564281] PMD allocation:(average:25919ns per 133100)
+<4>[ 1959.564283] PTE allocation:(average:14768ns per 166608)
+<4>[ 1959.564285] 
+<4>[ 1959.564287] PGD cache page numbers:30
+<4>[ 1959.564290] PGD table page numbers:10
+<4>[ 1959.564292] PMD cache page numbers:855
+<4>[ 1959.564294] PMD table page numbers:36
+<4>[ 1959.564296] PTE cache page numbers:1828
+<4>[ 1959.564298] PTE table page numbers:209
+<4>[ 1959.564299] 
+<4>[ 1990.814543] PGD allocation:(average:36954ns per 30729)
+<4>[ 1990.814546] PMD allocation:(average:26587ns per 122916)
+<4>[ 1990.814549] PTE allocation:(average:14447ns per 153804)
+<4>[ 1990.814551] 
+<4>[ 1990.814553] PGD cache page numbers:46
+<4>[ 1990.814555] PGD table page numbers:11
+<4>[ 1990.814557] PMD cache page numbers:851
+<4>[ 1990.814559] PMD table page numbers:40
+<4>[ 1990.814561] PTE cache page numbers:1770
+<4>[ 1990.814563] PTE table page numbers:267
+<4>[ 1990.814565] 

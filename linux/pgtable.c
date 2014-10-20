@@ -164,11 +164,12 @@ void free_pgd_page(unsigned long addr)
     pgd_free_counter++;
     //spin_unlock(&pgd_cache_lock);
    
-    if(pgd_free_counter)
+    if(pgd_used_counter)
     { 
     	//if((pgd_free_counter/pgd_used_counter>=4) && ((pgd_used_counter + pgd_free_counter) >= 450))
-    	if((pgd_used_counter/pgd_free_counter < 4) && ((pgd_used_counter + pgd_free_counter) >= 150))
-    	//if((pgd_used_counter/pgd_free_counter < 4) && (pgd_used_counter >= 110))
+    	//if((pgd_used_counter/pgd_free_counter < 4) && ((pgd_used_counter + pgd_free_counter) >= 150))
+    	//if((pgd_used_counter/pgd_free_counter < 1) && (pgd_used_counter >= 12))
+    	if((pgd_free_counter/pgd_used_counter >= 6) && ((pgd_used_counter + pgd_free_counter) >= 50))
     	{
         	counter = pgd_free_counter * 3 / 10;
         	for(i=0;i<counter;i++)
@@ -235,11 +236,13 @@ void free_pmd_page(unsigned long addr)
     	pmd_used_counter--;
     pmd_free_counter++;
    
-    if(pmd_free_counter) 
+    if(pmd_used_counter) 
     {
 	//if((pmd_free_counter/pmd_used_counter>=3) && ((pmd_used_counter + pmd_free_counter) >= 1800))
-    	if((pmd_used_counter/pmd_free_counter < 8) && ((pmd_used_counter + pmd_free_counter) >= 600))
-    	//if((pmd_used_counter/pmd_free_counter < 4) && (pmd_used_counter >= 450))
+    	//if((pmd_used_counter/pmd_free_counter < 8) && ((pmd_used_counter + pmd_free_counter) >= 600))
+    	//if((pmd_used_counter/pmd_free_counter < 1) && (pmd_used_counter >= 42))
+    	//if((pmd_free_counter/pmd_used_counter >= 4) && (pmd_used_counter >= 80))
+    	if((pmd_free_counter/pmd_used_counter >= 6) && ((pgd_used_counter + pgd_free_counter) >= 230))
     	{
         	counter = pmd_free_counter * 3 / 10;
        		for(i=0;i<counter;i++)
@@ -327,11 +330,12 @@ void free_pte_page(struct page *pte)
     pte_free_counter++;
     //spin_unlock(&pte_cache_lock);
    
-    if(pte_free_counter)
+    if(pte_used_counter)
     { 
     	//if((pte_free_counter/pte_used_counter>=8) && ((pte_used_counter + pte_free_counter) >= 2100))
     	//if(pte_used_counter + pte_free_counter >= 2100)
-    	if((pte_used_counter/pte_free_counter < 4) && (pte_used_counter >= 1800))
+    	//if((pte_used_counter/pte_free_counter < 1) && (pte_used_counter >= 63))
+    	if((pte_free_counter/pte_used_counter >= 6) && (pte_used_counter >= 320))
     	{
         	counter = pte_free_counter * 3 / 10;
         	for(i=0;i<counter;i++)
