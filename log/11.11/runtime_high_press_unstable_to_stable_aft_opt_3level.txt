@@ -1,0 +1,67 @@
+(XEN) flush_counter:0, diff_time:60002, aver_flu_cnt:0
+(XEN) flush_counter:0, diff_time:60001, aver_flu_cnt:0
+(XEN) flush_counter:0, diff_time:60007, aver_flu_cnt:0
+(XEN) flush_counter:0, diff_time:60007, aver_flu_cnt:0
+(XEN) flush_counter:633, diff_time:60003, aver_flu_cnt:63296
+(XEN) flush_counter:9035, diff_time:60001, aver_flu_cnt:903484
+(XEN) flush_counter:9212, diff_time:60000, aver_flu_cnt:921200
+(XEN) flush_counter:9225, diff_time:60005, aver_flu_cnt:922423
+(XEN) flush_counter:9227, diff_time:60000, aver_flu_cnt:922700
+(XEN) flush_counter:9102, diff_time:60002, aver_flu_cnt:910169
+(XEN) flush_counter:8503, diff_time:60005, aver_flu_cnt:850229
+(XEN) flush_counter:3012, diff_time:60000, aver_flu_cnt:301200
+(XEN) flush_counter:20, diff_time:60003, aver_flu_cnt:1999
+(XEN) flush_counter:25, diff_time:60003, aver_flu_cnt:2499
+(XEN) flush_counter:15, diff_time:60005, aver_flu_cnt:1499
+(XEN) flush_counter:20, diff_time:60007, aver_flu_cnt:1999
+(XEN) pte_op_hypercall
+(XEN) flush_counter:4, diff_time:60007, aver_flu_cnt:399
+(XEN) flush_counter:17, diff_time:60006, aver_flu_cnt:1699
+(XEN) flush_counter:21, diff_time:60000, aver_flu_cnt:2100
+(XEN) flush_counter:20, diff_time:60000, aver_flu_cnt:2000
+(XEN) flush_counter:21, diff_time:60001, aver_flu_cnt:2099
+(XEN) pte_op_hypercall
+(XEN) flush_counter:17, diff_time:60002, aver_flu_cnt:1699
+(XEN) flush_counter:0, diff_time:60006, aver_flu_cnt:0
+(XEN) flush_counter:9, diff_time:60003, aver_flu_cnt:899
+(XEN) flush_counter:23, diff_time:60003, aver_flu_cnt:2299
+(XEN) flush_counter:21, diff_time:60000, aver_flu_cnt:2100
+(XEN) flush_counter:22, diff_time:60000, aver_flu_cnt:2200
+(XEN) pte_op_hypercall
+(XEN) flush_counter:6, diff_time:60002, aver_flu_cnt:599
+(XEN) flush_counter:0, diff_time:60005, aver_flu_cnt:0
+(XEN) flush_counter:19, diff_time:60000, aver_flu_cnt:1900
+(XEN) flush_counter:22, diff_time:60000, aver_flu_cnt:2200
+(XEN) flush_counter:22, diff_time:60000, aver_flu_cnt:2200
+(XEN) flush_counter:20, diff_time:60001, aver_flu_cnt:1999
+(XEN) pte_op_hypercall
+(XEN) flush_counter:0, diff_time:60005, aver_flu_cnt:0
+(XEN) flush_counter:3, diff_time:60002, aver_flu_cnt:299
+(XEN) flush_counter:22, diff_time:60001, aver_flu_cnt:2199
+(XEN) flush_counter:22, diff_time:60000, aver_flu_cnt:2200
+(XEN) flush_counter:20, diff_time:60004, aver_flu_cnt:1999
+(XEN) pte_op_hypercall
+(XEN) flush_counter:11, diff_time:60001, aver_flu_cnt:1099
+(XEN) flush_counter:0, diff_time:60011, aver_flu_cnt:0
+(XEN) flush_counter:14, diff_time:60004, aver_flu_cnt:1399
+(XEN) flush_counter:23, diff_time:60000, aver_flu_cnt:2300
+(XEN) flush_counter:20, diff_time:60002, aver_flu_cnt:1999
+(XEN) flush_counter:20, diff_time:60007, aver_flu_cnt:1999
+(XEN) pte_op_hypercall
+(XEN) flush_counter:6, diff_time:60000, aver_flu_cnt:600
+(XEN) flush_counter:0, diff_time:60004, aver_flu_cnt:0
+(XEN) flush_counter:18, diff_time:60008, aver_flu_cnt:1799
+(XEN) flush_counter:23, diff_time:60004, aver_flu_cnt:2299
+(XEN) flush_counter:21, diff_time:60000, aver_flu_cnt:2100
+(XEN) pte_op_hypercall
+(XEN) flush_counter:18, diff_time:60009, aver_flu_cnt:1799
+(XEN) flush_counter:0, diff_time:60000, aver_flu_cnt:0
+(XEN) flush_counter:6, diff_time:60008, aver_flu_cnt:599
+(XEN) flush_counter:21, diff_time:60004, aver_flu_cnt:2099
+(XEN) flush_counter:23, diff_time:60001, aver_flu_cnt:2299
+(XEN) flush_counter:16, diff_time:60001, aver_flu_cnt:1599
+(XEN) pte_op_hypercall
+(XEN) flush_counter:11, diff_time:60000, aver_flu_cnt:1100
+(XEN) flush_counter:0, diff_time:60003, aver_flu_cnt:0
+(XEN) flush_counter:16, diff_time:60000, aver_flu_cnt:1600
+(XEN) flush_counter:24, diff_time:60006, aver_flu_cnt:2399
