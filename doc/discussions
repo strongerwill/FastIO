@@ -2,6 +2,10 @@ Flash condition changed:
 1) percentage is the same
 2) numbers are different, Now is configured as the pool size, such as 2MB
 
+Flash numbers:
+free_pages - used_page * 4
+(if the percentage is 1/4)
+
 Questions:
 How to decide the percentage
 
