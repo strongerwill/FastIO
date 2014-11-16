@@ -1,0 +1,13 @@
+<4>[  773.090751] cache and timing on.
+
+
+
+
+
+<4>[ 1099.805243] pte free counter is 318
+<4>[ 1099.805247] pte used counter is 6
+
+
+
+
+

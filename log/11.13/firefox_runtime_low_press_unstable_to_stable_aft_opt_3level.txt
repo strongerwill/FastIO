@@ -1,0 +1,138 @@
+
+
+<4>[  603.308919] Disabling lock debugging due to kernel taint
+<4>[  603.310031] cache and timing on.
+
+
+
+
+
+
+<4>[  944.827296] pte free counter is 302
+<4>[  944.827299] pte used counter is 60
+<4>[  944.829696] pte free counter is 300
+<4>[  944.829698] pte used counter is 59
+<4>[  944.829712] pte free counter is 298
+<4>[  944.829714] pte used counter is 58
+<4>[  944.829718] pte free counter is 297
+<4>[  944.829720] pte used counter is 57
+<4>[  944.829725] pte free counter is 296
+<4>[  944.829727] pte used counter is 56
+<4>[  944.829732] pte free counter is 295
+<4>[  944.829734] pte used counter is 55
+<4>[  944.829738] pte free counter is 294
+<4>[  944.829740] pte used counter is 54
+<4>[  944.829744] pte free counter is 293
+<4>[  944.829746] pte used counter is 53
+<4>[  944.829751] pte free counter is 292
+<4>[  944.829753] pte used counter is 52
+<4>[  944.829757] pte free counter is 291
+<4>[  944.829759] pte used counter is 51
+<4>[  944.829764] pte free counter is 290
+<4>[  944.829766] pte used counter is 50
+<4>[  944.829770] pte free counter is 289
+<4>[  944.829772] pte used counter is 49
+<4>[  944.829776] pte free counter is 288
+<4>[  944.829778] pte used counter is 48
+<4>[  944.829783] pte free counter is 287
+<4>[  944.829785] pte used counter is 47
+<4>[  944.829789] pte free counter is 286
+<4>[  944.829791] pte used counter is 46
+<4>[  944.829796] pte free counter is 285
+<4>[  944.829797] pte used counter is 45
+<4>[  944.829832] pte free counter is 284
+<4>[  944.829834] pte used counter is 44
+<4>[  944.829838] pte free counter is 283
+<4>[  944.829840] pte used counter is 43
+<4>[  944.829844] pte free counter is 282
+<4>[  944.829846] pte used counter is 42
+<4>[  944.829850] pte free counter is 281
+<4>[  944.829852] pte used counter is 41
+<4>[  944.829857] pte free counter is 280
+<4>[  944.829859] pte used counter is 40
+
+
+
+
+
+<4>[ 1285.098332] pte free counter is 295
+<4>[ 1285.098335] pte used counter is 59
+<4>[ 1285.098351] pte free counter is 294
+<4>[ 1285.098353] pte used counter is 58
+<4>[ 1285.098357] pte free counter is 293
+<4>[ 1285.098359] pte used counter is 57
+<4>[ 1285.098364] pte free counter is 292
+<4>[ 1285.098366] pte used counter is 56
+<4>[ 1285.098371] pte free counter is 291
+<4>[ 1285.098372] pte used counter is 55
+<4>[ 1285.098377] pte free counter is 290
+<4>[ 1285.098379] pte used counter is 54
+<4>[ 1285.098383] pte free counter is 289
+<4>[ 1285.098385] pte used counter is 53
+<4>[ 1285.098389] pte free counter is 288
+<4>[ 1285.098391] pte used counter is 52
+<4>[ 1285.098396] pte free counter is 287
+<4>[ 1285.098398] pte used counter is 51
+<4>[ 1285.098402] pte free counter is 286
+<4>[ 1285.098404] pte used counter is 50
+<4>[ 1285.098408] pte free counter is 285
+<4>[ 1285.098410] pte used counter is 49
+<4>[ 1285.098414] pte free counter is 284
+<4>[ 1285.098416] pte used counter is 48
+<4>[ 1285.098421] pte free counter is 283
+<4>[ 1285.098423] pte used counter is 47
+<4>[ 1285.098427] pte free counter is 282
+<4>[ 1285.098429] pte used counter is 46
+<4>[ 1285.098433] pte free counter is 281
+<4>[ 1285.098435] pte used counter is 45
+<4>[ 1285.098470] pte free counter is 280
+<4>[ 1285.098472] pte used counter is 44
+<4>[ 1285.098477] pte free counter is 279
+<4>[ 1285.098479] pte used counter is 43
+<4>[ 1285.098483] pte free counter is 278
+<4>[ 1285.098485] pte used counter is 42
+
+
+
+
+
+
+<4>[ 1621.424568] pte free counter is 294
+<4>[ 1621.424571] pte used counter is 58
+<4>[ 1621.424587] pte free counter is 293
+<4>[ 1621.424590] pte used counter is 57
+<4>[ 1621.424594] pte free counter is 292
+<4>[ 1621.424596] pte used counter is 56
+<4>[ 1621.424601] pte free counter is 291
+<4>[ 1621.424603] pte used counter is 55
+<4>[ 1621.424608] pte free counter is 290
+<4>[ 1621.424610] pte used counter is 54
+<4>[ 1621.424614] pte free counter is 289
+<4>[ 1621.424616] pte used counter is 53
+<4>[ 1621.424621] pte free counter is 288
+<4>[ 1621.424622] pte used counter is 52
+<4>[ 1621.424627] pte free counter is 287
+<4>[ 1621.424629] pte used counter is 51
+<4>[ 1621.424633] pte free counter is 286
+<4>[ 1621.424635] pte used counter is 50
+<4>[ 1621.424639] pte free counter is 285
+<4>[ 1621.424641] pte used counter is 49
+<4>[ 1621.424646] pte free counter is 284
+<4>[ 1621.424648] pte used counter is 48
+<4>[ 1621.424652] pte free counter is 283
+<4>[ 1621.424654] pte used counter is 47
+<4>[ 1621.424658] pte free counter is 282
+<4>[ 1621.424660] pte used counter is 46
+<4>[ 1621.424664] pte free counter is 281
+<4>[ 1621.424666] pte used counter is 45
+<4>[ 1621.424670] pte free counter is 280
+<4>[ 1621.424703] pte used counter is 44
+<4>[ 1621.424707] pte free counter is 279
+<4>[ 1621.424709] pte used counter is 43
+<4>[ 1621.424714] pte free counter is 278
+<4>[ 1621.424716] pte used counter is 42
+
+
+
+
+

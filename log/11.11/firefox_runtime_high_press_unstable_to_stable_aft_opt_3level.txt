@@ -1,0 +1,399 @@
+
+
+
+
+
+
+
+<4>[  848.869510] Disabling lock debugging due to kernel taint
+<4>[  848.870759] cache and timing on.
+
+<4>[  911.485184] PGD alloc:(average:54319ns per 543)
+<4>[  911.485187] PGD free:(average:15282ns per 543)
+<4>[  911.485190] PMD alloc:(average:35129ns per 2168)
+<4>[  911.485192] PMD free:(average:16945ns per 2172)
+<4>[  911.485194] PTE alloc:(average:24953ns per 6707)
+<4>[  911.485196] PTE free:(average:17895ns per 6574)
+<4>[  911.485199] 
+<4>[  911.485201] PGD cache page numbers:4
+<4>[  911.485203] PGD table page numbers:2
+<4>[  911.485205] PMD cache page numbers:20
+<4>[  911.485207] PMD table page numbers:4
+<4>[  911.485209] PTE cache page numbers:82
+<4>[  911.485211] PTE table page numbers:144
+<4>[  911.485213] 
+
+<4>[  971.114716] PGD alloc:(average:54505ns per 530)
+<4>[  971.114719] PGD free:(average:14692ns per 530)
+<4>[  971.114722] PMD alloc:(average:35470ns per 2120)
+<4>[  971.114724] PMD free:(average:17629ns per 2120)
+<4>[  971.114726] PTE alloc:(average:23625ns per 6429)
+<4>[  971.114728] PTE free:(average:105337ns per 6408)
+<4>[  971.114730] 
+<4>[  971.114732] PGD cache page numbers:4
+<4>[  971.114735] PGD table page numbers:2
+<4>[  971.114737] PMD cache page numbers:20
+<4>[  971.114739] PMD table page numbers:4
+<4>[  971.114741] PTE cache page numbers:83
+<4>[  971.114743] PTE table page numbers:165
+<4>[  971.114745] 
+
+<4>[ 1030.839406] PGD alloc:(average:54998ns per 530)
+<4>[ 1030.839410] PGD free:(average:15154ns per 530)
+<4>[ 1030.839412] PMD alloc:(average:35814ns per 2120)
+<4>[ 1030.839415] PMD free:(average:15769ns per 2120)
+<4>[ 1030.839417] PTE alloc:(average:23509ns per 6451)
+<4>[ 1030.839419] PTE free:(average:200327ns per 6431)
+<4>[ 1030.839421] 
+<4>[ 1030.839423] PGD cache page numbers:4
+<4>[ 1030.839425] PGD table page numbers:2
+<4>[ 1030.839428] PMD cache page numbers:20
+<4>[ 1030.839430] PMD table page numbers:4
+<4>[ 1030.839432] PTE cache page numbers:82
+<4>[ 1030.839434] PTE table page numbers:185
+<4>[ 1030.839435] 
+
+<4>[ 1091.542848] PGD alloc:(average:55307ns per 540)
+<4>[ 1091.542852] PGD free:(average:14965ns per 540)
+<4>[ 1091.542854] PMD alloc:(average:35889ns per 2160)
+<4>[ 1091.542856] PMD free:(average:18263ns per 2160)
+<4>[ 1091.542858] PTE alloc:(average:23874ns per 6532)
+<4>[ 1091.542861] PTE free:(average:20324ns per 6511)
+<4>[ 1091.542863] 
+<4>[ 1091.542865] PGD cache page numbers:4
+<4>[ 1091.542867] PGD table page numbers:2
+<4>[ 1091.542869] PMD cache page numbers:20
+<4>[ 1091.542871] PMD table page numbers:4
+<4>[ 1091.542873] PTE cache page numbers:82
+<4>[ 1091.542875] PTE table page numbers:206
+<4>[ 1091.542877] 
+
+<4>[ 1151.155528] PGD alloc:(average:56078ns per 530)
+<4>[ 1151.155532] PGD free:(average:15266ns per 530)
+<4>[ 1151.155534] PMD alloc:(average:36032ns per 2120)
+<4>[ 1151.155536] PMD free:(average:18261ns per 2120)
+<4>[ 1151.155538] PTE alloc:(average:24164ns per 6429)
+<4>[ 1151.155541] PTE free:(average:17907ns per 6408)
+<4>[ 1151.155543] 
+<4>[ 1151.155545] PGD cache page numbers:4
+<4>[ 1151.155547] PGD table page numbers:2
+<4>[ 1151.155549] PMD cache page numbers:20
+<4>[ 1151.155551] PMD table page numbers:4
+<4>[ 1151.155553] PTE cache page numbers:83
+<4>[ 1151.155555] PTE table page numbers:227
+<4>[ 1151.155557] 
+
+<4>[ 1211.687367] PGD alloc:(average:53045ns per 526)
+<4>[ 1211.687370] PGD free:(average:14533ns per 526)
+<4>[ 1211.687372] PMD alloc:(average:35120ns per 2104)
+<4>[ 1211.687375] PMD free:(average:18818ns per 2104)
+<4>[ 1211.687377] PTE alloc:(average:22672ns per 6499)
+<4>[ 1211.687379] PTE free:(average:61050ns per 6588)
+<4>[ 1211.687381] 
+<4>[ 1211.687383] PGD cache page numbers:4
+<4>[ 1211.687385] PGD table page numbers:2
+<4>[ 1211.687387] PMD cache page numbers:20
+<4>[ 1211.687389] PMD table page numbers:4
+<4>[ 1211.687391] PTE cache page numbers:183
+<4>[ 1211.687393] PTE table page numbers:138
+<4>[ 1211.687395] 
+
+<4>[ 1271.311531] PGD alloc:(average:48952ns per 530)
+<4>[ 1271.311534] PGD free:(average:14109ns per 530)
+<4>[ 1271.311537] PMD alloc:(average:34217ns per 2120)
+<4>[ 1271.311539] PMD free:(average:16104ns per 2120)
+<4>[ 1271.311541] PTE alloc:(average:19906ns per 6428)
+<4>[ 1271.311544] PTE free:(average:16985ns per 6411)
+<4>[ 1271.311546] 
+<4>[ 1271.311548] PGD cache page numbers:4
+<4>[ 1271.311550] PGD table page numbers:2
+<4>[ 1271.311552] PMD cache page numbers:20
+<4>[ 1271.311554] PMD table page numbers:4
+<4>[ 1271.311556] PTE cache page numbers:166
+<4>[ 1271.311558] PTE table page numbers:155
+<4>[ 1271.311560] 
+
+<4>[ 1331.006507] PGD alloc:(average:49182ns per 530)
+<4>[ 1331.006510] PGD free:(average:14129ns per 530)
+<4>[ 1331.006512] PMD alloc:(average:34295ns per 2120)
+<4>[ 1331.006514] PMD free:(average:63279ns per 2120)
+<4>[ 1331.006517] PTE alloc:(average:20105ns per 6438)
+<4>[ 1331.006519] PTE free:(average:60562ns per 6417)
+<4>[ 1331.006521] 
+<4>[ 1331.006523] PGD cache page numbers:4
+<4>[ 1331.006525] PGD table page numbers:2
+<4>[ 1331.006527] PMD cache page numbers:20
+<4>[ 1331.006529] PMD table page numbers:4
+<4>[ 1331.006531] PTE cache page numbers:145
+<4>[ 1331.006533] PTE table page numbers:176
+<4>[ 1331.006535] 
+
+<4>[ 1391.727530] PGD alloc:(average:48839ns per 540)
+<4>[ 1391.727533] PGD free:(average:13917ns per 540)
+<4>[ 1391.727535] PMD alloc:(average:34291ns per 2160)
+<4>[ 1391.727538] PMD free:(average:15621ns per 2160)
+<4>[ 1391.727540] PTE alloc:(average:19896ns per 6567)
+<4>[ 1391.727542] PTE free:(average:38696ns per 6545)
+<4>[ 1391.727544] 
+<4>[ 1391.727546] PGD cache page numbers:4
+<4>[ 1391.727548] PGD table page numbers:2
+<4>[ 1391.727550] PMD cache page numbers:20
+<4>[ 1391.727552] PMD table page numbers:4
+<4>[ 1391.727554] PTE cache page numbers:123
+<4>[ 1391.727557] PTE table page numbers:198
+<4>[ 1391.727558] 
+
+<4>[ 1451.352765] PGD alloc:(average:48914ns per 530)
+<4>[ 1451.352769] PGD free:(average:13870ns per 530)
+<4>[ 1451.352771] PMD alloc:(average:34457ns per 2120)
+<4>[ 1451.352773] PMD free:(average:18042ns per 2120)
+<4>[ 1451.352775] PTE alloc:(average:19943ns per 6432)
+<4>[ 1451.352777] PTE free:(average:59515ns per 6412)
+<4>[ 1451.352780] 
+<4>[ 1451.352782] PGD cache page numbers:4
+<4>[ 1451.352784] PGD table page numbers:2
+<4>[ 1451.352786] PMD cache page numbers:20
+<4>[ 1451.352788] PMD table page numbers:4
+<4>[ 1451.352790] PTE cache page numbers:103
+<4>[ 1451.352792] PTE table page numbers:218
+<4>[ 1451.352794] 
+
+<4>[ 1510.969685] PGD alloc:(average:49054ns per 530)
+<4>[ 1510.969688] PGD free:(average:13866ns per 530)
+<4>[ 1510.969690] PMD alloc:(average:34435ns per 2120)
+<4>[ 1510.969693] PMD free:(average:17173ns per 2120)
+<4>[ 1510.969695] PTE alloc:(average:19897ns per 6421)
+<4>[ 1510.969697] PTE free:(average:153588ns per 6400)
+<4>[ 1510.969699] 
+<4>[ 1510.969701] PGD cache page numbers:4
+<4>[ 1510.969703] PGD table page numbers:2
+<4>[ 1510.969706] PMD cache page numbers:20
+<4>[ 1510.969708] PMD table page numbers:4
+<4>[ 1510.969710] PTE cache page numbers:82
+<4>[ 1510.969712] PTE table page numbers:239
+<4>[ 1510.969714] 
+
+<4>[ 1571.442949] PGD alloc:(average:50362ns per 526)
+<4>[ 1571.442952] PGD free:(average:14115ns per 526)
+<4>[ 1571.442955] PMD alloc:(average:33684ns per 2104)
+<4>[ 1571.442957] PMD free:(average:14307ns per 2104)
+<4>[ 1571.442959] PTE alloc:(average:20279ns per 6441)
+<4>[ 1571.442961] PTE free:(average:17943ns per 6540)
+<4>[ 1571.442963] 
+<4>[ 1571.442965] PGD cache page numbers:4
+<4>[ 1571.442967] PGD table page numbers:2
+<4>[ 1571.442969] PMD cache page numbers:20
+<4>[ 1571.442971] PMD table page numbers:4
+<4>[ 1571.442973] PTE cache page numbers:186
+<4>[ 1571.442975] PTE table page numbers:140
+<4>[ 1571.442977] 
+
+<4>[ 1631.139152] PGD alloc:(average:49313ns per 530)
+<4>[ 1631.139156] PGD free:(average:14433ns per 530)
+<4>[ 1631.139158] PMD alloc:(average:33786ns per 2120)
+<4>[ 1631.139160] PMD free:(average:16035ns per 2120)
+<4>[ 1631.139162] PTE alloc:(average:20238ns per 6449)
+<4>[ 1631.139164] PTE free:(average:64329ns per 6428)
+<4>[ 1631.139167] 
+<4>[ 1631.139169] PGD cache page numbers:4
+<4>[ 1631.139171] PGD table page numbers:2
+<4>[ 1631.139173] PMD cache page numbers:20
+<4>[ 1631.139175] PMD table page numbers:4
+<4>[ 1631.139177] PTE cache page numbers:165
+<4>[ 1631.139179] PTE table page numbers:161
+<4>[ 1631.139181] 
+
+<4>[ 1690.817727] PGD alloc:(average:50230ns per 530)
+<4>[ 1690.817731] PGD free:(average:14340ns per 530)
+<4>[ 1690.817733] PMD alloc:(average:34802ns per 2120)
+<4>[ 1690.817736] PMD free:(average:22275ns per 2120)
+<4>[ 1690.817738] PTE alloc:(average:20754ns per 6431)
+<4>[ 1690.817740] PTE free:(average:105852ns per 6410)
+<4>[ 1690.817742] 
+<4>[ 1690.817745] PGD cache page numbers:4
+<4>[ 1690.817747] PGD table page numbers:2
+<4>[ 1690.817749] PMD cache page numbers:20
+<4>[ 1690.817751] PMD table page numbers:4
+<4>[ 1690.817753] PTE cache page numbers:144
+<4>[ 1690.817755] PTE table page numbers:182
+<4>[ 1690.817757] 
+
+<4>[ 1751.551410] PGD alloc:(average:50363ns per 540)
+<4>[ 1751.551413] PGD free:(average:14317ns per 540)
+<4>[ 1751.551415] PMD alloc:(average:34595ns per 2160)
+<4>[ 1751.551418] PMD free:(average:17089ns per 2160)
+<4>[ 1751.551420] PTE alloc:(average:20600ns per 6542)
+<4>[ 1751.551422] PTE free:(average:16405ns per 6521)
+<4>[ 1751.551424] 
+<4>[ 1751.551426] PGD cache page numbers:4
+<4>[ 1751.551428] PGD table page numbers:2
+<4>[ 1751.551430] PMD cache page numbers:20
+<4>[ 1751.551432] PMD table page numbers:4
+<4>[ 1751.551434] PTE cache page numbers:123
+<4>[ 1751.551436] PTE table page numbers:203
+<4>[ 1751.551438] 
+
+<4>[ 1811.115069] PGD alloc:(average:50256ns per 530)
+<4>[ 1811.115072] PGD free:(average:14306ns per 530)
+<4>[ 1811.115075] PMD alloc:(average:34644ns per 2120)
+<4>[ 1811.115077] PMD free:(average:29739ns per 2120)
+<4>[ 1811.115079] PTE alloc:(average:20748ns per 6404)
+<4>[ 1811.115081] PTE free:(average:16753ns per 6383)
+<4>[ 1811.115083] 
+<4>[ 1811.115086] PGD cache page numbers:4
+<4>[ 1811.115088] PGD table page numbers:2
+<4>[ 1811.115090] PMD cache page numbers:20
+<4>[ 1811.115092] PMD table page numbers:4
+<4>[ 1811.115094] PTE cache page numbers:102
+<4>[ 1811.115096] PTE table page numbers:224
+<4>[ 1811.115098] 
+
+<4>[ 1871.531659] PGD alloc:(average:50097ns per 526)
+<4>[ 1871.531662] PGD free:(average:14412ns per 526)
+<4>[ 1871.531664] PMD alloc:(average:34858ns per 2104)
+<4>[ 1871.531667] PMD free:(average:17181ns per 2104)
+<4>[ 1871.531669] PTE alloc:(average:21247ns per 6542)
+<4>[ 1871.531671] PTE free:(average:60351ns per 6632)
+<4>[ 1871.531673] 
+<4>[ 1871.531675] PGD cache page numbers:4
+<4>[ 1871.531677] PGD table page numbers:2
+<4>[ 1871.531679] PMD cache page numbers:20
+<4>[ 1871.531681] PMD table page numbers:4
+<4>[ 1871.531683] PTE cache page numbers:192
+<4>[ 1871.531685] PTE table page numbers:134
+<4>[ 1871.531687] 
+
+<4>[ 1931.307726] PGD alloc:(average:49618ns per 532)
+<4>[ 1931.307729] PGD free:(average:14243ns per 532)
+<4>[ 1931.307732] PMD alloc:(average:34904ns per 2128)
+<4>[ 1931.307734] PMD free:(average:15477ns per 2128)
+<4>[ 1931.307736] PTE alloc:(average:20917ns per 6419)
+<4>[ 1931.307738] PTE free:(average:63694ns per 6404)
+<4>[ 1931.307741] 
+<4>[ 1931.307743] PGD cache page numbers:4
+<4>[ 1931.307745] PGD table page numbers:2
+<4>[ 1931.307747] PMD cache page numbers:20
+<4>[ 1931.307749] PMD table page numbers:4
+<4>[ 1931.307751] PTE cache page numbers:177
+<4>[ 1931.307753] PTE table page numbers:149
+<4>[ 1931.307755] 
+
+<4>[ 1990.947669] PGD alloc:(average:50197ns per 530)
+<4>[ 1990.947673] PGD free:(average:16625ns per 530)
+<4>[ 1990.947675] PMD alloc:(average:35019ns per 2120)
+<4>[ 1990.947678] PMD free:(average:16673ns per 2120)
+<4>[ 1990.947680] PTE alloc:(average:21249ns per 6433)
+<4>[ 1990.947682] PTE free:(average:18090ns per 6412)
+<4>[ 1990.947684] 
+<4>[ 1990.947686] PGD cache page numbers:4
+<4>[ 1990.947688] PGD table page numbers:2
+<4>[ 1990.947691] PMD cache page numbers:20
+<4>[ 1990.947693] PMD table page numbers:4
+<4>[ 1990.947695] PTE cache page numbers:156
+<4>[ 1990.947697] PTE table page numbers:170
+<4>[ 1990.947698] 
+
+<4>[ 2051.743154] PGD alloc:(average:50430ns per 540)
+<4>[ 2051.743158] PGD free:(average:14255ns per 540)
+<4>[ 2051.743160] PMD alloc:(average:36040ns per 2160)
+<4>[ 2051.743162] PMD free:(average:14962ns per 2160)
+<4>[ 2051.743164] PTE alloc:(average:21379ns per 6570)
+<4>[ 2051.743167] PTE free:(average:16216ns per 6550)
+<4>[ 2051.743169] 
+<4>[ 2051.743171] PGD cache page numbers:4
+<4>[ 2051.743173] PGD table page numbers:2
+<4>[ 2051.743175] PMD cache page numbers:20
+<4>[ 2051.743177] PMD table page numbers:4
+<4>[ 2051.743179] PTE cache page numbers:136
+<4>[ 2051.743181] PTE table page numbers:190
+<4>[ 2051.743183] 
+
+<4>[ 2111.407543] PGD alloc:(average:50163ns per 530)
+<4>[ 2111.407546] PGD free:(average:14173ns per 530)
+<4>[ 2111.407549] PMD alloc:(average:35239ns per 2120)
+<4>[ 2111.407551] PMD free:(average:15365ns per 2120)
+<4>[ 2111.407553] PTE alloc:(average:21017ns per 6440)
+<4>[ 2111.407555] PTE free:(average:124271ns per 6419)
+<4>[ 2111.407557] 
+<4>[ 2111.407560] PGD cache page numbers:4
+<4>[ 2111.407562] PGD table page numbers:2
+<4>[ 2111.407564] PMD cache page numbers:20
+<4>[ 2111.407566] PMD table page numbers:4
+<4>[ 2111.407568] PTE cache page numbers:115
+<4>[ 2111.407570] PTE table page numbers:211
+<4>[ 2111.407572] 
+
+<4>[ 2171.055330] PGD alloc:(average:50590ns per 530)
+<4>[ 2171.055333] PGD free:(average:14396ns per 530)
+<4>[ 2171.055336] PMD alloc:(average:36441ns per 2120)
+<4>[ 2171.055338] PMD free:(average:16533ns per 2120)
+<4>[ 2171.055340] PTE alloc:(average:21680ns per 6417)
+<4>[ 2171.055342] PTE free:(average:16704ns per 6397)
+<4>[ 2171.055344] 
+<4>[ 2171.055347] PGD cache page numbers:4
+<4>[ 2171.055349] PGD table page numbers:2
+<4>[ 2171.055351] PMD cache page numbers:20
+<4>[ 2171.055353] PMD table page numbers:4
+<4>[ 2171.055355] PTE cache page numbers:95
+<4>[ 2171.055357] PTE table page numbers:231
+<4>[ 2171.055359] 
+
+<4>[ 2231.483222] PGD alloc:(average:49513ns per 526)
+<4>[ 2231.483225] PGD free:(average:14235ns per 526)
+<4>[ 2231.483228] PMD alloc:(average:34564ns per 2104)
+<4>[ 2231.483230] PMD free:(average:16028ns per 2104)
+<4>[ 2231.483232] PTE alloc:(average:21377ns per 6484)
+<4>[ 2231.483234] PTE free:(average:17106ns per 6579)
+<4>[ 2231.483236] 
+<4>[ 2231.483238] PGD cache page numbers:4
+<4>[ 2231.483240] PGD table page numbers:2
+<4>[ 2231.483243] PMD cache page numbers:20
+<4>[ 2231.483245] PMD table page numbers:4
+<4>[ 2231.483247] PTE cache page numbers:190
+<4>[ 2231.483249] PTE table page numbers:136
+<4>[ 2231.483250] 
+
+<4>[ 2291.095528] PGD alloc:(average:49431ns per 530)
+<4>[ 2291.095531] PGD free:(average:14331ns per 530)
+<4>[ 2291.095534] PMD alloc:(average:34188ns per 2120)
+<4>[ 2291.095536] PMD free:(average:14846ns per 2120)
+<4>[ 2291.095538] PTE alloc:(average:21266ns per 6427)
+<4>[ 2291.095540] PTE free:(average:17967ns per 6407)
+<4>[ 2291.095542] 
+<4>[ 2291.095544] PGD cache page numbers:4
+<4>[ 2291.095546] PGD table page numbers:2
+<4>[ 2291.095548] PMD cache page numbers:20
+<4>[ 2291.095550] PMD table page numbers:4
+<4>[ 2291.095552] PTE cache page numbers:170
+<4>[ 2291.095554] PTE table page numbers:156
+<4>[ 2291.095556] 
+
+<4>[ 2350.805844] PGD alloc:(average:49590ns per 530)
+<4>[ 2350.805847] PGD free:(average:14445ns per 530)
+<4>[ 2350.805850] PMD alloc:(average:34485ns per 2120)
+<4>[ 2350.805852] PMD free:(average:141953ns per 2120)
+<4>[ 2350.805854] PTE alloc:(average:21133ns per 6418)
+<4>[ 2350.805856] PTE free:(average:60002ns per 6399)
+<4>[ 2350.805858] 
+<4>[ 2350.805861] PGD cache page numbers:4
+<4>[ 2350.805863] PGD table page numbers:2
+<4>[ 2350.805865] PMD cache page numbers:20
+<4>[ 2350.805867] PMD table page numbers:4
+<4>[ 2350.805869] PTE cache page numbers:151
+<4>[ 2350.805871] PTE table page numbers:175
+<4>[ 2350.805873] 
+
+<4>[ 2411.567303] PGD alloc:(average:49087ns per 540)
+<4>[ 2411.567307] PGD free:(average:14421ns per 540)
+<4>[ 2411.567309] PMD alloc:(average:35528ns per 2160)
+<4>[ 2411.567312] PMD free:(average:17341ns per 2160)
+<4>[ 2411.567314] PTE alloc:(average:20819ns per 6539)
+<4>[ 2411.567316] PTE free:(average:18309ns per 6517)
+<4>[ 2411.567318] 
+<4>[ 2411.567320] PGD cache page numbers:4
+<4>[ 2411.567322] PGD table page numbers:2
+<4>[ 2411.567324] PMD cache page numbers:20
+<4>[ 2411.567326] PMD table page numbers:4
+<4>[ 2411.567328] PTE cache page numbers:129
+<4>[ 2411.567330] PTE table page numbers:197
+<4>[ 2411.567332] 
