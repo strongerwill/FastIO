@@ -13,3 +13,10 @@ A:
 1) one algorithm to decide it
 2) training or scanning the real usage, and set it
 
+
+Result Analysis:
+
+1) micro benchmark, nice results, match our expectation
+2) However, current device does not use IOTLB, meaning it always read data from pagetable
+
+3) Macro benchmark results indicate that the process creation and exit are faster (better CPU usage)
