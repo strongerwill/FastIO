@@ -6,7 +6,8 @@
 2. PMD:
 入口：preallocate_pmds();
 出口：pmd_free(),___pmd_free_tlb();
-注：pmd_alloc_one()分配函数并没有被使用。源码静态跟踪下可能的执行路径有如下几条：
+free_pmds()在pgd或pmd项分配出现异常时才被调用，释放此时的pmd页。 
+注：pmd_alloc_one()分配函数在做压力测试时（lmbench）发现被使用。源码静态跟踪下可能的执行路径有如下几条：
 
 handle_mm_fault()(mm\memory.c) -> pmd_alloc() -> __pmd_alloc() -> pmd_alloc_one()
 apply_to_pmd_range()(mm\memory.c) -> pmd_alloc() -> __pmd_alloc() -> pmd_alloc_one()
