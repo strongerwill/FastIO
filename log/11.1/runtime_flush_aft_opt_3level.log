@@ -1,0 +1,233 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2014.11.01 16:28:54 =~=~=~=~=~=~=~=~=~=~=~=
+(XEN) seg_fixup.c:423: Only instructions with GS override
+(XEN) seg_fixup.c:423: Only instructions with GS override
+(XEN) seg_fixup.c:423: Only instructions with GS override
+(XEN) seg_fixup.c:423: Only instructions with GS override
+(XEN) seg_fixup.c:423: Only instructions with GS override
+(XEN) seg_fixup.c:423: Only instructions with GS override
+(XEN) seg_fixup.c:423: Only instructions with GS override
+(XEN) seg_fixup.c:423: Only instructions with GS override
+(XEN) seg_fixup.c:423: Only instructions with GS override
+(XEN) seg_fixup.c:423: Only instructions with GS override
+(XEN) seg_fixup.c:423: Only instructions with GS override
+(XEN) seg_fixup.c:423: Only instructions with GS override
+(XEN) seg_fixup.c:423: Only instructions with GS override
+(XEN) Domain 0 crashed: rebooting machine in 5 seconds.
+(XEN) Resetting with ACPI MEMORY or I/O RESET_REG.
+ __  __            _  _    ____    _ 
+ \ \/ /___ _ __   | || |  |___ \  / |
+  \  // _ \ '_ \  | || |_   __) | | |
+  /  \  __/ | | | |__   _| / __/ _| |
+ /_/\_\___|_| |_|    |_|(_)_____(_)_|
+                                     
+(XEN) Xen version 4.2.1 (zz@) (gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3) Sat Nov  1 14:45:36 CST 2014
+(XEN) Latest ChangeSet: unavailable
+(XEN) Bootloader: GRUB 1.99-21ubuntu3.16
+(XEN) Command line: placeholder iommu=verbose iommu=dom0-strict sched=credit loglvl=all guest_loglvl=all debug_stack_lines=80 console=vga,com1 com1=115200,8n1
+(XEN) Video information:
+(XEN)  VGA is text mode 80x25, font 8x16
+(XEN)  VBE/DDC methods: V2; EDID transfer time: 1 seconds
+(XEN) Disc information:
+(XEN)  Found 1 MBR signatures
+(XEN)  Found 1 EDD information structures
+(XEN) Xen-e820 RAM map:
+(XEN)  0000000000000000 - 000000000009ec00 (usable)
+(XEN)  000000000009ec00 - 00000000000a0000 (reserved)
+(XEN)  00000000000e0000 - 0000000000100000 (reserved)
+(XEN)  0000000000100000 - 00000000ddea5000 (usable)
+(XEN)  00000000ddea5000 - 00000000ddf45000 (reserved)
+(XEN)  00000000ddf45000 - 00000000ddf57000 (ACPI data)
+(XEN)  00000000ddf57000 - 00000000de928000 (ACPI NVS)
+(XEN)  00000000de928000 - 00000000df091000 (reserved)
+(XEN)  00000000df091000 - 00000000df092000 (usable)
+(XEN)  00000000df092000 - 00000000df0d5000 (ACPI NVS)
+(XEN)  00000000df0d5000 - 00000000df4e1000 (usable)
+(XEN)  00000000df4e1000 - 00000000df7f3000 (reserved)
+(XEN)  00000000df7f3000 - 00000000df800000 (usable)
+(XEN)  00000000f8000000 - 00000000fc000000 (reserved)
+(XEN)  00000000fec00000 - 00000000fec01000 (reserved)
+(XEN)  00000000fed00000 - 00000000fed04000 (reserved)
+(XEN)  00000000fed1c000 - 00000000fed20000 (reserved)
+(XEN)  00000000fee00000 - 00000000fee01000 (reserved)
+(XEN)  00000000ff000000 - 0000000100000000 (reserved)
+(XEN)  0000000100000000 - 000000011f000000 (usable)
+(XEN) System RAM: 4050MB (4147572kB)
+(XEN) ACPI: RSDP 000F0490, 0024 (r2 LENOVO)
+(XEN) ACPI: XSDT DDF48080, 007C (r1 LENOVO TC-F1        1440 AMI     10013)
+(XEN) ACPI: FACP DDF54268, 00F4 (r4 LENOVO TC-F1        1440 AMI     10013)
+(XEN) ACPI: DSDT DDF48188, C0DC (r2 LENOVO TC-F1        1440 INTL 20051117)
+(XEN) ACPI: FACS DE926F80, 0040
+(XEN) ACPI: APIC DDF54360, 005A (r3 LENOVO TC-F1        1440 AMI     10013)
+(XEN) ACPI: FPDT DDF543C0, 0044 (r1 LENOVO TC-F1        1440 AMI     10013)
+(XEN) ACPI: MCFG DDF54408, 003C (r1 LENOVO TC-F1        1440 MSFT       97)
+(XEN) ACPI: HPET DDF54448, 0038 (r1 LENOVO TC-F1        1440 AMI.        5)
+(XEN) ACPI: SSDT DDF54480, 0495 (r1 LENOVO TC-F1        1440 INTL 20091112)
+(XEN) ACPI: SSDT DDF54918, 09AA (r1 LENOVO TC-F1        1440 INTL 20051117)
+(XEN) ACPI: SSDT DDF552C8, 083B (r1 LENOVO TC-F1        1440 INTL 20051117)
+(XEN) ACPI: SSDT DDF55B08, 0B22 (r1 LENOVO TC-F1        1440 INTL 20051117)
+(XEN) ACPI: DMAR DDF56630, 0078 (r1 LENOVO TC-F1        1440 INTL        1)
+(XEN) ACPI: BGRT DDF566A8, 0038 (r0 LENOVO TC-F1        1440 AMI     10013)
+(XEN) No NUMA configuration found
+(XEN) Faking a node at 0000000000000000-000000011f000000
+(XEN) Xen heap: 9MB (9676kB)
+(XEN) Domain heap initialised
+(XEN) found SMP MP-table at 000fd9b0
+(XEN) DMI 2.7 present.
+(XEN) Using APIC driver default
+(XEN) ACPI: PM-Timer IO Port: 0x408
+(XEN) ACPI: ACPI SLEEP INFO: pm1x_cnt[404,0], pm1x_evt[400,0]
+(XEN) ACPI: 32/64X FACS address mismatch in FADT - de926f80/0000000000000000, using 32
+(XEN) ACPI:                  wakeup_vec[de926f8c], vec_size[20]
+(XEN) ACPI: Local APIC address 0xfee00000
+(XEN) ACPI: LAPIC (acpi_id[0x01] lapic_id[0x00] enabled)
+(XEN) Processor #0 7:10 APIC version 21
+(XEN) ACPI: LAPIC_NMI (acpi_id[0xff] high edge lint[0x1])
+(XEN) ACPI: IOAPIC (id[0x02] address[0xfec00000] gsi_base[0])
+(XEN) IOAPIC[0]: apic_id 2, version 32, address 0xfec00000, GSI 0-23
+(XEN) ACPI: INT_SRC_OVR (bus 0 bus_irq 0 global_irq 2 dfl dfl)
+(XEN) ACPI: INT_SRC_OVR (bus 0 bus_irq 9 global_irq 9 high level)
+(XEN) ACPI: IRQ0 used by override.
+(XEN) ACPI: IRQ2 used by override.
+(XEN) ACPI: IRQ9 used by override.
+(XEN) Enabling APIC mode:  Flat.  Using 1 I/O APICs
+(XEN) ACPI: HPET id: 0x8086a701 base: 0xfed00000
+(XEN) [VT-D]dmar.c:720: Host address width 36
+(XEN) [VT-D]dmar.c:734: found ACPI_DMAR_DRHD:
+(XEN) [VT-D]dmar.c:412:   dmaru->address = fed90000
+(XEN) [VT-D]iommu.c:1290: drhd->address = fed90000 iommu->reg = fff17000
+(XEN) [VT-D]iommu.c:1292: cap = c9008020660262 ecap = f0105a
+(XEN) [VT-D]dmar.c:354:  IOAPIC: 0000:f0:1f.0
+(XEN) [VT-D]dmar.c:332:  MSI HPET: 0000:f0:0f.0
+(XEN) [VT-D]dmar.c:426:   flags: INCLUDE_ALL
+(XEN) [VT-D]dmar.c:739: found ACPI_DMAR_RMRR:
+(XEN) [VT-D]dmar.c:338:  endpoint: 0000:00:1d.0
+(XEN) [VT-D]dmar.c:338:  endpoint: 0000:00:1a.0
+(XEN) [VT-D]dmar.c:608:   RMRR region: base_addr ddeba000 end_address dded8fff
+(XEN) Table is not found!
+(XEN) Using ACPI (MADT) for SMP configuration information
+(XEN) SMP: Allowing 1 CPUs (0 hotplug CPUs)
+(XEN) IRQ limits: 24 GSI, 184 MSI/MSI-X
+(XEN) Using scheduler: SMP Credit Scheduler (credit)
+(XEN) Detected 3192.845 MHz processor.
+(XEN) xstate_init: using cntxt_size: 0x340 and states: 0x7
+(XEN) mce_intel.c:1239: MCA Capability: BCAST 1 SER 0 CMCI 1 firstbank 0 extended MCE MSR 0
+(XEN) Intel machine check reporting enabled
+(XEN) Intel VT-d supported page sizes: 4kB.
+(XEN) [VT-D]iommu.c:2280: Interrupt Remapping disabled since Queued Invalidation isn't supported or enabled.
+(XEN) Intel VT-d Snoop Control not enabled.
+(XEN) Intel VT-d Dom0 DMA Passthrough not enabled.
+(XEN) Intel VT-d Queued Invalidation not enabled.
+(XEN) Intel VT-d Interrupt Remapping not enabled.
+(XEN) Intel VT-d Shared EPT tables not enabled.
+(XEN) I/O virtualisation enabled
+(XEN)  - Dom0 mode: Strict
+(XEN) Enabled directed EOI with ioapic_ack_old on!
+(XEN) ENABLING IO-APIC IRQs
+(XEN)  -> Using old ACK method
+(XEN) ..TIMER: vector=0xF0 apic1=0 pin1=2 apic2=-1 pin2=-1
+(XEN) TSC deadline timer enabled
+(XEN) Platform timer is 14.318MHz HPET
+(XEN) Allocated console ring of 16 KiB.
+(XEN) VMX: Supported advanced features:
+(XEN)  - APIC MMIO access virtualisation
+(XEN)  - APIC TPR shadow
+(XEN)  - Extended Page Tables (EPT)
+(XEN)  - Virtual-Processor Identifiers (VPID)
+(XEN)  - Virtual NMI
+(XEN)  - MSR direct-access bitmap
+(XEN)  - Unrestricted Guest
+(XEN) HVM: ASIDs enabled.
+(XEN) HVM: VMX enabled
+(XEN) HVM: Hardware Assisted Paging (HAP) detected
+(XEN) HVM: HAP page sizes: 4kB, 2MB
+(XEN) Brought up 1 CPUs
+(XEN) ACPI sleep modes: S3
+(XEN) mcheck_poll: Machine check polling timer started.
+(XEN) *** LOADING DOMAIN 0 ***
+(XEN)  Xen  kernel: 32-bit, PAE, lsb
+(XEN)  Dom0 kernel: 32-bit, PAE, lsb, paddr 0x1000000 -> 0x1c21000
+(XEN) PHYSICAL MEMORY ARRANGEMENT:
+(XEN)  Dom0 alloc.:   0000000114000000->0000000118000000 (963137 pages to be allocated)
+(XEN)  Init. ramdisk: 000000011c567000->000000011efff400
+(XEN) VIRTUAL MEMORY ARRANGEMENT:
+(XEN)  Loaded kernel: c1000000->c1c21000
+(XEN)  Init. ramdisk: c1c21000->c46b9400
+(XEN)  Phys-Mach map: c46ba000->c4a81368
+(XEN)  Start info:    c4a82000->c4a8247c
+(XEN)  Page tables:   c4a83000->c4aae000
+(XEN)  Boot stack:    c4aae000->c4aaf000
+(XEN)  TOTAL:         c0000000->c4c00000
+(XEN)  ENTRY ADDRESS: c1813000
+(XEN) Dom0 has maximum 1 VCPUs
+(XEN) [VT-D]iommu.c:1588: d0:PCI: map 0000:00:00.0
+(XEN) [VT-D]iommu.c:1588: d0:PCI: map 0000:00:16.0
+(XEN) [VT-D]iommu.c:1588: d0:PCI: map 0000:00:1a.0
+(XEN) [VT-D]iommu.c:1577: d0:PCIe: map 0000:00:1b.0
+(XEN) [VT-D]iommu.c:1588: d0:PCI: map 0000:00:1d.0
+(XEN) [VT-D]iommu.c:1588: d0:PCI: map 0000:00:1f.0
+(XEN) [VT-D]iommu.c:1588: d0:PCI: map 0000:00:1f.2
+(XEN) [VT-D]iommu.c:1588: d0:PCI: map 0000:00:1f.3
+(XEN) [VT-D]iommu.c:1588: d0:PCI: map 0000:00:1f.5
+(XEN) [VT-D]iommu.c:1577: d0:PCIe: map 0000:01:00.0
+(XEN) [VT-D]iommu.c:1577: d0:PCIe: map 0000:01:00.1
+(XEN) [VT-D]iommu.c:1577: d0:PCIe: map 0000:03:00.0
+(XEN) [VT-D]iommu.c:865: iommu_enable_translation: iommu->reg = fff17000
+(XEN) Scrubbing Free RAM: .done.
+(XEN) Initial low memory virq threshold set at 0x4000 pages.
+(XEN) Std. Loglevel: All
+(XEN) Guest Loglevel: All
+(XEN) Xen is relinquishing VGA console.
+(XEN) *** Serial input -> DOM0 (type 'CTRL-a' three times to switch input to Xen)
+(XEN) Freed 224kB init memory.
+mapping kernel into physical memory
+Xen: setup ISA identity maps
+about to get started...
+(XEN) mm.c:905:d0 pg_owner 0 l1e_owner 0, but real_pg_owner -1
+(XEN) mm.c:976:d0 Error getting mfn 1409e (pfn ffffffff) from L1 entry 000000001409e023 for l1e_owner=0, pg_owner=0
+(XEN) mm.c:5294:d0 ptwr_emulate: fixing up invalid PAE PTE 000000001409e023
+(XEN) mm.c:905:d0 pg_owner 0 l1e_owner 0, but real_pg_owner -1
+(XEN) mm.c:976:d0 Error getting mfn 1409f (pfn ffffffff) from L1 entry 000000001409f023 for l1e_owner=0, pg_owner=0
+(XEN) mm.c:5294:d0 ptwr_emulate: fixing up invalid PAE PTE 000000001409f023
+(XEN) PCI add device 0000:00:00.0
+(XEN) PCI add device 0000:00:01.0
+(XEN) PCI add device 0000:00:16.0
+(XEN) PCI add device 0000:00:1a.0
+(XEN) PCI add device 0000:00:1b.0
+(XEN) PCI add device 0000:00:1c.0
+(XEN) PCI add device 0000:00:1c.5
+(XEN) PCI add device 0000:00:1d.0
+(XEN) PCI add device 0000:00:1f.0
+(XEN) PCI add device 0000:00:1f.2
+(XEN) PCI add device 0000:00:1f.3
+(XEN) PCI add device 0000:00:1f.5
+(XEN) PCI add device 0000:01:00.0
+(XEN) PCI add device 0000:01:00.1
+(XEN) PCI add device 0000:03:00.0
+(XEN) flush_counter:410, diff_time:60002, aver_flu_cnt:40998
+(XEN) flush_counter:37, diff_time:60000, aver_flu_cnt:3700
+(XEN) flush_counter:18, diff_time:60000, aver_flu_cnt:1800
+(XEN) flush_counter:24, diff_time:60000, aver_flu_cnt:2400
+(XEN) flush_counter:12, diff_time:60003, aver_flu_cnt:1199
+(XEN) flush_counter:10, diff_time:60005, aver_flu_cnt:999
+(XEN) flush_counter:0, diff_time:60002, aver_flu_cnt:0
+(XEN) flush_counter:0, diff_time:60000, aver_flu_cnt:0
+(XEN) flush_counter:0, diff_time:60002, aver_flu_cnt:0
+(XEN) flush_counter:0, diff_time:60000, aver_flu_cnt:0
+(XEN) flush_counter:0, diff_time:60000, aver_flu_cnt:0
+(XEN) flush_counter:0, diff_time:60000, aver_flu_cnt:0
+(XEN) flush_counter:0, diff_time:60000, aver_flu_cnt:0
+(XEN) flush_counter:0, diff_time:60001, aver_flu_cnt:0
+(XEN) flush_counter:0, diff_time:60001, aver_flu_cnt:0
+(XEN) flush_counter:0, diff_time:60000, aver_flu_cnt:0
+(XEN) flush_counter:0, diff_time:60000, aver_flu_cnt:0
+(XEN) flush_counter:0, diff_time:60001, aver_flu_cnt:0
+(XEN) flush_counter:0, diff_time:60002, aver_flu_cnt:0
+(XEN) flush_counter:0, diff_time:60000, aver_flu_cnt:0
+(XEN) flush_counter:0, diff_time:60003, aver_flu_cnt:0
+(XEN) flush_counter:0, diff_time:60003, aver_flu_cnt:0
+(XEN) flush_counter:0, diff_time:60003, aver_flu_cnt:0
+(XEN) flush_counter:0, diff_time:60005, aver_flu_cnt:0
+(XEN) flush_counter:0, diff_time:60002, aver_flu_cnt:0
+(XEN) flush_counter:0, diff_time:60000, aver_flu_cnt:0
+(XEN) flush_counter:0, diff_time:60000, aver_flu_cnt:0
+  p 
