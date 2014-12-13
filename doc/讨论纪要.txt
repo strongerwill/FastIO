@@ -1,0 +1,53 @@
+1. mmu.c xen_mmu_ops 初始化 line:1992
+   pte释放相关函数：
+   xen_release_pte_init;xen_pte_clear;
+2. xen_init_mmu_ops 初始化 line:2068 ( pv_mmu_ops = xen_mmu_ops )
+3. paravirt.h 
+4. pgalloc.h free_pte_range (memory.c) -> pte_free_tlb (include\asm-generic\tlb.h) -> __pte_free_tlb (arch\x86\include\asm\pgalloc.h) -> ___pte_free_tlb (arch\x86\mm\pgtabl.c) -> (paravirt_release_pte, tlb_remove_page [include\asm-generic\tlb.h]) -> __tlb_remove_page (memory.c) -> free_page_and_swap_cache (swap_state.c) -> free_swap_cache (swap_state.c) -> try_to_free_swap (swapfile.c) -> delete_from_swap_cache (swap_state.c) -> page_cache_release （pagemap.h）-> put_page -> free_hot_cold_page()（单个页释放）
+
+5. pgalloc.h page_to_pfn line:00072
+
+2014/08/23
+
+会议集：sosp osdi eurosys atc asplos
+
+6. pte_free的路径：
+
+   handle_mm_fault -> do_huge_pmd_anonymous_page -> ___do_huge_pmd_anonymous_page (mm\huge_memory.c) -> pte_free   
+   copy_pmd_range -> copy_huge_pmd (mm\huge_memory.c) -> pte_free
+   unmap_page_range -> zap_pud_range -> zap_pmd_range -> zap_huge_pmd (mm\huge_memory.c) -> pte_free
+   copy_pte_range -> __pte_alloc (mm\memory.c) -> pte_free
+
+7. 空间：我们的方法正常情况下缓存maintain多少个页。向用户提供接口可以对缓存进行管理。
+   时间：申请页表的时间复杂度。测试点是在runtime的时候
+
+8. 每一级页表的入口和出口
+
+9. 我遇到的问题
+	1. pgd缓存回收的问题 -> pgd_used_counter和pgd_free_counter的占比；
+	2. cpu转数测量的问题；
+	3. fork 进程时会造成资源耗尽的问题；
+	4. 硬件设置是单核或是多核进行实验。多核对rdtsc的运行有影响；
+
+10. 选择各级页表比例的原因，1：4：16 以及绝对页表的数量。
+   a.runtime得到的各级页表比例之所以不一致，是因为初始化时后台进程占用了绝大比例，stable时的比例是正常的。而runtime时fork程序作用呈主要作用，因而观察到不同的页表比例。为了观察到合理的比例，尝试修改fork程序，在每一次fork时，申请大容量的物理内存。
+   b.我们的选择是根据实验中得到的并发数量和每次fork所占用的内存大小来确定的回收时机。如果setting不一致，可提供接口供用户去调节回收的时机。
+
+11. fork程序是每0.5秒创建128个进程，持续时间是120秒，不会出现资源暂时耗尽的问题。
+
+12. 假设如下一种情况，used_counter等于8，free_counter等于48，总数不小于56，此时缓存量是使用量的8倍，此时发生缓存回收，那么free_counter减少为16。如果进程不断创建，而free_counter一致递减至0，还是无法满足需求的话，此时便会从伙伴系统获取到足够多的页面，那么used_counter又会不断增加。那么used_counter便可能超过56，而free_counter便为0。
+
+13. 回收比例如何确定？
+    向用户提供接口，帮助用户确定缓存量和使用量之间的比例，类似于存在着一种公式，只需要用户提供简单的参数，就能帮助用户确定回收的比例。
+
+
+
+14.  a. 由于xen目前提供了两种方式的IO刷新，一种是基于queue-invadidation（xen所默认的刷新方式，性能更好），叫做flush_iotlb_qi；一种是咱们目前所测试过的，叫做flush_iotlb_reg。
+
+     b. 基于page粒度的flush_iotlb_qi加进来测试，因为它是xen所默认的io刷新方式，同时硬件支持。
+
+     c. 咱们所做的正是基于page粒度的flush_iotlb_reg，因为它不是xen的默认I/O刷新方式，因此以它为setting来说明我们优化机制的好处不太恰当。
+
+     d. 至于测试的方式，我们不需要再测试其微观的刷新次数，因为这应该和flush_iotlb_reg表现是一致的（微观的刷新次数是以函数的实际调用次数进行测量的）。但是在lmbench上（fork+shell）的表现应该不同，即CPU的usage，因为正常情况下基于page粒度flush_iotlb_qi所花时间相对于flush_iotlb_reg更少。 
+
+     结论：我们应该可以把flush_iotlb_reg的微观测试结果替换成flush_iotlb_qi的测试结果，这两者在这个测试上是一致的，目的是说我们本身用的就是xen的默认方式做测试。接着，再将两种刷新方式的宏观表现做对比。

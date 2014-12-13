@@ -1,0 +1,15 @@
+1. 交叉打印这个错误应该不是那个小程序的问题，俊清是在linux里，hypercall的入口处，设置了dump_stack，那么当创建多个进程去触发do_mmu_update，交替打印，肯定会导致某些call trace打印不全。
+在临界区代码处加上锁，并且关闭中断，把多核改成单核，使得读ring buffer的小程序和触发hypercall的进程均在一个核上，避免小程序在读ring buffer时还有进程在写ring buffer，造成读出的数据信息不全。
+2. 浏览器，shell程序，视音频，读写硬盘, 游戏，办公软件，编译xen，虚拟机管理器
+3. malloc -> memset -> free
+4. 跳过system boot time打印，专注于runtime的打印：登录之后，安装一个module，让这个module去激活打印
+5. all the log that we print with 'printk' will be sent to a space named ring buffer
+6. 将ring buffer size设置为最大，防止被覆盖
+7. pagetable是如何被xen set为readonly的,可以详细的跟踪一下
+8. flush还会造成cpu的miss增加，降低cpu的使用率, 如果我们的方法可以同时增加cpu和io的performance，那就更好了
+9. 触发do_mmu_update的情况：进程创建和销毁的时候；进程中出现缺页异常的时候；程序被换出又换入的时候；程序申请(大量/少量)内存和释放的时候；程序动态加载/释放函数库的时候
+10.虚存address (mm_struct, vma)，物理内存address (free list)，address translation(mapping,建立虚拟地址和物理内存的mapping);
+11.HYPERVISOR_update_va_mapping; xen源码: ptwr_do_page_fault(arch\x86\mm.c)
+12.semantic meaning. process creation malloc do_fork do_clone，反推语义，流程图，讲解出页表创建中对内存分配。改动的幅度。
+13. xen的优化批处理hypercall的请求，我们的目的在于cpu tlb flushing, io的性能提高。
+14. 我们拦截了每一次调用do_mmu_update的请求，然后怎么去采集这个函数链的方法。

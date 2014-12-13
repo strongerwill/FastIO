@@ -1,0 +1,290 @@
+dump_stack-> xen_extend_mmuext_op-> __xen_write_cr3-> xen_write_cr3-> ? dequeue_task-> __schedule
+81338
+function flow:  xen_alloc_pte-> __pte_alloc-> handle_mm_fault-> do_page_fault-> error_code->
+568
+function flow:  xen_extend_mmuext_op-> xen_do_pin-> xen_unpin_page-> __xen_pgd_walk-> __xen_pgd_unpin-> xen_exit_mmap-> exit_mmap-> mmput-> flush_old_exec-> load_elf_binary-> search_binary_handler-> do_execve-> sys_execve-> ptregs_execve->
+261
+function flow:  xen_extend_mmuext_op-> xen_do_pin-> xen_pin_page-> __xen_pgd_walk-> __xen_pgd_pin-> xen_dup_mmap-> dup_mm-> copy_process-> do_fork-> sys_clone-> ptregs_clone->
+226
+function flow:  xen_release_pte-> ___pte_free_tlb-> free_pgd_range-> free_pgtables-> unmap_region-> do_munmap-> sys_munmap-> syscall_call->
+170
+function flow:  xen_extend_mmuext_op-> xen_do_pin-> xen_unpin_page-> __xen_pgd_walk-> __xen_pgd_unpin-> xen_exit_mmap-> exit_mmap-> mmput-> exit_mm-> do_exit-> do_group_exit-> sys_exit_group-> syscall_call->
+151
+function flow:  xen_extend_mmuext_op-> xen_do_pin-> xen_unpin_page-> __xen_pgd_walk-> __xen_pgd_unpin-> xen_exit_mmap-> exit_mmap-> mmput-> exit_mm-> do_exit-> do_group_exit-> get_signal_to_deliver-> do_signal-> do_notify_resume-> work_notifysig->
+88
+function flow:  xen_alloc_pte-> __pte_alloc-> handle_mm_fault-> do_page_fault-> error_code-> padzero-> load_elf_binary-> search_binary_handler-> do_execve-> sys_execve-> ptregs_execve->
+50
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> leave_mm-> flush_tlb_page-> ptep_clear_flush_young-> page_referenced_one-> page_referenced-> shrink_page_list-> shrink_inactive_list-> shrink_zone-> kswapd-> kthread-> kernel_thread_helper->
+41
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> leave_mm-> flush_tlb_page-> ptep_clear_flush-> page_mkclean-> clear_page_dirty_for_io-> mpage_da_submit_io-> mpage_da_map_and_submit-> ext4_da_writepages-> do_writepages-> writeback_single_inode-> writeback_sb_inodes-> __writeback_inodes_wb-> wb_writeback-> wb_do_writeback-> bdi_writeback_thread-> kthread-> kernel_thread_helper->
+28
+function flow:  xen_extend_mmuext_op-> xen_do_pin-> __xen_pgd_pin-> xen_dup_mmap-> dup_mm-> copy_process-> do_fork-> sys_clone-> ptregs_clone->
+28
+function flow:  xen_extend_mmuext_op-> xen_do_pin-> xen_unpin_page-> __xen_pgd_walk-> __xen_pgd_unpin-> xen_exit_mmap-> exit_mmap-> mmput-> flush_old_exec-> load_elf_binary-> search_binary_handler-> load_script-> search_binary_handler-> do_execve-> sys_execve-> ptregs_execve->
+21
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> leave_mm-> xen_exit_mmap-> exit_mmap-> mmput-> exit_mm-> do_exit-> do_group_exit-> sys_exit_group-> syscall_call->
+18
+function flow:  xen_extend_mmuext_op-> xen_do_pin-> __xen_pgd_unpin-> xen_exit_mmap-> exit_mmap-> mmput-> flush_old_exec-> load_elf_binary-> search_binary_handler-> do_execve-> sys_execve-> ptregs_execve->
+18
+function flow:  xen_extend_mmuext_op-> xen_do_pin-> __xen_pgd_pin-> xen_activate_mm-> flush_old_exec-> load_elf_binary-> search_binary_handler-> do_execve-> sys_execve-> ptregs_execve->
+15
+function flow:  xen_extend_mmuext_op-> xen_do_pin-> __xen_pgd_unpin-> xen_exit_mmap-> exit_mmap-> mmput-> exit_mm-> do_exit-> do_group_exit-> sys_exit_group-> syscall_call->
+15
+ vfs_write-> sys_write-> syscall_call->
+15
+function flow:  xen_extend_mmuext_op-> xen_do_pin-> xen_pin_page-> __xen_pgd_walk-> __xen_pgd_pin-> xen_activate_mm-> flush_old_exec-> load_elf_binary-> search_binary_handler-> do_execve-> sys_execve-> ptregs_execve->
+14
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> flush_old_exec-> load_elf_binary-> search_binary_handler-> do_execve-> sys_execve-> ptregs_execve->
+14
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> leave_mm-> flush_tlb_mm-> tlb_flush_mmu-> tlb_finish_mmu-> exit_mmap-> mmput-> exit_mm-> do_exit-> do_group_exit-> sys_exit_group-> syscall_call->
+14
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> leave_mm-> flush_tlb_page-> ptep_clear_flush_young-> page_referenced_one-> page_referenced-> shrink_active_list.isra.58-> shrink_zone-> kswapd-> kthread-> kernel_thread_helper->
+12
+function flow:  do_sync_write-> vfs_write-> sys_write-> syscall_call->
+12
+function flow:  vfs_write-> sys_write-> syscall_call->
+12
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> leave_mm-> drop_other_mm_ref-> generic_smp_call_function_single_interrupt-> xen_call_function_single_interrupt-> handle_irq_event_percpu-> handle_percpu_irq-> __xen_evtchn_do_upcall-> xen_evtchn_do_upcall-> xen_do_upcall-> default_idle-> cpu_idle-> cpu_bringup_and_idle->
+10
+function flow:  xen_release_pte-> ___pte_free_tlb-> free_pgd_range-> setup_arg_pages-> load_elf_binary-> search_binary_handler-> do_execve-> sys_execve-> ptregs_execve->
+10
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> leave_mm-> flush_tlb_page-> ptep_clear_flush_young-> page_referenced_one-> page_referenced-> shrink_active_list.isra.58-> kswapd-> kthread-> kernel_thread_helper->
+8
+function flow:  sys_poll-> syscall_call->
+8
+function flow:  xen_alloc_pte-> __pte_alloc-> move_page_tables-> setup_arg_pages-> load_elf_binary-> search_binary_handler-> do_execve-> sys_execve-> ptregs_execve->
+7
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> leave_mm-> drop_other_mm_ref-> generic_smp_call_function_interrupt-> xen_call_function_interrupt-> handle_irq_event_percpu-> handle_percpu_irq-> __xen_evtchn_do_upcall-> xen_evtchn_do_upcall-> xen_do_upcall-> default_idle-> cpu_idle-> cpu_bringup_and_idle->
+6
+ do_sync_write-> vfs_write-> sys_write-> syscall_call->
+6
+ sys_poll-> syscall_call->
+5
+function flow:  handle_pte_fault-> handle_mm_fault-> do_page_fault-> error_code->
+5
+function flow:  xen_alloc_pte-> __pte_alloc-> __get_locked_pte-> insert_pfn.isra.53-> vm_insert_mixed-> ttm_bo_vm_fault-> radeon_ttm_fault-> __do_fault-> handle_pte_fault-> handle_mm_fault-> do_page_fault-> error_code->
+5
+function flow:  xen_alloc_pte-> __pte_alloc-> handle_mm_fault-> do_page_fault-> error_code-> padzero-> load_elf_binary-> search_binary_handler-> load_script-> search_binary_handler-> do_execve-> sys_execve-> ptregs_execve->
+5
+ syscall_call->
+4
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> leave_mm-> flush_tlb_mm-> tlb_flush_mmu-> tlb_finish_mmu-> exit_mmap-> mmput-> exit_mm-> do_exit-> do_group_exit-> get_signal_to_deliver-> do_signal-> do_notify_resume-> work_notifysig->
+4
+function flow:  syscall_call->
+4
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> leave_mm-> xen_exit_mmap-> exit_mmap-> mmput-> exit_mm-> do_exit-> do_group_exit-> get_signal_to_deliver-> do_signal-> do_notify_resume-> work_notifysig->
+4
+function flow:  generic_file_aio_write-> ext4_file_write-> do_sync_write-> vfs_write-> sys_write-> syscall_call->
+4
+ __generic_file_aio_write-> generic_file_aio_write-> ext4_file_write-> do_sync_write-> vfs_write-> sys_write-> syscall_call->
+4
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> core_sys_select-> sys_select-> syscall_call->
+3
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> syscall_call->
+3
+function flow:  xen_extend_mmuext_op-> iov_iter_copy_from_user_atomic-> generic_file_buffered_write-> __generic_file_aio_write-> generic_file_aio_write-> ext4_file_write-> do_sync_write-> vfs_write-> sys_write-> syscall_call->
+3
+function flow:  xen_extend_mmuext_op-> xen_do_pin-> __xen_pgd_unpin-> xen_exit_mmap-> exit_mmap-> mmput-> exit_mm-> do_exit-> do_group_exit-> get_signal_to_deliver-> do_signal-> do_notify_resume-> work_notifysig->
+3
+ generic_file_buffered_write-> __generic_file_aio_write-> generic_file_aio_write-> ext4_file_write-> do_sync_write-> vfs_write-> sys_write-> syscall_call->
+3
+function flow:  generic_file_buffered_write-> __generic_file_aio_write-> generic_file_aio_write-> ext4_file_write-> do_sync_write-> vfs_write-> sys_write-> syscall_call->
+3
+ handle_pte_fault-> handle_mm_fault-> do_page_fault-> error_code->
+3
+function flow:  xen_extend_mmuext_op-> vfs_write-> sys_write-> syscall_call->
+3
+function flow:  __generic_file_aio_write-> generic_file_aio_write-> ext4_file_write-> do_sync_write-> vfs_write-> sys_write-> syscall_call->
+3
+function flow:  xen_extend_mmuext_op-> ext4_file_write-> do_sync_write-> vfs_write-> sys_write-> syscall_call->
+2
+function flow:  sys_ppoll-> syscall_call->
+2
+function flow:  xen_extend_mmuext_op-> xen_write_cr3->
+2
+function flow:  xen_extend_mmuext_op-> core_sys_select-> sys_select-> syscall_call->
+2
+function flow:  sys_write-> syscall_call->
+2
+function flow:  xen_extend_mmuext_op-> sys_ppoll-> syscall_call->
+2
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> vfs_write-> sys_write-> syscall_call->
+2
+ error_code->
+2
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> schedule-> cpu_idle-> cpu_bringup_and_idle->
+2
+function flow:  core_sys_select-> sys_select-> syscall_call->
+2
+ generic_file_aio_write-> ext4_file_write-> do_sync_write-> vfs_write-> sys_write-> syscall_call->
+2
+function flow:  xen_extend_mmuext_op-> schedule-> cpu_idle-> cpu_bringup_and_idle->
+2
+function flow:  schedule-> cpu_idle-> cpu_bringup_and_idle->
+2
+function flow:  xen_alloc_pte-> __pte_alloc-> handle_mm_fault-> do_page_fault-> error_code-> error_code->
+2
+ sys_write-> syscall_call->
+2
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> generic_file_aio_write-> ext4_file_write-> do_sync_write-> vfs_write-> sys_write-> syscall_call->
+2
+function flow:  error_code->
+2
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> iov_iter_copy_from_user_atomic-> generic_file_buffered_write-> __generic_file_aio_write-> generic_file_aio_write-> ext4_file_write-> do_sync_write-> vfs_write-> sys_write-> syscall_call->
+1
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> leave_mm-> flush_tlb_page-> __generic_file_aio_write-> generic_file_aio_write-> ext4_file_write-> do_sync_write-> vfs_write-> sys_write-> syscall_call->
+1
+function flow:  xen_extend_mmuext_op-> sys_write-> syscall_call->
+1
+function flow:  xen_extend_mmuext_op->
+1
+function flow:  flush_tlb_mm-> tlb_flush_mmu-> tlb_finish_mmu-> zap_page_range-> sys_madvise-> syscall_call->
+1
+function flow:  xen_alloc_pte-> __pte_alloc-> handle_mm_fault-> do_page_fault-> core_sys_select-> sys_select-> syscall_call->
+1
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> schedule-> work_resched->
+1
+function flow:  xen_alloc_pte-> __pte_alloc-> move_page_tables-> setup_arg_pages-> load_elf_binary-> search_binary_handler-> load_script-> search_binary_handler-> do_execve-> sys_execve-> ptregs_execve->
+1
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> leave_mm-> flush_tlb_mm-> tlb_flush_mmu-> tlb_finish_mmu-> exit_mmap-> mmput-> exit_mm-> vfs_write-> sys_write-> syscall_call->
+1
+ do_wp_page-> handle_pte_fault-> handle_mm_fault-> do_page_fault-> error_code->
+1
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> leave_mm-> flush_tlb_page-> generic_file_aio_write-> ext4_file_write-> do_sync_write-> vfs_write-> sys_write-> syscall_call->
+1
+function flow:  __kunmap_atomic-> iov_iter_copy_from_user_atomic-> generic_file_buffered_write-> __generic_file_aio_write-> generic_file_aio_write-> ext4_file_write-> do_sync_write-> vfs_write-> sys_write-> syscall_call->
+1
+ iov_iter_copy_from_user_atomic-> generic_file_buffered_write-> __generic_file_aio_write-> generic_file_aio_write-> ext4_file_write-> do_sync_write-> vfs_write-> sys_write-> syscall_call->
+1
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> leave_mm-> flush_tlb_page-> ptep_clear_flush_young-> page_referenced_one-> page_referenced-> shrink_page_list-> shrink_zone-> kswapd-> kthread-> kernel_thread_helper->
+1
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> leave_mm-> flush_tlb_page-> ptep_clear_flush_young-> page_referenced_one-> page_referenced-> core_sys_select-> sys_select-> syscall_call->
+1
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> schedule_hrtimeout_range-> poll_schedule_timeout-> do_select-> core_sys_select-> sys_select-> syscall_call->
+1
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> __kunmap_atomic-> iov_iter_copy_from_user_atomic-> generic_file_buffered_write-> __generic_file_aio_write-> generic_file_aio_write-> ext4_file_write-> do_sync_write-> vfs_write-> sys_write-> syscall_call->
+1
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> ttm_get_pages-> __ttm_tt_get_page-> ttm_tt_populate-> ttm_tt_bind-> ttm_bo_handle_move_mem-> ttm_bo_move_buffer-> ttm_bo_validate-> ttm_bo_init-> radeon_bo_create-> radeon_gem_object_create-> radeon_gem_create_ioctl-> drm_ioctl-> do_vfs_ioctl-> sys_ioctl-> syscall_call->
+1
+function flow:  xen_alloc_pte-> __pte_alloc-> handle_mm_fault-> do_page_fault-> error_code-> sys_write-> syscall_call->
+1
+function flow:  xen_extend_mmuext_op-> do_sync_write-> vfs_write-> sys_write-> syscall_call->
+1
+function flow:  rest_init-> start_kernel-> i386_start_kernel-> xen_start_kernel->
+1
+function flow:  xen_alloc_pte-> __pte_alloc-> move_page_tables-> setup_arg_pages-> load_elf_binary-> error_code->
+1
+function flow:  xen_extend_mmuext_op-> xen_do_pin-> __xen_pgd_unpin-> xen_exit_mmap-> exit_mmap-> mmput-> flush_old_exec-> load_elf_binary-> search_binary_handler-> load_script-> search_binary_handler-> do_execve-> sys_execve-> ptregs_execve->
+1
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> flush_old_exec-> load_elf_binary-> vfs_write-> sys_write-> syscall_call->
+1
+function flow:  xen_alloc_pte-> __pte_alloc-> iov_iter_copy_from_user_atomic-> generic_file_buffered_write-> __generic_file_aio_write-> generic_file_aio_write-> ext4_file_write-> do_sync_write-> vfs_write-> sys_write-> syscall_call->
+1
+ __kunmap_atomic-> __do_fault-> handle_pte_fault-> handle_mm_fault-> do_page_fault-> error_code->
+1
+function flow:  xen_extend_mmuext_op-> __generic_file_aio_write-> generic_file_aio_write-> ext4_file_write-> do_sync_write-> vfs_write-> sys_write-> syscall_call->
+1
+ flush_tlb_mm-> mprotect_fixup-> sys_mprotect-> syscall_call->
+1
+ handle_mm_fault-> do_page_fault-> error_code->
+1
+function flow:  xen_alloc_pte-> __pte_alloc-> handle_mm_fault-> do_page_fault-> generic_file_aio_read-> do_sync_read-> vfs_read-> sys_read-> syscall_call->
+1
+function flow:  __alloc_pages_nodemask-> handle_pte_fault-> handle_mm_fault-> do_page_fault-> error_code->
+1
+function flow:  xen_extend_mmuext_op-> schedule-> work_resched->
+1
+ sys_ioctl-> syscall_call->
+1
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> do_futex-> sys_futex-> syscall_call->
+1
+function flow:  xen_release_pte-> ___pte_free_tlb-> free_pgd_range-> free_pgtables-> unmap_region-> do_munmap-> do_sync_write-> vfs_write-> sys_write-> syscall_call->
+1
+ schedule-> cpu_idle-> rest_init-> start_kernel-> i386_start_kernel-> xen_start_kernel->
+1
+function flow:  xen_extend_mmuext_op-> sys_read-> syscall_call->
+1
+function flow:  xen_extend_mmuext_op-> ttm_bo_handle_move_mem-> ttm_bo_move_buffer-> ttm_bo_validate-> ttm_bo_init-> radeon_bo_create-> radeon_gem_object_create-> radeon_gem_create_ioctl-> drm_ioctl-> do_vfs_ioctl-> sys_ioctl-> syscall_call->
+1
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> sys_poll-> syscall_call->
+1
+function flow:  schedule_hrtimeout_range-> poll_schedule_timeout-> do_sys_poll-> sys_ppoll-> syscall_call->
+1
+function flow:  xen_extend_mmuext_op-> vfs_read-> sys_read-> syscall_call->
+1
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> leave_mm-> flush_tlb_mm-> tlb_flush_mmu-> tlb_finish_mmu-> do_sync_write-> vfs_write-> sys_write-> syscall_call->
+1
+function flow:  xen_extend_mmuext_op-> do_sys_poll-> sys_poll-> syscall_call->
+1
+function flow:  xen_alloc_pte-> __pte_alloc-> do_exit-> do_group_exit-> sys_exit_group-> syscall_call->
+1
+ radeon_bo_create-> radeon_gem_object_create-> radeon_gem_create_ioctl-> drm_ioctl-> do_vfs_ioctl-> sys_ioctl-> syscall_call->
+1
+function flow:  xen_release_pte-> ___pte_free_tlb-> free_pgd_range-> free_pgtables-> unmap_region-> do_munmap-> sys_munmap-> syscall_call-> iov_iter_copy_from_user_atomic-> generic_file_buffered_write-> __generic_file_aio_write-> generic_file_aio_write-> ext4_file_write-> do_sync_write-> vfs_write-> sys_write-> syscall_call->
+1
+function flow:  xen_release_pte-> ___pte_free_tlb-> free_pgd_range-> free_pgtables-> unmap_region-> do_munmap-> sys_munmap-> vfs_write-> sys_write-> syscall_call->
+1
+function flow:  xen_extend_mmuext_op-> xen_do_pin-> xen_unpin_page-> __xen_pgd_walk-> __xen_pgd_unpin-> xen_exit_mmap-> xen_do_pin-> xen_unpin_page-> __xen_pgd_walk-> __xen_pgd_unpin-> xen_exit_mmap-> exit_mmap-> mmput-> exit_mm-> do_exit-> do_group_exit-> get_signal_to_deliver-> do_signal-> do_notify_resume-> work_notifysig->
+1
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> leave_mm-> flush_tlb_page-> ptep_clear_flush-> page_mkclean-> clear_page_dirty_for_io-> mpage_da_submit_io-> vfs_write-> sys_write-> syscall_call->
+1
+function flow:  xen_extend_mmuext_op-> xen_do_pin-> xen_pin_page-> __xen_pgd_walk-> __xen_pgd_pin-> handle_mm_fault-> do_page_fault-> error_code->
+1
+function flow:  schedule_hrtimeout_range-> poll_schedule_timeout-> do_sys_poll-> sys_poll-> syscall_call->
+1
+ schedule-> work_resched->
+1
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> __generic_file_aio_write-> generic_file_aio_write-> ext4_file_write-> do_sync_write-> vfs_write-> sys_write-> syscall_call->
+1
+function flow:  xen_alloc_pte-> __pte_alloc-> handle_mm_fault-> do_page_fault-> error_code-> vfs_write-> sys_write-> syscall_call->
+1
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> leave_mm-> flush_tlb_mm-> tlb_flush_mmu-> tlb_finish_mmu-> exit_mmap-> mmput-> flush_tlb_page-> ptep_clear_flush-> do_wp_page-> handle_pte_fault-> handle_mm_fault-> do_page_fault-> error_code->
+1
+ core_sys_select-> sys_select-> syscall_call->
+1
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> leave_mm-> flush_tlb_mm-> tlb_flush_mmu-> tlb_finish_mmu-> xen_unpin_page-> __xen_pgd_walk-> __xen_pgd_unpin-> xen_exit_mmap-> exit_mmap-> mmput-> exit_mm-> do_exit-> do_group_exit-> get_signal_to_deliver-> do_signal-> do_notify_resume-> work_notifysig->
+1
+function flow:  xen_extend_mmuext_op-> cpu_idle-> cpu_bringup_and_idle->
+1
+function flow:  xen_extend_mmuext_op-> xen_do_pin-> xen_pin_page-> __xen_pgd_walk-> __xen_pgd_pin-> radeon_gem_create_ioctl-> drm_ioctl-> do_vfs_ioctl-> sys_ioctl-> syscall_call->
+1
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> leave_mm-> drop_other_mm_ref-> generic_smp_call_function_interrupt-> xen_call_function_interrupt-> handle_irq_event_percpu-> handle_percpu_irq-> __xen_evtchn_do_upcall-> xen_evtchn_do_upcall-> xen_do_upcall-> default_idle-> cpu_idle-> rest_init-> start_kernel-> i386_start_kernel-> xen_start_kernel->
+1
+function flow:  xen_extend_mmuext_op-> xen_do_pin-> xen_unpin_page-> __xen_pgd_walk-> __xen_pgd_unpin-> xen_exit_mmap-> exit_mmap-> handle_mm_fault-> do_page_fault-> error_code->
+1
+ __kunmap_atomic-> iov_iter_copy_from_user_atomic-> generic_file_buffered_write-> __generic_file_aio_write-> generic_file_aio_write-> ext4_file_write-> do_sync_write-> vfs_write-> sys_write-> syscall_call->
+1
+function flow:  ptep_set_access_flags-> do_wp_page-> handle_pte_fault-> handle_mm_fault-> do_page_fault-> error_code->
+1
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> leave_mm-> flush_tlb_page-> ptep_clear_flush_young-> page_referenced_one-> page_referenced-> shrink_page_list-> syscall_call->
+1
+function flow:  ext4_file_write-> do_sync_write-> vfs_write-> sys_write-> syscall_call->
+1
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> handle_pte_fault-> handle_mm_fault-> do_page_fault-> error_code->
+1
+ ttm_get_pages-> __ttm_tt_get_page-> ttm_tt_populate-> ttm_tt_bind-> ttm_bo_handle_move_mem-> ttm_bo_move_buffer-> ttm_bo_validate-> ttm_bo_init-> radeon_bo_create-> radeon_gem_object_create-> radeon_gem_create_ioctl-> drm_ioctl-> do_vfs_ioctl-> sys_ioctl-> syscall_call->
+1
+function flow:  xen_alloc_pte-> __pte_alloc-> handle_mm_fault-> do_page_fault-> ptep_set_access_flags-> do_wp_page-> handle_pte_fault-> handle_mm_fault-> do_page_fault-> error_code->
+1
+function flow:  xen_release_pte-> ___pte_free_tlb-> free_pgd_range-> setup_arg_pages-> load_elf_binary-> search_binary_handler-> load_script-> search_binary_handler-> do_execve-> sys_execve-> ptregs_execve->
+1
+function flow:  xen_release_pte-> ___pte_free_tlb-> free_pgd_range-> free_pgtables-> unmap_region-> do_munmap-> sys_munmap-> sys_write-> syscall_call->
+1
+ do_munmap-> sys_munmap-> syscall_call->
+1
+function flow:  vfs_read-> sys_read-> syscall_call->
+1
+function flow:  xen_extend_mmuext_op-> xen_write_cr3-> leave_mm-> flush_tlb_page-> ptep_clear_flush-> page_mkclean-> clear_page_dirty_for_io-> mpage_da_submit_io-> do_sync_write-> vfs_write-> sys_write-> syscall_call->
+1
+function flow:  xen_release_pte-> ___pte_free_tlb-> free_pgd_range-> free_pgtables-> unmap_region-> do_munmap-> sys_munmap-> ext4_file_write-> do_sync_write-> vfs_write-> sys_write-> syscall_call->
+1
+function flow:  xen_extend_mmuext_op-> error_code->
+1
+ do_sys_poll-> sys_poll-> syscall_call->
+1
+ schedule_hrtimeout_range-> poll_schedule_timeout-> do_select-> core_sys_select-> sys_select-> syscall_call->
+1
+function flow:  xen_release_pte-> ___pte_free_tlb-> free_pgd_range-> free_pgtables-> unmap_region-> do_munmap-> generic_file_aio_write-> ext4_file_write-> do_sync_write-> vfs_write-> sys_write-> syscall_call->
+1
+function flow:  xen_alloc_pte-> __pte_alloc-> handle_mm_fault-> do_page_fault-> error_code-> generic_file_buffered_write-> __generic_file_aio_write-> generic_file_aio_write-> ext4_file_write-> do_sync_write-> vfs_write-> sys_write-> syscall_call->
+1

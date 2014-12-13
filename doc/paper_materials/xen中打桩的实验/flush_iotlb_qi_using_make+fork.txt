@@ -1,0 +1,220 @@
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> do_multicall-> hypercall->
+123
+ flush_iotlb_qi-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> do_multicall-> hypercall->
+90
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> do_update_descriptor-> do_multicall-> hypercall->
+43
+ flush_iotlb_qi-> vcpu_runstate_get-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> do_multicall-> hypercall->
+39
+ flush_iotlb_qi-> intel_iommu_map_page-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> do_update_descriptor-> do_multicall-> hypercall->
+38
+ flush_iotlb_qi-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> ptwr_do_page_fault-> do_multicall-> hypercall->
+30
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> ptwr_do_page_fault-> do_multicall-> hypercall->
+28
+ flush_iotlb_qi-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> reprogram_timer-> do_multicall-> hypercall->
+19
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> ptwr_do_page_fault-> do_multicall-> hypercall->
+17
+ flush_iotlb_qi-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> reprogram_timer-> do_multicall-> hypercall->
+14
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> reprogram_timer-> do_multicall-> hypercall->
+11
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> reprogram_timer-> do_multicall-> hypercall->
+11
+ flush_iotlb_qi-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> ptwr_do_page_fault-> do_multicall-> hypercall->
+8
+ flush_iotlb_qi-> get_page_type-> get_page_and_type_from_pagenr-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> do_multicall-> hypercall->
+7
+ flush_iotlb_qi-> intel_iommu_map_page-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> ptwr_do_page_fault-> do_multicall-> hypercall->
+7
+ flush_iotlb_qi-> intel_iommu_map_page-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> do_multicall-> hypercall->
+6
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> iommu_flush_iotlb_psi.constprop.16-> get_page_from_pagenr-> get_page_and_type_from_pagenr-> get_page_from_l3e-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> do_multicall-> hypercall->
+6
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> iommu_flush_iotlb_psi.constprop.16-> get_page_from_pagenr-> get_page_and_type_from_pagenr-> get_page_from_l3e-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> do_multicall-> hypercall->
+5
+ flush_iotlb_qi-> intel_iommu_map_page-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> get_page_type-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> do_multicall-> hypercall->
+4
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> get_page_type-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> do_multicall-> hypercall->
+4
+ flush_iotlb_qi-> ns16550_interrupt-> ack_edge_ioapic_irq-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> iommu_flush_iotlb_psi.constprop.16-> get_page_from_pagenr-> get_page_and_type_from_pagenr-> get_page_from_l3e-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> do_multicall-> hypercall->
+4
+ flush_iotlb_qi-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> iommu_flush_iotlb_psi.constprop.16-> get_page_from_pagenr-> get_page_and_type_from_pagenr-> get_page_from_l3e-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> reprogram_timer-> do_multicall-> hypercall->
+4
+ flush_iotlb_qi-> csched_vcpu_wake-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> do_multicall-> hypercall->
+3
+ flush_iotlb_qi-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> iommu_flush_iotlb_psi.constprop.16-> get_page_from_pagenr-> get_page_and_type_from_pagenr-> get_page_from_l3e-> __get_page_type-> __qdivrem-> get_page-> do_mmuext_op-> reprogram_timer-> do_multicall-> hypercall->
+3
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> iommu_flush_iotlb_psi.constprop.16-> __get_page_type-> get_page_from_pagenr-> get_page_from_pagenr-> get_page_and_type_from_pagenr-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> reprogram_timer-> do_multicall-> hypercall->
+3
+ flush_iotlb_qi-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> _csched_cpu_pick.isra.1-> do_mmuext_op-> ptwr_do_page_fault-> do_multicall-> hypercall->
+3
+ flush_iotlb_qi-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> iommu_flush_iotlb_psi.constprop.16-> get_page_from_pagenr-> get_page_and_type_from_pagenr-> get_page_from_l3e-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> do_multicall-> hypercall->
+3
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> get_page_type-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> do_update_descriptor-> do_multicall-> hypercall->
+3
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> _csched_cpu_pick.isra.1-> do_mmuext_op-> ptwr_do_page_fault-> do_multicall-> hypercall->
+3
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> iommu_flush_iotlb_psi.constprop.16-> get_page_from_pagenr-> get_page_and_type_from_pagenr-> get_page_from_l3e-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> do_update_descriptor-> do_multicall-> hypercall->
+3
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> ptwr_do_page_fault-> do_multicall-> common_interrupt-> hypercall->
+3
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> iommu_flush_iotlb_psi.constprop.16-> __get_page_type-> get_page_from_pagenr-> get_page_from_pagenr-> get_page_and_type_from_pagenr-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> do_multicall-> hypercall->
+2
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> do_update_descriptor-> do_multicall-> hypercall->
+2
+ flush_iotlb_qi-> get_page_type-> get_page_and_type_from_pagenr-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> get_page_from_l1e-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> do_multicall-> hypercall->
+2
+ flush_iotlb_qi-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> do_update_descriptor-> do_multicall-> hypercall->
+2
+ flush_iotlb_qi-> get_page_type-> get_page_and_type_from_pagenr-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> ptwr_do_page_fault-> do_multicall-> common_interrupt-> hypercall->
+2
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> do_multicall-> common_interrupt-> hypercall->
+2
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> _csched_cpu_pick.isra.1-> do_mmuext_op-> ptwr_do_page_fault-> reprogram_timer-> do_multicall-> hypercall->
+2
+ flush_iotlb_qi-> __putstr-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> iommu_flush_iotlb_psi.constprop.16-> get_page_from_pagenr-> get_page_and_type_from_pagenr-> get_page_from_l3e-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> do_multicall-> hypercall->
+2
+ flush_iotlb_qi-> domain_iommu_domid-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> iommu_flush_iotlb_psi.constprop.16-> __get_page_type-> get_page_from_pagenr-> get_page_from_pagenr-> get_page_and_type_from_pagenr-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> do_multicall-> hypercall->
+2
+ flush_iotlb_qi-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> ptwr_do_page_fault-> do_multicall-> common_interrupt-> hypercall->
+2
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> iommu_flush_iotlb_psi.constprop.16-> get_page_from_pagenr-> get_page_and_type_from_pagenr-> get_page_from_l3e-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> reprogram_timer-> do_multicall-> hypercall->
+2
+ flush_iotlb_qi-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> _csched_cpu_pick.isra.1-> do_mmuext_op-> ptwr_do_page_fault-> reprogram_timer-> do_multicall-> hypercall->
+2
+ flush_iotlb_qi-> intel_iommu_map_page-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> get_page_type-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> do_update_descriptor-> do_multicall-> hypercall->
+2
+ flush_iotlb_qi-> smp_send_event_check_mask-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> do_multicall-> hypercall->
+2
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> common_interrupt-> intel_iommu_unmap_page-> page_get_owner_and_reference-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> set_eoi_ready-> reprogram_timer-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> ack_edge_ioapic_irq-> do_IRQ-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> add_entry-> do_mmuext_op-> desc_guest_eoi-> pirq_guest_eoi-> do_physdev_op-> reprogram_timer-> do_IRQ-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> do_IRQ-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> get_page_type-> get_page_and_type_from_pagenr-> vcpu_runstate_get-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> ptwr_do_page_fault-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> domain_iommu_domid-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> iommu_flush_iotlb_psi.constprop.16-> __get_page_type-> get_page_from_pagenr-> get_page_from_pagenr-> get_page_and_type_from_pagenr-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> evtchn_set_pending-> reprogram_timer-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> common_interrupt-> intel_iommu_unmap_page-> page_get_owner_and_reference-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> set_eoi_ready-> reprogram_timer-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> iommu_flush_iotlb_psi.constprop.16-> get_page_from_pagenr-> get_page_and_type_from_pagenr-> get_page_from_l3e-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> common_interrupt-> ptwr_do_page_fault-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> get_page_type-> get_page_and_type_from_pagenr-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> ptwr_do_page_fault-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> common_interrupt-> ptwr_do_page_fault-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> intel_iommu_map_page-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> ptwr_do_page_fault-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> ack_edge_ioapic_irq-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> common_interrupt-> do_mmuext_op-> reprogram_timer-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> create_pae_xen_mappings.part.16-> __get_page_type-> put_page_from_l1e-> get_page-> get_page_from_pagenr-> do_mmuext_op-> new_guest_cr3-> do_update_descriptor-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> vcpu_runstate_get-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> do_IRQ-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> ptwr_do_page_fault-> reprogram_timer-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> vcpu_runstate_get-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> ptwr_do_page_fault-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> do_IRQ-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> add_entry-> do_mmuext_op-> ptwr_do_page_fault-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> __putstr-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> iommu_flush_iotlb_psi.constprop.16-> get_page_from_pagenr-> get_page_and_type_from_pagenr-> get_page_from_l3e-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> reprogram_timer-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> iommu_flush_iotlb_psi.constprop.16-> get_page_from_pagenr-> get_page_and_type_from_pagenr-> get_page_from_l3e-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> evtchn_set_pending-> reprogram_timer-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> domain_iommu_domid-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> iommu_flush_iotlb_psi.constprop.16-> __get_page_type-> get_page_from_pagenr-> get_page_from_pagenr-> get_page_and_type_from_pagenr-> __get_page_type-> put_page_from_l1e-> get_page-> __qdivrem-> do_mmuext_op-> __divdi3-> reprogram_timer-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> iommu_flush_iotlb_psi.constprop.16-> __get_page_type-> get_page_from_pagenr-> get_page_from_pagenr-> get_page_and_type_from_pagenr-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> on_selected_cpus-> reprogram_timer-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> iommu_flush_iotlb_psi.constprop.16-> get_page_from_pagenr-> get_page_and_type_from_pagenr-> get_page_from_l3e-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> do_update_descriptor-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> domain_iommu_domid-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> iommu_flush_iotlb_psi.constprop.16-> __get_page_type-> get_page_from_pagenr-> get_page_from_pagenr-> get_page_and_type_from_pagenr-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> on_selected_cpus-> reprogram_timer-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> csched_vcpu_wake-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> do_update_descriptor-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> ack_edge_ioapic_irq-> do_IRQ-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> do_IRQ-> reprogram_timer-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> intel_iommu_map_page-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> do_multicall-> common_interrupt-> hypercall->
+1
+ flush_iotlb_qi-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> ack_edge_ioapic_irq-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> common_interrupt-> do_mmuext_op-> reprogram_timer-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> get_page_type-> get_page_and_type_from_pagenr-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> do_multicall-> common_interrupt-> hypercall->
+1
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> do_IRQ-> do_multicall-> common_interrupt-> hypercall->
+1
+ flush_iotlb_qi-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> iommu_flush_iotlb_psi.constprop.16-> get_page_from_pagenr-> get_page_and_type_from_pagenr-> get_page_from_l3e-> __get_page_type-> put_page_from_l1e-> get_page-> add_entry-> do_mmuext_op-> reprogram_timer-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> get_page_type-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> new_guest_cr3-> do_update_descriptor-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> add_entry-> do_mmuext_op-> desc_guest_eoi-> pirq_guest_eoi-> do_physdev_op-> reprogram_timer-> do_IRQ-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> set_eoi_ready-> reprogram_timer-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> _csched_cpu_pick.isra.1-> do_mmuext_op-> ack_edge_ioapic_irq-> do_IRQ-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> add_entry-> do_mmuext_op-> reprogram_timer-> do_IRQ-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> iommu_flush_iotlb_psi.constprop.16-> get_page_from_pagenr-> get_page_and_type_from_pagenr-> get_page_from_l3e-> __get_page_type-> put_page_from_l1e-> get_page-> _csched_cpu_pick.isra.1-> do_mmuext_op-> reprogram_timer-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> get_paged-> do_mmuext_op-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> iommu_flush_iotlb_psi.constprop.16-> get_page_from_pagenr-> get_page_and_type_from_pagenr-> get_page_from_l3e-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> set_eoi_ready-> reprogram_timer-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> do_update_descriptor-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> ack_edge_ioapic_irq-> do_IRQ-> get_page_from_pagenr-> get_page_and_type_from_pagenr-> get_page_from_l3e-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> do_update_descriptor-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> ns16550_interrupt-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> csched_vcpu_wake-> vcpu_runstate_get-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> get_page_type-> get_page_and_type_from_pagenr-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> create_pae_xen_mappings.part.16-> __get_page_type-> put_page_from_l1e-> get_page-> get_page_from_pagenr-> do_mmuext_op-> new_guest_cr3-> do_update_descriptor-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> __putstr-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> iommu_flush_iotlb_psi.constprop.16-> get_page_from_pagenr-> get_page_and_type_from_pagenr-> get_page_from_l3e-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> do_update_descriptor-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> iommu_flush_iotlb_psi.constprop.16-> __get_page_type-> get_page_from_pagenr-> get_page_from_pagenr-> get_page_and_type_from_pagenr-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> do_update_descriptor-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> ns16550_interrupt-> ack_edge_ioapic_irq-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> iommu_flush_iotlb_psi.constprop.16-> get_page_from_pagenr-> get_page_and_type_from_pagenr-> get_page_from_l3e-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> add_entry-> do_mmuext_op-> reprogram_timer-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> set_eoi_ready-> reprogram_timer-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> do_IRQ-> do_multicall-> common_interrupt-> hypercall->
+1
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> iommu_flush_iotlb_psi.constprop.16-> __get_page_type-> get_page_from_pagenr-> get_page_from_pagenr-> get_page_and_type_from_pagenr-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> evtchn_set_pending-> reprogram_timer-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> iommu_flush_iotlb_psi.constprop.16-> __get_page_type-> get_page_from_pagenr-> get_page_from_pagenr-> get_page_and_type_from_pagenr-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> do_multicall-> common_interrupt-> hypercall->
+1
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> iommu_flush_iotlb_psi.constprop.16-> __get_page_type-> get_page_from_pagenr-> get_page_from_pagenr-> get_page_and_type_from_pagenr-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> ns16550_interrupt-> ack_edge_ioapic_irq-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> iommu_flush_iotlb_psi.constprop.16-> get_page_from_pagenr-> get_page_and_type_from_pagenr-> get_page_from_l3e-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> do_update_descriptor-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> _csched_cpu_pick.isra.1-> do_mmuext_op-> ack_edge_ioapic_irq-> do_IRQ-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> do_IRQ-> reprogram_timer-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> iommu_flush_iotlb_psi.constprop.16-> __get_page_type-> get_page_from_pagenr-> get_page_from_pagenr-> get_page_and_type_from_pagenr-> __get_page_type-> put_page_from_l1e-> get_page-> __qdivrem-> do_mmuext_op-> on_selected_cpus-> reprogram_timer-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> vcpu_runstate_get-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> do_update_descriptor-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> intel_iommu_map_page-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> get_page_type-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> new_guest_cr3-> do_update_descriptor-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> add_entry-> do_mmuext_op-> ptwr_do_page_fault-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> __putstr  -> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> iommu_flush_iotlb_psi.constprop.16-> get_page_from_pagenr-> get_page_and_type_from_pagenr-> get_page_from_l3e-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> add_entry-> do_mmuext_op-> reprogram_timer-> do_IRQ-> do_multicall-> hypercall->
+1
+ flush_iotlb_qi-> intel_iommu_map_page-> iommu_flush_iotlb_dsi.constprop.17-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> put_page_from_l1e-> get_page-> do_mmuext_op-> ptwr_do_page_fault-> do_multicall-> common_interrupt-> hypercall->
+1
+ flush_iotlb_qi-> flush_iotlb_qi-> iommu_flush_iotlb_psi.constprop.16-> domain_iommu_domid-> __intel_iommu_iotlb_flush-> intel_iommu_unmap_page-> __get_page_type-> iommu_flush_iotlb_psi.constprop.16-> get_page_from_pagenr-> get_page_and_type_from_pagenr-> get_page_from_l3e-> __get_page_type-> put_page_from_l1e-> get_page-> get_page-> do_mmuext_op-> evtchn_set_pending-> reprogram_timer-> do_multicall-> hypercall->
+1

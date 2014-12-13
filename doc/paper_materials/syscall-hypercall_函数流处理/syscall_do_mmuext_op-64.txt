@@ -1,0 +1,98 @@
+dump_stack-> xen_extend_mmuext_op-> __xen_write_cr3-> xen_write_cr3-> ? dequeue_task-> __schedule
+140372
+ dump_stack-> xen_flush_tlb_single-> flush_tlb_mm_range-> tlb_flush_mmu-> tlb_finish_mmu-> unmap_region-> do_munmap-> vm_munmap-> SyS_munmap-> system_call_fastpath->
+24613
+ dump_stack-> xen_flush_tlb_single-> flush_tlb_page-> ptep_clear_flush-> do_wp_page-> handle_mm_fault-> __do_page_fault-> do_page_fault-> page_fault->
+15117
+ dump_stack-> xen_flush_tlb_single-> flush_tlb_mm_range-> tlb_flush_mmu-> tlb_finish_mmu-> unmap_region-> do_munmap-> SyS_brk-> system_call_fastpath->
+6139
+ dump_stack-> xen_extend_mmuext_op-> xen_do_pin-> xen_unpin_page-> __xen_pgd_walk-> __xen_pgd_unpin-> xen_exit_mmap-> exit_mmap-> mmput-> do_exit-> do_group_exit-> SyS_exit_group-> system_call_fastpath->
+5128
+ dump_stack-> xen_flush_tlb_single-> flush_tlb_mm_range-> change_protection-> mprotect_fixup-> SyS_mprotect-> system_call_fastpath->
+4519
+ dump_stack-> xen_alloc_pte-> __pte_alloc-> handle_mm_fault-> __do_page_fault-> do_page_fault-> page_fault->
+4307
+ dump_stack-> xen_extend_mmuext_op-> xen_do_pin-> xen_unpin_page-> __xen_pgd_walk-> __xen_pgd_unpin-> xen_exit_mmap-> exit_mmap-> mmput-> flush_old_exec-> load_elf_binary-> search_binary_handler-> do_execve_common.isra.26-> do_execve-> SyS_execve-> stub_execve->
+2247
+ dump_stack-> xen_extend_mmuext_op-> xen_do_pin-> xen_pin_page-> __xen_pgd_walk-> __xen_pgd_pin-> xen_dup_mmap-> dup_mm-> copy_process-> do_fork-> SyS_clone-> stub_clone->
+2094
+ dump_stack-> xen_alloc_pte-> __pte_alloc-> handle_mm_fault-> __do_page_fault-> do_page_fault-> page_fault-> clear_user-> padzero-> load_elf_binary-> search_binary_handler-> do_execve_common.isra.26-> do_execve-> SyS_execve-> stub_execve->
+793
+ dump_stack-> xen_extend_mmuext_op-> xen_do_pin-> __xen_pgd_pin-> xen_activate_mm-> flush_old_exec-> load_elf_binary-> search_binary_handler-> do_execve_common.isra.26-> do_execve-> SyS_execve-> stub_execve->
+792
+ dump_stack-> xen_flush_tlb_single-> flush_tlb_mm_range-> tlb_flush_mmu-> tlb_finish_mmu-> zap_page_range-> madvise_vma-> SyS_madvise-> system_call_fastpath->
+643
+ dump_stack-> xen_extend_mmuext_op-> xen_do_pin-> __xen_pgd_pin-> xen_dup_mmap-> dup_mm-> copy_process-> do_fork-> SyS_clone-> stub_clone->
+550
+ dump_stack-> xen_extend_mmuext_op-> xen_do_pin-> __xen_pgd_unpin-> xen_exit_mmap-> exit_mmap-> mmput-> do_exit-> do_group_exit-> SyS_exit_group-> system_call_fastpath->
+409
+ dump_stack-> xen_extend_mmuext_op-> __xen_write_cr3-> xen_write_cr3-> leave_mm-> xen_exit_mmap-> exit_mmap-> mmput-> do_exit-> do_group_exit-> SyS_exit_group-> system_call_fastpath->
+409
+ dump_stack-> xen_alloc_pte-> __pte_alloc-> move_page_tables-> shift_arg_pages-> setup_arg_pages-> load_elf_binary-> search_binary_handler-> do_execve_common.isra.26-> do_execve-> SyS_execve-> stub_execve->
+398
+ dump_stack-> xen_flush_tlb-> flush_tlb_mm_range-> move_page_tables-> shift_arg_pages-> setup_arg_pages-> load_elf_binary-> search_binary_handler-> do_execve_common.isra.26-> do_execve-> SyS_execve-> stub_execve->
+398
+ dump_stack-> xen_flush_tlb-> flush_tlb_mm_range-> tlb_flush_mmu-> tlb_finish_mmu-> shift_arg_pages-> setup_arg_pages-> load_elf_binary-> search_binary_handler-> do_execve_common.isra.26-> do_execve-> SyS_execve-> stub_execve->
+398
+ dump_stack-> xen_release_pte-> ___pte_free_tlb-> free_pgd_range-> shift_arg_pages-> setup_arg_pages-> load_elf_binary-> search_binary_handler-> do_execve_common.isra.26-> do_execve-> SyS_execve-> stub_execve->
+398
+ dump_stack-> xen_extend_mmuext_op-> __xen_write_cr3-> xen_write_cr3-> flush_old_exec-> load_elf_binary-> search_binary_handler-> do_execve_common.isra.26-> do_execve-> SyS_execve-> stub_execve->
+396
+ dump_stack-> xen_extend_mmuext_op-> xen_do_pin-> xen_pin_page-> __xen_pgd_walk-> __xen_pgd_pin-> xen_activate_mm-> flush_old_exec-> load_elf_binary-> search_binary_handler-> do_execve_common.isra.26-> do_execve-> SyS_execve-> stub_execve->
+396
+ dump_stack-> xen_flush_tlb-> flush_tlb_mm_range-> dup_mm-> copy_process-> do_fork-> SyS_clone-> stub_clone->
+275
+ dump_stack-> xen_extend_mmuext_op-> xen_do_pin-> __xen_pgd_unpin-> xen_exit_mmap-> exit_mmap-> mmput-> flush_old_exec-> load_elf_binary-> search_binary_handler-> do_execve_common.isra.26-> do_execve-> SyS_execve-> stub_execve->
+256
+ dump_stack-> xen_flush_tlb_single-> flush_tlb_mm_range-> tlb_flush_mmu-> tlb_finish_mmu-> zap_page_range_single-> unmap_mapping_range-> i915_gem_release_mmap-> i915_gem_object_get_fence-> i915_gem_fault-> __do_fault-> handle_mm_fault-> __do_page_fault-> do_page_fault-> page_fault->
+248
+ dump_stack-> xen_flush_tlb_single-> flush_tlb_mm_range-> tlb_flush_mmu-> tlb_finish_mmu-> zap_page_range_single-> unmap_mapping_range-> i915_gem_release_mmap-> i915_gem_set_tiling-> drm_ioctl-> do_vfs_ioctl-> SyS_ioctl-> system_call_fastpath->
+192
+ dump_stack-> xen_extend_mmuext_op-> xen_do_pin-> xen_unpin_page-> __xen_pgd_walk-> __xen_pgd_unpin-> xen_exit_mmap-> exit_mmap-> mmput-> do_exit-> do_group_exit-> get_signal_to_deliver-> do_signal-> do_notify_resume-> int_signal->
+54
+ dump_stack-> xen_flush_tlb-> flush_tlb_mm_range-> tlb_flush_mmu-> tlb_finish_mmu-> zap_page_range-> madvise_vma-> SyS_madvise-> system_call_fastpath->
+54
+ dump_stack-> xen_flush_tlb-> flush_tlb_mm_range-> change_protection-> mprotect_fixup-> SyS_mprotect-> system_call_fastpath->
+53
+ dump_stack-> xen_flush_tlb-> flush_tlb_mm_range-> tlb_flush_mmu-> tlb_finish_mmu-> unmap_region-> do_munmap-> vm_munmap-> SyS_munmap-> system_call_fastpath->
+51
+ dump_stack-> xen_flush_tlb_single-> flush_tlb_mm_range-> tlb_flush_mmu-> tlb_finish_mmu-> unmap_region-> do_munmap-> SyS_mremap-> system_call_fastpath->
+42
+ dump_stack-> xen_flush_tlb_single-> flush_tlb_mm_range-> move_page_tables-> move_vma-> SyS_mremap-> system_call_fastpath->
+41
+ dump_stack-> xen_release_pte-> ___pte_free_tlb-> free_pgd_range-> free_pgtables-> unmap_region-> do_munmap-> vm_munmap-> SyS_munmap-> system_call_fastpath->
+22
+ dump_stack-> xen_extend_mmuext_op-> xen_do_pin-> xen_unpin_page-> __xen_pgd_walk-> __xen_pgd_unpin-> xen_exit_mmap-> exit_mmap-> mmput-> flush_old_exec-> load_elf_binary-> search_binary_handler-> load_script-> search_binary_handler-> do_execve_common.isra.26-> do_execve-> SyS_execve-> stub_execve->
+9
+ dump_stack-> xen_extend_mmuext_op-> xen_do_pin-> xen_unpin_page-> __xen_pgd_walk-> __xen_pgd_unpin-> xen_exit_mmap-> exit_mmap-> mmput-> copy_process-> do_fork-> SyS_clone-> stub_clone->
+6
+ dump_stack-> xen_flush_tlb_single-> flush_tlb_mm_range-> tlb_flush_mmu-> tlb_finish_mmu-> zap_page_range_single-> unmap_mapping_range-> truncate_inode_page-> shmem_undo_range-> shmem_truncate_range-> i915_gem_object_truncate-> i915_gem_madvise_ioctl-> drm_ioctl-> do_vfs_ioctl-> SyS_ioctl-> system_call_fastpath->
+6
+ dump_stack-> xen_flush_tlb_single-> flush_tlb_page-> ptep_clear_flush-> do_wp_page-> handle_mm_fault-> __do_page_fault-> do_page_fault-> page_fault-> ret_from_fork->
+3
+ dump_stack-> xen_release_pte-> ___pte_free_tlb-> free_pgd_range-> free_pgtables-> unmap_region-> do_munmap-> SyS_brk-> system_call_fastpath->
+3
+ dump_stack-> xen_alloc_pte-> __pte_alloc-> handle_mm_fault-> __do_page_fault-> do_page_fault-> page_fault-> clear_user-> padzero-> load_elf_binary-> search_binary_handler-> load_script-> search_binary_handler-> do_execve_common.isra.26-> do_execve-> SyS_execve-> stub_execve->
+2
+ dump_stack-> xen_extend_mmuext_op-> xen_do_pin-> __xen_pgd_pin-> xen_activate_mm-> flush_old_exec-> load_elf_binary-> search_binary_handler-> load_script-> search_binary_handler-> do_execve_common.isra.26-> do_execve-> SyS_execve-> stub_execve->
+2
+ dump_stack-> xen_extend_mmuext_op-> xen_do_pin-> xen_pin_page-> __xen_pgd_walk-> __xen_pgd_pin-> xen_activate_mm-> flush_old_exec-> load_elf_binary-> search_binary_handler-> load_script-> search_binary_handler-> do_execve_common.isra.26-> do_execve-> SyS_execve-> stub_execve->
+1
+ dump_stack-> xen_release_pte-> ___pte_free_tlb-> free_pgd_range-> shift_arg_pages-> setup_arg_pages-> load_elf_binary-> search_binary_handler-> load_script-> search_binary_handler-> do_execve_common.isra.26-> do_execve-> SyS_execve-> stub_execve->
+1
+ dump_stack-> xen_extend_mmuext_op-> xen_do_pin-> __xen_pgd_unpin-> xen_exit_mmap-> exit_mmap-> mmput-> flush_old_exec-> load_elf_binary-> search_binary_handler-> load_script-> search_binary_handler-> do_execve_common.isra.26-> do_execve-> SyS_execve-> stub_execve->
+1
+ dump_stack-> xen_flush_tlb-> flush_tlb_mm_range-> tlb_flush_mmu-> tlb_finish_mmu-> shift_arg_pages-> setup_arg_pages-> load_elf_binary-> search_binary_handler-> load_script-> search_binary_handler-> do_execve_common.isra.26-> do_execve-> SyS_execve-> stub_execve->
+1
+ dump_stack-> xen_flush_tlb-> flush_tlb_mm_range-> tlb_flush_mmu-> tlb_finish_mmu-> unmap_region-> do_munmap-> SyS_brk-> system_call_fastpath->
+1
+ dump_stack-> xen_flush_tlb-> flush_tlb_mm_range-> move_page_tables-> shift_arg_pages-> setup_arg_pages-> load_elf_binary-> search_binary_handler-> load_script-> search_binary_handler-> do_execve_common.isra.26-> do_execve-> SyS_execve-> stub_execve->
+1
+ dump_stack-> xen_alloc_pte-> __pte_alloc-> move_page_tables-> shift_arg_pages-> setup_arg_pages-> load_elf_binary-> search_binary_handler-> load_script-> search_binary_handler-> do_execve_common.isra.26-> do_execve-> SyS_execve-> stub_execve->
+1
+ dump_stack-> xen_extend_mmuext_op-> xen_do_pin-> __xen_pgd_unpin-> xen_exit_mmap-> exit_mmap-> mmput-> copy_process-> do_fork-> SyS_clone-> stub_clone->
+1
+ dump_stack-> xen_flush_tlb_single-> flush_tlb_page-> ptep_clear_flush-> do_wp_page-> handle_mm_fault-> __do_page_fault-> do_page_fault-> page_fault-> do_notify_resume-> int_signal->
+1
+ dump_stack-> xen_extend_mmuext_op-> __xen_write_cr3-> xen_write_cr3-> flush_old_exec-> load_elf_binary-> search_binary_handler-> load_script-> search_binary_handler-> do_execve_common.isra.26-> do_execve-> SyS_execve-> stub_execve->
+1

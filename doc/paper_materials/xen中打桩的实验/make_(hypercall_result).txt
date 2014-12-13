@@ -1,0 +1,10 @@
+(XEN) invlpg local
+1732
+(XEN) pin table
+88
+(XEN) new baseptr
+74
+(XEN) tlb flush local
+70
+(XEN) unpin table
+63
