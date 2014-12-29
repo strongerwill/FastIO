@@ -39,8 +39,6 @@ struct ptrpte_p {
     //struct mmu_gather *mmu_tlb;
     struct ptrpte_p *next;
 };
-
-
 //added by zhang
 DEFINE_SPINLOCK(pgd_cache_lock);
 DEFINE_SPINLOCK(pmd_cache_lock); 
@@ -61,7 +59,6 @@ unsigned long  pmd_used_counter = 0;
 unsigned long  pmd_free_counter = 0;
 unsigned long  pte_used_counter = 0;
 unsigned long  pte_free_counter = 0;
-
 
 unsigned long alloc_pgd_page(void)
 {
@@ -91,7 +88,6 @@ unsigned long alloc_pgd_page(void)
         return __get_free_page(PGALLOC_GFP);
     }
 }
-
 unsigned long alloc_pmd_page(void)
 {
     unsigned long addr = 0;
@@ -118,7 +114,6 @@ unsigned long alloc_pmd_page(void)
         return __get_free_page(PGALLOC_GFP);
     }
 }
-
 
 struct page *alloc_pte_page(void)
 {
@@ -152,21 +147,16 @@ void free_pgd_page(unsigned long addr)
     struct ptrpgd *temp_head = NULL;
     int i = 0;
     int counter = 0;
-    
     newstruct = (struct ptrpgd *)kmalloc(sizeof(struct ptrpgd), GFP_KERNEL);
     newstruct -> content = addr;
-
     spin_lock(&pgd_cache_lock);
     newstruct -> next = pgd_head;
     pgd_head = newstruct;
-    temp_head = pgd_head;
-    
+    temp_head = pgd_head; 
     /*free node */
     if(pgd_used_counter)
     	pgd_used_counter--;
     pgd_free_counter++;
-    //spin_unlock(&pgd_cache_lock);
-   
     if(pgd_used_counter)
     { 
     	//if((pgd_free_counter/pgd_used_counter>=4) && ((pgd_used_counter + pgd_free_counter) >= 450))
@@ -174,12 +164,10 @@ void free_pgd_page(unsigned long addr)
     	//if((pgd_used_counter/pgd_free_counter < 1) && (pgd_used_counter >= 12))
     	//if((pgd_free_counter/pgd_used_counter >= 6) && ((pgd_used_counter + pgd_free_counter) >= 50))
     	//if((pgd_used_counter/pgd_free_counter < 2) && ((pgd_used_counter + pgd_free_counter) >= 20))
-    	if((pgd_free_counter/pgd_used_counter > 1) && ((pgd_used_counter + pgd_free_counter) >= 10))
-    	//if((pgd_free_counter/pgd_used_counter >= 5) && ((pgd_used_counter + pgd_free_counter) >= 50))
+    	if((pgd_free_counter/pgd_used_counter > 1) && ((pgd_used_counter + pgd_free_counter) >= 10))	
     	{
-        	//counter = pgd_free_counter * 3 / 10;
-        	//counter = 0;
-        	counter = pgd_free_counter - 2*pgd_used_counter;
+        	
+        	counter = pgd_free_counter - pgd_used_counter;
         	
 		for(i=0;i<counter;i++)
 		{
@@ -206,18 +194,16 @@ void free_pgd_page(unsigned long addr)
         }
 	//hypercall newstructarray
 	rc = HYPERVISOR_pgd_op(newstructarray, counter);
-        //if (rc == 0)
+    //if (rc == 0)
  	//    printk("pgd cache free success\n");
 	//else 
  	//    printk("pgd cache free error\n");
-	    
 	//free page to the buddy system
         newstructarray = newstructarray_head;
 	for(i=0;i<counter;i++)
 	{
 	    free_page(newstructarray[i].content);
 	}
-
 	//free newstructarray
 	kfree(newstructarray);
     }
@@ -253,7 +239,7 @@ void free_pmd_page(unsigned long addr)
     	//if((pmd_free_counter/pmd_used_counter >= 4) && (pmd_used_counter >= 80))
     	//if((pmd_free_counter/pmd_used_counter >= 6) && ((pgd_used_counter + pgd_free_counter) >= 230))
     	//if((pmd_used_counter/pmd_free_counter < 2) && ((pgd_used_counter + pgd_free_counter) >= 80))
-    	if((pmd_free_counter/pmd_used_counter > 1) && ((pmd_used_counter + pmd_free_counter) >= 40))
+    	if((pmd_free_counter/pmd_used_counter > 2) && ((pmd_used_counter + pmd_free_counter) >= 40))
     	//if((pmd_free_counter/pmd_used_counter >= 5) && ((pmd_used_counter + pmd_free_counter) >= 200))
     	{
         	//counter = pmd_free_counter * 3 / 10;
@@ -303,27 +289,6 @@ void free_pmd_page(unsigned long addr)
     return;
 }
  
-/* 
-void free_pmd_page(unsigned long addr)
-{
-    struct ptrpmd * newstruct = NULL;
-    newstruct = (struct ptrpmd *)kmalloc(sizeof(struct ptrpmd), GFP_KERNEL);
-    newstruct -> content = addr;
-   
-
-    spin_lock(&pmd_cache_lock);
-    newstruct -> next = pmd_head;
-    pmd_head = newstruct;
-    
-
-    pmd_used_counter--;
-    pmd_free_counter++;
-    spin_unlock(&pmd_cache_lock);
-    return;
-}
-*/
-
-//void free_pte_page(struct mmu_gather* tlb, struct page *pte)
 void free_pte_page(struct page *pte)
 {
     struct ptrpte_p *newstruct = NULL;

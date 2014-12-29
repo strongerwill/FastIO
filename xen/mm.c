@@ -4429,14 +4429,11 @@ long do_pgd_op(XEN_GUEST_HANDLE(ptrpgd_t) gptrpg, unsigned int count)
     unsigned long mfn;
     unsigned int num;	
     int rc = 0;    
-
-    
     if(cache_on == 0)
     {	
 	cache_on = 1;
 	return rc;
     }
-   
     if ( unlikely(!guest_handle_okay(gptrpg, count)) )
     {
         rc = -EFAULT;
@@ -4463,7 +4460,6 @@ long do_pgd_op(XEN_GUEST_HANDLE(ptrpgd_t) gptrpg, unsigned int count)
         guest_unmap_l1e(curr, gl1e);
         guest_handle_add_offset(gptrpg, 1);
     }
-    //gptrpg = gptrpg_head;
     return rc;
 }
 

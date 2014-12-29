@@ -1,0 +1,2 @@
+Introduce a new sub-option "verbose" to "iommu=", and hide most (debugging) messages when that option is not specified. Particularly messages printed after time management was initialized can, on sufficiently large systems and with a graphical console, lead to time management issues (therefore a call to process_pending_softirqs()
+also gets added in case the new sub-option is being used).
