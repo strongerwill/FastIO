@@ -1,2 +1,0 @@
-1. system setting£ºioflush, cpu-usage, ÃèÊöfirefox tool¡£
-2. macro-benchmark micro-benchmark
