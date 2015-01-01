@@ -1,0 +1,234 @@
+\section{System Overview} \label{sec:overview}
+\begin{figure}
+ \centering
+\includegraphics[width=\columnwidth]{"image/arch2"}
+\caption{\textbf{The architecture of \name.} The shaded square represents a protected application.}\label{fig:arch}
+\end{figure}
+\subsection{System Architecture}\label{sec:phases}
+
+Figure~\ref{fig:arch} shows the high-level architecture of the \name process.
+The \name has an offline analysis phase to extract instructions from the binary and generate Branch \& Gadget (BG) database that records the branch and gadget information.% (shown in Figure~\ref{fig:value-table}).
+The runtime system consists of the operating system kernel, the \name itself, one protected application (i.e., the shaded one), and other unprotected applications.
+The \name module is a dedicated loadable kernel module that monitors the execution of the protected application with the attempt of defending against ROP attacks.
+\name can be automatically loaded during system boot-up, or dynamically activated by the end users.
+Once activated, \name only collects information (e.g., stack, execution trace) and the BG database about the protected application.
+\name is able to protect any unmodified application binary, and can simultaneously monitor multiple applications.
+
+\mypara{General Workflow}
+The general workflow of \name is divided into two phases,
+an offline pre-processing phase, and a run-time detection phase.
+In the {\em offline pre-processing phase}, the \name pre-processor extracts all
+branches information (position and type) and instruction alignment information
+of the selected applications and the shared libraries they depend on.
+The \name pre-processor also extracts the potential gadgets from the binary,
+and analyzes the stack manipulation behavior (e.g., pop instruction moves up the top of the stack 4bytes) of those gadgets.
+The pre-processor then leverages the branch, alignment and gadget information
+to construct a database that will be loaded in run-time phase for the ROP checking.
+Note that the databases of the shared libraries (e.g., libc) are only
+generated once, and can be re-used for protecting different applications.
+
+During the {\em run-time detection phase}, \name loads the databases of
+the monitored applications and their libraries to its memory space,
+and sets a monitor window (see Section~\ref{sec:monwin}) to monitor the each protected application.
+If the application executes in the monitor window, no ROP checking is invoked,
+and the execution is in the native speed. Once the execution flow
+jumps out of the monitor window, \name suspends the application,
+attempts to identify gadget pointers from the current application's stack.
+If these gadget pointers can be linked to form a suspicious ROP payload,
+\name will record the suspicious payload and activate the feedback mechanism to double check it later.
+Once it is confirmed, \name kills the victim application and reports the detected ROP attack.
+Due to the temporal and spatial locality of the application,
+such checking procedure is triggered infrequently.
+
+
+\subsection{ROP Detection}\label{sec:ropdetect}
+\subsubsection{Monitor Window}\label{sec:monwin}
+
+\begin{figure}
+ \centering
+\includegraphics[width=\columnwidth]{"image/monwin"}
+\caption{\textbf{The monitor window and its update.} In this example, the size of the monitor window is 2 pages. When the execution flow reaches to line 2, the monitor is \emph{(page\_b, page\_c)}. Later it is updated to \emph{(page\_a, page\_b)} when the execution flow reaches to line 5. Note that the pages in the monitor window may not be continuous.}\label{fig:monwin}
+\end{figure}
+
+A monitor window is an abstract concept, which refers to several executable code regions in the target applications. Note that the code regions in the monitor window may not be continuous. The purpose of the monitor window is to trigger
+the ROP checking procedure with low performance overhead
+and high accuracy.
+During the execution of the target application, the code regions in the monitor
+window is set executable by \name using page table permissions,
+while the rest of the code area remains non-executable (Fig.~\ref{fig:monwin}).
+Thus, the \name checking is only invoked when the execution of the application
+jumps out of the monitor window. If the checking is passed and no ROP is found,
+\name updates the monitor window by including the code regions newly accessed, and kicks certain previous
+regions out, if needed, according to configurable monitor window size and
+update policies. Note that the window size must be smaller than the minimum size of the
+code-base that could provide gadgets for launching a meaningful ROP attack
+(e.g., $20KB$, as is shown in~\cite{q}). Reducing the window size will increase the
+frequency of the invocation of \name, and thus degrade the system performance.
+
+
+\subsubsection{Branch Alignment Filtering}\label{sec:alignment}
+The branch alignment filtering attempts to expose the ROP attacks by checking the unaligned gadgets.
+As introduced earlier, the recent taken branches are recorded in the LBR registers,
+and the alignment information is stored in the BG database.
+Given the two inputs, \name verifies whether there is any unaligned branch in the historical results.
+Even if only one unaligned branch is caught, \name will ensure the existence of a ROP attack, and terminate the victim application.
+
+The branch alignment filtering introduce \emph{no} false positive
+since normal execution does not use the unaligned instructions.
+Thus, the adversary has to leverage aligned gadgets to form the ROP gadget chain,
+and it may lead to the failures of ROP attacks due to the lack of critical gadgets.
+
+
+\subsubsection{Payload Detection}\label{sec:payload}
+The payload detection is to examine the application stack and attempts to
+identify a ROP payload. \name treats each stack entry (e.g., 4bytes on x86 platform) as a potential
+gadget pointer. If the region that it points to (1) is a code region of
+the application itself or its shared libraries, and (2) can be disassembled
+to a sequence of instructions ended by an indirect branch instruction, and
+is shorter than a {\em gadget length threshold}, \name treats it to be a gadget. Setting this threshold too low,
+it would cause \name to neglect long gadgets, and increase our false negative
+rate. If it is too high, the \name might mis-identify valid code sequences as
+gadgets. Recall that a gadget roughly has 2-5
+instructions~\cite{tc-ret2lic}. We set the threshold as 6 in this paper.
+
+\name then attempts to link the detected gadget to form a potential
+ROP payload. Note that gadgets may contain instructions to adjust
+the position of the stack pointer, e.g., the
+gadget \emph{pop \%eax, pop \%ebp; ret} will increase the stack
+pointer $ESP$ by 8 bytes, and return to the next pointed address.
+Such \emph{stack-manipulation} technique is used by the adversary to link the gadgets
+in the payload. To construct this gadget chain, \name analyzes all
+instructions in the identified gadget to figure out the stack adjustment
+and locates the next gadget pointer in the stack. If the number
+of the linked gadgets reaches a {\em payload length threshold}, \name
+successfully detect a suspicious ROP payload. If the gadget chain breaks
+at certain stack entry (e.g., pointed to data region, or code regions
+that have no gadget), the \name will proceed to the next stack entry, i.e.,
+the stack pointer increased by four bytes, and retry the gadget chaining
+process until we reach the {\em retry number threshold}.
+If number of the detected gadgets (linked plus unlinked) is still below
+the {\em payload length threshold}, \name aborts this round of check,
+otherwise, \name stores all detected gadget pointers into a buffer
+and enables our feedback confirmation mechanism.
+
+The {\em payload length threshold} represents a trade-off between false
+positive rate and ROP checking overhead. For example, the higher
+this threshold is, the less possibility that \name mis-identifies
+a valid stack frame trace as a ROP payload, but the more number
+of stack entries \name need to process. Fortunately, the gadget chain identified
+in the normal application stack is quite short or none.
+\name introduces retry mechanism to reduce the false
+negative rate of gadget linking, since the gadget links might be
+broken at the pointers that lead to a gadget longer than our {\em gadget
+length threshold}.
+
+
+\subsubsection{Feedback Confirmation}\label{sec:feedback}
+This step aims to further reduce the false positive produced in the payload detection step.
+For example, a large data buffer of the application may store multiple values
+that accidentally point to gadget-like code area.
+An adversary may take advantage of this and launch a Denial of Service (DoS) attack,
+by manipulating the input to the target application and filling many gadget pointers
+to the stack. Our feedback mechanism is based on the key observation:
+the pointed gadgets should be executed in the near further if it is really a ROP payload.
+Specifically, after payload detection process, \name saves the gadget pointers and
+allows the application to continue running. When \name is invoked next time, it
+reads the historical branch results in the LBR registers,
+compares them with saved gadgets pointers. If the saved gadgets pointers appear
+in the LBR, \name can ensure that such gadgets are really executed.
+This feedback buffer might be used at multiple invocations of \name, if
+it is continuously appended with newly found gadget pointers.
+However, the feedback buffer
+might be refreshed totally, if the next payload detection process detects a different
+gadget chain. The feedback mechanism will be turned off, if there is no gadget
+chain found in the following payload checking invocation.
+Note that the feedback mechanism, while reduces false positive, postpones
+the detection of the ROP attacks, until it starts executing.
+%Section~\ref{sec:imple} provide further details of our feedback confirmation mechanism.
+%This indiates that either the branches in the original ``gadget chain''
+%is not executed, or they have finished executing for a long time so the records
+%in the LBR is cyclically rewritten by latest happend branch. they do not appear in the LBR branch records until next ROP alarm, we simply update the gadget pointer table and continue the next phase of checking.
+
+
+\subsection{ROP Checking Algorithms} \label{sec:algo}
+
+\begin{figure}[!ht]
+ \centering
+\includegraphics[width=0.99\columnwidth]{"image/algo"}
+\caption{\textbf{The algorithm for ROP checking.} The algorithm is invoked when
+the application execution flow jumps out of the monitor window (i.e., $IP_d$ is outside).}
+\label{fig:algo}
+\end{figure}
+
+This section introduces how we apply the techniques in Section~\ref{sec:ropdetect}
+in each run-time \name invocation to detect ROP attacks.
+Once triggered, ROPTerminator can reliably acquire the stack information (e.g.,
+stack range, stack pointer) of the target application. \name knows
+the virtual memory mapping of application and all loaded shared libraries, and loads all relevant BG databases. We then introduce
+the major steps in our run-time detection mechanisms, and defer
+the implementation details to Section~\ref{sec:implement}.
+
+As shown in Figure~\ref{fig:algo}, the first step of the run-time detection algorithm
+is {\em branch alignment filtering}, which aims to check if there are
+unaligned gadgets in the historical branch records. For the normal executions,
+the branch records in the LBR should be aligned, both the source and the destination
+address. But in a ROP attacks, the adversary may use some unaligned gadgets to
+operate certain behaviors.
+This checking is able to filter out all ROP attacks that use the unaligned indirect branch instructions.
+We analyze all ($568$) applications under directory $/bin$ and $/usr/bin$, and the
+results of our statistical analysis (see Table~\ref{tab:unaligned}) show that generally 62\% indirect branches are unaligned. Furthermore, in certain applications, the rate number can even reach to 90\%.
+
+\begin{table}
+  \centering
+  \begin{tabular}{|c|c|c|c|}
+     \hline
+     % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+      & Min & Avg & Max \\ \hline
+      Unaligned / Total & 23.2\% & 62.0\% & 90.0\% \\
+      %Unaligned / Total & 23.2\% & 57.2\% & 90.0\% \\
+     \hline
+   \end{tabular}
+  \caption{The statistical result of the unaligned/total indirect branches. These numbers are got through analyzing $568$ applications under directory $/bin$ and $/usr/bin$.}\label{tab:unaligned}
+\end{table}
+
+The step 2 is {\em feedback Confirmation}, which is disabled by default, unless it is explicitly enabled by the payload feedback mechanism triggered by step 3. Specifically, if it is disabled, \name does nothing and directly jumps to step 3.
+Once it is enabled, \name checks if the suspicious payload saved before is taken. 
+Specifically, for each gadget pointer in the suspicious payload, \name verifies if it is in the LBR registers.
+If the number of the matched gadget pointers reaches to the payload length threshold,
+\name confirms that a ROP attack is in action, and acts accordingly (e.g.,
+stop the victim application).
+
+In Step 3, we perform {\em payload detection} in the application stack,
+starting from the branch instruction that jumps
+out of the monitor window. Recall that in the offline pre-processing phase, we pre-process all gadget information,
+and stores it with branch information in databases. Given the destination address
+of the branch, we can quickly find out the corresponding database entries. The entry
+basically tells \name about whether there is a gadget at this address, and what stack-manipulation
+action will that gadget perform. This significantly improves ROPTerminator's run-time performance,
+by offloading all gadget identification operations to the pre-processing phase.
+With the BG database information, \name executes the payload checking algorithms
+presented in Section~\ref{sec:payload} to find out a suspicious ROP payload (either fully linked,
+or broken at certain stack position). If there is no suspicious payload found, the \name
+claims no ROP detected at this round and perform {\em Monitor Window Update} before resuming
+the protected application.
+If there is a suspicious payload, \name generate a payload feedback by saving all detected gadget pointers in a preserved buffer, and enables the feedback confirmation checking (i.e., the step 2).
+
+
+
+\mypara{Optimization}
+To accelerate the run-time process, we propose an optimization for this detection
+algorithm, {\em Branch type Filtering}. This filtering mechanism is added into our
+algorithm, combined with {\em branch alignment Filtering} step.
+With this mechanism, \name checks a few latest recorded LBR branches
+to evaluate the existence of ongoing ROP attack. If it indicates that there is no ROP attack, \name skips this round of {\em
+ROP Checking} and resumes the application execution.
+The filtering is based on the observation that:
+\emph{The gadgets are linked through the indirect branch instructions, rather than the direct branch instructions.}
+%We verify whether the ratio of the direct branches in LBR recorded branches are very high, and the rest of the indirect branches are either not gadgets or not linked together. \name will perform payload checking only when the verification fails.
+Thus, if we find a direct branch in the last $k$ (e.g., 3) records, we can skip this round of checking.
+This optimization will greatly improve our performance,
+but with the risk of skipping $0$ - $(k - 1)$ rounds of payload checking
+when a ROP is really in action, e.g., the round right before the
+ROP attack starts. Given that a meaningful ROP attack would need
+many gadgets and always trigger multiple rounds
+of checking, the risk is quite a little low. In addition, the end users can adjust the number $k$ to manage the possibility of the risk according to the real demand.

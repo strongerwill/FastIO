@@ -1,0 +1,50 @@
+\section{Background} \label{sec:preli}
+
+\subsection{Return-Oriented Programming}
+
+\begin{figure}[!ht]
+ \centering
+\includegraphics[width=0.99\columnwidth]{"image/rop_exam"}
+\caption{\textbf{An example of ROP payload.} The ROP payload contains many gadget pointers, each of which directs to a gadget. The gadget may be an unaligned code sequence if the length of the instruction set is not fixed (e.g., x86 instruction set).}\label{fig:rop_exam}
+\end{figure}
+
+The main idea of ROP attack is to reuse instructions from existing code (e.g., application binaries and share libraries) and assemble them to perform malicious operations. There are two major steps to launch an ROP attack: (1) Identify several useful instruction sequences, called \emph{gadgets}. The \emph{gadget} is used later as the basic block to compose the code to be executed. (2) Assemble the selected gadgets together through the gadget pointers to be a prepared payload. The gadget pointers are used as the control data to manipulate the control flow.
+
+Note that the gadgets are not limited to the sequences of exiting instructions on x86 platform. A sequence of unaligned instructions can be translated to a valid gadget. In Figure~\ref{fig:rop_exam}, the first two gadgets are aligned and the third one is unaligned. % According to our statistical results on x86 platform, the number of unaligned gadgets may be larger than the aligned on average (see more in Section~\ref{sec:algo}).
+
+%to build meaningful operations by carefully manipulating the control flow through a payload.
+%choosing the order of gadgets and %Note that the gadgets may have side effect.
+A typical gadget has a code section for computation operations (e.g., to assign a value to a general register), and a link section manipulating the control flow to link gadgets. The control flow manipulation is achieved through the \emph{indirect branch} instructions such as \emph{ret} and  indirect \emph{jmp}/\emph{call} instructions. \emph{Note that the direct branch instructions can not be used as the link section}, since their destinations are fixed. According to the deference of the link section, ROP attacks are classified into ret-based ROP and jmp/call-based ROP or JOP. As illustrated in Figure~\ref{fig:rop_exam}, the adversary may hybrid both types of gadgets in one attack. Note that the ROP attack can be launched in kernel space and/or user space. An ROP attack typically has the following features.
+
+\mypara{Small Gadget Size}~
+A gadget's code section usually contains $2-5$ instructions~\cite{tc-ret2lic}, which limits the functionality of a single gadget. Thus, the adversary usually needs to collect a large set of gadgets to perform one malicious operation.
+
+%\mypara{Unaligned Gadgets}
+%Note that the gadgets are not limited to the sequences of exiting instructions on x86 platform. A sequence of unaligned instructions can be translated to a valid gadget if the lengths of instructions are not fixed. In Figure~\ref{fig:rop_exam}, the first two gadgets are aligned and the third one is unaligned. According to our statistical results on x86 platform, the number of unaligned gadgets may be larger than the aligned on average (see more in Section~\ref{sec:algo}).
+
+\mypara{Many Gadget Pointers}~
+To perform an operation, it usually needs several functionality-limited gadgets chained together. For instance, the selected three gadgets in Figure~\ref{fig:rop_exam} only perform a simple operation, i.e., assigning the value in memory $0x08f4a014$ to the register $EBX$. A meaningful ROP attack needs many simple operations, implying that the adversary has to prepare a ROP payload with many gadget pointers.
+
+%To launch a meaningful ROP attack, the adversary has to prepare a ROP payload with many gadget pointers to chain the selected functionality-limited gadgets. In Figure~\ref{fig:rop_exam},  the selected three gadgets only perform a simple operation, i.e., assigning the value in memory $0x08f4a014$ to the register $EBX$. %Even if the adversary attempt to dilute the density by inserting some garbage data, we have proposed an new algorithm, which can filter out the garbage data to get the real density (see more details in Section~\ref{sec:algo}).
+
+\mypara{Large code base}~
+Distributed in the whole code space, the gadgets suitable for the attacker's goal are rare and sparse. Thus, the adversary usually needs a large code base to collect enough gadgets to perform the malicious operations. According to the experiment results of Q~\cite{q}, {the minimum code size required to launch a meaningful ROP is 20KB}. %Furthermore, according to our new experiment results (see Section~\ref{sec:eva}), the minimum code size for only selecting aligned gadgets to form ROP attacks is above $100KB$.
+
+%\emph{ret} instructions that fetch and copy the value on the top of the stack (pointed by the register ESP) to the instruction pointer (i.e., the register EIP). The values can be treated as the gadget pointers (GP), following which we can locate the corresponding gadgets. Later Checkoway and Shacham propose a variant of ROP in which return-like instructions are employed to chain gadgets. The return-like instructions are indirect jumps, e.g., jmp *\%eax and call *\%eax.
+
+
+\subsection{Execution Trace}
+%The facility we used to apply the checks is a branch trace mechanism called Last Branch Recording (LBR) \cite{intelvt}, supported by recent Intel CPUs. When LBR is enabled, the CPU stores the last executed branches in a set of model specific registers (MSR), on-chip. The values of these registers can be read using a special instruction, called rdmsr, only from privileged mode. In addition, the branches to be stored can be filtered based on their type: relative/indirect calls/jumps, returns, and so on. For our case, LBR provides the combined advantages of all the previous alternatives, without having any of their disadvantages.
+
+In our solution, we leverage Last Branch Record (LBR) registers to verify the execution of the protected application. LBR are dedicated CPU registers widely available on modern Intel and AMD processors. LBR provides a looped buffer to record the most recent taken branch instructions.
+%The Last Branch Record (LBR) functionality that is supported by modern Intel processors since \emph{Netburst} provide a cycle buffer hosted in registers which records the most recent branches.
+
+For each taken branch, the source and destination addresses are recorded. The number of the branch record is limited, e.g., the Intel i5 has $16$ register pairs for the branches. The LBR functionality is deactivated by default, and can be only enabled/disabled from kernel space. The user space applications cannot modify the value in the LBR registers. The LBR can be configured to record only the branches taken in user space and/or kernel space. The performance effects introduced by LBR is negligible.
+
+
+%When the LBR mechanism is enabled, each taken branch is stored into a pair of LBR registers. Specifically, the source addresses of the branches are stored in the registers buffer starting from the register $MSR\_LBR\_NHM\_FROM$, and the destination addresses are stored in the registers buffer from the register $MSR\_LBR\_NHM\_TO$. There is no counter associated with LBR, but a new register (i.e., $MSR\_LBR\_TOS$) is provided to indicate the current selected LBR register pair in the cycle buffer. %Through the $MSR\_LBR\_TOS$, we can easily locate the last branch. The number of the branch record is small due to the limited hardware resource, e.g., the Intel i5 has $16$ register pairs for the branches.
+
+%The LBR functionality is deactivated by default, and it can be enabled through the register $MSR\_IA32\_DEBUGCTL$ by setting the last bit. In addition, we can enable the filter of LBR based on the privilege. For instance, we can configure the LBR register $MSR\_LBR\_SELECT$ to only record user space branches.
+
+%Note that the user space applications can not modify the value in such LBR MSR registers. Thus, the adversary can not manipulate them to cheat ROPTerminator.
+

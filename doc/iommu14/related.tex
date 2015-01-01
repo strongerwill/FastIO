@@ -1,0 +1,37 @@
+\section{Related Work} \label{sec:related}
+
+%see ropdefender introduction and related work
+%see G-Free related work
+
+\subsection{Randomization}
+Address Space Layout Randomization (ASLR) is proposed to prevent ROP attack by randomizing base addresses of code segments. Given that the adversary has to know the locations of the gadgets to launch an ROP attack, the ASLR technique seems to effectively prevent ROP attacks. However, it has been shown that ASLR can be bypassed by leveraging brute-force attacks~\cite{effectiveness-aslr} or information leakage attacks~\cite{bypass-aslr}. In addition, some libraries or applications may not be ASLR-compatible, which allows the adversary to find useful gadgets to circumvent ASLR mechanism.
+
+Facing such difficulties, researchers proposed the \emph{binary stirring} technique~\cite{binary-stirring}, which imbues x86 native code with the ability to self-randomize its instruction addresses each time it is launched. Note that the size of the modified binary file increases on average by 73\%. The ILR~\cite{ilr} technique is proposed to randomize the location of every instruction in a program for thwarting an attacker's ability to re-use program functionality. The new generated ILR-programs have to be executed on a dedicated Virtual Machine (VM). The runtime performance overhead is relatively low, but the rule files are quite large and their in-memory size are even worse, e.g., the on-disk size of the rule file for the benchmark tool 481.wrf is about 264MB, while its in-memory size reaches to $345MB$. Note that all BG databases together in our system is
+
+
+
+
+\subsection{Compiler-Based Approaches}
+
+The control flow integrity~\cite{cfi} is a typical technique to defend against the code reuse attack. However, the granularity of the control flow monitoring are too coarse-grained, which check the flow in function level, not able to detect the ROP attack since its disorder of control flow is on instruction level. CFLocking~\cite{cflocking} aims to limit/lock the number of abnormal control flow transfer by recompiling a program. Essentially this technique can not handle the ROP attacks that use unaligned gadgets.
+
+The return-less kernel~\cite{return-less} is a compiler-based approach that aims to remove the \emph{ret} opcode from the kernel image by placing the control data into a dedicated buffer instead of the stack. Obviously this technique only defends against ret-based ROP attack.
+Following the same idea, Shuo et al.~\cite{kernel-rop} propose a virtualization based approach, which requires the source code and compiler to insert control-data-integrity-checking code into function prologue and epilogue. Again, this approach can not defend against the ROP attack that use jump/call instructions.
+
+G-free~\cite{g-free} is a compiler-based approach, which aims to 1) eliminate all unaligned indirect branch instructions with \emph{aligned sled}~\cite{g-free} and 2) protect the aligned indirect branch instructions to prevent them from being misused. However, the sophisticated adversary may skip the aligned sled by directly jumping into the return address or indirect jump/call blocks. Moreover, the newly inserted code may introduce unintended gadgets, which can be used by the adversary.
+
+
+\subsection{Instrumentation-Based Approaches}
+TRUSS~\cite{truss}, ROPDefender~\cite{ropdefender}, DROP~\cite{drop} and TaintCheck~\cite{taintcheck} use code instrumentation technique to insert checking code into binary code to detect ROP attack. Such approaches not only break the binary integrity, but also suffer high performance overhead.
+For instance, the preliminary performance measurements for DROP range from 1.9X to 21X, and the performance overhead for TaintCheck is over 20X.
+In addition, some of them, such as ROPDefender and DROP only focus on ret-based ROP, rather than handling all types of ROP attack.
+
+To overcome the high performance overhead issue, the in-place smashing~\cite{smashing} technique is proposed, which aims to smash the gadgets in place without changing the code size. However, many gadgets can not be removed using the in-place technique. In addition, the in-place smashing technique may not always smash a significant part of the executable address space~\cite{smashing}, and it is hard to give a definitive answer on whether the remaining un-modifiable gadgets would be sufficient for constructing a meaningful ROP attack.
+
+
+\subsection{Others}
+CFIMon~\cite{cfimon} is to detect a variety of attacks violating control flow integrity by collecting and analyzing runtime traces on-the-fly. However it has false positive and false negative simultaneously, and its high detection latency may cause it too late to detect the attack.
+MoCFI~\cite{mocfi} is a framework to mitigate control flow attacks on smartphones. It performs control flow integrity checking on-the-fly without requiring the application¡¯s source code, and the experiment results show that it does not induce notable overhead when applied to popular iOS applications.
+
+%{Payload Detection}
+Polychronakis et al. propose a method~\cite{payloadchecking} to identify ROP payloads in arbitrary data. The technique speculatively drives the execution of code that already exists in the address space of a targeted process according to the scanned input data, and identifies the execution of valid ROP code at runtime. The basic idea of the payload detection method has been adopted by our payload checking algorithm.

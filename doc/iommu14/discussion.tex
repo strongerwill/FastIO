@@ -1,0 +1,32 @@
+\section{Discussions} \label{sec:dis}
+
+\subsection{The Size of Monitor Window}
+Intuitively, the larger of the monitor window, the better the performance of the protected application is. This is because the number of the exception and the ROP checking is reduced. However, we may miss some ROP attacks if the monitor window is too large (e.g., larger than 20KB). It is noteworthy that the size of monitor window may be enlarged for certain specific cases, e.g., the gadgets are rare in a static-binding application, or the application has already been processed by a gadget-elimination tool.
+
+%Specifically, if the gadgets in an application are relatively rare, e.g., it may be processed by a gadget-elimination tool, the code base needed by a ROP attack will be larger. Thus, the end users can enlarge the monitor window for that application to get better performance. Contrary to the above cases, if density of the gadgets in an application is relatively high, the size of the monitor window should be reduced correspondingly. %On the other hand, the end users could attempt to reduce the density of gadgets by leveraging a gadget-elimination tool.
+
+
+\subsection{Kernel-Space ROP attacks}
+Our design can be extended to defend against kernel-space ROP attacks, because the characteristics of ROP attacks still exist.
+However, \name should not be placed in the kernel space any more, since it may be disabled by the adversary once the kernel is compromised.
+An alternative way is to move \name into the hypervisor space, where the adversary cannot access.
+However, the performance penalty will be higher because the host-guest switch cost is higher than the one of kernel-user context switch.
+
+\subsection{Long Gadgets}
+The adversary may attempt to use long gadgets to bypass our ROP checking. In our implementation, we assume the gadget could contain no more than 6 instructions, including the indirect branch instruction. Thus, if the gadgets selected by the adversary contain 7 or more instructions, the algorithm cannot identify them as gadgets. Consequently, the ROP attack use such long gadgets may bypass our checking. Fortunately in the real world, longer gadgets comes with more side effects, and hence few useful long gadgets can be found in the application. Thus, the adversary has less opportunity to collect enough long gadgets to form a valid chain for a meaningful ROP attack. If the adversary has to use short gadgets, it is likely be detected by our solution. 
+
+\subsection{Stack Pivoting Attack}
+The adversary can launch the \emph{stack pivoting} attack~\cite{jit-code-reuse} to confuse \name.
+Essentially, the stack pivoting attack is to put the payload into another memory region (e.g., a heap buffer or the global data region),
+and manipulating the stack pointer to point to that region. If ROPTerminator still checks the original stack region, the pivoted payload
+remains unfound. In fact, \name can defend against such attacks by checking whether the stack pointer $ESP$ is still in the stack region. Note that \name in the kernel space is able to acquire the stack region information.
+
+\subsection{Gadget Gluing Attack}
+Normally, the direct branches should not appear in a gadget. However, in certain special cases, the short code sequence pointed by a direct branch instruction may be a gadget. Therefore, the adversary can glue the direct branch with the pointed
+gadget to form a new gadget, and leverage the new glued gadget to confuse our detection mechanisms. Futunately, we can defend against such attack with some extension of \name. Specifically, \name follows the direct branch to its destination, and verify whether a gadget is located there. If the direct branch
+is  a conditional jump, \name will follow both of the potential destinations. Once following, the payload checking process may output two suspicious payloads to the feedback mechanism.
+In general, it is a trade-off between the performance overhead and the gadget detection accuracy.
+Note that such new glued gadgets are usually rare in an application.
+%Some system parameters, such as how many hops the \name follows direct branches, and how many forks can \name take, are configurable by the user. These are trade-offs between the performance overhead and the gadget detection accuracy.
+
+%\subsection{Possible Optimizations}

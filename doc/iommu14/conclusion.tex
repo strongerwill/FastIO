@@ -1,0 +1,5 @@
+\section{Conclusion} \label{sec:con}
+
+Return-Oriented Programming (ROP) is a powerful attack that is able to perform Turing-complete computation without injecting any code. It enables the adversary to perform malicious operations that is not intended by the original programmer.
+Existing approaches either need the side information (e.g., source code or debugging information), break the binary integrity, or suffer high performance overhead.
+In this paper, we have designed and implemented a novel system, named as \name, which provide a generic solution to prevent all kinds of ROP attacks. \name requires no source code, no compiler support and no binary rewriting. The security and performance experiment results show that \name is able to detect any forms of ROP attacks with 2\% performance overhead on average. In addition, we observe no false positive or false negative in all our experiments.
