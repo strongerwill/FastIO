@@ -17,7 +17,7 @@ j=0
 os.system('wmctrl -c firefox')
 time.sleep(5)
  
-while i<30:
+while i<120:
 	os.system('/usr/bin/firefox &')
 	time.sleep(1)
 	while j<297:

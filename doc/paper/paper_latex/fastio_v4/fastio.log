@@ -1,8 +1,8 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.17)  6 JAN 2015 16:27
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.17)  6 JAN 2015 22:56
 entering extended mode
 **fastio.tex
 
-(C:\Users\zhangzhi\Dropbox\iotlb\FastIO\FastIO\doc\paper\paper_latex\fastio_v3\
+(C:\Users\zhangzhi\Dropbox\iotlb\FastIO\FastIO\doc\paper\paper_latex\fastio_v4\
 fastio.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
@@ -32,7 +32,7 @@ File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(C:\Users\zhangzhi\Dropbox\iotlb\FastIO\FastIO\doc\paper\paper_latex\fastio_v3\
+(C:\Users\zhangzhi\Dropbox\iotlb\FastIO\FastIO\doc\paper\paper_latex\fastio_v4\
 usenix.sty ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\mathptmx.sty"
 Package: mathptmx 2005/04/12 PSNFSS-v9.2a Times w/ Math, improved (SPQR, WaS) 
 LaTeX Font Info:    Redeclaring symbol font `operators' on input line 28.
@@ -112,7 +112,7 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \endnotesep=\dimen107
 \@enotes=\write3
 )
-(C:\Users\zhangzhi\Dropbox\iotlb\FastIO\FastIO\doc\paper\paper_latex\fastio_v3\
+(C:\Users\zhangzhi\Dropbox\iotlb\FastIO\FastIO\doc\paper\paper_latex\fastio_v4\
 fastio.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
 LaTeX Font Info:    ... okay on input line 25.
@@ -260,33 +260,38 @@ Underfull \hbox (badness 1571) in paragraph at lines 199--200
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
+ [3]
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no ™ in font ptmr7t!
 
-Underfull \hbox (badness 1371) in paragraph at lines 223--224
-[]\OT1/ptm/m/n/10 Next, we will en-able the cache when sys-tem is
+Underfull \hbox (badness 1831) in paragraph at lines 233--234
+\OT1/ptm/m/n/10 they are all in-voked with EXAMPLE-linux64-ia32-
  []
 
-[3]
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no ™ in font ptmr7t!
+
+Underfull \hbox (badness 6510) in paragraph at lines 235--236
+[]\OT1/ptm/m/n/10 Lmbench is used to mea-sure CPU time that
+ []
+
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
 
-Underfull \hbox (badness 2671) in paragraph at lines 254--256
+Underfull \hbox (badness 2671) in paragraph at lines 245--247
 \OT1/ptm/m/n/10 A po-lite au-thor al-ways in-cludes ac-knowl-edg-ments.
  []
 
 No file fastio.bbl.
 
-(C:\Users\zhangzhi\Dropbox\iotlb\FastIO\FastIO\doc\paper\paper_latex\fastio_v3\
+(C:\Users\zhangzhi\Dropbox\iotlb\FastIO\FastIO\doc\paper\paper_latex\fastio_v4\
 fastio.ent
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
 ) [4]
-(C:\Users\zhangzhi\Dropbox\iotlb\FastIO\FastIO\doc\paper\paper_latex\fastio_v3\
+(C:\Users\zhangzhi\Dropbox\iotlb\FastIO\FastIO\doc\paper\paper_latex\fastio_v4\
 fastio.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -302,7 +307,7 @@ Here is how much of TeX's memory you used:
  4669 multiletter control sequences out of 15000+200000
  41570 words of font info for 85 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 34i,8n,23p,1041b,247s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 34i,8n,23p,1021b,247s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/font
@@ -312,7 +317,7 @@ msfonts/cm/cmtt9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/symbol/usyr.p
 fb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fo
 nts/type1/urw/times/utmri8a.pfb>
-Output written on fastio.pdf (4 pages, 118446 bytes).
+Output written on fastio.pdf (4 pages, 118201 bytes).
 PDF statistics:
  52 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

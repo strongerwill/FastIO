@@ -2436,7 +2436,7 @@ static int __put_page_type(struct page_info *page,
 
 
 //added by zhang
-unsigned long test_counter=1;
+//unsigned long test_counter=1;
 extern long long flush_counter;
 extern spinlock_t *flush_locks;
 long long local_flush_counter;
@@ -2447,7 +2447,9 @@ static int print_counter=1;
 static unsigned long long average_flush_counter=0;
 static unsigned long long sum_average_flush_counter=0;
 static unsigned long long temp_average_flush_counter=0;
-static unsigned int cache_on=0;
+int cache_on=0;
+int timing_on=0;
+
 
  
 static int __get_page_type(struct page_info *page, unsigned long type,
@@ -2462,7 +2464,7 @@ static int __get_page_type(struct page_info *page, unsigned long type,
     
     //added by zhang
      
-    if(test_counter>=80000)
+    if(timing_on)
     {
       //flush_counter++;
       if(time_switch)
@@ -2483,9 +2485,9 @@ static int __get_page_type(struct page_info *page, unsigned long type,
 		printk("flush_counter:%lld, diff_time:%lld, aver_flu_cnt:%lld\n", local_flush_counter, diff_time, average_flush_counter);
 		timing_counter++;
 		temp_average_flush_counter += average_flush_counter; 
-        	if(timing_counter>=(50*print_counter))
+        	if(timing_counter>=(60*print_counter))
 		{
-			if(print_counter<=4)
+			if(print_counter<=5)
 			{
 				sum_average_flush_counter = temp_average_flush_counter/timing_counter;
 				printk("sum_aver_flu_cnt:%lld\n", sum_average_flush_counter);   
@@ -3556,8 +3558,8 @@ long do_mmu_update(
 
 
     //added by zhang
-    if((d->domain_id == 0) && (test_counter<80000)) 
-       test_counter++;
+    //if((d->domain_id == 0) && (test_counter<80000)) 
+    //   test_counter++;
 	
 
     if ( unlikely(count & MMU_UPDATE_PREEMPTED) )
@@ -4429,11 +4431,23 @@ long do_pgd_op(XEN_GUEST_HANDLE(ptrpgd_t) gptrpg, unsigned int count)
     unsigned long mfn;
     unsigned int num;	
     int rc = 0;    
-    if(cache_on == 0)
+
+     
+    if(count == 9998)
     {	
 	cache_on = 1;
+	//timing_on = 1;
 	return rc;
     }
+    
+    /* 
+    if(count == 9999)
+    {	
+	timing_on = 1;
+	return rc;
+    }
+    */
+  
     if ( unlikely(!guest_handle_okay(gptrpg, count)) )
     {
         rc = -EFAULT;
@@ -4443,9 +4457,10 @@ long do_pgd_op(XEN_GUEST_HANDLE(ptrpgd_t) gptrpg, unsigned int count)
     {
         if ( unlikely(__copy_from_guest(&xptrpg, gptrpg, 1) != 0) )
         {
-            MEM_LOG("Bad __copy_from_guest");
+            //MEM_LOG("Bad __copy_from_guest");
+    	    printk("bad pgd_op_hypercall\n");
             rc = -EFAULT;
-            break;
+            return rc;
         }
 	pgtable_virt_addr = xptrpg.content;
         gl1e = guest_map_l1e(curr, pgtable_virt_addr, &gl1mfn);
@@ -4460,6 +4475,8 @@ long do_pgd_op(XEN_GUEST_HANDLE(ptrpgd_t) gptrpg, unsigned int count)
         guest_unmap_l1e(curr, gl1e);
         guest_handle_add_offset(gptrpg, 1);
     }
+    //gptrpg = gptrpg_head;
+    //printk("pgd_op_hypercall\n");
     return rc;
 }
 
@@ -4488,9 +4505,9 @@ long do_pmd_op(XEN_GUEST_HANDLE(ptrpmd_t) gptrpg, unsigned int count)
     {
         if ( unlikely(__copy_from_guest(&xptrpg, gptrpg, 1) != 0) )
         {
-            MEM_LOG("Bad __copy_from_guest");
+            printk("bad pmd_op_hypercall\n");
             rc = -EFAULT;
-            break;
+            return rc;
         }
 	pgtable_virt_addr = xptrpg.content;
         gl1e = guest_map_l1e(curr, pgtable_virt_addr, &gl1mfn);
@@ -4506,6 +4523,7 @@ long do_pmd_op(XEN_GUEST_HANDLE(ptrpmd_t) gptrpg, unsigned int count)
         guest_handle_add_offset(gptrpg, 1);
     }
     //gptrpg = gptrpg_head;
+    //printk("pmd_op_hypercall\n");
     return rc;
 }
 
@@ -4516,10 +4534,10 @@ long do_pte_op(XEN_GUEST_HANDLE(ptrpte_t) gptrpg, unsigned int count)
     struct domain *d = curr->domain;   
     struct page_info *page;
     struct ptrpte xptrpg;
-    unsigned long pgtable_virt_addr = 0;
-    l1_pgentry_t *gl1e;
-    l1_pgentry_t xl1e;
-    unsigned long gl1mfn;
+    //unsigned long pgtable_virt_addr = 0;
+    //l1_pgentry_t *gl1e;
+    //l1_pgentry_t xl1e;
+    //unsigned long gl1mfn;
     unsigned long mfn;
     unsigned int num;	
     int rc = 0;    
@@ -4535,22 +4553,24 @@ long do_pte_op(XEN_GUEST_HANDLE(ptrpte_t) gptrpg, unsigned int count)
         {
             MEM_LOG("Bad __copy_from_guest");
             rc = -EFAULT;
-            break;
+            return rc;
         }
-	pgtable_virt_addr = xptrpg.content;
-        gl1e = guest_map_l1e(curr, pgtable_virt_addr, &gl1mfn);
-        if ( unlikely(__copy_from_user(&xl1e, gl1e, sizeof(xl1e)) != 0) )
-            return -EFAULT;
-        mfn = l1e_get_pfn(xl1e);	
+	//pgtable_virt_addr = xptrpg.content;
+        //gl1e = guest_map_l1e(curr, pgtable_virt_addr, &gl1mfn);
+        //if ( unlikely(__copy_from_user(&xl1e, gl1e, sizeof(xl1e)) != 0) )
+        //    return -EFAULT;
+        //mfn = l1e_get_pfn(xl1e);	
+        mfn = xptrpg.content; 	
 	page = mfn_to_page(mfn);
       	page->u.inuse.type_info &= ~PG_prepared;	
         iommu_map_page(d, mfn_to_gmfn(d, page_to_mfn(page)),
                 page_to_mfn(page),
                 IOMMUF_readable|IOMMUF_writable);
-        guest_unmap_l1e(curr, gl1e);
+        //guest_unmap_l1e(curr, gl1e);
         guest_handle_add_offset(gptrpg, 1);
     }
     //gptrpg = gptrpg_head;
+    //printk("pte_op_hypercall\n");
     return rc;
 }
 

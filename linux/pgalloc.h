@@ -39,7 +39,8 @@ extern pgtable_t pte_alloc_one(struct mm_struct *, unsigned long);
 //our cache added. by Wang
 extern void free_pgd_page(unsigned long addr);
 extern void free_pmd_page(unsigned long addr);
-extern void free_pte_page(struct page *pte);
+extern unsigned long alloc_pmd_page(void);
+//extern void free_pte_page(struct page *pte);
 //extern void free_pte_page(unsigned long addr);
 //extern unsigned long pte_free_counter;
 
@@ -100,25 +101,110 @@ static inline void pmd_populate(struct mm_struct *mm, pmd_t *pmd,
 #define pmd_pgtable(pmd) pmd_page(pmd)
 
 #if PAGETABLE_LEVELS > 2
+
+//added by zhang
+extern int cache_on;
+extern int timing_on;
+extern unsigned int pmd_free_waste;
+extern unsigned int pmd_free_cnt;
+extern unsigned int pmd_alloc_waste;
+extern unsigned int pmd_alloc_cnt;
+extern spinlock_t pmd_free_cnt_lock;
+extern spinlock_t pmd_alloc_cnt_lock;
+
 static inline pmd_t *pmd_alloc_one(struct mm_struct *mm, unsigned long addr)
 {
-	printk("pmd alloc one\n");
-	return (pmd_t *)get_zeroed_page(GFP_KERNEL|__GFP_REPEAT);
+	ktime_t local_tstart, local_tend;
+	s64 local_act_time;
+	pmd_t *pmd;
+
+	if(cache_on)
+	{
+		if(timing_on)
+		{	
+			local_tstart=ktime_get();	
+			pmd = (pmd_t *)alloc_pmd_page();
+			local_tend=ktime_get();
+			local_act_time=ktime_to_ns(ktime_sub(local_tend, local_tstart));
+			
+			spin_lock(&pmd_alloc_cnt_lock);
+        		pmd_alloc_waste += (unsigned int)local_act_time;
+        		pmd_alloc_cnt++;
+			spin_unlock(&pmd_alloc_cnt_lock);
+	        }
+		else	
+			pmd = (pmd_t *)alloc_pmd_page();
+	}
+	else
+	{
+		 if(timing_on)
+		 {
+			local_tstart=ktime_get();	
+			pmd = (pmd_t *)get_zeroed_page(GFP_KERNEL|__GFP_REPEAT);
+			//pmd = (pmd_t *)__get_free_page(PGALLOC_GFP);
+			local_tend=ktime_get();
+			local_act_time=ktime_to_ns(ktime_sub(local_tend, local_tstart));
+			
+			spin_lock(&pmd_alloc_cnt_lock);
+        		pmd_alloc_waste += (unsigned int)local_act_time;
+        		pmd_alloc_cnt++;
+			spin_unlock(&pmd_alloc_cnt_lock);
+		 }
+		 else
+			//pmd = (pmd_t *)__get_free_page(PGALLOC_GFP);
+			pmd = (pmd_t *)get_zeroed_page(GFP_KERNEL|__GFP_REPEAT);
+	}
+
+	//printk("pmd alloc one\n");
+	//return (pmd_t *)get_zeroed_page(GFP_KERNEL|__GFP_REPEAT);
+	return pmd;
 }
 
-extern int cache_on;
 static inline void pmd_free(struct mm_struct *mm, pmd_t *pmd)
 {
+
+	ktime_t local_tstart, local_tend;
+	s64 local_act_time;
+
 	BUG_ON((unsigned long)pmd & (PAGE_SIZE-1));
 	
 	//free_page((unsigned long)pmd);
 	
 	//added by zhang
 	if(cache_on)
+	{
+	  if(timing_on)
+	  {
+		local_tstart=ktime_get();	
 		free_pmd_page((unsigned long)pmd);
+		local_tend=ktime_get();
+		local_act_time=ktime_to_ns(ktime_sub(local_tend, local_tstart));
+        
+		spin_lock(&pmd_free_cnt_lock);
+		pmd_free_waste += (unsigned int)local_act_time;
+        	pmd_free_cnt++;
+		spin_unlock(&pmd_free_cnt_lock);
+	  }
+	  else
+		free_pmd_page((unsigned long)pmd);
+	}
 	else
+	{
+	  if(timing_on)
+	  {
+		local_tstart=ktime_get();	
 		free_page((unsigned long)pmd);
-
+		local_tend=ktime_get();
+		local_act_time=ktime_to_ns(ktime_sub(local_tend, local_tstart));
+        
+		spin_lock(&pmd_free_cnt_lock);
+		pmd_free_waste += (unsigned int)local_act_time;
+        	pmd_free_cnt++;
+		spin_unlock(&pmd_free_cnt_lock);
+          }
+	  else	
+		free_page((unsigned long)pmd);
+	}
 }
 
 extern void ___pmd_free_tlb(struct mmu_gather *tlb, pmd_t *pmd);

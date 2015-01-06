@@ -294,7 +294,9 @@ DEFINE_GUEST_HANDLE_STRUCT(ptrpmd);
 
 struct ptrpte 
 {
-       struct page *content;   /* linear address of a l1 page table */
+       unsigned long content;   /* linear address of a l2 page table */
+       //struct page *content;   /* linear address of a l1 page table */
+       //struct mmu_gather *mmu_tlb;   /* linear address of a l1 page table */
        struct ptrpte *next;    /* next element of a l1 page table pool */
 
 };

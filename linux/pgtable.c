@@ -27,31 +27,34 @@ gfp_t __userpte_alloc_gfp = PGALLOC_GFP | PGALLOC_USER_GFP;
 
 
 /*
-struct ptrpte {
+struct ptrpte_t {
     struct page *content;
     //unsigned long content;
-    struct ptrpte *next;
+    struct ptrpte_t *next;
 };
 */
 
-/*
-struct ptrp2t{
-    unsigned long content;
-    struct ptrp2t *next;
+struct ptrpte_p {
+    struct page *content;
+    //struct mmu_gather *mmu_tlb;
+    struct ptrpte_p *next;
 };
-*/
+
 
 //added by zhang
 DEFINE_SPINLOCK(pgd_cache_lock);
-DEFINE_SPINLOCK(pmd_cache_lock);
+DEFINE_SPINLOCK(pmd_cache_lock); 
 DEFINE_SPINLOCK(pte_cache_lock);
-DEFINE_SPINLOCK(pgd_cnt_lock);
-DEFINE_SPINLOCK(pmd_cnt_lock);
-DEFINE_SPINLOCK(pte_cnt_lock);
+DEFINE_SPINLOCK(pgd_alloc_cnt_lock);
+DEFINE_SPINLOCK(pmd_alloc_cnt_lock);
+DEFINE_SPINLOCK(pte_alloc_cnt_lock);
+DEFINE_SPINLOCK(pgd_free_cnt_lock);
+DEFINE_SPINLOCK(pmd_free_cnt_lock);
+DEFINE_SPINLOCK(pte_free_cnt_lock);
 
 struct ptrpgd *pgd_head = NULL;
 struct ptrpmd *pmd_head = NULL;
-struct ptrpte *pte_head = NULL;
+struct ptrpte_p *pte_head = NULL;
 unsigned long  pgd_used_counter = 0;
 unsigned long  pgd_free_counter = 0;
 unsigned long  pmd_used_counter = 0;
@@ -120,7 +123,7 @@ unsigned long alloc_pmd_page(void)
 struct page *alloc_pte_page(void)
 {
     struct page *pte;
-    struct ptrpte * tmpptr;
+    struct ptrpte_p * tmpptr;
     if(pte_head)
     {
         spin_lock(&pte_cache_lock);
@@ -169,10 +172,16 @@ void free_pgd_page(unsigned long addr)
     	//if((pgd_free_counter/pgd_used_counter>=4) && ((pgd_used_counter + pgd_free_counter) >= 450))
     	//if((pgd_used_counter/pgd_free_counter < 4) && ((pgd_used_counter + pgd_free_counter) >= 150))
     	//if((pgd_used_counter/pgd_free_counter < 1) && (pgd_used_counter >= 12))
-    	if((pgd_free_counter/pgd_used_counter >= 6) && ((pgd_used_counter + pgd_free_counter) >= 50))
+    	//if((pgd_free_counter/pgd_used_counter >= 6) && ((pgd_used_counter + pgd_free_counter) >= 50))
+    	//if((pgd_used_counter/pgd_free_counter < 2) && ((pgd_used_counter + pgd_free_counter) >= 20))
+    	if((pgd_free_counter/pgd_used_counter > 1) && ((pgd_used_counter + pgd_free_counter) >= 10))
+    	//if((pgd_free_counter/pgd_used_counter >= 5) && ((pgd_used_counter + pgd_free_counter) >= 50))
     	{
-        	counter = pgd_free_counter * 3 / 10;
-        	for(i=0;i<counter;i++)
+        	//counter = pgd_free_counter * 3 / 10;
+        	//counter = 0;
+        	counter = pgd_free_counter - pgd_used_counter;
+        	
+		for(i=0;i<counter;i++)
 		{
 	    		pgd_head = pgd_head->next;
 		}
@@ -242,9 +251,14 @@ void free_pmd_page(unsigned long addr)
     	//if((pmd_used_counter/pmd_free_counter < 8) && ((pmd_used_counter + pmd_free_counter) >= 600))
     	//if((pmd_used_counter/pmd_free_counter < 1) && (pmd_used_counter >= 42))
     	//if((pmd_free_counter/pmd_used_counter >= 4) && (pmd_used_counter >= 80))
-    	if((pmd_free_counter/pmd_used_counter >= 6) && ((pgd_used_counter + pgd_free_counter) >= 230))
+    	//if((pmd_free_counter/pmd_used_counter >= 6) && ((pgd_used_counter + pgd_free_counter) >= 230))
+    	//if((pmd_used_counter/pmd_free_counter < 2) && ((pgd_used_counter + pgd_free_counter) >= 80))
+    	if((pmd_free_counter/pmd_used_counter > 2) && ((pmd_used_counter + pmd_free_counter) >= 40))
+    	//if((pmd_free_counter/pmd_used_counter >= 5) && ((pmd_used_counter + pmd_free_counter) >= 200))
     	{
-        	counter = pmd_free_counter * 3 / 10;
+        	//counter = pmd_free_counter * 3 / 10;
+        	//counter = 0;
+        	counter = pmd_free_counter - 2*pmd_used_counter;
        		for(i=0;i<counter;i++)
 		{
 	    		pmd_head = pmd_head->next;
@@ -271,9 +285,9 @@ void free_pmd_page(unsigned long addr)
 	//hypercall newstructarray
 	rc = HYPERVISOR_pmd_op(newstructarray, counter);
         //if (rc == 0)
- 	//    printk("pmd cache free success\n");
+ 	    //printk("pmd cache free success\n");
 	//else 
- 	//    printk("pmd cache free error\n");
+ 	    //printk("pmd cache free error\n");
 	    
 	//free page to the buddy system
         newstructarray = newstructarray_head;
@@ -309,15 +323,17 @@ void free_pmd_page(unsigned long addr)
 }
 */
 
+//void free_pte_page(struct mmu_gather* tlb, struct page *pte)
 void free_pte_page(struct page *pte)
 {
-    struct ptrpte *newstruct = NULL;
-    struct ptrpte *temp_head = NULL;
+    struct ptrpte_p *newstruct = NULL;
+    struct ptrpte_p *temp_head = NULL;
     int i = 0;
     int counter = 0;
     
-    newstruct = (struct ptrpte *)kmalloc(sizeof(struct ptrpte), GFP_KERNEL);
+    newstruct = (struct ptrpte_p *)kmalloc(sizeof(struct ptrpte_p), GFP_KERNEL);
     newstruct -> content = pte;
+    //newstruct -> mmu_tlb = tlb;
 
     spin_lock(&pte_cache_lock);
     newstruct -> next = pte_head;
@@ -335,9 +351,14 @@ void free_pte_page(struct page *pte)
     	//if((pte_free_counter/pte_used_counter>=8) && ((pte_used_counter + pte_free_counter) >= 2100))
     	//if(pte_used_counter + pte_free_counter >= 2100)
     	//if((pte_used_counter/pte_free_counter < 1) && (pte_used_counter >= 63))
-    	if((pte_free_counter/pte_used_counter >= 6) && (pte_used_counter >= 320))
+    	if((pte_free_counter/pte_used_counter > 2) && ((pte_used_counter + pte_free_counter) >= 400))
+    	//if((pte_free_counter/pte_used_counter >= 5) && ((pte_used_counter + pte_free_counter) >= 320))
     	{
-        	counter = pte_free_counter * 3 / 10;
+ 	        //printk("pte free counter is %ld\n", pte_free_counter);
+ 	        //printk("pte used counter is %ld\n", pte_used_counter);
+        	//counter = pte_free_counter * 1 / 100;
+        	counter = pte_free_counter - 2*pte_used_counter;
+        	//counter = 0;
         	for(i=0;i<counter;i++)
 		{
 	    		pte_head = pte_head->next;
@@ -351,32 +372,48 @@ void free_pte_page(struct page *pte)
     {
     	struct ptrpte * newstructarray = NULL;
     	struct ptrpte * newstructarray_head = NULL;
-    	int rc = 1;
+    	
+	//struct ptrpte_p * newstructarray_p = NULL;
+    	//struct ptrpte_p * newstructarray_head_p = NULL;
+    	
+	int rc = 1;
     	newstructarray = (struct ptrpte *)kmalloc(sizeof(struct ptrpte) * counter, GFP_KERNEL);
     	newstructarray_head = newstructarray;
-        for (i=0;i<counter;i++)
+
+
+    	//newstructarray_p = (struct ptrpte_p *)kmalloc(sizeof(struct ptrpte_p) * counter, GFP_KERNEL);
+    	//newstructarray_head_p = newstructarray_p;
+        
+	for (i=0;i<counter;i++)
         {
 	    newstruct = temp_head;
 	    temp_head = temp_head->next;
-	    newstructarray[i].content = newstruct->content;
+	    //newstructarray[i].content = (unsigned long)page_address(newstruct->content);
+	    //newstructarray_p[i].content = newstruct->content;
+	    //newstructarray_p[i].mmu_tlb = newstruct->mmu_tlb;
+	
+	    newstructarray[i].content = pfn_to_mfn(page_to_pfn(newstruct->content));
+	    
 	    kfree(newstruct);
         }
 	//hypercall newstructarray
 	rc = HYPERVISOR_pte_op(newstructarray, counter);
         //if (rc == 0)
- 	//    printk("pte cache free success\n");
 	//else 
- 	//    printk("pte cache free error\n");
+ 	    //printk("pte cache free error\n");
 	    
 	//free page to the buddy system
         newstructarray = newstructarray_head;
 	for(i=0;i<counter;i++)
 	{
-	    __free_page(newstructarray[i].content);
+	    //tlb_remove_page(newstructarray_p[i].mmu_tlb, newstructarray_p[i].content);
+	    //__free_page(newstructarray[i].content);
+	    __free_page(pfn_to_page(mfn_to_pfn(newstructarray[i].content)));
 	}
 
 	//free newstructarray
 	kfree(newstructarray);
+	//kfree(newstructarray_p);
     }
    
     return;
@@ -385,8 +422,8 @@ void free_pte_page(struct page *pte)
 /* 
 void free_pte_page(struct page *pte)
 {
-    struct ptrpte * newstruct = NULL;
-    newstruct = (struct ptrpte *)kmalloc(sizeof(struct ptrpte), GFP_KERNEL);
+    struct ptrpte_t * newstruct = NULL;
+    newstruct = (struct ptrpte_t *)kmalloc(sizeof(struct ptrpte_t), GFP_KERNEL);
     newstruct -> content = pte;
    
 
@@ -405,11 +442,11 @@ void free_pte_page(struct page *pte)
 /*
 void free_pte_page(unsigned long addr)
 {
-    struct ptrpte * newstruct = NULL;
-    struct ptrpte * temp_head = NULL;
+    struct ptrpte_t * newstruct = NULL;
+    struct ptrpte_t * temp_head = NULL;
     //unsigned long  temp_counter = 0;
     //int rc = 1;
-    newstruct = (struct ptrpte *)kmalloc(sizeof(struct ptrpte), GFP_KERNEL);
+    newstruct = (struct ptrpte_t *)kmalloc(sizeof(struct ptrpte_t), GFP_KERNEL);
     newstruct -> content = pfn_to_mfn(PFN_DOWN(__pa((pte_t *)addr)));
     spin_lock(&pte_cache_lock);
     newstruct -> next = pte_head;
@@ -555,11 +592,25 @@ int free_zz_pte(unsigned long addr)
 	return 0;
 }
 
-static unsigned int pte_waste = 0;
-static unsigned int pte_cnt = 0;
+static unsigned int pte_alloc_waste = 0;
+static unsigned int pte_alloc_cnt = 0;
+
+/* time of freeing page tables */
+static unsigned int pgd_free_waste = 0;
+static unsigned int pgd_free_cnt = 0;
+unsigned int pmd_free_waste = 0;
+unsigned int pmd_free_cnt = 0;
+static unsigned int pte_free_waste = 0;
+static unsigned int pte_free_cnt = 0;
+
 /* turn on cache */
 int cache_on = 0;
 EXPORT_SYMBOL(cache_on);
+
+/* turn on cache */
+int timing_on = 0;
+EXPORT_SYMBOL(timing_on);
+
 pgtable_t pte_alloc_one(struct mm_struct *mm, unsigned long address)
 {
 	struct page *pte;
@@ -567,39 +618,39 @@ pgtable_t pte_alloc_one(struct mm_struct *mm, unsigned long address)
 	//added by zhang
 	if(cache_on)
 	{
+	  if(timing_on)
+	  {
 		ktime_t local_tstart=ktime_get();	
         	pte = alloc_pte_page();
 		ktime_t local_tend=ktime_get();
 		s64 local_act_time=ktime_to_ns(ktime_sub(local_tend, local_tstart));
         
-		spin_lock(&pte_cnt_lock);
-		pte_waste += (unsigned int)local_act_time;
-        	pte_cnt++;
-		spin_unlock(&pte_cnt_lock);
-	}
-	else
-		pte = alloc_pages(__userpte_alloc_gfp, 0);
-	/*
-	s64 act_time;
-	ktime_t tstart, tend;
-        if(pgop_cnt >= 10000)
-	{
-		tstart=ktime_get();	
+		spin_lock(&pte_alloc_cnt_lock);
+		pte_alloc_waste += (unsigned int)local_act_time;
+        	pte_alloc_cnt++;
+		spin_unlock(&pte_alloc_cnt_lock);
+	  }
+	  else
         	pte = alloc_pte_page();
-		tend=ktime_get();
-		act_time=ktime_to_ns(ktime_sub(tend, tstart));
-        	pgd_waste += (unsigned int)act_time;
-        	pgd_cnt ++;
-		if(pgd_cnt>=800)
-		{
-        		printk("PGD allocation:(total:%uns)\n", pgd_waste);	
-        		printk("PGD allocation:(average:%uns per %u)\n", (pgd_waste*100)/pgd_cnt, pgd_cnt);
-			pgd_cnt = 0;	
+        }
+	else
+	{
+	  if(timing_on)
+	  {
+		ktime_t local_tstart=ktime_get();	
+		pte = alloc_pages(__userpte_alloc_gfp, 0);
+		ktime_t local_tend=ktime_get();
+		s64 local_act_time=ktime_to_ns(ktime_sub(local_tend, local_tstart));
+        
+		spin_lock(&pte_alloc_cnt_lock);
+		pte_alloc_waste += (unsigned int)local_act_time;
+        	pte_alloc_cnt++;
+		spin_unlock(&pte_alloc_cnt_lock);
 
-		}
+	  }
+	  else
+		pte = alloc_pages(__userpte_alloc_gfp, 0);
 	}
-	*/
-
 	
 	if (pte)
 		pgtable_page_ctor(pte);
@@ -634,11 +685,44 @@ void ___pte_free_tlb(struct mmu_gather *tlb, struct page *pte)
 	
 	//added by zhang
  	//free_pte_page((unsigned long)__va(PFN_PHYS(page_to_pfn(pte))));	
- 	if(cache_on)
-		free_pte_page(pte);
-	else	
-		tlb_remove_page(tlb, pte);
 	//free_pte_page((unsigned long)page_address(pte));
+ 	if(cache_on)
+	{
+	  if(timing_on)
+	  {	
+		ktime_t local_tstart=ktime_get();	
+		//free_pte_page(tlb, pte);
+		free_pte_page(pte);
+		ktime_t local_tend=ktime_get();
+		s64 local_act_time=ktime_to_ns(ktime_sub(local_tend, local_tstart));
+        
+		spin_lock(&pte_free_cnt_lock);
+		pte_free_waste += (unsigned int)local_act_time;
+        	pte_free_cnt++;
+		spin_unlock(&pte_free_cnt_lock);
+
+	  }
+	  else
+		//free_pte_page(tlb,pte);
+		free_pte_page(pte);
+	}
+	else
+	{
+	   if(timing_on)
+	   {	
+		ktime_t local_tstart=ktime_get();	
+		tlb_remove_page(tlb, pte);
+		ktime_t local_tend=ktime_get();
+		s64 local_act_time=ktime_to_ns(ktime_sub(local_tend, local_tstart));
+        
+		spin_lock(&pte_free_cnt_lock);
+		pte_free_waste += (unsigned int)local_act_time;
+        	pte_free_cnt++;
+		spin_unlock(&pte_free_cnt_lock);
+	   }
+	   else
+		tlb_remove_page(tlb, pte);
+	}
 }
 
 #if PAGETABLE_LEVELS > 2
@@ -648,9 +732,39 @@ void ___pmd_free_tlb(struct mmu_gather *tlb, pmd_t *pmd)
 	//tlb_remove_page(tlb, virt_to_page(pmd));
         // added by zhang
 	if(cache_on)
+	{
+	  if(timing_on)
+	  {
+		ktime_t local_tstart=ktime_get();	
 		free_pmd_page((unsigned long)pmd);
+		ktime_t local_tend=ktime_get();
+		s64 local_act_time=ktime_to_ns(ktime_sub(local_tend, local_tstart));
+        
+		spin_lock(&pmd_free_cnt_lock);
+		pmd_free_waste += (unsigned int)local_act_time;
+        	pmd_free_cnt++;
+		spin_unlock(&pmd_free_cnt_lock);
+ 	  }
+	  else	
+		free_pmd_page((unsigned long)pmd);
+	}
 	else
+	{
+	  if(timing_on)
+	  {
+		ktime_t local_tstart=ktime_get();	
 		tlb_remove_page(tlb, virt_to_page(pmd));
+		ktime_t local_tend=ktime_get();
+		s64 local_act_time=ktime_to_ns(ktime_sub(local_tend, local_tstart));
+        
+		spin_lock(&pmd_free_cnt_lock);
+		pmd_free_waste += (unsigned int)local_act_time;
+        	pmd_free_cnt++;
+		spin_unlock(&pmd_free_cnt_lock);
+	  }
+	  else
+		tlb_remove_page(tlb, virt_to_page(pmd));
+	}
 }
 
 #if PAGETABLE_LEVELS > 3
@@ -782,8 +896,8 @@ static void free_pmds(pmd_t *pmds[])
 }
 
 
-static unsigned int pmd_cnt = 0;
-static unsigned int pmd_waste = 0;
+unsigned int pmd_alloc_cnt = 0;
+unsigned int pmd_alloc_waste = 0;
 static int preallocate_pmds(pmd_t *pmds[])
 {
 	int i;
@@ -795,20 +909,41 @@ static int preallocate_pmds(pmd_t *pmds[])
 		//pmd_t *pmd = (pmd_t *)__get_free_page(PGALLOC_GFP);
         	// added by zhang
 		if(cache_on)
-		{	
+		{
+		  if(timing_on)
+		  {	
 			ktime_t local_tstart=ktime_get();	
 			pmd = (pmd_t *)alloc_pmd_page();
 			ktime_t local_tend=ktime_get();
 			s64 local_act_time=ktime_to_ns(ktime_sub(local_tend, local_tstart));
 			
-			spin_lock(&pmd_cnt_lock);
-        		pmd_waste += (unsigned int)local_act_time;
-        		pmd_cnt++;
-			spin_unlock(&pmd_cnt_lock);
+			spin_lock(&pmd_alloc_cnt_lock);
+        		pmd_alloc_waste += (unsigned int)local_act_time;
+        		pmd_alloc_cnt++;
+			spin_unlock(&pmd_alloc_cnt_lock);
+	          }
+		  else	
+			pmd = (pmd_t *)alloc_pmd_page();
 		}
 		else
+		{
+		  if(timing_on)
+		  {
+			ktime_t local_tstart=ktime_get();	
 			pmd = (pmd_t *)__get_free_page(PGALLOC_GFP);
-		
+			ktime_t local_tend=ktime_get();
+			s64 local_act_time=ktime_to_ns(ktime_sub(local_tend, local_tstart));
+			
+			spin_lock(&pmd_alloc_cnt_lock);
+        		pmd_alloc_waste += (unsigned int)local_act_time;
+        		pmd_alloc_cnt++;
+			spin_unlock(&pmd_alloc_cnt_lock);
+		  }
+		  else
+			pmd = (pmd_t *)__get_free_page(PGALLOC_GFP);
+			
+		}
+	
 		if (pmd == NULL)
 			failed = true;
 		pmds[i] = pmd;
@@ -871,8 +1006,8 @@ static void pgd_prepopulate_pmd(struct mm_struct *mm, pgd_t *pgd, pmd_t *pmds[])
 /* calculate screen output time */
 static int time_switch=1;
 static ktime_t tstart, tend;
-static unsigned int pgd_waste = 0;
-static unsigned int pgd_cnt = 0;
+static unsigned int pgd_alloc_waste = 0;
+static unsigned int pgd_alloc_cnt = 0;
 static int tm_incret = 1;
 //unsigned long  pgop_cnt = 0;
 
@@ -892,8 +1027,97 @@ pgd_t *pgd_alloc(struct mm_struct *mm)
 	//if(pgop_cnt<60000)
 	if(cache_on == 0)
 	{	
-		//pgop_cnt ++;
+
+	  if(timing_on)
+	  {	
+		if(time_switch)
+		{
+			tstart=ktime_get();	
+
+			local_tstart=ktime_get();	
+		        pgd = (pgd_t *)__get_free_page(PGALLOC_GFP);
+			local_tend=ktime_get();
+			local_act_time=ktime_to_ns(ktime_sub(local_tend, local_tstart));
+        		
+			spin_lock(&pgd_alloc_cnt_lock);
+			pgd_alloc_waste += (unsigned int)local_act_time;
+        		pgd_alloc_cnt++;
+			spin_unlock(&pgd_alloc_cnt_lock);
+
+			time_switch=0;	
+		
+			// hypercall: timing is on 
+			//rc = HYPERVISOR_pgd_op(pgd_head, 9999);
+		}
+		else
+		{
+		
+			local_tstart=ktime_get();	
+		        pgd = (pgd_t *)__get_free_page(PGALLOC_GFP);
+			local_tend=ktime_get();
+			local_act_time=ktime_to_ns(ktime_sub(local_tend, local_tstart));
+    			
+			spin_lock(&pgd_alloc_cnt_lock);
+        		pgd_alloc_waste += (unsigned int)local_act_time;
+        		pgd_alloc_cnt++;
+			spin_unlock(&pgd_alloc_cnt_lock);
+			
+			tend=ktime_get();	
+			act_time=ktime_to_ms(ktime_sub(tend, tstart));
+			if((unsigned int)act_time>=tm_incret*60*1000)
+			{
+				spin_lock(&pgd_alloc_cnt_lock);
+				tm_incret+=1;	
+        			printk("PGD alloc:(average:%uns per %u)\n", (pgd_alloc_waste*100)/pgd_alloc_cnt, pgd_alloc_cnt);
+				pgd_alloc_waste=0;
+				pgd_alloc_cnt=0;
+				spin_unlock(&pgd_alloc_cnt_lock);
+        			
+			
+				spin_lock(&pgd_free_cnt_lock);
+        			printk("PGD free:(average:%uns per %u)\n", (pgd_free_waste*100)/pgd_free_cnt, pgd_free_cnt);
+				pgd_free_waste=0;
+				pgd_free_cnt=0;
+				spin_unlock(&pgd_free_cnt_lock);
+
+
+				spin_lock(&pmd_alloc_cnt_lock);
+				printk("PMD alloc:(average:%uns per %u)\n", (pmd_alloc_waste*100)/pmd_alloc_cnt, pmd_alloc_cnt);
+				pmd_alloc_waste=0;
+				pmd_alloc_cnt=0;
+				spin_unlock(&pmd_alloc_cnt_lock);
+        			
+				
+				spin_lock(&pmd_free_cnt_lock);
+				printk("PMD free:(average:%uns per %u)\n", (pmd_free_waste*100)/pmd_free_cnt, pmd_free_cnt);
+				pmd_free_waste=0;
+				pmd_free_cnt=0;
+				spin_unlock(&pmd_free_cnt_lock);
+
+				spin_lock(&pte_alloc_cnt_lock);
+				printk("PTE alloc:(average:%uns per %u)\n", (pte_alloc_waste*100)/pte_alloc_cnt, pte_alloc_cnt);
+				pte_alloc_waste=0;
+				pte_alloc_cnt=0;
+				spin_unlock(&pte_alloc_cnt_lock);
+			
+				
+				spin_lock(&pte_free_cnt_lock);
+				printk("PTE free:(average:%uns per %u)\n", (pte_free_waste*100)/pte_free_cnt, pte_free_cnt);
+				pte_free_waste=0;
+				pte_free_cnt=0;
+				spin_unlock(&pte_free_cnt_lock);
+					
+				
+				printk("\n");	
+        			
+			}
+		}
+	   }	
+	   else
+
 		pgd = (pgd_t *)__get_free_page(PGALLOC_GFP);
+
+
         }
 	else
 	{
@@ -909,7 +1133,8 @@ pgd_t *pgd_alloc(struct mm_struct *mm)
 		//}
 		//pgd = (pgd_t *)alloc_pgd_page();
 	
-	         	 
+	   if(timing_on)
+	   {	         	 
 		if(time_switch)
 		{
 			tstart=ktime_get();	
@@ -919,15 +1144,15 @@ pgd_t *pgd_alloc(struct mm_struct *mm)
 			local_tend=ktime_get();
 			local_act_time=ktime_to_ns(ktime_sub(local_tend, local_tstart));
         		
-			spin_lock(&pgd_cnt_lock);
-			pgd_waste += (unsigned int)local_act_time;
-        		pgd_cnt++;
-			spin_unlock(&pgd_cnt_lock);
+			spin_lock(&pgd_alloc_cnt_lock);
+			pgd_alloc_waste += (unsigned int)local_act_time;
+        		pgd_alloc_cnt++;
+			spin_unlock(&pgd_alloc_cnt_lock);
 
 			time_switch=0;	
 		
-			// hypercall: cache is on 
-			rc = HYPERVISOR_pgd_op(pgd_head, 1);
+			// hypercall: cache and timing is on 
+			rc = HYPERVISOR_pgd_op(pgd_head, 9998);
 		}
 		else
 		{
@@ -936,37 +1161,61 @@ pgd_t *pgd_alloc(struct mm_struct *mm)
 			local_tend=ktime_get();
 			local_act_time=ktime_to_ns(ktime_sub(local_tend, local_tstart));
     			
-			spin_lock(&pgd_cnt_lock);
-        		pgd_waste += (unsigned int)local_act_time;
-        		pgd_cnt++;
-			spin_unlock(&pgd_cnt_lock);
+			spin_lock(&pgd_alloc_cnt_lock);
+        		pgd_alloc_waste += (unsigned int)local_act_time;
+        		pgd_alloc_cnt++;
+			spin_unlock(&pgd_alloc_cnt_lock);
 			
 			tend=ktime_get();	
 			act_time=ktime_to_ms(ktime_sub(tend, tstart));
-			if((unsigned int)act_time>=tm_incret*30*1000)
+			if((unsigned int)act_time>=tm_incret*60*1000)
 			{
-				spin_lock(&pgd_cnt_lock);
-        			printk("PGD allocation:(average:%uns per %u)\n", (pgd_waste*100)/pgd_cnt, pgd_cnt);
-				pgd_waste=0;
-				pgd_cnt=0;
-				spin_unlock(&pgd_cnt_lock);
-        			
-				spin_lock(&pmd_cnt_lock);
-				printk("PMD allocation:(average:%uns per %u)\n", (pmd_waste*100)/pmd_cnt, pmd_cnt);
-				pmd_waste=0;
-				pmd_cnt=0;
-				spin_unlock(&pmd_cnt_lock);
-        			
-				spin_lock(&pte_cnt_lock);
-				printk("PTE allocation:(average:%uns per %u)\n", (pte_waste*100)/pte_cnt, pte_cnt);
-				pte_waste=0;
-				pte_cnt=0;
-				spin_unlock(&pte_cnt_lock);
 				
-				tm_incret++;	
-
-        			printk("\n");	
+			
+				spin_lock(&pgd_alloc_cnt_lock);
+        			printk("PGD alloc:(average:%uns per %u)\n", (pgd_alloc_waste*100)/pgd_alloc_cnt, pgd_alloc_cnt);
+				pgd_alloc_waste=0;
+				pgd_alloc_cnt=0;
+				spin_unlock(&pgd_alloc_cnt_lock);
         			
+			
+				spin_lock(&pgd_free_cnt_lock);
+        			printk("PGD free:(average:%uns per %u)\n", (pgd_free_waste*100)/pgd_free_cnt, pgd_free_cnt);
+				pgd_free_waste=0;
+				pgd_free_cnt=0;
+				spin_unlock(&pgd_free_cnt_lock);
+
+
+				spin_lock(&pmd_alloc_cnt_lock);
+				printk("PMD alloc:(average:%uns per %u)\n", (pmd_alloc_waste*100)/pmd_alloc_cnt, pmd_alloc_cnt);
+				pmd_alloc_waste=0;
+				pmd_alloc_cnt=0;
+				spin_unlock(&pmd_alloc_cnt_lock);
+        			
+				
+				spin_lock(&pmd_free_cnt_lock);
+				printk("PMD free:(average:%uns per %u)\n", (pmd_free_waste*100)/pmd_free_cnt, pmd_free_cnt);
+				pmd_free_waste=0;
+				pmd_free_cnt=0;
+				spin_unlock(&pmd_free_cnt_lock);
+
+				spin_lock(&pte_alloc_cnt_lock);
+				printk("PTE alloc:(average:%uns per %u)\n", (pte_alloc_waste*100)/pte_alloc_cnt, pte_alloc_cnt);
+				pte_alloc_waste=0;
+				pte_alloc_cnt=0;
+				spin_unlock(&pte_alloc_cnt_lock);
+			
+				
+				spin_lock(&pte_free_cnt_lock);
+				printk("PTE free:(average:%uns per %u)\n", (pte_free_waste*100)/pte_free_cnt, pte_free_cnt);
+				pte_free_waste=0;
+				pte_free_cnt=0;
+				spin_unlock(&pte_free_cnt_lock);
+					
+				tm_incret+=1;	
+				printk("\n");	
+
+        		        
 				spin_lock(&pgd_cache_lock);
         			printk("PGD cache page numbers:%ld\n", pgd_free_counter);	
         			printk("PGD table page numbers:%ld\n", pgd_used_counter);	
@@ -982,12 +1231,28 @@ pgd_t *pgd_alloc(struct mm_struct *mm)
         			printk("PTE cache page numbers:%ld\n", pte_free_counter);	
         			printk("PTE table page numbers:%ld\n", pte_used_counter);	
 				spin_unlock(&pte_cache_lock);
-        			
+
 				printk("\n");	
-				
+			
+
+					
 			}
 		}
+	   }
+	   else
+	   {	
+		if(time_switch)
+		{
+
+			time_switch=0;	
+		
+			// hypercall: cache and timing is on 
+			rc = HYPERVISOR_pgd_op(pgd_head, 9998);
+
+		}
+		pgd = (pgd_t *)alloc_pgd_page();
 			
+	   }
 	}
 
 	if (pgd == NULL)
@@ -1038,9 +1303,39 @@ void pgd_free(struct mm_struct *mm, pgd_t *pgd)
 	//free_page((unsigned long)pgd);
         // added by zhang
         if(cache_on)
+	{
+	  if(timing_on)
+	  {
+		ktime_t local_tstart=ktime_get();	
 		free_pgd_page((unsigned long)pgd);
+		ktime_t local_tend=ktime_get();
+		s64 local_act_time=ktime_to_ns(ktime_sub(local_tend, local_tstart));
+        
+		spin_lock(&pgd_free_cnt_lock);
+		pgd_free_waste += (unsigned int)local_act_time;
+        	pgd_free_cnt++;
+		spin_unlock(&pgd_free_cnt_lock);
+	  }
+	  else
+		free_pgd_page((unsigned long)pgd);
+	}
 	else
+	{
+	   if(timing_on)
+	   {
+		ktime_t local_tstart=ktime_get();	
 		free_page((unsigned long)pgd); 
+		ktime_t local_tend=ktime_get();
+		s64 local_act_time=ktime_to_ns(ktime_sub(local_tend, local_tstart));
+        
+		spin_lock(&pgd_free_cnt_lock);
+		pgd_free_waste += (unsigned int)local_act_time;
+        	pgd_free_cnt++;
+		spin_unlock(&pgd_free_cnt_lock);
+           }
+	   else
+		free_page((unsigned long)pgd); 
+	}
 }
 
 int ptep_set_access_flags(struct vm_area_struct *vma,

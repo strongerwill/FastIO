@@ -518,7 +518,7 @@ struct mmu_update {
 typedef struct mmu_update mmu_update_t;
 DEFINE_XEN_GUEST_HANDLE(mmu_update_t);
 
-//added by zhang
+/* added by zhang */
 /* pgd table cache  */
 struct ptrpgd {
     unsigned long content;       /* linear address of a pgd table. */
@@ -537,7 +537,7 @@ DEFINE_XEN_GUEST_HANDLE(ptrpmd_t);
 
 /* pte table cache  */
 struct ptrpte {
-    unsigned long content;       /* linear address of a pte table. */
+    unsigned long content;       /* linear address of a pmd table. */
     struct ptrpte *next;       /* Next element of a cache pool.    */
 };
 typedef struct ptrpte ptrpte_t;
