@@ -1,0 +1,72 @@
+set_robust_list(0xb0dffbb0, 0xc)        = 0
+gettid()                                = 2649
+clock_gettime(CLOCK_MONOTONIC, {899, 962993440}) = 0
+clock_gettime(CLOCK_MONOTONIC, {899, 963048262}) = 0
+gettimeofday({1420890661, 314281}, NULL) = 0
+getuid32()                              = 0
+geteuid32()                             = 0
+getgid32()                              = 0
+getegid32()                             = 0
+epoll_create(32000)                     = 11
+fcntl64(11, F_GETFD)                    = 0
+fcntl64(11, F_SETFD, FD_CLOEXEC)        = 0
+getuid32()                              = 0
+geteuid32()                             = 0
+getgid32()                              = 0
+getegid32()                             = 0
+socketpair(PF_FILE, SOCK_STREAM, 0, [12, 13]) = 0
+fcntl64(12, F_GETFD)                    = 0
+fcntl64(12, F_SETFD, FD_CLOEXEC)        = 0
+fcntl64(13, F_GETFD)                    = 0
+fcntl64(13, F_SETFD, FD_CLOEXEC)        = 0
+fcntl64(12, F_GETFL)                    = 0x2 (flags O_RDWR)
+fcntl64(12, F_SETFL, O_RDWR|O_NONBLOCK) = 0
+fcntl64(13, F_GETFL)                    = 0x2 (flags O_RDWR)
+fcntl64(13, F_SETFL, O_RDWR|O_NONBLOCK) = 0
+getuid32()                              = 0
+geteuid32()                             = 0
+getgid32()                              = 0
+getegid32()                             = 0
+pipe([14, 15])                          = 0
+fcntl64(14, F_GETFL)                    = 0 (flags O_RDONLY)
+fcntl64(14, F_SETFL, O_RDONLY|O_NONBLOCK) = 0
+fcntl64(15, F_GETFL)                    = 0x1 (flags O_WRONLY)
+fcntl64(15, F_SETFL, O_WRONLY|O_NONBLOCK) = 0
+epoll_ctl(11, EPOLL_CTL_ADD, 14, {EPOLLIN, {u32=14, u64=14}}) = 0
+gettid()                                = 2649
+gettid()                                = 2649
+prctl(PR_SET_NAME, 0xb72fe12c, 0, 0, 0) = 0
+futex(0xbf953dd4, FUTEX_CMP_REQUEUE_PRIVATE, 1, 2147483647, 0xbf953e04, 2) = 1
+clock_gettime(CLOCK_MONOTONIC, {899, 965666127}) = 0
+gettimeofday({1420890661, 316928}, NULL) = 0
+epoll_wait(11, {{EPOLLIN, {u32=14, u64=14}}}, 32, -1) = 1
+clock_gettime(CLOCK_MONOTONIC, {900, 93766193}) = 0
+gettimeofday({1420890661, 445078}, NULL) = 0
+read(14, "\0", 1)                       = 1
+pipe([16, 17])                          = 0
+fcntl64(16, F_SETFD, FD_CLOEXEC)        = 0
+fcntl64(17, F_SETFD, FD_CLOEXEC)        = 0
+futex(0xb0e47700, FUTEX_WAIT_PRIVATE, 2, NULL) = 0
+rt_sigaction(SIGRT_2, {0xb377a688, [], 0}, NULL, 8) = 0
+rt_sigaction(SIGRT_3, {0xb377a688, [], 0}, NULL, 8) = 0
+futex(0xb0e47700, FUTEX_WAKE_PRIVATE, 1) = 0
+epoll_ctl(11, EPOLL_CTL_ADD, 16, {EPOLLIN, {u32=16, u64=16}}) = 0
+clock_gettime(CLOCK_MONOTONIC, {900, 94785439}) = 0
+gettimeofday({1420890661, 446074}, NULL) = 0
+epoll_wait(11, {{EPOLLIN, {u32=14, u64=14}}}, 32, -1) = 1
+clock_gettime(CLOCK_MONOTONIC, {943, 449764981}) = 0
+gettimeofday({1420890704, 801002}, NULL) = 0
+read(14, "\0", 1)                       = 1
+close(17)                               = 0
+epoll_ctl(11, EPOLL_CTL_DEL, 16, {EPOLLIN, {u32=16, u64=16}}) = 0
+close(16)                               = 0
+clock_gettime(CLOCK_MONOTONIC, {943, 450058641}) = 0
+gettimeofday({1420890704, 801290}, NULL) = 0
+epoll_wait(11, {{EPOLLIN, {u32=14, u64=14}}}, 32, -1) = 1
+clock_gettime(CLOCK_MONOTONIC, {943, 493119933}) = 0
+gettimeofday({1420890704, 844352}, NULL) = 0
+read(14, "\0", 1)                       = 1
+write(15, "\0", 1)                      = 1
+gettid()                                = 2649
+madvise(0xb05ff000, 8372224, MADV_DONTNEED) = 0
+_exit(0)                                = ?

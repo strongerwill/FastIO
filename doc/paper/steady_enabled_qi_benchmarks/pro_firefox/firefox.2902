@@ -1,0 +1,2434 @@
+execve("/usr/bin/firefox", ["/usr/bin/firefox", "-safe-mode", "-new-tab", "http://www.baidu.com"], [/* 28 vars */]) = 0
+brk(0)                                  = 0x8597000
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7720000
+mmap2(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb771d000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=80149, ...}) = 0
+mmap2(NULL, 80149, PROT_READ, MAP_PRIVATE, 3, 0) = 0xb7709000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0@\226\1\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0755, st_size=1734120, ...}) = 0
+mmap2(NULL, 1747676, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb755e000
+mprotect(0xb7702000, 4096, PROT_NONE)   = 0
+mmap2(0xb7703000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1a4) = 0xb7703000
+mmap2(0xb7706000, 10972, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xb7706000
+close(3)                                = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb755d000
+set_thread_area({entry_number:-1 -> 6, base_addr:0xb755d6c0, limit:1048575, seg_32bit:1, contents:0, read_exec_only:0, limit_in_pages:1, seg_not_present:0, useable:1}) = 0
+mprotect(0xb7703000, 8192, PROT_READ)   = 0
+mprotect(0x8060000, 4096, PROT_READ)    = 0
+mprotect(0xb7742000, 4096, PROT_READ)   = 0
+munmap(0xb7709000, 80149)               = 0
+getpid()                                = 2902
+rt_sigaction(SIGCHLD, {0x8056220, ~[RTMIN RT_1], 0}, NULL, 8) = 0
+geteuid32()                             = 0
+brk(0)                                  = 0x8597000
+brk(0x85b8000)                          = 0x85b8000
+getppid()                               = 2901
+stat64("/home/zz/zhi/update_iotlb/fork_xen", {st_mode=S_IFDIR|0700, st_size=4096, ...}) = 0
+stat64(".", {st_mode=S_IFDIR|0700, st_size=4096, ...}) = 0
+open("/usr/bin/firefox", O_RDONLY)      = 3
+fcntl64(3, F_DUPFD, 10)                 = 10
+close(3)                                = 0
+fcntl64(10, F_SETFD, FD_CLOEXEC)        = 0
+rt_sigaction(SIGINT, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGINT, {0x8056220, ~[RTMIN RT_1], 0}, NULL, 8) = 0
+rt_sigaction(SIGQUIT, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGQUIT, {SIG_DFL, ~[RTMIN RT_1], 0}, NULL, 8) = 0
+rt_sigaction(SIGTERM, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGTERM, {SIG_DFL, ~[RTMIN RT_1], 0}, NULL, 8) = 0
+read(10, "#!/bin/sh\n\nset -e\n\n# Firefox lau"..., 8192) = 2740
+pipe([3, 4])                            = 0
+clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0xb755d728) = 2903
+close(4)                                = 0
+read(3, "/usr/bin/firefox\n", 128)      = 17
+read(3, "", 128)                        = 0
+--- SIGCHLD (Child exited) @ 0 (0) ---
+sigreturn()                             = ? (mask now [])
+close(3)                                = 0
+wait4(-1, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 2903
+geteuid32()                             = 0
+stat64("/usr/lib/firefox/firefox", {st_mode=S_IFREG|0755, st_size=116224, ...}) = 0
+faccessat(AT_FDCWD, "/usr/lib/firefox/firefox", X_OK) = 0
+execve("/usr/lib/firefox/firefox", ["/usr/lib/firefox/firefox", "-safe-mode", "-new-tab", "http://www.baidu.com"], [/* 29 vars */]) = 0
+brk(0)                                  = 0xb78f2000
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7838000
+mmap2(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7835000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=80149, ...}) = 0
+mmap2(NULL, 80149, PROT_READ, MAP_PRIVATE, 3, 0) = 0xb7821000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/librt.so.1", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\320\30\0\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=30684, ...}) = 0
+mmap2(NULL, 33360, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb7818000
+mmap2(0xb781f000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x6) = 0xb781f000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libdl.so.2", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0`\n\0\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=13940, ...}) = 0
+mmap2(NULL, 16504, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb7813000
+mmap2(0xb7816000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2) = 0xb7816000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libstdc++.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\0]\4\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=905712, ...}) = 0
+mmap2(NULL, 935336, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb772e000
+mprotect(0xb7806000, 4096, PROT_NONE)   = 0
+mmap2(0xb7807000, 20480, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xd8) = 0xb7807000
+mmap2(0xb780c000, 26024, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xb780c000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libm.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0000D\0\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=173576, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb772d000
+mmap2(NULL, 176256, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb7701000
+mmap2(0xb772b000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x29) = 0xb772b000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libgcc_s.so.1", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0P\37\0\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=116232, ...}) = 0
+mmap2(NULL, 119344, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb76e3000
+mmap2(0xb76ff000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1b) = 0xb76ff000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libpthread.so.0", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0p[\0\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0755, st_size=124663, ...}) = 0
+mmap2(NULL, 107008, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb76c8000
+mmap2(0xb76df000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x16) = 0xb76df000
+mmap2(0xb76e1000, 4608, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xb76e1000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0@\226\1\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0755, st_size=1734120, ...}) = 0
+mmap2(NULL, 1747676, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb751d000
+mprotect(0xb76c1000, 4096, PROT_NONE)   = 0
+mmap2(0xb76c2000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1a4) = 0xb76c2000
+mmap2(0xb76c5000, 10972, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xb76c5000
+close(3)                                = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb751c000
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb751b000
+set_thread_area({entry_number:-1 -> 6, base_addr:0xb751b700, limit:1048575, seg_32bit:1, contents:0, read_exec_only:0, limit_in_pages:1, seg_not_present:0, useable:1}) = 0
+mprotect(0xb76c2000, 8192, PROT_READ)   = 0
+mprotect(0xb76df000, 4096, PROT_READ)   = 0
+mprotect(0xb76ff000, 4096, PROT_READ)   = 0
+mprotect(0xb772b000, 4096, PROT_READ)   = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb751a000
+mprotect(0xb7807000, 16384, PROT_READ)  = 0
+mprotect(0xb7816000, 4096, PROT_READ)   = 0
+mprotect(0xb781f000, 4096, PROT_READ)   = 0
+mprotect(0xb7878000, 4096, PROT_READ)   = 0
+mprotect(0xb785a000, 4096, PROT_READ)   = 0
+munmap(0xb7821000, 80149)               = 0
+set_tid_address(0xb751b768)             = 2902
+set_robust_list(0xb751b770, 0xc)        = 0
+futex(0xbf851ef4, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 1, NULL, b751b700) = -1 EAGAIN (Resource temporarily unavailable)
+rt_sigaction(SIGRTMIN, {0xb76cd570, [], SA_SIGINFO}, NULL, 8) = 0
+rt_sigaction(SIGRT_1, {0xb76cd5f0, [], SA_RESTART|SA_SIGINFO}, NULL, 8) = 0
+rt_sigprocmask(SIG_UNBLOCK, [RTMIN RT_1], NULL, 8) = 0
+getrlimit(RLIMIT_STACK, {rlim_cur=8192*1024, rlim_max=RLIM_INFINITY}) = 0
+uname({sys="Linux", node="zz", ...})    = 0
+clock_gettime(CLOCK_MONOTONIC, {938, 591075780}) = 0
+getrusage(RUSAGE_SELF, {ru_utime={0, 4000}, ru_stime={0, 0}, ...}) = 0
+lstat64("/usr", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+lstat64("/usr/lib", {st_mode=S_IFDIR|0755, st_size=36864, ...}) = 0
+lstat64("/usr/lib/firefox", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+lstat64("/usr/lib/firefox/firefox", {st_mode=S_IFREG|0755, st_size=116224, ...}) = 0
+stat64("/usr/lib/firefox/firefox", {st_mode=S_IFREG|0755, st_size=116224, ...}) = 0
+access("/usr/lib/firefox/libxul.so", R_OK) = 0
+readlink("/etc/malloc.conf", 0xbf84dcfb, 4096) = -1 ENOENT (No such file or directory)
+mmap2(NULL, 1048576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb741a000
+mmap2(NULL, 1048576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb731a000
+munmap(0xb731a000, 1048576)             = 0
+mmap2(NULL, 2093056, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb721b000
+munmap(0xb721b000, 937984)              = 0
+munmap(0xb7400000, 106496)              = 0
+open("/usr/lib/firefox/dependentlibs.list", O_RDONLY) = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=127, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7834000
+read(3, "libnspr4.so\nlibplc4.so\nlibplds4."..., 4096) = 127
+open("/usr/lib/firefox/libnspr4.so", O_RDONLY) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0P\211\0\0004\0\0\0"..., 4096) = 4096
+readahead(4, 0, 243120)                 = 0
+close(4)                                = 0
+futex(0xb7817050, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+open("/usr/lib/firefox/libnspr4.so", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0P\211\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=244452, ...}) = 0
+mmap2(NULL, 254912, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb72c1000
+mprotect(0xb72fb000, 4096, PROT_NONE)   = 0
+mmap2(0xb72fc000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x3a) = 0xb72fc000
+mmap2(0xb72fe000, 5056, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xb72fe000
+close(4)                                = 0
+mprotect(0xb72fc000, 4096, PROT_READ)   = 0
+open("/usr/lib/firefox/libplc4.so", O_RDONLY) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0`\16\0\0004\0\0\0"..., 4096) = 4096
+readahead(4, 0, 16472)                  = 0
+close(4)                                = 0
+open("/usr/lib/firefox/libplc4.so", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0`\16\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=17700, ...}) = 0
+mmap2(NULL, 20584, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb782e000
+mmap2(0xb7832000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x3) = 0xb7832000
+close(4)                                = 0
+mprotect(0xb7832000, 4096, PROT_READ)   = 0
+open("/usr/lib/firefox/libplds4.so", O_RDONLY) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\20\v\0\0004\0\0\0"..., 4096) = 4096
+readahead(4, 0, 12376)                  = 0
+close(4)                                = 0
+open("/usr/lib/firefox/libplds4.so", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\20\v\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=13604, ...}) = 0
+mmap2(NULL, 16512, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb7829000
+mmap2(0xb782c000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x2) = 0xb782c000
+close(4)                                = 0
+mprotect(0xb782c000, 4096, PROT_READ)   = 0
+open("/usr/lib/firefox/libnssutil3.so", O_RDONLY) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\320f\0\0004\0\0\0"..., 4096) = 4096
+readahead(4, 0, 139272)                 = 0
+close(4)                                = 0
+open("/usr/lib/firefox/libnssutil3.so", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\320f\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=140612, ...}) = 0
+mmap2(NULL, 140624, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb729e000
+mmap2(0xb72bd000, 16384, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x1f) = 0xb72bd000
+close(4)                                = 0
+mprotect(0xb72bd000, 12288, PROT_READ)  = 0
+open("/usr/lib/firefox/libnss3.so", O_RDONLY) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\260\36\1\0004\0\0\0"..., 4096) = 4096
+readahead(4, 0, 1103672)                = 0
+close(4)                                = 0
+open("/usr/lib/firefox/libnss3.so", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\260\36\1\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=1105008, ...}) = 0
+mmap2(NULL, 1106868, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb718f000
+mmap2(0xb7299000, 16384, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x10a) = 0xb7299000
+mmap2(0xb729d000, 948, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xb729d000
+close(4)                                = 0
+mprotect(0xb7299000, 12288, PROT_READ)  = 0
+open("/usr/lib/firefox/libsmime3.so", O_RDONLY) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\260k\0\0004\0\0\0"..., 4096) = 4096
+readahead(4, 0, 147808)                 = 0
+close(4)                                = 0
+open("/usr/lib/firefox/libsmime3.so", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\260k\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=149148, ...}) = 0
+mmap2(NULL, 147888, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb716a000
+mmap2(0xb718c000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x22) = 0xb718c000
+close(4)                                = 0
+mprotect(0xb718c000, 8192, PROT_READ)   = 0
+open("/usr/lib/firefox/libssl3.so", O_RDONLY) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\240f\0\0004\0\0\0"..., 4096) = 4096
+readahead(4, 0, 233800)                 = 0
+close(4)                                = 0
+open("/usr/lib/firefox/libssl3.so", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\240f\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=235136, ...}) = 0
+mmap2(NULL, 235428, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb7130000
+mmap2(0xb7167000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x37) = 0xb7167000
+close(4)                                = 0
+mprotect(0xb7167000, 8192, PROT_READ)   = 0
+open("/usr/lib/firefox/libmozsqlite3.so", O_RDONLY) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\240\\\0\0004\0\0\0"..., 4096) = 4096
+readahead(4, 0, 601744)                 = 0
+close(4)                                = 0
+open("/usr/lib/firefox/libmozsqlite3.so", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\240\\\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=603032, ...}) = 0
+mmap2(NULL, 602756, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb709c000
+mmap2(0xb712c000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x90) = 0xb712c000
+mmap2(0xb712f000, 644, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xb712f000
+close(4)                                = 0
+mprotect(0xb712c000, 8192, PROT_READ)   = 0
+open("/usr/lib/firefox/libmozalloc.so", O_RDONLY) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\320\f\0\0004\0\0\0"..., 4096) = 4096
+readahead(4, 0, 8196)                   = 0
+close(4)                                = 0
+open("/usr/lib/firefox/libmozalloc.so", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\320\f\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=9428, ...}) = 0
+mmap2(NULL, 12304, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb7825000
+mmap2(0xb7827000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x1) = 0xb7827000
+close(4)                                = 0
+mprotect(0xb7827000, 4096, PROT_READ)   = 0
+open("/usr/lib/firefox/libxul.so", O_RDONLY) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0 r8\0004\0\0\0"..., 4096) = 4096
+readahead(4, 0, 61756540)               = 0
+close(4)                                = 0
+open("/usr/lib/firefox/libxul.so", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0 r8\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=61757976, ...}) = 0
+mmap2(NULL, 63168024, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb345e000
+mmap2(0xb65ee000, 9789440, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x3190) = 0xb65ee000
+mmap2(0xb6f44000, 1408536, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xb6f44000
+close(4)                                = 0
+open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 4
+fstat64(4, {st_mode=S_IFREG|0644, st_size=80149, ...}) = 0
+mmap2(NULL, 80149, PROT_READ, MAP_PRIVATE, 4, 0) = 0xb7406000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libXrender.so.1", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0 \23\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=34424, ...}) = 0
+mmap2(NULL, 37260, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb3454000
+mmap2(0xb345c000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x7) = 0xb345c000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libasound.so.2", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\0\261\1\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=985276, ...}) = 0
+mmap2(NULL, 988084, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb3362000
+mmap2(0xb344f000, 20480, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0xec) = 0xb344f000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libdbus-glib-1.so.2", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\360p\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=150192, ...}) = 0
+mmap2(NULL, 153160, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb333c000
+mmap2(0xb3360000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x23) = 0xb3360000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libdbus-1.so.3", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0PN\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=296228, ...}) = 0
+mmap2(NULL, 299468, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb32f2000
+mprotect(0xb3339000, 4096, PROT_NONE)   = 0
+mmap2(0xb333a000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x47) = 0xb333a000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libgobject-2.0.so.0", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\0\203\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=317288, ...}) = 0
+mmap2(NULL, 321504, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb32a3000
+mmap2(0xb32f0000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x4c) = 0xb32f0000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libglib-2.0.so.0", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0@K\1\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=1014644, ...}) = 0
+mmap2(NULL, 1018896, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb31aa000
+mmap2(0xb32a1000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0xf6) = 0xb32a1000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libgtk-x11-2.0.so.0", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\340\33\5\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=4612844, ...}) = 0
+mmap2(NULL, 4617296, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb2d42000
+mmap2(0xb31a2000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x460) = 0xb31a2000
+mmap2(0xb31a8000, 5200, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xb31a8000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libatk-1.0.so.0", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\220b\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=124620, ...}) = 0
+mmap2(NULL, 128140, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb2d22000
+mmap2(0xb2d3f000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x1c) = 0xb2d3f000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libgio-2.0.so.0", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\3605\2\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=1401664, ...}) = 0
+mmap2(NULL, 1403372, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb2bcb000
+mmap2(0xb2d1e000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x153) = 0xb2d1e000
+mmap2(0xb2d21000, 2540, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xb2d21000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libfreetype.so.6", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\320g\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=624084, ...}) = 0
+mmap2(NULL, 626844, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb2b31000
+mmap2(0xb2bc6000, 20480, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x94) = 0xb2bc6000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libfontconfig.so.1", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0p@\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=211660, ...}) = 0
+mmap2(NULL, 210980, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb2afd000
+mmap2(0xb2b2f000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x32) = 0xb2b2f000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libgdk-x11-2.0.so.0", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\0L\1\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=712724, ...}) = 0
+mmap2(NULL, 716172, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb2a4e000
+mprotect(0xb2af9000, 4096, PROT_NONE)   = 0
+mmap2(0xb2afa000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0xab) = 0xb2afa000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libpangocairo-1.0.so.0", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\0205\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=47016, ...}) = 0
+mmap2(NULL, 49884, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb2a41000
+mmap2(0xb2a4c000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0xa) = 0xb2a4c000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libgdk_pixbuf-2.0.so.0", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\340@\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=128964, ...}) = 0
+mmap2(NULL, 131860, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb2a20000
+mmap2(0xb2a3f000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x1e) = 0xb2a3f000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libpango-1.0.so.0", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\0\226\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=296996, ...}) = 0
+mmap2(NULL, 300112, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb29d6000
+mprotect(0xb2a1d000, 4096, PROT_NONE)   = 0
+mmap2(0xb2a1e000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x47) = 0xb2a1e000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libcairo.so.2", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\360\223\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=821632, ...}) = 0
+mmap2(NULL, 828800, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb290b000
+mmap2(0xb29d2000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0xc7) = 0xb29d2000
+mmap2(0xb29d4000, 5504, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xb29d4000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libstartup-notification-1.so.0", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0P#\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=34292, ...}) = 0
+mmap2(NULL, 37436, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb2901000
+mmap2(0xb2909000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x7) = 0xb2909000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libX11.so.6", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\340\21\1\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=1254264, ...}) = 0
+mmap2(NULL, 1258232, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb27cd000
+mmap2(0xb28fd000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x12f) = 0xb28fd000
+mmap2(0xb2900000, 760, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xb2900000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libXext.so.6", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0000'\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=68232, ...}) = 0
+mmap2(NULL, 71368, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb27bb000
+mmap2(0xb27cb000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0xf) = 0xb27cb000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libXt.so.6", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\260\271\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=372044, ...}) = 0
+mmap2(NULL, 376532, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb275f000
+mmap2(0xb27b7000, 16384, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x57) = 0xb27b7000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libgthread-2.0.so.0", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0P\4\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=5408, ...}) = 0
+mmap2(NULL, 8220, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb7822000
+mmap2(0xb7823000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0) = 0xb7823000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libffi.so.6", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\360\16\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=21944, ...}) = 0
+mmap2(NULL, 25304, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb2758000
+mmap2(0xb275d000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x4) = 0xb275d000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libpcre.so.3", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0`\17\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=238984, ...}) = 0
+mmap2(NULL, 241752, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb271c000
+mmap2(0xb2756000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x39) = 0xb2756000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libXfixes.so.3", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\240\17\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=21840, ...}) = 0
+mmap2(NULL, 20596, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb7400000
+mmap2(0xb7404000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x4) = 0xb7404000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libpangoft2-1.0.so.0", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\220N\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=174420, ...}) = 0
+mmap2(NULL, 177472, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb26f0000
+mmap2(0xb271a000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x29) = 0xb271a000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libgmodule-2.0.so.0", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0000\f\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=13732, ...}) = 0
+mmap2(NULL, 16572, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb26eb000
+mmap2(0xb26ee000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x2) = 0xb26ee000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libz.so.1", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0`\27\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=83572, ...}) = 0
+mmap2(NULL, 86288, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb26d5000
+mmap2(0xb26e9000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x13) = 0xb26e9000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libselinux.so.1", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0@A\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=120748, ...}) = 0
+mmap2(NULL, 125852, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb26b6000
+mmap2(0xb26d3000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x1c) = 0xb26d3000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libresolv.so.2", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\260&\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=83776, ...}) = 0
+mmap2(NULL, 96296, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb269e000
+mprotect(0xb26b1000, 4096, PROT_NONE)   = 0
+mmap2(0xb26b2000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x13) = 0xb26b2000
+mmap2(0xb26b4000, 6184, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xb26b4000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libexpat.so.1", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0  \0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=165232, ...}) = 0
+mmap2(NULL, 167996, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb2674000
+mprotect(0xb269a000, 4096, PROT_NONE)   = 0
+mmap2(0xb269b000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x26) = 0xb269b000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libXinerama.so.1", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\240\7\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=9652, ...}) = 0
+mmap2(NULL, 12480, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb2670000
+mmap2(0xb2672000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x1) = 0xb2672000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libXi.so.6", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\0\31\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=63012, ...}) = 0
+mmap2(NULL, 65952, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb265f000
+mmap2(0xb266e000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0xe) = 0xb266e000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libXrandr.so.2", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0000\21\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=30080, ...}) = 0
+mmap2(NULL, 32960, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb2656000
+mmap2(0xb265d000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x6) = 0xb265d000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libXcursor.so.1", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\340\32\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=38356, ...}) = 0
+mmap2(NULL, 41192, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb264b000
+mmap2(0xb2654000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x8) = 0xb2654000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libXcomposite.so.1", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\200\10\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=9524, ...}) = 0
+mmap2(NULL, 12352, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb2647000
+mmap2(0xb2649000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x1) = 0xb2649000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libXdamage.so.1", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\300\7\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=9532, ...}) = 0
+mmap2(NULL, 12364, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb2643000
+mmap2(0xb2645000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x1) = 0xb2645000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libpixman-1.so.0", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\360J\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=632352, ...}) = 0
+mmap2(NULL, 631220, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb25a8000
+mmap2(0xb263d000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x95) = 0xb263d000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libpng12.so.0", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\3007\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=165756, ...}) = 0
+mmap2(NULL, 168520, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb257e000
+mmap2(0xb25a6000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x27) = 0xb25a6000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libxcb-shm.so.0", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0P\7\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=9588, ...}) = 0
+mmap2(NULL, 12324, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb257a000
+mmap2(0xb257c000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x1) = 0xb257c000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libxcb-render.so.0", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\320(\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=38268, ...}) = 0
+mmap2(NULL, 36908, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb2570000
+mmap2(0xb2578000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x8) = 0xb2578000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libxcb.so.1", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\240{\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=132660, ...}) = 0
+mmap2(NULL, 131364, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb254f000
+mmap2(0xb256e000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x1f) = 0xb256e000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libxcb-util.so.0", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\20\25\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=21940, ...}) = 0
+mmap2(NULL, 24700, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb2548000
+mmap2(0xb254d000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x4) = 0xb254d000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libX11-xcb.so.1", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\240\3\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=5344, ...}) = 0
+mmap2(NULL, 8212, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb2545000
+mmap2(0xb2546000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0) = 0xb2546000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libSM.so.6", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0000\24\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=30108, ...}) = 0
+mmap2(NULL, 32948, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb253c000
+mmap2(0xb2543000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x6) = 0xb2543000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libICE.so.6", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\0200\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=92364, ...}) = 0
+mmap2(NULL, 102480, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb2522000
+mmap2(0xb2538000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x15) = 0xb2538000
+mmap2(0xb253a000, 4176, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xb253a000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libXau.so.6", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\340\t\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=9588, ...}) = 0
+mmap2(NULL, 12420, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb251e000
+mmap2(0xb2520000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x1) = 0xb2520000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libXdmcp.so.6", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\0\r\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=21824, ...}) = 0
+mmap2(NULL, 24644, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb2517000
+mmap2(0xb251c000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x4) = 0xb251c000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libuuid.so.1", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\260\17\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=18012, ...}) = 0
+mmap2(NULL, 20700, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb2511000
+mmap2(0xb2515000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x3) = 0xb2515000
+close(4)                                = 0
+mprotect(0xb2515000, 4096, PROT_READ)   = 0
+mprotect(0xb251c000, 4096, PROT_READ)   = 0
+mprotect(0xb2520000, 4096, PROT_READ)   = 0
+mprotect(0xb2538000, 4096, PROT_READ)   = 0
+mprotect(0xb2543000, 4096, PROT_READ)   = 0
+mprotect(0xb2546000, 4096, PROT_READ)   = 0
+mprotect(0xb256e000, 4096, PROT_READ)   = 0
+mprotect(0xb254d000, 4096, PROT_READ)   = 0
+mprotect(0xb2578000, 4096, PROT_READ)   = 0
+mprotect(0xb257c000, 4096, PROT_READ)   = 0
+mprotect(0xb26e9000, 4096, PROT_READ)   = 0
+mprotect(0xb25a6000, 4096, PROT_READ)   = 0
+mprotect(0xb263d000, 20480, PROT_READ)  = 0
+mprotect(0xb28fd000, 4096, PROT_READ)   = 0
+mprotect(0xb2645000, 4096, PROT_READ)   = 0
+mprotect(0xb2649000, 4096, PROT_READ)   = 0
+mprotect(0xb345c000, 4096, PROT_READ)   = 0
+mprotect(0xb7404000, 4096, PROT_READ)   = 0
+mprotect(0xb2654000, 4096, PROT_READ)   = 0
+mprotect(0xb27cb000, 4096, PROT_READ)   = 0
+mprotect(0xb265d000, 4096, PROT_READ)   = 0
+mprotect(0xb266e000, 4096, PROT_READ)   = 0
+mprotect(0xb2672000, 4096, PROT_READ)   = 0
+mprotect(0xb269b000, 8192, PROT_READ)   = 0
+mprotect(0xb26b2000, 4096, PROT_READ)   = 0
+mprotect(0xb26d3000, 4096, PROT_READ)   = 0
+mprotect(0xb2756000, 4096, PROT_READ)   = 0
+mprotect(0xb32a1000, 4096, PROT_READ)   = 0
+mprotect(0xb26ee000, 4096, PROT_READ)   = 0
+mprotect(0xb275d000, 4096, PROT_READ)   = 0
+mprotect(0xb32f0000, 4096, PROT_READ)   = 0
+mprotect(0xb2bc6000, 16384, PROT_READ)  = 0
+mprotect(0xb2b2f000, 4096, PROT_READ)   = 0
+mprotect(0xb2a1e000, 4096, PROT_READ)   = 0
+mprotect(0xb271a000, 4096, PROT_READ)   = 0
+mprotect(0xb7823000, 4096, PROT_READ)   = 0
+mprotect(0xb27b7000, 4096, PROT_READ)   = 0
+mprotect(0xb2909000, 4096, PROT_READ)   = 0
+mprotect(0xb29d2000, 4096, PROT_READ)   = 0
+mprotect(0xb2d1e000, 8192, PROT_READ)   = 0
+mprotect(0xb2a3f000, 4096, PROT_READ)   = 0
+mprotect(0xb2a4c000, 4096, PROT_READ)   = 0
+mprotect(0xb2afa000, 8192, PROT_READ)   = 0
+mprotect(0xb2d3f000, 8192, PROT_READ)   = 0
+mprotect(0xb31a2000, 16384, PROT_READ)  = 0
+mprotect(0xb333a000, 4096, PROT_READ)   = 0
+mprotect(0xb3360000, 4096, PROT_READ)   = 0
+mprotect(0xb344f000, 16384, PROT_READ)  = 0
+mprotect(0xb65ee000, 9383936, PROT_READ) = 0
+statfs64("/selinux", 84, {f_type="EXT2_SUPER_MAGIC", f_bsize=4096, f_blocks=13692135, f_bfree=8195485, f_bavail=7509562, f_files=3432448, f_ffree=2904908, f_fsid={462486985, -1676672397}, f_namelen=255, f_frsize=4096}) = 0
+open("/proc/filesystems", O_RDONLY|O_LARGEFILE) = 4
+fstat64(4, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7821000
+read(4, "nodev\tsysfs\nnodev\trootfs\nnodev\tb"..., 1024) = 304
+read(4, "", 1024)                       = 0
+close(4)                                = 0
+munmap(0xb7821000, 4096)                = 0
+clock_gettime(CLOCK_MONOTONIC, {938, 638612080}) = 0
+clock_gettime(CLOCK_MONOTONIC, {938, 638660109}) = 0
+clock_gettime(CLOCK_MONOTONIC, {938, 638706450}) = 0
+clock_gettime(CLOCK_MONOTONIC, {938, 638752830}) = 0
+clock_gettime(CLOCK_MONOTONIC, {938, 638798993}) = 0
+clock_gettime(CLOCK_MONOTONIC, {938, 638845014}) = 0
+clock_gettime(CLOCK_MONOTONIC, {938, 638891070}) = 0
+clock_gettime(CLOCK_MONOTONIC, {938, 638937183}) = 0
+clock_gettime(CLOCK_MONOTONIC, {938, 638983099}) = 0
+clock_gettime(CLOCK_MONOTONIC, {938, 639029261}) = 0
+clock_gettime(CLOCK_MONOTONIC, {938, 639075157}) = 0
+clock_gettime(CLOCK_MONOTONIC, {938, 639134124}) = 0
+clock_gettime(CLOCK_MONOTONIC, {938, 639180541}) = 0
+clock_gettime(CLOCK_MONOTONIC, {938, 639226627}) = 0
+clock_gettime(CLOCK_MONOTONIC, {938, 639272724}) = 0
+clock_gettime(CLOCK_MONOTONIC, {938, 639318661}) = 0
+clock_gettime(CLOCK_MONOTONIC, {938, 639364496}) = 0
+clock_gettime(CLOCK_MONOTONIC, {938, 639410338}) = 0
+clock_gettime(CLOCK_MONOTONIC, {938, 639456256}) = 0
+clock_gettime(CLOCK_MONOTONIC, {938, 639502234}) = 0
+clock_gettime(CLOCK_MONOTONIC, {938, 639548258}) = 0
+clock_gettime(CLOCK_MONOTONIC, {938, 639594366}) = 0
+gettimeofday({1420890699, 990842}, NULL) = 0
+munmap(0xb7406000, 80149)               = 0
+gettid()                                = 2902
+rt_sigaction(SIGPIPE, {SIG_IGN, [], 0}, NULL, 8) = 0
+futex(0xb780c9a0, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+futex(0xb6fe167c, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+time(NULL)                              = 1420890699
+open("/sys/devices/system/cpu/online", O_RDONLY|O_CLOEXEC) = 4
+read(4, "0-3\n", 8192)                  = 4
+close(4)                                = 0
+read(3, "", 4096)                       = 0
+close(3)                                = 0
+munmap(0xb7834000, 4096)                = 0
+clock_gettime(CLOCK_MONOTONIC, {938, 641246021}) = 0
+mmap2(NULL, 8392704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0xb1d10000
+mprotect(0xb1d10000, 4096, PROT_NONE)   = 0
+clone(child_stack=0xb2510424, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0xb2510ba8, {entry_number:6, base_addr:0xb2510b40, limit:1048575, seg_32bit:1, contents:0, read_exec_only:0, limit_in_pages:1, seg_not_present:0, useable:1}, child_tidptr=0xb2510ba8) = 2904
+futex(0xb2510ba8, FUTEX_WAIT, 2904, NULL) = 0
+getrusage(RUSAGE_SELF, {ru_utime={0, 8000}, ru_stime={0, 20001}, ...}) = 0
+lstat64("/usr", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+lstat64("/usr/lib", {st_mode=S_IFDIR|0755, st_size=36864, ...}) = 0
+lstat64("/usr/lib/firefox", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+lstat64("/usr/lib/firefox/firefox", {st_mode=S_IFREG|0755, st_size=116224, ...}) = 0
+stat64("/usr/lib/firefox/firefox", {st_mode=S_IFREG|0755, st_size=116224, ...}) = 0
+open("/usr/lib/locale/locale-archive", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=8748544, ...}) = 0
+mmap2(NULL, 2097152, PROT_READ, MAP_PRIVATE, 3, 0) = 0xb1b10000
+mmap2(NULL, 1462272, PROT_READ, MAP_PRIVATE, 3, 0x1c8) = 0xb19ab000
+close(3)                                = 0
+open("/usr/lib/i386-linux-gnu/gconv/gconv-modules.cache", O_RDONLY) = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=26256, ...}) = 0
+mmap2(NULL, 26256, PROT_READ, MAP_SHARED, 3, 0) = 0xb19a4000
+close(3)                                = 0
+futex(0xb76c4fc8, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+open("/usr/lib/i386-linux-gnu/gconv/UTF-16.so", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0`\4\0\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=13692, ...}) = 0
+mmap2(NULL, 16424, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb199f000
+mmap2(0xb19a2000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2) = 0xb19a2000
+close(3)                                = 0
+mprotect(0xb19a2000, 4096, PROT_READ)   = 0
+gettid()                                = 2902
+clock_gettime(CLOCK_MONOTONIC, {938, 644805344}) = 0
+pipe([3, 4])                            = 0
+clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0xb751b768) = 2905
+close(4)                                = 0
+rt_sigaction(SIGFPE, {0xb4c0fbe5, [], SA_STACK|SA_RESTART|SA_SIGINFO}, {SIG_DFL, [], 0}, 8) = 0
+lstat64("/usr", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+lstat64("/usr/lib", {st_mode=S_IFDIR|0755, st_size=36864, ...}) = 0
+lstat64("/usr/lib/firefox", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+lstat64("/usr/lib/firefox/firefox", {st_mode=S_IFREG|0755, st_size=116224, ...}) = 0
+stat64("/usr/lib/firefox/firefox", {st_mode=S_IFREG|0755, st_size=116224, ...}) = 0
+openat(AT_FDCWD, "/usr/lib/firefox/distribution/bundles", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+time(NULL)                              = 1420890699
+futex(0xb6fe12bc, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+sigaltstack(NULL, {ss_sp=0, ss_flags=SS_DISABLE, ss_size=0}) = 0
+sigaltstack({ss_sp=0xb7385000, ss_flags=0, ss_size=8192}, NULL) = 0
+rt_sigaction(SIGSEGV, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGABRT, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGFPE, NULL, {0xb4c0fbe5, [], SA_STACK|SA_RESTART|SA_SIGINFO}, 8) = 0
+rt_sigaction(SIGILL, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGBUS, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGSEGV, {0xb4c250a8, [ILL ABRT BUS FPE SEGV], SA_STACK|SA_SIGINFO}, NULL, 8) = 0
+rt_sigaction(SIGABRT, {0xb4c250a8, [ILL ABRT BUS FPE SEGV], SA_STACK|SA_SIGINFO}, NULL, 8) = 0
+rt_sigaction(SIGFPE, {0xb4c250a8, [ILL ABRT BUS FPE SEGV], SA_STACK|SA_SIGINFO}, NULL, 8) = 0
+rt_sigaction(SIGILL, {0xb4c250a8, [ILL ABRT BUS FPE SEGV], SA_STACK|SA_SIGINFO}, NULL, 8) = 0
+rt_sigaction(SIGBUS, {0xb4c250a8, [ILL ABRT BUS FPE SEGV], SA_STACK|SA_SIGINFO}, NULL, 8) = 0
+time(NULL)                              = 1420890699
+access("/home/zz/.mozilla/firefox", F_OK) = 0
+mkdir("/home/zz/.mozilla/firefox/Crash Reports", 0700) = -1 EEXIST (File exists)
+access("/home/zz/.mozilla/firefox/Crash Reports/InstallTime20140715215148", F_OK) = 0
+open("/home/zz/.mozilla/firefox/Crash Reports/InstallTime20140715215148", O_RDONLY|O_LARGEFILE) = 4
+lseek(4, 0, SEEK_CUR)                   = 0
+lseek(4, 0, SEEK_END)                   = 10
+lseek(4, 0, SEEK_SET)                   = 0
+read(4, "1410426330", 10)               = 10
+close(4)                                = 0
+access("/home/zz/.mozilla/firefox/Crash Reports/LastCrash", F_OK) = -1 ENOENT (No such file or directory)
+access("/usr/lib/firefox/browser/crashreporter-override.ini", F_OK) = -1 ENOENT (No such file or directory)
+lstat64("/usr", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+lstat64("/usr/lib", {st_mode=S_IFDIR|0755, st_size=36864, ...}) = 0
+lstat64("/usr/lib/firefox", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+lstat64("/usr/lib/firefox/firefox", {st_mode=S_IFREG|0755, st_size=116224, ...}) = 0
+stat64("/usr/lib/firefox/firefox", {st_mode=S_IFREG|0755, st_size=116224, ...}) = 0
+getresuid32([0], [0], [0])              = 0
+getresgid32([0], [0], [0])              = 0
+gettimeofday({1420890700, 1841}, NULL)  = 0
+open("/usr/share/locale/locale.alias", O_RDONLY|O_CLOEXEC) = 4
+fstat64(4, {st_mode=S_IFREG|0644, st_size=2570, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7834000
+read(4, "# Locale name alias data base.\n#"..., 4096) = 2570
+read(4, "", 4096)                       = 0
+close(4)                                = 0
+munmap(0xb7834000, 4096)                = 0
+open("/usr/share/locale/zh_CN/LC_MESSAGES/messages.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale/zh/LC_MESSAGES/messages.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale-langpack/zh_CN/LC_MESSAGES/messages.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale-langpack/zh/LC_MESSAGES/messages.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale/en_US/LC_MESSAGES/messages.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale/en/LC_MESSAGES/messages.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale-langpack/en_US/LC_MESSAGES/messages.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale-langpack/en/LC_MESSAGES/messages.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale/zh_CN/LC_MESSAGES/gtk20.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale/zh/LC_MESSAGES/gtk20.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale-langpack/zh_CN/LC_MESSAGES/gtk20.mo", O_RDONLY) = 4
+fstat64(4, {st_mode=S_IFREG|0644, st_size=55153, ...}) = 0
+mmap2(NULL, 55153, PROT_READ, MAP_PRIVATE, 4, 0) = 0xb740c000
+close(4)                                = 0
+open("/usr/share/locale/zh_CN/LC_MESSAGES/libc.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale/zh/LC_MESSAGES/libc.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale-langpack/zh_CN/LC_MESSAGES/libc.mo", O_RDONLY) = 4
+fstat64(4, {st_mode=S_IFREG|0644, st_size=83737, ...}) = 0
+mmap2(NULL, 83737, PROT_READ, MAP_PRIVATE, 4, 0) = 0xb198a000
+close(4)                                = 0
+open("/usr/share/locale-langpack/zh/LC_MESSAGES/libc.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale/en_US/LC_MESSAGES/libc.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale/en/LC_MESSAGES/libc.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale-langpack/en_US/LC_MESSAGES/libc.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale-langpack/en/LC_MESSAGES/libc.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/X11/locale/locale.alias", O_RDONLY) = 4
+fstat64(4, {st_mode=S_IFREG|0644, st_size=80906, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7834000
+read(4, "#\n#\tThis file contains alias nam"..., 4096) = 4096
+read(4, "FR.ISO-8859-14\t\t\t\tbr_FR.ISO8859-"..., 4096) = 4096
+read(4, "de_DE.iso885915\t\t\t\tde_DE.ISO8859"..., 4096) = 4096
+read(4, "\t\t\t\t\teo_XX.ISO8859-3\neo_EO\t\t\t\t\t\t"..., 4096) = 4096
+read(4, "FI.ISO8859-15\nfi.ISO8859-15\t\t\t\t\t"..., 4096) = 4096
+read(4, "\t\t\the_IL.CP1255\nhe_IL.microsoft-"..., 4096) = 4096
+read(4, "8859-13\nlt_LT\t\t\t\t\t\tlt_LT.ISO8859"..., 4096) = 4096
+read(4, "US.ISO8859-15\nph\t\t\t\t\t\tph_PH.ISO8"..., 4096) = 4096
+read(4, ".ISO8859-1\nsv.ISO8859-15\t\t\t\t\tsv_"..., 4096) = 4096
+read(4, "\tzh_TW.big5\nZh_TW.big5\t\t\t\t\tzh_TW"..., 4096) = 4096
+read(4, "\t\t\tar_BH.ISO8859-6\nar_BH.iso8859"..., 4096) = 4096
+read(4, "a_ES.ISO8859-15\nca_ES.UTF-8@euro"..., 4096) = 4096
+read(4, "l_GR:\t\t\t\t\t\tel_GR.ISO8859-7\nel_GR"..., 4096) = 4096
+read(4, "_CR.iso88591:\t\t\t\t\tes_CR.ISO8859-"..., 4096) = 4096
+read(4, "O.ISO8859-15\nfo_FO.ISO-8859-15:\t"..., 4096) = 4096
+read(4, "8859-2\nhr_HR.ISO_8859-2:\t\t\t\thr_H"..., 4096) = 4096
+read(4, "V.ISO8859-4\nlv_LV.ISO-8859-4:\t\t\t"..., 4096) = 4096
+read(4, "pl_PL.ISO8859-2\npl_PL.utf8:\t\t\t\t\t"..., 4096) = 4096
+read(4, "v_FI.ISO8859-1\nsv_FI.ISO-8859-1:"..., 4096) = 4096
+read(4, "\nzh_TW.BIG5:\t\t\t\t\tzh_TW.big5\nZh_T"..., 4096) = 3082
+read(4, "", 4096)                       = 0
+close(4)                                = 0
+munmap(0xb7834000, 4096)                = 0
+open("/usr/share/X11/locale/locale.alias", O_RDONLY) = 4
+fstat64(4, {st_mode=S_IFREG|0644, st_size=80906, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7834000
+read(4, "#\n#\tThis file contains alias nam"..., 4096) = 4096
+read(4, "FR.ISO-8859-14\t\t\t\tbr_FR.ISO8859-"..., 4096) = 4096
+read(4, "de_DE.iso885915\t\t\t\tde_DE.ISO8859"..., 4096) = 4096
+read(4, "\t\t\t\t\teo_XX.ISO8859-3\neo_EO\t\t\t\t\t\t"..., 4096) = 4096
+read(4, "FI.ISO8859-15\nfi.ISO8859-15\t\t\t\t\t"..., 4096) = 4096
+read(4, "\t\t\the_IL.CP1255\nhe_IL.microsoft-"..., 4096) = 4096
+read(4, "8859-13\nlt_LT\t\t\t\t\t\tlt_LT.ISO8859"..., 4096) = 4096
+read(4, "US.ISO8859-15\nph\t\t\t\t\t\tph_PH.ISO8"..., 4096) = 4096
+read(4, ".ISO8859-1\nsv.ISO8859-15\t\t\t\t\tsv_"..., 4096) = 4096
+read(4, "\tzh_TW.big5\nZh_TW.big5\t\t\t\t\tzh_TW"..., 4096) = 4096
+read(4, "\t\t\tar_BH.ISO8859-6\nar_BH.iso8859"..., 4096) = 4096
+read(4, "a_ES.ISO8859-15\nca_ES.UTF-8@euro"..., 4096) = 4096
+read(4, "l_GR:\t\t\t\t\t\tel_GR.ISO8859-7\nel_GR"..., 4096) = 4096
+read(4, "_CR.iso88591:\t\t\t\t\tes_CR.ISO8859-"..., 4096) = 4096
+read(4, "O.ISO8859-15\nfo_FO.ISO-8859-15:\t"..., 4096) = 4096
+read(4, "8859-2\nhr_HR.ISO_8859-2:\t\t\t\thr_H"..., 4096) = 4096
+read(4, "V.ISO8859-4\nlv_LV.ISO-8859-4:\t\t\t"..., 4096) = 4096
+read(4, "pl_PL.ISO8859-2\npl_PL.utf8:\t\t\t\t\t"..., 4096) = 4096
+read(4, "v_FI.ISO8859-1\nsv_FI.ISO-8859-1:"..., 4096) = 4096
+close(4)                                = 0
+munmap(0xb7834000, 4096)                = 0
+open("/usr/share/X11/locale/locale.dir", O_RDONLY) = 4
+fstat64(4, {st_mode=S_IFREG|0644, st_size=39853, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7834000
+read(4, "#\n#\tThis file contains locale da"..., 4096) = 4096
+read(4, "LE\t\t\tes_DO.ISO8859-1\niso8859-1/X"..., 4096) = 4096
+read(4, " for it, and the GNU C Library\n#"..., 4096) = 4096
+read(4, "ALE\t\t\tbr_FR.UTF-8\nen_US.UTF-8/XL"..., 4096) = 4096
+read(4, "F-8/XLC_LOCALE\t\t\tml_IN.UTF-8\nen_"..., 4096) = 4096
+read(4, ".ISO8859-6\niso8859-6/XLC_LOCALE:"..., 4096) = 4096
+read(4, "ISO8859-4\niso8859-13/XLC_LOCALE:"..., 4096) = 4096
+read(4, "OCALE:           rw_RW.ISO8859-1"..., 4096) = 4096
+read(4, "/XLC_LOCALE:\t\t\tde_DE.UTF-8\nen_US"..., 4096) = 4096
+read(4, "# ny is the language code for Ny"..., 4096) = 2989
+close(4)                                = 0
+munmap(0xb7834000, 4096)                = 0
+access("/usr/share/X11/locale/zh_CN.UTF-8/XLC_LOCALE", R_OK) = 0
+open("/usr/share/X11/locale/zh_CN.UTF-8/XLC_LOCALE", O_RDONLY) = 4
+--- SIGCHLD (Child exited) @ 0 (0) ---
+fstat64(4, {st_mode=S_IFREG|0644, st_size=1916, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7834000
+read(4, "#     XFree86 NLS for Chinese lo"..., 4096) = 1916
+read(4, "", 4096)                       = 0
+close(4)                                = 0
+munmap(0xb7834000, 4096)                = 0
+rt_sigaction(SIGPIPE, {SIG_IGN, [PIPE], SA_RESTART}, {SIG_IGN, [], 0}, 8) = 0
+access("/etc/gtk-2.0/gtkrc.32", F_OK)   = -1 ENOENT (No such file or directory)
+socket(PF_FILE, SOCK_STREAM|SOCK_CLOEXEC|SOCK_NONBLOCK, 0) = 4
+connect(4, {sa_family=AF_FILE, path="/var/run/nscd/socket"}, 110) = -1 ENOENT (No such file or directory)
+close(4)                                = 0
+socket(PF_FILE, SOCK_STREAM|SOCK_CLOEXEC|SOCK_NONBLOCK, 0) = 4
+connect(4, {sa_family=AF_FILE, path="/var/run/nscd/socket"}, 110) = -1 ENOENT (No such file or directory)
+close(4)                                = 0
+open("/etc/nsswitch.conf", O_RDONLY|O_CLOEXEC) = 4
+fstat64(4, {st_mode=S_IFREG|0644, st_size=513, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7834000
+read(4, "# /etc/nsswitch.conf\n#\n# Example"..., 4096) = 513
+read(4, "", 4096)                       = 0
+close(4)                                = 0
+munmap(0xb7834000, 4096)                = 0
+open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 4
+fstat64(4, {st_mode=S_IFREG|0644, st_size=80149, ...}) = 0
+mmap2(NULL, 80149, PROT_READ, MAP_PRIVATE, 4, 0) = 0xb1976000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libnss_compat.so.2", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\300\r\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=30520, ...}) = 0
+mmap2(NULL, 33328, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb196d000
+mmap2(0xb1974000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x6) = 0xb1974000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libnsl.so.1", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0`1\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=92016, ...}) = 0
+mmap2(NULL, 104424, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb1953000
+mmap2(0xb1969000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x15) = 0xb1969000
+mmap2(0xb196b000, 6120, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xb196b000
+close(4)                                = 0
+mprotect(0xb1969000, 4096, PROT_READ)   = 0
+mprotect(0xb1974000, 4096, PROT_READ)   = 0
+munmap(0xb1976000, 80149)               = 0
+open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 4
+fstat64(4, {st_mode=S_IFREG|0644, st_size=80149, ...}) = 0
+mmap2(NULL, 80149, PROT_READ, MAP_PRIVATE, 4, 0) = 0xb1976000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libnss_nis.so.2", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0p\31\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=42652, ...}) = 0
+mmap2(NULL, 45628, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb1947000
+mmap2(0xb1951000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0x9) = 0xb1951000
+close(4)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libnss_files.so.2", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\20\32\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=47040, ...}) = 0
+mmap2(NULL, 50180, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb193a000
+mmap2(0xb1945000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0xa) = 0xb1945000
+close(4)                                = 0
+mprotect(0xb1945000, 4096, PROT_READ)   = 0
+mprotect(0xb1951000, 4096, PROT_READ)   = 0
+munmap(0xb1976000, 80149)               = 0
+open("/etc/passwd", O_RDONLY|O_CLOEXEC) = 4
+_llseek(4, 0, [0], SEEK_CUR)            = 0
+fstat64(4, {st_mode=S_IFREG|0644, st_size=1879, ...}) = 0
+mmap2(NULL, 1879, PROT_READ, MAP_SHARED, 4, 0) = 0xb7834000
+_llseek(4, 1879, [1879], SEEK_SET)      = 0
+munmap(0xb7834000, 1879)                = 0
+close(4)                                = 0
+getuid32()                              = 0
+uname({sys="Linux", node="zz", ...})    = 0
+access("/root/.gtkrc-2.0.32", F_OK)     = -1 ENOENT (No such file or directory)
+stat64("/usr/lib/liboverlay-scrollbar-0.2.so.0", {st_mode=S_IFREG|0644, st_size=67612, ...}) = 0
+open("/usr/lib/liboverlay-scrollbar-0.2.so.0", O_RDONLY|O_CLOEXEC) = 4
+read(4, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\0201\0\0004\0\0\0"..., 512) = 512
+fstat64(4, {st_mode=S_IFREG|0644, st_size=67612, ...}) = 0
+mmap2(NULL, 70412, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 4, 0) = 0xb1978000
+mmap2(0xb1988000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 4, 0xf) = 0xb1988000
+close(4)                                = 0
+mprotect(0xb1988000, 4096, PROT_READ)   = 0
+open("/usr/share/locale/zh_CN/LC_MESSAGES/glib20.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale/zh/LC_MESSAGES/glib20.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale-langpack/zh_CN/LC_MESSAGES/glib20.mo", O_RDONLY) = 4
+fstat64(4, {st_mode=S_IFREG|0644, st_size=83436, ...}) = 0
+mmap2(NULL, 83436, PROT_READ, MAP_PRIVATE, 4, 0) = 0xb1925000
+close(4)                                = 0
+open("/usr/share/locale-langpack/zh/LC_MESSAGES/glib20.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale/en_US/LC_MESSAGES/glib20.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale/en/LC_MESSAGES/glib20.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale-langpack/en_US/LC_MESSAGES/glib20.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale-langpack/en/LC_MESSAGES/glib20.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+eventfd2(0, O_NONBLOCK|O_CLOEXEC)       = 4
+write(4, "\1\0\0\0\0\0\0\0", 8)         = 8
+open("/usr/share/glib-2.0/schemas/gschemas.compiled", O_RDONLY|O_LARGEFILE) = 5
+fstat64(5, {st_mode=S_IFREG|0644, st_size=146063, ...}) = 0
+mmap2(NULL, 146063, PROT_READ, MAP_PRIVATE, 5, 0) = 0xb1901000
+close(5)                                = 0
+open("/usr/local/share/glib-2.0/schemas/gschemas.compiled", O_RDONLY|O_LARGEFILE) = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/charset.alias", O_RDONLY|O_LARGEFILE) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/i386-linux-gnu/gio/modules", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 5
+stat64("/usr/lib/i386-linux-gnu/gio/modules/giomodule.cache", {st_mode=S_IFREG|0644, st_size=270, ...}) = 0
+open("/usr/lib/i386-linux-gnu/gio/modules/giomodule.cache", O_RDONLY|O_LARGEFILE) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=270, ...}) = 0
+read(6, "libgiognomeproxy.so: gio-proxy-r"..., 270) = 270
+close(6)                                = 0
+getdents64(5, /* 9 entries */, 32768)   = 344
+stat64("/usr/lib/i386-linux-gnu/gio/modules/libgiognomeproxy.so", {st_mode=S_IFREG|0644, st_size=17964, ...}) = 0
+stat64("/usr/lib/i386-linux-gnu/gio/modules/libgiolibproxy.so", {st_mode=S_IFREG|0644, st_size=9616, ...}) = 0
+stat64("/usr/lib/i386-linux-gnu/gio/modules/libgvfsdbus.so", {st_mode=S_IFREG|0644, st_size=170836, ...}) = 0
+stat64("/usr/lib/i386-linux-gnu/gio/modules/libgiognutls.so", {st_mode=S_IFREG|0644, st_size=100756, ...}) = 0
+stat64("/usr/lib/i386-linux-gnu/gio/modules/libdconfsettings.so", {st_mode=S_IFREG|0644, st_size=30408, ...}) = 0
+stat64("/usr/lib/i386-linux-gnu/gio/modules/libgioremote-volume-monitor.so", {st_mode=S_IFREG|0644, st_size=67524, ...}) = 0
+getdents64(5, /* 0 entries */, 32768)   = 0
+close(5)                                = 0
+openat(AT_FDCWD, "/usr/lib/gio/modules", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+stat64("/usr/lib/i386-linux-gnu/gio/modules/libdconfsettings.so", {st_mode=S_IFREG|0644, st_size=30408, ...}) = 0
+open("/usr/lib/i386-linux-gnu/gio/modules/libdconfsettings.so", O_RDONLY|O_CLOEXEC) = 5
+read(5, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\320\35\0\0004\0\0\0"..., 512) = 512
+fstat64(5, {st_mode=S_IFREG|0644, st_size=30408, ...}) = 0
+mmap2(NULL, 33252, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 5, 0) = 0xb18f8000
+mmap2(0xb18ff000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 5, 0x6) = 0xb18ff000
+close(5)                                = 0
+mprotect(0xb18ff000, 4096, PROT_READ)   = 0
+open("/etc/dconf/profile/user", O_RDONLY) = -1 ENOENT (No such file or directory)
+access("/root", F_OK)                   = 0
+stat64("/root", {st_mode=S_IFDIR|0700, st_size=4096, ...}) = 0
+access("/root/.cache", F_OK)            = 0
+stat64("/root/.cache", {st_mode=S_IFDIR|0700, st_size=4096, ...}) = 0
+access("/root/.cache/dconf", F_OK)      = 0
+stat64("/root/.cache/dconf", {st_mode=S_IFDIR|0700, st_size=4096, ...}) = 0
+open("/root/.cache/dconf/user", O_RDWR|O_CREAT, 0600) = 5
+ftruncate(5, 1)                         = 0
+mmap2(NULL, 1, PROT_READ, MAP_SHARED, 5, 0) = 0xb7834000
+close(5)                                = 0
+open("/root/.config/dconf/user", O_RDONLY|O_LARGEFILE) = 5
+fstat64(5, {st_mode=S_IFREG|0644, st_size=1112, ...}) = 0
+mmap2(NULL, 1112, PROT_READ, MAP_PRIVATE, 5, 0) = 0xb7821000
+close(5)                                = 0
+eventfd2(0, O_NONBLOCK|O_CLOEXEC)       = 5
+write(5, "\1\0\0\0\0\0\0\0", 8)         = 8
+clone(child_stack=0xb2510424, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0xb2510ba8, {entry_number:6, base_addr:0xb2510b40, limit:1048575, seg_32bit:1, contents:0, read_exec_only:0, limit_in_pages:1, seg_not_present:0, useable:1}, child_tidptr=0xb2510ba8) = 2906
+open("/usr/share/locale/zh_CN/LC_MESSAGES/gtk20-properties.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale/zh/LC_MESSAGES/gtk20-properties.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale-langpack/zh_CN/LC_MESSAGES/gtk20-properties.mo", O_RDONLY) = 7
+fstat64(7, {st_mode=S_IFREG|0644, st_size=147198, ...}) = 0
+mmap2(NULL, 147198, PROT_READ, MAP_PRIVATE, 7, 0) = 0xb18d4000
+close(7)                                = 0
+futex(0xb741a040, FUTEX_WAIT_PRIVATE, 2, NULL) = 0
+futex(0xb741a040, FUTEX_WAKE_PRIVATE, 1) = 0
+socket(PF_FILE, SOCK_STREAM|SOCK_CLOEXEC, 0) = 8
+connect(8, {sa_family=AF_FILE, path=@"/tmp/.X11-unix/X0"}, 20) = 0
+getpeername(8, {sa_family=AF_FILE, path=@"/tmp/.X11-unix/X0"...}, [20]) = 0
+uname({sys="Linux", node="zz", ...})    = 0
+access("/home/zz/.Xauthority", R_OK)    = 0
+open("/home/zz/.Xauthority", O_RDONLY)  = 9
+fstat64(9, {st_mode=S_IFREG|0600, st_size=47, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb740b000
+read(9, "\1\0\0\2zz\0\0010\0\22MIT-MAGIC-COOKIE-1\0\20i"..., 4096) = 47
+read(9, "", 4096)                       = 0
+close(9)                                = 0
+munmap(0xb740b000, 4096)                = 0
+getsockname(8, {sa_family=AF_FILE, NULL}, [2]) = 0
+fcntl64(8, F_GETFL)                     = 0x2 (flags O_RDWR)
+fcntl64(8, F_SETFL, O_RDWR|O_NONBLOCK)  = 0
+fcntl64(8, F_SETFD, FD_CLOEXEC)         = 0
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"l\0\v\0\0\0\22\0\20\0\0\0", 12}, {"", 0}, {"MIT-MAGIC-COOKIE-1", 18}, {"\0\0", 2}, {"ibD\33F\34\227h{\333\345A.\202\216C", 16}, {"", 0}], 6) = 48
+recv(8, "\1\0\v\0\0\0i\0", 8, 0)        = 8
+recv(8, "\30k\251\0\0\0`\4\377\377\37\0\0\1\0\0\24\0\377\377\1\7\0\0  \10\377\0\0\0\0"..., 420, 0) = 420
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"b\0\5\0\f\0\0\0BIG-REQUESTS", 20}], 1) = 20
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\1\0\0\0\0\0\1\221\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\221\0\1\0", 4}], 1)       = 4
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\2\0\0\0\0\0\377\377?\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"7\0\5\0\0\0`\4w\0\0\0\10\0\0\0\377\377\377\0\24\0\6\0w\0\0\0\27\0\0\0"..., 44}, {NULL, 0}, {"", 0}], 3) = 44
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\10\4\0\"\0\0\0\37\0\0\0\0\0\0\0\205\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 168
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"b\0\5\0\t\0`\4", 8}, {"XKEYBOARD", 9}, {"\0\0\0", 3}], 3) = 20
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\5\0\0\0\0\0\1\223a\234\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\223\0\2\0\1\0\0\0", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\1\6\0\0\0\0\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\20\0\6\0\20\0\0\0_MOZILLA_VERSION\20\0\6\0\r\0\0\0"..., 216}, {NULL, 0}, {"", 0}], 3) = 216
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\7\0\0\0\0\0\31\2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 288
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0w\0\0\0", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\20\0;\0\0\0w\0\0\0\0\0\0\0;\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 268
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\3\0@\3U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\21\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\3\0@\3", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\22\0\1\0\0\0w\0\0\0w\0\0\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 36
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\4\0@\3U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\23\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\4\0@\3", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\24\0\0\0\0\0w\0\0\0\3\0@\3\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\3\0@\3\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\25\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0@\0U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\26\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\1\0@\0", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\27\0\0\0\0\0w\0\0\0w\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0@\0\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\30\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0\200\0U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\31\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\1\0\200\0", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\32\0\1\0\0\0w\0\0\0w\0\0\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 36
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\2\0\200\0U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\33\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\2\0\200\0", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\34\0\0\0\0\0w\0\0\0\1\0\200\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0\200\0\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\35\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0\240\0U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\36\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\1\0\240\0", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\37\0\1\0\0\0w\0\0\0w\0\0\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 36
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\2\0\240\0U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0 \0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\2\0\240\0", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0!\0\0\0\0\0w\0\0\0\1\0\240\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0\240\0\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\"\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\n\0\240\0U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0#\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\n\0\240\0", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0$\0\0\0\0\0w\0\0\0w\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\n\0\240\0\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0%\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0\300\0U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0&\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\1\0\300\0", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0'\0\1\0\0\0w\0\0\0w\0\0\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 36
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\2\0\300\0U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0(\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\2\0\300\0", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0)\0\0\0\0\0w\0\0\0\1\0\300\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0\300\0\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0*\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\v\0\240\0U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0+\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\v\0\240\0", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0,\0\0\0\0\0w\0\0\0w\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\v\0\240\0\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0-\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\3\0\300\0U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0.\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\3\0\300\0", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0/\0\0\0\0\0w\0\0\0w\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\3\0\300\0\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0000\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\4\0\300\0U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0001\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\4\0\300\0", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0002\0\0\0\0\0w\0\0\0w\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\4\0\300\0\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0003\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\5\0\300\0U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0004\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\5\0\300\0", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0005\0\0\0\0\0w\0\0\0w\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\5\0\300\0\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0006\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\6\0\300\0U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0007\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\6\0\300\0", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0008\0\0\0\0\0w\0\0\0w\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\6\0\300\0\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0009\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\16\0\300\0U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0:\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\16\0\300\0", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0;\0\0\0\0\0w\0\0\0w\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\16\0\300\0\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0<\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\17\0\300\0U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0=\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\17\0\300\0", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0>\0\1\0\0\0w\0\0\0w\0\0\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 36
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\20\0\300\0U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0?\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\20\0\300\0", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0@\0\0\0\0\0w\0\0\0\17\0\300\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\17\0\300\0\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0A\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0\340\0U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0B\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\1\0\340\0", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0C\0\1\0\0\0w\0\0\0w\0\0\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 36
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\2\0\340\0U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0D\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\2\0\340\0", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0E\0\0\0\0\0w\0\0\0\1\0\340\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0\340\0\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0F\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0\0\1U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0G\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\1\0\0\1", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0H\0\1\0\0\0w\0\0\0w\0\0\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 36
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\2\0\0\1U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0I\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\2\0\0\1", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0J\0\0\0\0\0w\0\0\0\1\0\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0\0\1\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0K\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\4\0@\1U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0L\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\4\0@\1", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0M\0\0\0\0\0w\0\0\0w\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\4\0@\1\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0N\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0\200\1U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0O\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\1\0\200\1", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0P\0\1\0\0\0w\0\0\0w\0\0\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 36
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\2\0\200\1U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0Q\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\2\0\200\1", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0R\0\0\0\0\0w\0\0\0\1\0\200\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0\200\1\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0S\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0\300\1U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0T\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\1\0\300\1", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0U\0\1\0\0\0w\0\0\0w\0\0\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 36
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\2\0\300\1U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0V\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\2\0\300\1", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0W\0\0\0\0\0w\0\0\0\1\0\300\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0\300\1\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0X\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0\340\1U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0Y\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\1\0\340\1", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0Z\0\1\0\0\0w\0\0\0w\0\0\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 36
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\2\0\340\1U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0[\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\2\0\340\1", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\\\0\0\0\0\0w\0\0\0\1\0\340\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0\340\1\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0]\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0\0\2U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0^\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\1\0\0\2", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0_\0\1\0\0\0w\0\0\0w\0\0\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 36
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\2\0\0\2U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0`\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\2\0\0\2", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0a\0\0\0\0\0w\0\0\0\1\0\0\2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0\0\2\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0b\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0 \2U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0c\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\1\0 \2", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0d\0\1\0\0\0w\0\0\0w\0\0\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 36
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\2\0 \2U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0e\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\2\0 \2", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0f\0\0\0\0\0w\0\0\0\1\0 \2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0 \2\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0g\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0\240\1U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0h\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\1\0\240\1", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0i\0\1\0\0\0w\0\0\0w\0\0\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 36
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\2\0\240\1U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0j\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\2\0\240\1", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0k\0\0\0\0\0w\0\0\0\1\0\240\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0\240\1\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0l\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\3\0\240\1U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0m\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\3\0\240\1", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0n\0\0\0\0\0w\0\0\0w\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\3\0\240\1\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0o\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\4\0\240\1U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1 p\0\0\0\0\0U\1\0\0\10\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\4\0\240\1\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0q\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\200\2\300\0U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0r\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\200\2\300\0", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0s\0\1\0\0\0w\0\0\0w\0\0\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 36
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\6\0@\2U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1 t\0\0\0\0\0U\1\0\0\10\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\6\0@\2\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0u\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0+\37\300\0U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0v\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0+\37\300\0", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0w\0\1\0\0\0w\0\0\0w\0\0\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 36
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\266\0\0\4U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1 x\0\0\0\0\0U\1\0\0\10\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\266\0\0\4\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0y\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\2\0 \1U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1 z\0\0\0\0\0U\1\0\0\10\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\2\0 \1\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0{\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\2\0@\1U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1 |\0\0\0\0\0U\1\0\0\10\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\2\0@\1\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0}\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\4\0 \1U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0~\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\4\0 \1", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\177\0\0\0\0\0w\0\0\0w\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\4\0 \1\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\200\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0\300\2U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\201\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\1\0\300\2", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\202\0\1\0\0\0w\0\0\0w\0\0\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 36
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\2\0\300\2U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\203\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\2\0\300\2", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\204\0\0\0\0\0w\0\0\0\1\0\300\2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0\300\2\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\205\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\17\0 \1U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\206\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\17\0 \1", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\207\0\0\0\0\0w\0\0\0w\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\17\0 \1\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\210\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0\340\2U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\211\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\1\0\340\2", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\212\0\1\0\0\0w\0\0\0w\0\0\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 36
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\2\0\340\2U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\213\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\2\0\340\2", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\214\0\0\0\0\0w\0\0\0\1\0\340\2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0\340\2\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\215\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\3\0\340\2U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\216\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\3\0\340\2", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\217\0\0\0\0\0w\0\0\0w\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\3\0\340\2\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\220\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0\240\2U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\221\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\1\0\240\2", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\222\0\1\0\0\0w\0\0\0w\0\0\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 36
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\2\0\240\2U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\223\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\2\0\240\2", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\224\0\0\0\0\0w\0\0\0\1\0\240\2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0\240\2\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\225\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\227\0\240\1U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\226\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\227\0\240\1", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\227\0\0\0\0\0w\0\0\0w\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\227\0\240\1\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\230\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0 \3U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\231\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\1\0 \3", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\232\0\1\0\0\0w\0\0\0w\0\0\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 36
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\2\0 \3U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\233\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\2\0 \3", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\234\0\0\0\0\0w\0\0\0\1\0 \3\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0 \3\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\235\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0004\0@\1U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\236\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0004\0@\1", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\237\0\0\0\0\0w\0\0\0w\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0004\0@\1\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\240\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0007\0@\1U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\241\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0007\0@\1", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\242\0\0\0\0\0w\0\0\0w\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0007\0@\1\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\243\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0`\3U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\244\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\1\0`\3", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\245\0\1\0\0\0w\0\0\0w\0\0\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 36
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\2\0`\3U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\246\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\2\0`\3", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\247\0\0\0\0\0w\0\0\0\1\0`\3\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0`\3\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\250\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\3\0`\3U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\251\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\3\0`\3", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\252\0\1\0\0\0w\0\0\0w\0\0\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 36
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\4\0`\3U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\253\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\4\0`\3", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\254\0\0\0\0\0w\0\0\0\3\0`\3\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\3\0`\3\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\255\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0@\3U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\256\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\1\0@\3", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\257\0\1\0\0\0w\0\0\0w\0\0\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 36
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\2\0@\3U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\260\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\2\0@\3", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\261\0\0\0\0\0w\0\0\0\1\0@\3\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0@\3\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\262\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0J\0@\1U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\263\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0J\0@\1", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\264\0\0\0\0\0w\0\0\0w\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0J\0@\1\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\265\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\6\0`\3U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\266\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\6\0`\3", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\267\0\0\0\0\0w\0\0\0w\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\6\0`\3\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\270\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0@\2U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\271\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\1\0@\2", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\272\0\1\0\0\0w\0\0\0w\0\0\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 36
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\2\0@\2U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\273\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\2\0@\2", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\274\0\0\0\0\0w\0\0\0\1\0@\2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0@\2\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\275\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\4\0@\2U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\276\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\4\0@\2", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\277\0\0\0\0\0w\0\0\0w\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\4\0@\2\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\300\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0\240\3U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\301\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\1\0\240\3", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\302\0\1\0\0\0w\0\0\0w\0\0\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 36
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\2\0\240\3U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\303\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\2\0\240\3", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\304\0\0\0\0\0w\0\0\0\1\0\240\3\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0\240\3\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\305\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0\340\3U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\306\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\1\0\340\3", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\307\0\1\0\0\0w\0\0\0w\0\0\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 36
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\2\0\340\3U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\310\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\2\0\340\3", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\311\0\0\0\0\0w\0\0\0\1\0\340\3\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0\340\3\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\312\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0\300\3U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\313\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\1\0\300\3", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\314\0\1\0\0\0w\0\0\0w\0\0\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 36
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\2\0\300\3U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\315\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\2\0\300\3", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\316\0\0\0\0\0w\0\0\0\1\0\300\3\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0\300\3\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\317\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\3\0\300\3U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\320\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\3\0\300\3", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\321\0\0\0\0\0w\0\0\0w\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\3\0\300\3\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\322\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0 \4U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\323\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\1\0 \4", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\324\0\0\0\0\0w\0\0\0w\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0 \4\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\325\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0\0\4U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\326\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\1\0\0\4", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\327\0\1\0\0\0w\0\0\0w\0\0\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 36
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\2\0\0\4U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\330\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\2\0\0\4", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\331\0\0\0\0\0w\0\0\0\1\0\0\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\1\0\0\4\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\332\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\217\0\0\4U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\333\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\217\0\0\4", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\334\0\1\0\0\0w\0\0\0w\0\0\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 36
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\220\0\0\4U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\335\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\220\0\0\4", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\336\0\0\0\0\0w\0\0\0\217\0\0\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\217\0\0\4\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\337\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\273\0\0\4U\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\340\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\17\0\2\0\273\0\0\4", 8}, {NULL, 0}, {"", 0}], 3) = 8
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\341\0\0\0\0\0w\0\0\0w\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\273\0\0\4\31\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\10\342\0\1\0\0\0\37\0\0\0\0\0\0\0\3\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 36
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\273\0\0\4\37\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\10\343\0\2\0\0\0\37\0\0\0\0\0\0\0\7\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 40
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\0\6\0\273\0\0\4\35\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\10\344\0\1\0\0\0\37\0\0\0\0\0\0\0\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 36
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+uname({sys="Linux", node="zz", ...})    = 0
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\2\0\4\0\273\0\0\4\0\10\0\0\0\0B\0$\0\1\0\24\0\6\0\273\0\0\4\32\2\0\0"..., 44}, {NULL, 0}, {"", 0}], 3) = 44
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\0\347\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\22\0\t\0\273\0\0\4\32\2\0\0\37\0\0\0\10\0\1\0\n\0\0\0pid2902@"..., 40}, {NULL, 0}, {"", 0}], 3) = 40
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+getcwd("/home/zz/zhi/update_iotlb/fork_xen", 4096) = 35
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLIN|POLLOUT}])
+recv(8, "\34\0\350\0\273\0\0\4\32\2\0\0\32S\16\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+writev(8, [{"\22\0!\0\273\0\0\4 \2\0\0\37\0\0\0\10\0\1\0j\0\0\0\3\0\0\0003\0\0\0"..., 132}, {NULL, 0}, {"", 0}], 3) = 132
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\34\0\352\0\273\0\0\4 \2\0\0\33S\16\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\34\0\352\0\273\0\0\4 \2\0\0\35S\16\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\34\0\352\0\273\0\0\4\34\2\0\0fS\16\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\1\6\0\273\0\0\4\34\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\34\0\353\0\273\0\0\4\34\2\0\0iS\16\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 84
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"\24\1\6\0\273\0\0\4\32\2\0\0\37\0\0\0\0\0\0\0\0@\0\0", 24}, {NULL, 0}, {"", 0}], 3) = 24
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\34\0\354\0\273\0\0\4\32\2\0\0iS\16\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096, 0) = 76
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+poll([{fd=8, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=8, revents=POLLOUT}])
+writev(8, [{"<\1\2\0\0\0`\4+\2\1\0", 12}, {NULL, 0}, {"", 0}], 3) = 12
+poll([{fd=8, events=POLLIN}], 1, -1)    = 1 ([{fd=8, revents=POLLIN}])
+recv(8, "\1\2\356\0\0\0\0\0\267\0\0\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 4096, 0) = 32
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+recv(8, 0xb73a3058, 4096, 0)            = -1 EAGAIN (Resource temporarily unavailable)
+shutdown(8, 2 /* send and receive */)   = 0
+close(8)                                = 0
+exit_group(0)                           = ?

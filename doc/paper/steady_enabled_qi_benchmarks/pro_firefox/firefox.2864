@@ -1,0 +1,21 @@
+set_robust_list(0xb2518bb0, 0xc)        = 0
+gettid()                                = 2864
+getpriority(PRIO_PROCESS, 0)            = 20
+setpriority(PRIO_PROCESS, 2864, 0)      = 0
+gettid()                                = 2864
+open("/proc/self/task/2864/stat", O_RDONLY) = 3
+fstat64(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb783c000
+read(3, "2864 (firefox) R 2861 2624 2278 "..., 1024) = 200
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+munmap(0xb783c000, 4096)                = 0
+open("/proc/self/stat", O_RDONLY)       = 3
+fstat64(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb783c000
+read(3, "2862 (firefox) S 2861 2624 2278 "..., 1024) = 212
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+munmap(0xb783c000, 4096)                = 0
+madvise(0xb1d18000, 8372224, MADV_DONTNEED) = 0
+_exit(0)                                = ?

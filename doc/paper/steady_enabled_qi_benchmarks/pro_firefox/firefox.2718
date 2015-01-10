@@ -1,0 +1,20 @@
+set_robust_list(0x9c9fcbb0, 0xc)        = 0
+gettid()                                = 2718
+getpriority(PRIO_PROCESS, 0)            = 20
+setpriority(PRIO_PROCESS, 2718, 0)      = 0
+futex(0x9e3bc164, FUTEX_WAKE_OP_PRIVATE, 1, 1, 0x9e3bc160, {FUTEX_OP_SET, 0, FUTEX_OP_CMP_GT, 1}) = 1
+futex(0x9e3bc0d4, FUTEX_WAIT_PRIVATE, 1, NULL) = 0
+futex(0x9e3bc084, FUTEX_WAKE_PRIVATE, 1) = 0
+prctl(PR_SET_NAME, 0x9e37beb8, 0x10, 0xb7781ff4, 0xb7781ff4) = 0
+open("/home/zz/.cache/mozilla/firefox/9vk2xjm7.default-1413374979250/thumbnails/b4b4546f123f0071597533438bb87180.png", O_RDONLY|O_LARGEFILE) = 54
+read(54, "\211PNG\r\n\32\n\0\0\0\rIHDR\0\0\1\253\0\0\1U\10\6\0\0\0Q\211\300"..., 32768) = 32768
+read(54, "\307\351\356l\370\365,-\364\245\311\352\251\344\205\3643g\235\301\350\27\27\266\f\262\305i\346\31.\256"..., 32768) = 32768
+read(54, "\21\374r4\210a\241M9vm=7\36's3\347<\205j5\232\"\270\233\225\300\343\374\373h"..., 32768) = 32768
+read(54, "^)\347a\376\277\30V\231\247x\327J@\20\332\260\360Q!*\225\212\222\344\237\351'\10\10\302K"..., 32768) = 26442
+read(54, "", 6326)                      = 0
+close(54)                               = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 295527350}) = 0
+futex(0x9e3bc0d4, FUTEX_WAIT_PRIVATE, 3, NULL) = 0
+futex(0x9e3bc084, FUTEX_WAKE_PRIVATE, 1) = 0
+madvise(0x9c1fc000, 8372224, MADV_DONTNEED) = 0
+_exit(0)                                = ?

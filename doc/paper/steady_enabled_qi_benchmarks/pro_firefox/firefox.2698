@@ -1,0 +1,16 @@
+set_robust_list(0xaa1febb0, 0xc)        = 0
+gettid()                                = 2698
+getpriority(PRIO_PROCESS, 0)            = 20
+setpriority(PRIO_PROCESS, 2698, 0)      = 0
+futex(0xaaa59124, FUTEX_WAKE_OP_PRIVATE, 1, 1, 0xaaa59120, {FUTEX_OP_SET, 0, FUTEX_OP_CMP_GT, 1}) = 1
+futex(0xaaa59094, FUTEX_WAIT_PRIVATE, 1, NULL) = 0
+futex(0xaaa59044, FUTEX_WAKE_PRIVATE, 1) = 0
+prctl(PR_SET_NAME, 0xaaa912e8, 0x10, 0xb7774ff4, 0xb7774ff4) = 0
+futex(0xaaa58884, FUTEX_WAIT_PRIVATE, 1, NULL) = 0
+futex(0xaaa58864, FUTEX_WAIT_PRIVATE, 2, NULL) = 0
+futex(0xaaa58864, FUTEX_WAKE_PRIVATE, 1) = 0
+clock_gettime(CLOCK_MONOTONIC, {905, 578832286}) = 0
+futex(0xaaa59094, FUTEX_WAIT_PRIVATE, 3, NULL) = 0
+futex(0xaaa59044, FUTEX_WAKE_PRIVATE, 1) = 0
+madvise(0xa99fe000, 8372224, MADV_DONTNEED) = 0
+_exit(0)                                = ?

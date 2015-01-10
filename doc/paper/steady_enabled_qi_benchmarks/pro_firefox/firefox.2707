@@ -1,0 +1,46 @@
+rt_sigaction(SIGINT, {0x819aca0, [], 0}, NULL, 8) = 0
+rt_sigaction(SIGQUIT, {SIG_DFL, [], 0}, NULL, 8) = 0
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+execve("/bin/sh", ["sh", "-c", "/usr/bin/firefox -safe-mode -new"...], [/* 27 vars */]) = 0
+brk(0)                                  = 0x87d7000
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb78b6000
+mmap2(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb78b3000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=80149, ...}) = 0
+mmap2(NULL, 80149, PROT_READ, MAP_PRIVATE, 3, 0) = 0xb789f000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0@\226\1\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0755, st_size=1734120, ...}) = 0
+mmap2(NULL, 1747676, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb76f4000
+mprotect(0xb7898000, 4096, PROT_NONE)   = 0
+mmap2(0xb7899000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1a4) = 0xb7899000
+mmap2(0xb789c000, 10972, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xb789c000
+close(3)                                = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb76f3000
+set_thread_area({entry_number:-1 -> 6, base_addr:0xb76f36c0, limit:1048575, seg_32bit:1, contents:0, read_exec_only:0, limit_in_pages:1, seg_not_present:0, useable:1}) = 0
+mprotect(0xb7899000, 8192, PROT_READ)   = 0
+mprotect(0x8060000, 4096, PROT_READ)    = 0
+mprotect(0xb78d8000, 4096, PROT_READ)   = 0
+munmap(0xb789f000, 80149)               = 0
+getpid()                                = 2707
+rt_sigaction(SIGCHLD, {0x8056220, ~[RTMIN RT_1], 0}, NULL, 8) = 0
+geteuid32()                             = 0
+brk(0)                                  = 0x87d7000
+brk(0x87f8000)                          = 0x87f8000
+getppid()                               = 2636
+getcwd("/home/zz/zhi/update_iotlb/fork_xen", 4096) = 35
+rt_sigaction(SIGINT, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGINT, {0x8056220, ~[RTMIN RT_1], 0}, NULL, 8) = 0
+rt_sigaction(SIGQUIT, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGQUIT, {SIG_DFL, ~[RTMIN RT_1], 0}, NULL, 8) = 0
+rt_sigaction(SIGTERM, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGTERM, {SIG_DFL, ~[RTMIN RT_1], 0}, NULL, 8) = 0
+clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0xb76f3728) = 2708
+wait4(-1, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 2708
+--- SIGCHLD (Child exited) @ 0 (0) ---
+sigreturn()                             = ? (mask now [])
+exit_group(0)                           = ?

@@ -1,0 +1,677 @@
+set_robust_list(0xb73cd730, 0xc)        = 0
+close(4)                                = 0
+close(6)                                = 0
+close(8)                                = 0
+close(9)                                = 0
+execve("//bin/dbus-daemon", ["//bin/dbus-daemon", "--fork", "--print-pid", "5", "--print-address", "7", "--session"], [/* 34 vars */]) = 0
+brk(0)                                  = 0xb8a96000
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7803000
+mmap2(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7800000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=80149, ...}) = 0
+mmap2(NULL, 80149, PROT_READ, MAP_PRIVATE, 3, 0) = 0xb77ec000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libexpat.so.1", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0  \0\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=165232, ...}) = 0
+mmap2(NULL, 167996, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb77c2000
+mprotect(0xb77e8000, 4096, PROT_NONE)   = 0
+mmap2(0xb77e9000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x26) = 0xb77e9000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libselinux.so.1", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0@A\0\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=120748, ...}) = 0
+mmap2(NULL, 125852, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb77a3000
+mmap2(0xb77c0000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1c) = 0xb77c0000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libpthread.so.0", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0p[\0\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0755, st_size=124663, ...}) = 0
+mmap2(NULL, 107008, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb7788000
+mmap2(0xb779f000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x16) = 0xb779f000
+mmap2(0xb77a1000, 4608, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xb77a1000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/librt.so.1", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\320\30\0\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=30684, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7787000
+mmap2(NULL, 33360, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb777e000
+mmap2(0xb7785000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x6) = 0xb7785000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0@\226\1\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0755, st_size=1734120, ...}) = 0
+mmap2(NULL, 1747676, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb75d3000
+mprotect(0xb7777000, 4096, PROT_NONE)   = 0
+mmap2(0xb7778000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1a4) = 0xb7778000
+mmap2(0xb777b000, 10972, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xb777b000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libdl.so.2", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0`\n\0\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=13940, ...}) = 0
+mmap2(NULL, 16504, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb75ce000
+mmap2(0xb75d1000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2) = 0xb75d1000
+close(3)                                = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb75cd000
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb75cc000
+set_thread_area({entry_number:-1 -> 6, base_addr:0xb75cc740, limit:1048575, seg_32bit:1, contents:0, read_exec_only:0, limit_in_pages:1, seg_not_present:0, useable:1}) = 0
+mprotect(0xb7778000, 8192, PROT_READ)   = 0
+mprotect(0xb75d1000, 4096, PROT_READ)   = 0
+mprotect(0xb779f000, 4096, PROT_READ)   = 0
+mprotect(0xb7785000, 4096, PROT_READ)   = 0
+mprotect(0xb77c0000, 4096, PROT_READ)   = 0
+mprotect(0xb77e9000, 8192, PROT_READ)   = 0
+mprotect(0xb7891000, 4096, PROT_READ)   = 0
+mprotect(0xb7825000, 4096, PROT_READ)   = 0
+munmap(0xb77ec000, 80149)               = 0
+set_tid_address(0xb75cc7a8)             = 2645
+set_robust_list(0xb75cc7b0, 0xc)        = 0
+futex(0xbfb8a514, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 1, NULL, b75cc740) = -1 EAGAIN (Resource temporarily unavailable)
+rt_sigaction(SIGRTMIN, {0xb778d570, [], SA_SIGINFO}, NULL, 8) = 0
+rt_sigaction(SIGRT_1, {0xb778d5f0, [], SA_RESTART|SA_SIGINFO}, NULL, 8) = 0
+rt_sigprocmask(SIG_UNBLOCK, [RTMIN RT_1], NULL, 8) = 0
+getrlimit(RLIMIT_STACK, {rlim_cur=8192*1024, rlim_max=RLIM_INFINITY}) = 0
+uname({sys="Linux", node="zz", ...})    = 0
+statfs64("/selinux", 84, {f_type="EXT2_SUPER_MAGIC", f_bsize=4096, f_blocks=13692135, f_bfree=8199400, f_bavail=7513477, f_files=3432448, f_ffree=2905174, f_fsid={462486985, -1676672397}, f_namelen=255, f_frsize=4096}) = 0
+brk(0)                                  = 0xb8a96000
+brk(0xb8ab7000)                         = 0xb8ab7000
+open("/proc/filesystems", O_RDONLY|O_LARGEFILE) = 3
+fstat64(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb77ff000
+read(3, "nodev\tsysfs\nnodev\trootfs\nnodev\tb"..., 1024) = 304
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+munmap(0xb77ff000, 4096)                = 0
+open("/proc/filesystems", O_RDONLY|O_LARGEFILE) = 3
+fstat64(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb77ff000
+read(3, "nodev\tsysfs\nnodev\trootfs\nnodev\tb"..., 1024) = 304
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+munmap(0xb77ff000, 4096)                = 0
+clock_gettime(CLOCK_MONOTONIC, {899, 746709819}) = 0
+open("/dev/urandom", O_RDONLY)          = 3
+read(3, "\16\310\177\314\325\16[\t\304\232a\222", 12) = 12
+close(3)                                = 0
+open("/etc/dbus-1/session.conf", O_RDONLY) = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=2938, ...}) = 0
+read(3, "<!-- This configuration file con"..., 2938) = 2938
+close(3)                                = 0
+time(NULL)                              = 1420890661
+getresuid32([0], [0], [0])              = 0
+getresgid32([0], [0], [0])              = 0
+getuid32()                              = 0
+socket(PF_FILE, SOCK_STREAM|SOCK_CLOEXEC|SOCK_NONBLOCK, 0) = 3
+connect(3, {sa_family=AF_FILE, path="/var/run/nscd/socket"}, 110) = -1 ENOENT (No such file or directory)
+close(3)                                = 0
+socket(PF_FILE, SOCK_STREAM|SOCK_CLOEXEC|SOCK_NONBLOCK, 0) = 3
+connect(3, {sa_family=AF_FILE, path="/var/run/nscd/socket"}, 110) = -1 ENOENT (No such file or directory)
+close(3)                                = 0
+open("/etc/nsswitch.conf", O_RDONLY|O_CLOEXEC) = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=513, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb77ff000
+read(3, "# /etc/nsswitch.conf\n#\n# Example"..., 4096) = 513
+read(3, "", 4096)                       = 0
+close(3)                                = 0
+munmap(0xb77ff000, 4096)                = 0
+open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=80149, ...}) = 0
+mmap2(NULL, 80149, PROT_READ, MAP_PRIVATE, 3, 0) = 0xb77ec000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libnss_compat.so.2", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\300\r\0\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=30520, ...}) = 0
+mmap2(NULL, 33328, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb75c3000
+mmap2(0xb75ca000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x6) = 0xb75ca000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libnsl.so.1", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0`1\0\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=92016, ...}) = 0
+mmap2(NULL, 104424, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb75a9000
+mmap2(0xb75bf000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x15) = 0xb75bf000
+mmap2(0xb75c1000, 6120, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xb75c1000
+close(3)                                = 0
+mprotect(0xb75bf000, 4096, PROT_READ)   = 0
+mprotect(0xb75ca000, 4096, PROT_READ)   = 0
+munmap(0xb77ec000, 80149)               = 0
+open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=80149, ...}) = 0
+mmap2(NULL, 80149, PROT_READ, MAP_PRIVATE, 3, 0) = 0xb77ec000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libnss_nis.so.2", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0p\31\0\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=42652, ...}) = 0
+mmap2(NULL, 45628, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb759d000
+mmap2(0xb75a7000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x9) = 0xb75a7000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libnss_files.so.2", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\20\32\0\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=47040, ...}) = 0
+mmap2(NULL, 50180, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb7590000
+mmap2(0xb759b000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xa) = 0xb759b000
+close(3)                                = 0
+mprotect(0xb759b000, 4096, PROT_READ)   = 0
+mprotect(0xb75a7000, 4096, PROT_READ)   = 0
+munmap(0xb77ec000, 80149)               = 0
+open("/etc/passwd", O_RDONLY|O_CLOEXEC) = 3
+_llseek(3, 0, [0], SEEK_CUR)            = 0
+fstat64(3, {st_mode=S_IFREG|0644, st_size=1879, ...}) = 0
+mmap2(NULL, 1879, PROT_READ, MAP_SHARED, 3, 0) = 0xb77ff000
+_llseek(3, 1879, [1879], SEEK_SET)      = 0
+munmap(0xb77ff000, 1879)                = 0
+close(3)                                = 0
+socket(PF_FILE, SOCK_STREAM|SOCK_CLOEXEC|SOCK_NONBLOCK, 0) = 3
+connect(3, {sa_family=AF_FILE, path="/var/run/nscd/socket"}, 110) = -1 ENOENT (No such file or directory)
+close(3)                                = 0
+socket(PF_FILE, SOCK_STREAM|SOCK_CLOEXEC|SOCK_NONBLOCK, 0) = 3
+connect(3, {sa_family=AF_FILE, path="/var/run/nscd/socket"}, 110) = -1 ENOENT (No such file or directory)
+close(3)                                = 0
+open("/etc/group", O_RDONLY|O_CLOEXEC)  = 3
+_llseek(3, 0, [0], SEEK_CUR)            = 0
+fstat64(3, {st_mode=S_IFREG|0644, st_size=906, ...}) = 0
+mmap2(NULL, 906, PROT_READ, MAP_SHARED, 3, 0) = 0xb77ff000
+_llseek(3, 906, [906], SEEK_SET)        = 0
+fstat64(3, {st_mode=S_IFREG|0644, st_size=906, ...}) = 0
+munmap(0xb77ff000, 906)                 = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/etc/dbus-1/session.d", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 3
+getdents(3, /* 2 entries */, 32768)     = 32
+getdents(3, /* 0 entries */, 32768)     = 0
+close(3)                                = 0
+open("/etc/dbus-1/session-local.conf", O_RDONLY) = -1 ENOENT (No such file or directory)
+geteuid32()                             = 0
+open("/dev/urandom", O_RDONLY)          = 3
+read(3, "K\361\327?\245\tR\345\253\257", 10) = 10
+close(3)                                = 0
+socket(PF_FILE, SOCK_STREAM|SOCK_CLOEXEC, 0) = 3
+setsockopt(3, SOL_SOCKET, SO_REUSEADDR, [1], 4) = 0
+bind(3, {sa_family=AF_FILE, path=@"/tmp/dbus-Nt3BfJUhlp"}, 23) = 0
+listen(3, 30)                           = 0
+fcntl64(3, F_GETFL)                     = 0x2 (flags O_RDWR)
+fcntl64(3, F_SETFL, O_RDWR|O_NONBLOCK)  = 0
+clock_gettime(CLOCK_MONOTONIC, {899, 752914280}) = 0
+open("/dev/urandom", O_RDONLY)          = 4
+read(4, "{\320\2022\10:\201\341~w|\337", 12) = 12
+close(4)                                = 0
+openat(AT_FDCWD, "/root/.local/share/dbus-1/services", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/local/share/dbus-1/services", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/share/dbus-1/services", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 4
+getdents(4, /* 78 entries */, 32768)    = 3584
+stat64("/usr/share/dbus-1/services/org.freedesktop.Telepathy.Logger.service", {st_mode=S_IFREG|0644, st_size=95, ...}) = 0
+open("/usr/share/dbus-1/services/org.freedesktop.Telepathy.Logger.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=95, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.freedes"..., 95) = 95
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.Telepathy.Logger.service", {st_mode=S_IFREG|0644, st_size=95, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.gnome.SettingsDaemon.service", {st_mode=S_IFREG|0644, st_size=104, ...}) = 0
+open("/usr/share/dbus-1/services/org.gnome.SettingsDaemon.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=104, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.gnome.S"..., 104) = 104
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.gnome.SettingsDaemon.service", {st_mode=S_IFREG|0644, st_size=104, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.FileManager1.service", {st_mode=S_IFREG|0644, st_size=93, ...}) = 0
+open("/usr/share/dbus-1/services/org.freedesktop.FileManager1.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=93, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.freedes"..., 93) = 93
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.FileManager1.service", {st_mode=S_IFREG|0644, st_size=93, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.Telepathy.ConnectionManager.idle.service", {st_mode=S_IFREG|0644, st_size=109, ...}) = 0
+open("/usr/share/dbus-1/services/org.freedesktop.Telepathy.ConnectionManager.idle.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=109, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.freedes"..., 109) = 109
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.Telepathy.ConnectionManager.idle.service", {st_mode=S_IFREG|0644, st_size=109, ...}) = 0
+stat64("/usr/share/dbus-1/services/com.canonical.Unity.Panel.Service.service", {st_mode=S_IFREG|0644, st_size=95, ...}) = 0
+open("/usr/share/dbus-1/services/com.canonical.Unity.Panel.Service.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=95, ...}) = 0
+read(6, "[D-BUS Service]\nName=com.canonic"..., 95) = 95
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/com.canonical.Unity.Panel.Service.service", {st_mode=S_IFREG|0644, st_size=95, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.gnome.GConf.service", {st_mode=S_IFREG|0644, st_size=81, ...}) = 0
+open("/usr/share/dbus-1/services/org.gnome.GConf.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=81, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.gnome.G"..., 81) = 81
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.gnome.GConf.service", {st_mode=S_IFREG|0644, st_size=81, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.Telepathy.Client.Empathy.AudioVideo.service", {st_mode=S_IFREG|0644, st_size=106, ...}) = 0
+open("/usr/share/dbus-1/services/org.freedesktop.Telepathy.Client.Empathy.AudioVideo.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=106, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.freedes"..., 106) = 106
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.Telepathy.Client.Empathy.AudioVideo.service", {st_mode=S_IFREG|0644, st_size=106, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.gnome.Nautilus.service", {st_mode=S_IFREG|0644, st_size=82, ...}) = 0
+open("/usr/share/dbus-1/services/org.gnome.Nautilus.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=82, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.gnome.N"..., 82) = 82
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.gnome.Nautilus.service", {st_mode=S_IFREG|0644, st_size=82, ...}) = 0
+stat64("/usr/share/dbus-1/services/indicator-session.service", {st_mode=S_IFREG|0644, st_size=111, ...}) = 0
+open("/usr/share/dbus-1/services/indicator-session.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=111, ...}) = 0
+read(6, "[D-BUS Service]\nName=com.canonic"..., 111) = 111
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/indicator-session.service", {st_mode=S_IFREG|0644, st_size=111, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.gnome.FileRoller.service", {st_mode=S_IFREG|0644, st_size=87, ...}) = 0
+open("/usr/share/dbus-1/services/org.gnome.FileRoller.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=87, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.gnome.F"..., 87) = 87
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.gnome.FileRoller.service", {st_mode=S_IFREG|0644, st_size=87, ...}) = 0
+stat64("/usr/share/dbus-1/services/indicator-messages.service", {st_mode=S_IFREG|0644, st_size=114, ...}) = 0
+open("/usr/share/dbus-1/services/indicator-messages.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=114, ...}) = 0
+read(6, "[D-BUS Service]\nName=com.canonic"..., 114) = 114
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/indicator-messages.service", {st_mode=S_IFREG|0644, st_size=114, ...}) = 0
+stat64("/usr/share/dbus-1/services/com.ubuntuone.controlpanel.service", {st_mode=S_IFREG|0644, st_size=118, ...}) = 0
+open("/usr/share/dbus-1/services/com.ubuntuone.controlpanel.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=118, ...}) = 0
+read(6, "[D-BUS Service]\nName=com.ubuntuo"..., 118) = 118
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/com.ubuntuone.controlpanel.service", {st_mode=S_IFREG|0644, st_size=118, ...}) = 0
+stat64("/usr/share/dbus-1/services/indicator-printers.service", {st_mode=S_IFREG|0644, st_size=114, ...}) = 0
+open("/usr/share/dbus-1/services/indicator-printers.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=114, ...}) = 0
+read(6, "[D-BUS Service]\nName=com.canonic"..., 114) = 114
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/indicator-printers.service", {st_mode=S_IFREG|0644, st_size=114, ...}) = 0
+stat64("/usr/share/dbus-1/services/musicstore-scope.service", {st_mode=S_IFREG|0644, st_size=113, ...}) = 0
+open("/usr/share/dbus-1/services/musicstore-scope.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=113, ...}) = 0
+read(6, "[D-BUS Service]\nName=com.canonic"..., 113) = 113
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/musicstore-scope.service", {st_mode=S_IFREG|0644, st_size=113, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.gnome.evolution.dataserver.Calendar.service", {st_mode=S_IFREG|0644, st_size=105, ...}) = 0
+open("/usr/share/dbus-1/services/org.gnome.evolution.dataserver.Calendar.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=105, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.gnome.e"..., 105) = 105
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.gnome.evolution.dataserver.Calendar.service", {st_mode=S_IFREG|0644, st_size=105, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.Telepathy.AccountManager.service", {st_mode=S_IFREG|0644, st_size=104, ...}) = 0
+open("/usr/share/dbus-1/services/org.freedesktop.Telepathy.AccountManager.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=104, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.freedes"..., 104) = 104
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.Telepathy.AccountManager.service", {st_mode=S_IFREG|0644, st_size=104, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.gnome.zeitgeist.fts.service", {st_mode=S_IFREG|0644, st_size=93, ...}) = 0
+open("/usr/share/dbus-1/services/org.gnome.zeitgeist.fts.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=93, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.gnome.z"..., 93) = 93
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.gnome.zeitgeist.fts.service", {st_mode=S_IFREG|0644, st_size=93, ...}) = 0
+stat64("/usr/share/dbus-1/services/unity-lens-video.service", {st_mode=S_IFREG|0644, st_size=94, ...}) = 0
+open("/usr/share/dbus-1/services/unity-lens-video.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=94, ...}) = 0
+read(6, "[D-BUS Service]\nName=net.launchp"..., 94) = 94
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/unity-lens-video.service", {st_mode=S_IFREG|0644, st_size=94, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.Telepathy.Client.Vino.service", {st_mode=S_IFREG|0644, st_size=97, ...}) = 0
+open("/usr/share/dbus-1/services/org.freedesktop.Telepathy.Client.Vino.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=97, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.freedes"..., 97) = 97
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.Telepathy.Client.Vino.service", {st_mode=S_IFREG|0644, st_size=97, ...}) = 0
+stat64("/usr/share/dbus-1/services/com.ubuntu.DeviceDriver.service", {st_mode=S_IFREG|0644, st_size=84, ...}) = 0
+open("/usr/share/dbus-1/services/com.ubuntu.DeviceDriver.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=84, ...}) = 0
+read(6, "[D-BUS Service]\nName=com.ubuntu."..., 84) = 84
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/com.ubuntu.DeviceDriver.service", {st_mode=S_IFREG|0644, st_size=84, ...}) = 0
+stat64("/usr/share/dbus-1/services/indicator-sound.service", {st_mode=S_IFREG|0644, st_size=105, ...}) = 0
+open("/usr/share/dbus-1/services/indicator-sound.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=105, ...}) = 0
+read(6, "[D-BUS Service]\nName=com.canonic"..., 105) = 105
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/indicator-sound.service", {st_mode=S_IFREG|0644, st_size=105, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.secrets.service", {st_mode=S_IFREG|0644, st_size=122, ...}) = 0
+open("/usr/share/dbus-1/services/org.freedesktop.secrets.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=122, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.freedes"..., 122) = 122
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.secrets.service", {st_mode=S_IFREG|0644, st_size=122, ...}) = 0
+stat64("/usr/share/dbus-1/services/com.Gwibber.Accounts.service", {st_mode=S_IFREG|0644, st_size=72, ...}) = 0
+open("/usr/share/dbus-1/services/com.Gwibber.Accounts.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=72, ...}) = 0
+read(6, "[D-BUS Service]\nName=com.Gwibber"..., 72) = 72
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/com.Gwibber.Accounts.service", {st_mode=S_IFREG|0644, st_size=72, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.Telepathy.Client.Empathy.FileTransfer.service", {st_mode=S_IFREG|0644, st_size=100, ...}) = 0
+open("/usr/share/dbus-1/services/org.freedesktop.Telepathy.Client.Empathy.FileTransfer.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=100, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.freedes"..., 100) = 100
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.Telepathy.Client.Empathy.FileTransfer.service", {st_mode=S_IFREG|0644, st_size=100, ...}) = 0
+stat64("/usr/share/dbus-1/services/unity-2d-spread.service", {st_mode=S_IFREG|0644, st_size=80, ...}) = 0
+open("/usr/share/dbus-1/services/unity-2d-spread.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=80, ...}) = 0
+read(6, "[D-BUS Service]\nName=com.canonic"..., 80) = 80
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/unity-2d-spread.service", {st_mode=S_IFREG|0644, st_size=80, ...}) = 0
+stat64("/usr/share/dbus-1/services/indicator-datetime.service", {st_mode=S_IFREG|0644, st_size=114, ...}) = 0
+open("/usr/share/dbus-1/services/indicator-datetime.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=114, ...}) = 0
+read(6, "[D-BUS Service]\nName=com.canonic"..., 114) = 114
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/indicator-datetime.service", {st_mode=S_IFREG|0644, st_size=114, ...}) = 0
+stat64("/usr/share/dbus-1/services/gvfs-metadata.service", {st_mode=S_IFREG|0644, st_size=76, ...}) = 0
+open("/usr/share/dbus-1/services/gvfs-metadata.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=76, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.gtk.vfs"..., 76) = 76
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/gvfs-metadata.service", {st_mode=S_IFREG|0644, st_size=76, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.a11y.atspi.Registry.service", {st_mode=S_IFREG|0644, st_size=110, ...}) = 0
+open("/usr/share/dbus-1/services/org.a11y.atspi.Registry.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=110, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.a11y.at"..., 110) = 110
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.a11y.atspi.Registry.service", {st_mode=S_IFREG|0644, st_size=110, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.gnome.evolution.dataserver.AddressBook.service", {st_mode=S_IFREG|0644, st_size=111, ...}) = 0
+open("/usr/share/dbus-1/services/org.gnome.evolution.dataserver.AddressBook.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=111, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.gnome.e"..., 111) = 111
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.gnome.evolution.dataserver.AddressBook.service", {st_mode=S_IFREG|0644, st_size=111, ...}) = 0
+stat64("/usr/share/dbus-1/services/com.ubuntu.sso.service", {st_mode=S_IFREG|0644, st_size=85, ...}) = 0
+open("/usr/share/dbus-1/services/com.ubuntu.sso.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=85, ...}) = 0
+read(6, "[D-BUS Service]\nName=com.ubuntu."..., 85) = 85
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/com.ubuntu.sso.service", {st_mode=S_IFREG|0644, st_size=85, ...}) = 0
+stat64("/usr/share/dbus-1/services/com.ubuntu.OneConf.service", {st_mode=S_IFREG|0644, st_size=79, ...}) = 0
+open("/usr/share/dbus-1/services/com.ubuntu.OneConf.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=79, ...}) = 0
+read(6, "[D-BUS Service]\nName=com.ubuntu."..., 79) = 79
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/com.ubuntu.OneConf.service", {st_mode=S_IFREG|0644, st_size=79, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.fedoraproject.Config.Printing.service", {st_mode=S_IFREG|0644, st_size=86, ...}) = 0
+open("/usr/share/dbus-1/services/org.fedoraproject.Config.Printing.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=86, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.fedorap"..., 86) = 86
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.fedoraproject.Config.Printing.service", {st_mode=S_IFREG|0644, st_size=86, ...}) = 0
+stat64("/usr/share/dbus-1/services/com.ubuntuone.Credentials.service", {st_mode=S_IFREG|0644, st_size=95, ...}) = 0
+open("/usr/share/dbus-1/services/com.ubuntuone.Credentials.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=95, ...}) = 0
+read(6, "[D-BUS Service]\nName=com.ubuntuo"..., 95) = 95
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/com.ubuntuone.Credentials.service", {st_mode=S_IFREG|0644, st_size=95, ...}) = 0
+stat64("/usr/share/dbus-1/services/unity-2d-places.service", {st_mode=S_IFREG|0644, st_size=77, ...}) = 0
+open("/usr/share/dbus-1/services/unity-2d-places.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=77, ...}) = 0
+read(6, "[D-BUS Service]\nName=com.canonic"..., 77) = 77
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/unity-2d-places.service", {st_mode=S_IFREG|0644, st_size=77, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.Geoclue.Providers.UbuntuGeoIP.service", {st_mode=S_IFREG|0644, st_size=116, ...}) = 0
+open("/usr/share/dbus-1/services/org.freedesktop.Geoclue.Providers.UbuntuGeoIP.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=116, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.freedes"..., 116) = 116
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.Geoclue.Providers.UbuntuGeoIP.service", {st_mode=S_IFREG|0644, st_size=116, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.gnome.keyring.service", {st_mode=S_IFREG|0644, st_size=116, ...}) = 0
+open("/usr/share/dbus-1/services/org.gnome.keyring.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=116, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.gnome.k"..., 116) = 116
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.gnome.keyring.service", {st_mode=S_IFREG|0644, st_size=116, ...}) = 0
+stat64("/usr/share/dbus-1/services/unity-lens-files.service", {st_mode=S_IFREG|0644, st_size=102, ...}) = 0
+open("/usr/share/dbus-1/services/unity-lens-files.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=102, ...}) = 0
+read(6, "[D-BUS Service]\nName=com.canonic"..., 102) = 102
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/unity-lens-files.service", {st_mode=S_IFREG|0644, st_size=102, ...}) = 0
+stat64("/usr/share/dbus-1/services/com.canonical.QtCheckbox.service", {st_mode=S_IFREG|0644, st_size=94, ...}) = 0
+open("/usr/share/dbus-1/services/com.canonical.QtCheckbox.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=94, ...}) = 0
+read(6, "[D-BUS Service]\nName=com.canonic"..., 94) = 94
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/com.canonical.QtCheckbox.service", {st_mode=S_IFREG|0644, st_size=94, ...}) = 0
+stat64("/usr/share/dbus-1/services/sessioninstaller.service", {st_mode=S_IFREG|0644, st_size=80, ...}) = 0
+open("/usr/share/dbus-1/services/sessioninstaller.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=80, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.freedes"..., 80) = 80
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/sessioninstaller.service", {st_mode=S_IFREG|0644, st_size=80, ...}) = 0
+stat64("/usr/share/dbus-1/services/com.ubuntuone.SyncDaemon.service", {st_mode=S_IFREG|0644, st_size=99, ...}) = 0
+open("/usr/share/dbus-1/services/com.ubuntuone.SyncDaemon.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=99, ...}) = 0
+read(6, "[D-BUS Service]\nName=com.ubuntuo"..., 99) = 99
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/com.ubuntuone.SyncDaemon.service", {st_mode=S_IFREG|0644, st_size=99, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.Telepathy.MissionControl5.service", {st_mode=S_IFREG|0644, st_size=105, ...}) = 0
+open("/usr/share/dbus-1/services/org.freedesktop.Telepathy.MissionControl5.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=105, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.freedes"..., 105) = 105
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.Telepathy.MissionControl5.service", {st_mode=S_IFREG|0644, st_size=105, ...}) = 0
+stat64("/usr/share/dbus-1/services/indicator-application.service", {st_mode=S_IFREG|0644, st_size=123, ...}) = 0
+open("/usr/share/dbus-1/services/indicator-application.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=123, ...}) = 0
+read(6, "[D-BUS Service]\nName=com.canonic"..., 123) = 123
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/indicator-application.service", {st_mode=S_IFREG|0644, st_size=123, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.Notifications.service", {st_mode=S_IFREG|0644, st_size=501, ...}) = 0
+open("/usr/share/dbus-1/services/org.freedesktop.Notifications.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=501, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.freedes"..., 501) = 501
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.Notifications.service", {st_mode=S_IFREG|0644, st_size=501, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.Telepathy.Client.Empathy.Auth.service", {st_mode=S_IFREG|0644, st_size=108, ...}) = 0
+open("/usr/share/dbus-1/services/org.freedesktop.Telepathy.Client.Empathy.Auth.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=108, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.freedes"..., 108) = 108
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.Telepathy.Client.Empathy.Auth.service", {st_mode=S_IFREG|0644, st_size=108, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.gtk.GLib.PACRunner.service", {st_mode=S_IFREG|0644, st_size=89, ...}) = 0
+open("/usr/share/dbus-1/services/org.gtk.GLib.PACRunner.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=89, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.gtk.GLi"..., 89) = 89
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.gtk.GLib.PACRunner.service", {st_mode=S_IFREG|0644, st_size=89, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.gnome.OnlineAccounts.service", {st_mode=S_IFREG|0644, st_size=93, ...}) = 0
+open("/usr/share/dbus-1/services/org.gnome.OnlineAccounts.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=93, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.gnome.O"..., 93) = 93
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.gnome.OnlineAccounts.service", {st_mode=S_IFREG|0644, st_size=93, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.gnome.evince.Daemon.service", {st_mode=S_IFREG|0644, st_size=74, ...}) = 0
+open("/usr/share/dbus-1/services/org.gnome.evince.Daemon.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=74, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.gnome.e"..., 74) = 74
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.gnome.evince.Daemon.service", {st_mode=S_IFREG|0644, st_size=74, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.gnome.Rhythmbox3.service", {st_mode=S_IFREG|0644, st_size=66, ...}) = 0
+open("/usr/share/dbus-1/services/org.gnome.Rhythmbox3.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=66, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.gnome.R"..., 66) = 66
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.gnome.Rhythmbox3.service", {st_mode=S_IFREG|0644, st_size=66, ...}) = 0
+stat64("/usr/share/dbus-1/services/com.Gwibber.Service.service", {st_mode=S_IFREG|0644, st_size=71, ...}) = 0
+open("/usr/share/dbus-1/services/com.Gwibber.Service.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=71, ...}) = 0
+read(6, "[D-BUS Service]\nName=com.Gwibber"..., 71) = 71
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/com.Gwibber.Service.service", {st_mode=S_IFREG|0644, st_size=71, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.gtk.Private.AfcVolumeMonitor.service", {st_mode=S_IFREG|0644, st_size=98, ...}) = 0
+open("/usr/share/dbus-1/services/org.gtk.Private.AfcVolumeMonitor.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=98, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.gtk.Pri"..., 98) = 98
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.gtk.Private.AfcVolumeMonitor.service", {st_mode=S_IFREG|0644, st_size=98, ...}) = 0
+stat64("/usr/share/dbus-1/services/unity-scope-video-remote.service", {st_mode=S_IFREG|0644, st_size=118, ...}) = 0
+open("/usr/share/dbus-1/services/unity-scope-video-remote.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=118, ...}) = 0
+read(6, "[D-BUS Service]\nName=net.launchp"..., 118) = 118
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/unity-scope-video-remote.service", {st_mode=S_IFREG|0644, st_size=118, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.ayatana.bamf.service", {st_mode=S_IFREG|0644, st_size=68, ...}) = 0
+open("/usr/share/dbus-1/services/org.ayatana.bamf.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=68, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.ayatana"..., 68) = 68
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.ayatana.bamf.service", {st_mode=S_IFREG|0644, st_size=68, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.gtk.Private.GduVolumeMonitor.service", {st_mode=S_IFREG|0644, st_size=97, ...}) = 0
+open("/usr/share/dbus-1/services/org.gtk.Private.GduVolumeMonitor.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=97, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.gtk.Pri"..., 97) = 97
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.gtk.Private.GduVolumeMonitor.service", {st_mode=S_IFREG|0644, st_size=97, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.gtk.Private.GPhoto2VolumeMonitor.service", {st_mode=S_IFREG|0644, st_size=105, ...}) = 0
+open("/usr/share/dbus-1/services/org.gtk.Private.GPhoto2VolumeMonitor.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=105, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.gtk.Pri"..., 105) = 105
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.gtk.Private.GPhoto2VolumeMonitor.service", {st_mode=S_IFREG|0644, st_size=105, ...}) = 0
+stat64("/usr/share/dbus-1/services/obex-client.service", {st_mode=S_IFREG|0644, st_size=73, ...}) = 0
+open("/usr/share/dbus-1/services/obex-client.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=73, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.openobe"..., 73) = 73
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/obex-client.service", {st_mode=S_IFREG|0644, st_size=73, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.Geoclue.Master.service", {st_mode=S_IFREG|0644, st_size=89, ...}) = 0
+open("/usr/share/dbus-1/services/org.freedesktop.Geoclue.Master.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=89, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.freedes"..., 89) = 89
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.Geoclue.Master.service", {st_mode=S_IFREG|0644, st_size=89, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.Telepathy.ConnectionManager.salut.service", {st_mode=S_IFREG|0644, st_size=111, ...}) = 0
+open("/usr/share/dbus-1/services/org.freedesktop.Telepathy.ConnectionManager.salut.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=111, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.freedes"..., 111) = 111
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.Telepathy.ConnectionManager.salut.service", {st_mode=S_IFREG|0644, st_size=111, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.Telepathy.Client.Empathy.Chat.service", {st_mode=S_IFREG|0644, st_size=102, ...}) = 0
+open("/usr/share/dbus-1/services/org.freedesktop.Telepathy.Client.Empathy.Chat.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=102, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.freedes"..., 102) = 102
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.Telepathy.Client.Empathy.Chat.service", {st_mode=S_IFREG|0644, st_size=102, ...}) = 0
+stat64("/usr/share/dbus-1/services/obex-data-server.service", {st_mode=S_IFREG|0644, st_size=78, ...}) = 0
+open("/usr/share/dbus-1/services/obex-data-server.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=78, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.openobe"..., 78) = 78
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/obex-data-server.service", {st_mode=S_IFREG|0644, st_size=78, ...}) = 0
+stat64("/usr/share/dbus-1/services/com.Gwibber.Searches.service", {st_mode=S_IFREG|0644, st_size=72, ...}) = 0
+open("/usr/share/dbus-1/services/com.Gwibber.Searches.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=72, ...}) = 0
+read(6, "[D-BUS Service]\nName=com.Gwibber"..., 72) = 72
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/com.Gwibber.Searches.service", {st_mode=S_IFREG|0644, st_size=72, ...}) = 0
+stat64("/usr/share/dbus-1/services/com.canonical.hud.service", {st_mode=S_IFREG|0644, st_size=83, ...}) = 0
+open("/usr/share/dbus-1/services/com.canonical.hud.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=83, ...}) = 0
+read(6, "[D-BUS Service]\nName=com.canonic"..., 83) = 83
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/com.canonical.hud.service", {st_mode=S_IFREG|0644, st_size=83, ...}) = 0
+stat64("/usr/share/dbus-1/services/com.Gwibber.URLShorten.service", {st_mode=S_IFREG|0644, st_size=74, ...}) = 0
+open("/usr/share/dbus-1/services/com.Gwibber.URLShorten.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=74, ...}) = 0
+read(6, "[D-BUS Service]\nName=com.Gwibber"..., 74) = 74
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/com.Gwibber.URLShorten.service", {st_mode=S_IFREG|0644, st_size=74, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.a11y.Bus.service", {st_mode=S_IFREG|0644, st_size=81, ...}) = 0
+open("/usr/share/dbus-1/services/org.a11y.Bus.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=81, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.a11y.Bu"..., 81) = 81
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.a11y.Bus.service", {st_mode=S_IFREG|0644, st_size=81, ...}) = 0
+stat64("/usr/share/dbus-1/services/unity-lens-applications.service", {st_mode=S_IFREG|0644, st_size=123, ...}) = 0
+open("/usr/share/dbus-1/services/unity-lens-applications.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=123, ...}) = 0
+read(6, "[D-BUS Service]\nName=com.canonic"..., 123) = 123
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/unity-lens-applications.service", {st_mode=S_IFREG|0644, st_size=123, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.Telepathy.ConnectionManager.gabble.service", {st_mode=S_IFREG|0644, st_size=113, ...}) = 0
+open("/usr/share/dbus-1/services/org.freedesktop.Telepathy.ConnectionManager.gabble.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=113, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.freedes"..., 113) = 113
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.Telepathy.ConnectionManager.gabble.service", {st_mode=S_IFREG|0644, st_size=113, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.gnome.zeitgeist.service", {st_mode=S_IFREG|0644, st_size=79, ...}) = 0
+open("/usr/share/dbus-1/services/org.gnome.zeitgeist.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=79, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.gnome.z"..., 79) = 79
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.gnome.zeitgeist.service", {st_mode=S_IFREG|0644, st_size=79, ...}) = 0
+stat64("/usr/share/dbus-1/services/com.Gwibber.Connection.service", {st_mode=S_IFREG|0644, st_size=74, ...}) = 0
+open("/usr/share/dbus-1/services/com.Gwibber.Connection.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=74, ...}) = 0
+read(6, "[D-BUS Service]\nName=com.Gwibber"..., 74) = 74
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/com.Gwibber.Connection.service", {st_mode=S_IFREG|0644, st_size=74, ...}) = 0
+stat64("/usr/share/dbus-1/services/ca.desrt.dconf.service", {st_mode=S_IFREG|0644, st_size=70, ...}) = 0
+open("/usr/share/dbus-1/services/ca.desrt.dconf.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=70, ...}) = 0
+read(6, "[D-BUS Service]\nName=ca.desrt.dc"..., 70) = 70
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/ca.desrt.dconf.service", {st_mode=S_IFREG|0644, st_size=70, ...}) = 0
+stat64("/usr/share/dbus-1/services/gvfs-daemon.service", {st_mode=S_IFREG|0644, st_size=65, ...}) = 0
+open("/usr/share/dbus-1/services/gvfs-daemon.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=65, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.gtk.vfs"..., 65) = 65
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/gvfs-daemon.service", {st_mode=S_IFREG|0644, st_size=65, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.Telepathy.ConnectionManager.haze.service", {st_mode=S_IFREG|0644, st_size=109, ...}) = 0
+open("/usr/share/dbus-1/services/org.freedesktop.Telepathy.ConnectionManager.haze.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=109, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.freedes"..., 109) = 109
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.Telepathy.ConnectionManager.haze.service", {st_mode=S_IFREG|0644, st_size=109, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.Telepathy.Client.Logger.service", {st_mode=S_IFREG|0644, st_size=102, ...}) = 0
+open("/usr/share/dbus-1/services/org.freedesktop.Telepathy.Client.Logger.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=102, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.freedes"..., 102) = 102
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.freedesktop.Telepathy.Client.Logger.service", {st_mode=S_IFREG|0644, st_size=102, ...}) = 0
+stat64("/usr/share/dbus-1/services/com.Gwibber.Messages.service", {st_mode=S_IFREG|0644, st_size=72, ...}) = 0
+open("/usr/share/dbus-1/services/com.Gwibber.Messages.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=72, ...}) = 0
+read(6, "[D-BUS Service]\nName=com.Gwibber"..., 72) = 72
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/com.Gwibber.Messages.service", {st_mode=S_IFREG|0644, st_size=72, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.gnome.gedit.service", {st_mode=S_IFREG|0644, st_size=57, ...}) = 0
+open("/usr/share/dbus-1/services/org.gnome.gedit.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=57, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.gnome.g"..., 57) = 57
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.gnome.gedit.service", {st_mode=S_IFREG|0644, st_size=57, ...}) = 0
+stat64("/usr/share/dbus-1/services/org.gnome.ScreenSaver.service", {st_mode=S_IFREG|0644, st_size=87, ...}) = 0
+open("/usr/share/dbus-1/services/org.gnome.ScreenSaver.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=87, ...}) = 0
+read(6, "[D-BUS Service]\nName=org.gnome.S"..., 87) = 87
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/org.gnome.ScreenSaver.service", {st_mode=S_IFREG|0644, st_size=87, ...}) = 0
+stat64("/usr/share/dbus-1/services/com.Gwibber.Streams.service", {st_mode=S_IFREG|0644, st_size=71, ...}) = 0
+open("/usr/share/dbus-1/services/com.Gwibber.Streams.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=71, ...}) = 0
+read(6, "[D-BUS Service]\nName=com.Gwibber"..., 71) = 71
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/com.Gwibber.Streams.service", {st_mode=S_IFREG|0644, st_size=71, ...}) = 0
+stat64("/usr/share/dbus-1/services/unity-lens-music.service", {st_mode=S_IFREG|0644, st_size=102, ...}) = 0
+open("/usr/share/dbus-1/services/unity-lens-music.service", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=102, ...}) = 0
+read(6, "[D-BUS Service]\nName=com.canonic"..., 102) = 102
+close(6)                                = 0
+stat64("/usr/share/dbus-1/services/unity-lens-music.service", {st_mode=S_IFREG|0644, st_size=102, ...}) = 0
+getdents(4, /* 0 entries */, 32768)     = 0
+close(4)                                = 0
+write(7, "unix:abstract=/tmp/dbus-Nt3BfJUh"..., 73) = 73
+close(7)                                = 0
+clock_gettime(CLOCK_MONOTONIC, {899, 789075929}) = 0
+clock_gettime(CLOCK_MONOTONIC, {899, 789119059}) = 0
+chdir("/")                              = 0
+clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0xb75cc7a8) = 2647
+write(5, "2647\n", 5)                   = 5
+exit_group(0)                           = ?

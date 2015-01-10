@@ -1,0 +1,58 @@
+close(10)                               = 0
+close(3)                                = 0
+dup2(4, 1)                              = 1
+close(4)                                = 0
+stat64("/usr/local/sbin/which", 0xbfaa48d0) = -1 ENOENT (No such file or directory)
+stat64("/usr/local/bin/which", 0xbfaa48d0) = -1 ENOENT (No such file or directory)
+stat64("/usr/sbin/which", 0xbfaa48d0)   = -1 ENOENT (No such file or directory)
+stat64("/usr/bin/which", {st_mode=S_IFREG|0755, st_size=946, ...}) = 0
+execve("/usr/bin/which", ["which", "/usr/bin/firefox"], [/* 28 vars */]) = 0
+brk(0)                                  = 0x9e55000
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7827000
+mmap2(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7824000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=80149, ...}) = 0
+mmap2(NULL, 80149, PROT_READ, MAP_PRIVATE, 3, 0) = 0xb7810000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0@\226\1\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0755, st_size=1734120, ...}) = 0
+mmap2(NULL, 1747676, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb7665000
+mprotect(0xb7809000, 4096, PROT_NONE)   = 0
+mmap2(0xb780a000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1a4) = 0xb780a000
+mmap2(0xb780d000, 10972, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xb780d000
+close(3)                                = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7664000
+set_thread_area({entry_number:-1 -> 6, base_addr:0xb76646c0, limit:1048575, seg_32bit:1, contents:0, read_exec_only:0, limit_in_pages:1, seg_not_present:0, useable:1}) = 0
+mprotect(0xb780a000, 8192, PROT_READ)   = 0
+mprotect(0x8060000, 4096, PROT_READ)    = 0
+mprotect(0xb7849000, 4096, PROT_READ)   = 0
+munmap(0xb7810000, 80149)               = 0
+getpid()                                = 2911
+rt_sigaction(SIGCHLD, {0x8056220, ~[RTMIN RT_1], 0}, NULL, 8) = 0
+geteuid32()                             = 0
+brk(0)                                  = 0x9e55000
+brk(0x9e76000)                          = 0x9e76000
+getppid()                               = 2910
+stat64("/home/zz/zhi/update_iotlb/fork_xen", {st_mode=S_IFDIR|0700, st_size=4096, ...}) = 0
+stat64(".", {st_mode=S_IFDIR|0700, st_size=4096, ...}) = 0
+open("/usr/bin/which", O_RDONLY)        = 3
+fcntl64(3, F_DUPFD, 10)                 = 10
+close(3)                                = 0
+fcntl64(10, F_SETFD, FD_CLOEXEC)        = 0
+rt_sigaction(SIGINT, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGINT, {0x8056220, ~[RTMIN RT_1], 0}, NULL, 8) = 0
+rt_sigaction(SIGQUIT, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGQUIT, {SIG_DFL, ~[RTMIN RT_1], 0}, NULL, 8) = 0
+rt_sigaction(SIGTERM, NULL, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGTERM, {SIG_DFL, ~[RTMIN RT_1], 0}, NULL, 8) = 0
+read(10, "#! /bin/sh\nset -ef\n\nif test -n \""..., 8192) = 946
+stat64("/usr/bin/firefox", {st_mode=S_IFREG|0755, st_size=2740, ...}) = 0
+geteuid32()                             = 0
+stat64("/usr/bin/firefox", {st_mode=S_IFREG|0755, st_size=2740, ...}) = 0
+faccessat(AT_FDCWD, "/usr/bin/firefox", X_OK) = 0
+write(1, "/usr/bin/firefox\n", 17)      = 17
+exit_group(0)                           = ?

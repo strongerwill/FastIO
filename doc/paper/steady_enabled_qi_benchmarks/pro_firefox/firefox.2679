@@ -1,0 +1,740 @@
+set_robust_list(0xb75cc7b0, 0xc)        = 0
+execve("/usr/lib/i386-linux-gnu/gconf/gconfd-2", ["/usr/lib/i386-linux-gnu/gconf/gc"...], [/* 37 vars */]) = 0
+brk(0)                                  = 0x8bc6000
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb778a000
+mmap2(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7787000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=80149, ...}) = 0
+mmap2(NULL, 80149, PROT_READ, MAP_PRIVATE, 3, 0) = 0xb7773000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libgconf-2.so.4", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\220n\0\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=182536, ...}) = 0
+mmap2(NULL, 185460, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb7745000
+mmap2(0xb7771000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2b) = 0xb7771000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libdbus-glib-1.so.2", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\360p\0\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=150192, ...}) = 0
+mmap2(NULL, 153160, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb771f000
+mmap2(0xb7743000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x23) = 0xb7743000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libdbus-1.so.3", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0PN\0\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=296228, ...}) = 0
+mmap2(NULL, 299468, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb76d5000
+mprotect(0xb771c000, 4096, PROT_NONE)   = 0
+mmap2(0xb771d000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x47) = 0xb771d000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libpthread.so.0", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0p[\0\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0755, st_size=124663, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb76d4000
+mmap2(NULL, 107008, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb76b9000
+mmap2(0xb76d0000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x16) = 0xb76d0000
+mmap2(0xb76d2000, 4608, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xb76d2000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libglib-2.0.so.0", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0@K\1\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=1014644, ...}) = 0
+mmap2(NULL, 1018896, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb75c0000
+mmap2(0xb76b7000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xf6) = 0xb76b7000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0@\226\1\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0755, st_size=1734120, ...}) = 0
+mmap2(NULL, 1747676, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb7415000
+mprotect(0xb75b9000, 4096, PROT_NONE)   = 0
+mmap2(0xb75ba000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1a4) = 0xb75ba000
+mmap2(0xb75bd000, 10972, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xb75bd000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libgmodule-2.0.so.0", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0000\f\0\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=13732, ...}) = 0
+mmap2(NULL, 16572, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb7410000
+mmap2(0xb7413000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2) = 0xb7413000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libgobject-2.0.so.0", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\0\203\0\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=317288, ...}) = 0
+mmap2(NULL, 321504, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb73c1000
+mmap2(0xb740e000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x4c) = 0xb740e000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libgio-2.0.so.0", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\3605\2\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=1401664, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb73c0000
+mmap2(NULL, 1403372, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb7269000
+mmap2(0xb73bc000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x153) = 0xb73bc000
+mmap2(0xb73bf000, 2540, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xb73bf000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/librt.so.1", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\320\30\0\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=30684, ...}) = 0
+mmap2(NULL, 33360, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb7260000
+mmap2(0xb7267000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x6) = 0xb7267000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libpcre.so.3", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0`\17\0\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=238984, ...}) = 0
+mmap2(NULL, 241752, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb7224000
+mmap2(0xb725e000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x39) = 0xb725e000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libdl.so.2", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0`\n\0\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=13940, ...}) = 0
+mmap2(NULL, 16504, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb721f000
+mmap2(0xb7222000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2) = 0xb7222000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/usr/lib/i386-linux-gnu/libffi.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\360\16\0\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=21944, ...}) = 0
+mmap2(NULL, 25304, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb7218000
+mmap2(0xb721d000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x4) = 0xb721d000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libz.so.1", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0`\27\0\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=83572, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7217000
+mmap2(NULL, 86288, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb7201000
+mmap2(0xb7215000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x13) = 0xb7215000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libselinux.so.1", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0@A\0\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=120748, ...}) = 0
+mmap2(NULL, 125852, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb71e2000
+mmap2(0xb71ff000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1c) = 0xb71ff000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libresolv.so.2", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\260&\0\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=83776, ...}) = 0
+mmap2(NULL, 96296, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb71ca000
+mprotect(0xb71dd000, 4096, PROT_NONE)   = 0
+mmap2(0xb71de000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x13) = 0xb71de000
+mmap2(0xb71e0000, 6184, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xb71e0000
+close(3)                                = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb71c9000
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb71c8000
+set_thread_area({entry_number:-1 -> 6, base_addr:0xb71c8740, limit:1048575, seg_32bit:1, contents:0, read_exec_only:0, limit_in_pages:1, seg_not_present:0, useable:1}) = 0
+mprotect(0xb75ba000, 8192, PROT_READ)   = 0
+mprotect(0xb71de000, 4096, PROT_READ)   = 0
+mprotect(0xb7222000, 4096, PROT_READ)   = 0
+mprotect(0xb71ff000, 4096, PROT_READ)   = 0
+mprotect(0xb7215000, 4096, PROT_READ)   = 0
+mprotect(0xb721d000, 4096, PROT_READ)   = 0
+mprotect(0xb725e000, 4096, PROT_READ)   = 0
+mprotect(0xb76d0000, 4096, PROT_READ)   = 0
+mprotect(0xb7267000, 4096, PROT_READ)   = 0
+mprotect(0xb76b7000, 4096, PROT_READ)   = 0
+mprotect(0xb7413000, 4096, PROT_READ)   = 0
+mprotect(0xb740e000, 4096, PROT_READ)   = 0
+mprotect(0xb73bc000, 8192, PROT_READ)   = 0
+mprotect(0xb771d000, 4096, PROT_READ)   = 0
+mprotect(0xb7743000, 4096, PROT_READ)   = 0
+mprotect(0xb7771000, 4096, PROT_READ)   = 0
+mprotect(0x8052000, 4096, PROT_READ)    = 0
+mprotect(0xb77ac000, 4096, PROT_READ)   = 0
+munmap(0xb7773000, 80149)               = 0
+set_tid_address(0xb71c87a8)             = 2679
+set_robust_list(0xb71c87b0, 0xc)        = 0
+futex(0xbfa60594, FUTEX_WAIT_BITSET_PRIVATE|FUTEX_CLOCK_REALTIME, 1, NULL, b71c8740) = -1 EAGAIN (Resource temporarily unavailable)
+rt_sigaction(SIGRTMIN, {0xb76be570, [], SA_SIGINFO}, NULL, 8) = 0
+rt_sigaction(SIGRT_1, {0xb76be5f0, [], SA_RESTART|SA_SIGINFO}, NULL, 8) = 0
+rt_sigprocmask(SIG_UNBLOCK, [RTMIN RT_1], NULL, 8) = 0
+getrlimit(RLIMIT_STACK, {rlim_cur=8192*1024, rlim_max=RLIM_INFINITY}) = 0
+uname({sys="Linux", node="zz", ...})    = 0
+statfs64("/selinux", 84, {f_type="EXT2_SUPER_MAGIC", f_bsize=4096, f_blocks=13692135, f_bfree=8199022, f_bavail=7513099, f_files=3432448, f_ffree=2905135, f_fsid={462486985, -1676672397}, f_namelen=255, f_frsize=4096}) = 0
+brk(0)                                  = 0x8bc6000
+brk(0x8be7000)                          = 0x8be7000
+open("/proc/filesystems", O_RDONLY|O_LARGEFILE) = 3
+fstat64(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7786000
+read(3, "nodev\tsysfs\nnodev\trootfs\nnodev\tb"..., 1024) = 304
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+munmap(0xb7786000, 4096)                = 0
+open("/usr/lib/locale/locale-archive", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=8748544, ...}) = 0
+mmap2(NULL, 2097152, PROT_READ, MAP_PRIVATE, 3, 0) = 0xb6fc8000
+mmap2(NULL, 1462272, PROT_READ, MAP_PRIVATE, 3, 0x1c8) = 0xb6e63000
+close(3)                                = 0
+chdir("/")                              = 0
+open("/dev/null", O_RDWR)               = 3
+dup2(3, 0)                              = 0
+dup2(3, 1)                              = 1
+dup2(3, 2)                              = 2
+umask(022)                              = 022
+socket(PF_FILE, SOCK_STREAM|SOCK_CLOEXEC|SOCK_NONBLOCK, 0) = 5
+connect(5, {sa_family=AF_FILE, path="/var/run/nscd/socket"}, 110) = -1 ENOENT (No such file or directory)
+close(5)                                = 0
+socket(PF_FILE, SOCK_STREAM|SOCK_CLOEXEC|SOCK_NONBLOCK, 0) = 5
+connect(5, {sa_family=AF_FILE, path="/var/run/nscd/socket"}, 110) = -1 ENOENT (No such file or directory)
+close(5)                                = 0
+open("/etc/nsswitch.conf", O_RDONLY|O_CLOEXEC) = 5
+fstat64(5, {st_mode=S_IFREG|0644, st_size=513, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb6e62000
+read(5, "# /etc/nsswitch.conf\n#\n# Example"..., 4096) = 513
+read(5, "", 4096)                       = 0
+close(5)                                = 0
+munmap(0xb6e62000, 4096)                = 0
+open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 5
+fstat64(5, {st_mode=S_IFREG|0644, st_size=80149, ...}) = 0
+mmap2(NULL, 80149, PROT_READ, MAP_PRIVATE, 5, 0) = 0xb6e4f000
+close(5)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libnss_compat.so.2", O_RDONLY|O_CLOEXEC) = 5
+read(5, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\300\r\0\0004\0\0\0"..., 512) = 512
+fstat64(5, {st_mode=S_IFREG|0644, st_size=30520, ...}) = 0
+mmap2(NULL, 33328, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 5, 0) = 0xb6e46000
+mmap2(0xb6e4d000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 5, 0x6) = 0xb6e4d000
+close(5)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libnsl.so.1", O_RDONLY|O_CLOEXEC) = 5
+read(5, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0`1\0\0004\0\0\0"..., 512) = 512
+fstat64(5, {st_mode=S_IFREG|0644, st_size=92016, ...}) = 0
+mmap2(NULL, 104424, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 5, 0) = 0xb6e2c000
+mmap2(0xb6e42000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 5, 0x15) = 0xb6e42000
+mmap2(0xb6e44000, 6120, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xb6e44000
+close(5)                                = 0
+mprotect(0xb6e42000, 4096, PROT_READ)   = 0
+mprotect(0xb6e4d000, 4096, PROT_READ)   = 0
+munmap(0xb6e4f000, 80149)               = 0
+open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 5
+fstat64(5, {st_mode=S_IFREG|0644, st_size=80149, ...}) = 0
+mmap2(NULL, 80149, PROT_READ, MAP_PRIVATE, 5, 0) = 0xb6e4f000
+close(5)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libnss_nis.so.2", O_RDONLY|O_CLOEXEC) = 5
+read(5, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0p\31\0\0004\0\0\0"..., 512) = 512
+fstat64(5, {st_mode=S_IFREG|0644, st_size=42652, ...}) = 0
+mmap2(NULL, 45628, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 5, 0) = 0xb777b000
+mmap2(0xb7785000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 5, 0x9) = 0xb7785000
+close(5)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i386-linux-gnu/libnss_files.so.2", O_RDONLY|O_CLOEXEC) = 5
+read(5, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\20\32\0\0004\0\0\0"..., 512) = 512
+fstat64(5, {st_mode=S_IFREG|0644, st_size=47040, ...}) = 0
+mmap2(NULL, 50180, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 5, 0) = 0xb6e1f000
+mmap2(0xb6e2a000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 5, 0xa) = 0xb6e2a000
+close(5)                                = 0
+mprotect(0xb6e2a000, 4096, PROT_READ)   = 0
+mprotect(0xb7785000, 4096, PROT_READ)   = 0
+munmap(0xb6e4f000, 80149)               = 0
+open("/etc/passwd", O_RDONLY|O_CLOEXEC) = 5
+_llseek(5, 0, [0], SEEK_CUR)            = 0
+fstat64(5, {st_mode=S_IFREG|0644, st_size=1879, ...}) = 0
+mmap2(NULL, 1879, PROT_READ, MAP_SHARED, 5, 0) = 0xb777a000
+_llseek(5, 1879, [1879], SEEK_SET)      = 0
+munmap(0xb777a000, 1879)                = 0
+close(5)                                = 0
+getuid32()                              = 0
+gettimeofday({1420890663, 689415}, NULL) = 0
+uname({sys="Linux", node="zz", ...})    = 0
+open("/usr/share/locale/locale.alias", O_RDONLY|O_CLOEXEC) = 5
+fstat64(5, {st_mode=S_IFREG|0644, st_size=2570, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb777a000
+read(5, "# Locale name alias data base.\n#"..., 4096) = 2570
+read(5, "", 4096)                       = 0
+close(5)                                = 0
+munmap(0xb777a000, 4096)                = 0
+open("/usr/share/locale/zh_CN/LC_MESSAGES/GConf2.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale/zh/LC_MESSAGES/GConf2.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale-langpack/zh_CN/LC_MESSAGES/GConf2.mo", O_RDONLY) = 5
+fstat64(5, {st_mode=S_IFREG|0644, st_size=60384, ...}) = 0
+mmap2(NULL, 60384, PROT_READ, MAP_PRIVATE, 5, 0) = 0xb6e54000
+close(5)                                = 0
+open("/usr/lib/i386-linux-gnu/gconv/gconv-modules.cache", O_RDONLY) = 5
+fstat64(5, {st_mode=S_IFREG|0644, st_size=26256, ...}) = 0
+mmap2(NULL, 26256, PROT_READ, MAP_SHARED, 5, 0) = 0xb7774000
+close(5)                                = 0
+futex(0xb75bcfc8, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+rt_sigprocmask(SIG_UNBLOCK, ~[RTMIN RT_1], NULL, 8) = 0
+rt_sigaction(SIGTERM, {0x804d2d0, [], 0}, NULL, 8) = 0
+rt_sigaction(SIGHUP, {0x804d2d0, [], 0}, NULL, 8) = 0
+rt_sigaction(SIGUSR1, {0x804d2d0, [], 0}, NULL, 8) = 0
+rt_sigaction(SIGINT, {SIG_IGN, [], 0}, NULL, 8) = 0
+getresuid32([0], [0], [0])              = 0
+getresgid32([0], [0], [0])              = 0
+socket(PF_FILE, SOCK_STREAM|SOCK_CLOEXEC, 0) = 5
+connect(5, {sa_family=AF_FILE, path=@"/tmp/dbus-Nt3BfJUhlp"}, 23) = 0
+fcntl64(5, F_GETFL)                     = 0x2 (flags O_RDWR)
+fcntl64(5, F_SETFL, O_RDWR|O_NONBLOCK)  = 0
+geteuid32()                             = 0
+getsockname(5, {sa_family=AF_FILE, NULL}, [2]) = 0
+poll([{fd=5, events=POLLOUT}], 1, 0)    = 1 ([{fd=5, revents=POLLOUT}])
+send(5, "\0", 1, MSG_NOSIGNAL)          = 1
+send(5, "AUTH EXTERNAL 30\r\n", 18, MSG_NOSIGNAL) = 18
+poll([{fd=5, events=POLLIN}], 1, -1)    = 1 ([{fd=5, revents=POLLIN}])
+read(5, "OK 7bd08232083a81e17e777cdf00000"..., 2048) = 37
+poll([{fd=5, events=POLLOUT}], 1, -1)   = 1 ([{fd=5, revents=POLLOUT}])
+send(5, "NEGOTIATE_UNIX_FD\r\n", 19, MSG_NOSIGNAL) = 19
+poll([{fd=5, events=POLLIN}], 1, -1)    = 1 ([{fd=5, revents=POLLIN}])
+read(5, "AGREE_UNIX_FD\r\n", 2048)      = 15
+poll([{fd=5, events=POLLOUT}], 1, -1)   = 1 ([{fd=5, revents=POLLOUT}])
+send(5, "BEGIN\r\n", 7, MSG_NOSIGNAL)   = 7
+poll([{fd=5, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=5, revents=POLLOUT}])
+sendmsg(5, {msg_name(0)=NULL, msg_iov(2)=[{"l\1\0\1\0\0\0\0\1\0\0\0n\0\0\0\1\1o\0\25\0\0\0/org/fre"..., 128}, {"", 0}], msg_controllen=0, msg_flags=0}, MSG_NOSIGNAL) = 128
+clock_gettime(CLOCK_MONOTONIC, {902, 343029343}) = 0
+poll([{fd=5, events=POLLIN}], 1, 25000) = 1 ([{fd=5, revents=POLLIN}])
+recvmsg(5, {msg_name(0)=NULL, msg_iov(1)=[{"l\2\1\1\t\0\0\0\1\0\0\0=\0\0\0\6\1s\0\4\0\0\0:1.3\0\0\0\0"..., 2048}], msg_controllen=0, msg_flags=MSG_CMSG_CLOEXEC}, MSG_CMSG_CLOEXEC) = 89
+recvmsg(5, 0xbfa60078, MSG_CMSG_CLOEXEC) = -1 EAGAIN (Resource temporarily unavailable)
+sendmsg(5, {msg_name(0)=NULL, msg_iov(2)=[{"l\1\0\1\30\0\0\0\2\0\0\0\200\0\0\0\1\1o\0\25\0\0\0/org/fre"..., 144}, {"\17\0\0\0org.gnome.GConf\0\0\0\0\0", 24}], msg_controllen=0, msg_flags=0}, MSG_NOSIGNAL) = 168
+clock_gettime(CLOCK_MONOTONIC, {902, 344226229}) = 0
+poll([{fd=5, events=POLLIN}], 1, 25000) = 1 ([{fd=5, revents=POLLIN}])
+recvmsg(5, {msg_name(0)=NULL, msg_iov(1)=[{"l\4\1\1\t\0\0\0\2\0\0\0\215\0\0\0\1\1o\0\25\0\0\0/org/fre"..., 2048}], msg_controllen=0, msg_flags=MSG_CMSG_CLOEXEC}, MSG_CMSG_CLOEXEC) = 169
+recvmsg(5, 0xbfa60108, MSG_CMSG_CLOEXEC) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(CLOCK_MONOTONIC, {902, 344575481}) = 0
+poll([{fd=5, events=POLLIN}], 1, 25000) = 1 ([{fd=5, revents=POLLIN}])
+recvmsg(5, {msg_name(0)=NULL, msg_iov(1)=[{"l\4\1\1\24\0\0\0\3\0\0\0\215\0\0\0\1\1o\0\25\0\0\0/org/fre"..., 2048}], msg_controllen=0, msg_flags=MSG_CMSG_CLOEXEC}, MSG_CMSG_CLOEXEC) = 180
+recvmsg(5, 0xbfa60108, MSG_CMSG_CLOEXEC) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(CLOCK_MONOTONIC, {902, 345549816}) = 0
+poll([{fd=5, events=POLLIN}], 1, 24999) = 1 ([{fd=5, revents=POLLIN}])
+recvmsg(5, {msg_name(0)=NULL, msg_iov(1)=[{"l\2\1\1\4\0\0\0\4\0\0\0=\0\0\0\6\1s\0\4\0\0\0:1.3\0\0\0\0"..., 2048}], msg_controllen=0, msg_flags=MSG_CMSG_CLOEXEC}, MSG_CMSG_CLOEXEC) = 84
+recvmsg(5, 0xbfa60108, MSG_CMSG_CLOEXEC) = -1 EAGAIN (Resource temporarily unavailable)
+eventfd2(0, O_NONBLOCK|O_CLOEXEC)       = 6
+write(6, "\1\0\0\0\0\0\0\0", 8)         = 8
+fstat64(5, {st_mode=S_IFSOCK|0777, st_size=0, ...}) = 0
+fcntl64(5, F_GETFL)                     = 0x802 (flags O_RDWR|O_NONBLOCK)
+write(6, "\1\0\0\0\0\0\0\0", 8)         = 8
+open("/etc/gconf/2/path", O_RDONLY)     = 7
+fstat64(7, {st_mode=S_IFREG|0644, st_size=1421, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7773000
+read(7, "######################\n# 1. Forc"..., 4096) = 1421
+open("/etc/gconf/2/local-mandatory.path", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/root/.gconf.path.mandatory", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("", O_RDONLY)                      = -1 ENOENT (No such file or directory)
+open("/root/.gconf.path", O_RDONLY)     = -1 ENOENT (No such file or directory)
+open("/root/.gconf.path.defaults", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("", O_RDONLY)                      = -1 ENOENT (No such file or directory)
+open("/etc/gconf/2/local-defaults.path", O_RDONLY) = -1 ENOENT (No such file or directory)
+read(7, "", 4096)                       = 0
+close(7)                                = 0
+munmap(0xb7773000, 4096)                = 0
+access("/usr/lib/i386-linux-gnu/gconf/2/libgconfbackend-xml.so", F_OK) = 0
+stat64("/usr/lib/i386-linux-gnu/gconf/2/libgconfbackend-xml.so", {st_mode=S_IFREG|0644, st_size=55296, ...}) = 0
+futex(0xb7223050, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+open("/usr/lib/i386-linux-gnu/gconf/2/libgconfbackend-xml.so", O_RDONLY|O_CLOEXEC) = 7
+read(7, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0000,\0\0004\0\0\0"..., 512) = 512
+fstat64(7, {st_mode=S_IFREG|0644, st_size=55296, ...}) = 0
+mmap2(NULL, 58116, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 7, 0) = 0xb6e10000
+mmap2(0xb6e1d000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 7, 0xc) = 0xb6e1d000
+close(7)                                = 0
+mprotect(0xb6e1d000, 4096, PROT_READ)   = 0
+open("/usr/share/locale/zh_CN/LC_MESSAGES/libc.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale/zh/LC_MESSAGES/libc.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale-langpack/zh_CN/LC_MESSAGES/libc.mo", O_RDONLY) = 7
+fstat64(7, {st_mode=S_IFREG|0644, st_size=83737, ...}) = 0
+mmap2(NULL, 83737, PROT_READ, MAP_PRIVATE, 7, 0) = 0xb6dfb000
+close(7)                                = 0
+open("/usr/share/locale-langpack/zh/LC_MESSAGES/libc.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale/en_US/LC_MESSAGES/libc.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale/en/LC_MESSAGES/libc.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale-langpack/en_US/LC_MESSAGES/libc.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale-langpack/en/LC_MESSAGES/libc.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat64("/etc/gconf/gconf.xml.mandatory", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+openat(AT_FDCWD, "/etc/gconf/gconf.xml.mandatory", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 7
+close(7)                                = 0
+stat64("/var/lib/gconf/debian.mandatory", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+openat(AT_FDCWD, "/var/lib/gconf/debian.mandatory", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 7
+close(7)                                = 0
+stat64("/root/.gconf", {st_mode=S_IFDIR|0700, st_size=4096, ...}) = 0
+open("/root/.gconf/.testing.writeability", O_WRONLY|O_CREAT, 0700) = 7
+close(7)                                = 0
+unlink("/root/.gconf/.testing.writeability") = 0
+openat(AT_FDCWD, "/root/.gconf", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 7
+close(7)                                = 0
+stat64("/etc/gconf/gconf.xml.defaults", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+openat(AT_FDCWD, "/etc/gconf/gconf.xml.defaults", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 7
+close(7)                                = 0
+stat64("/var/lib/gconf/debian.defaults", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+openat(AT_FDCWD, "/var/lib/gconf/debian.defaults", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 7
+close(7)                                = 0
+stat64("/var/lib/gconf/defaults", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+openat(AT_FDCWD, "/var/lib/gconf/defaults", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 7
+close(7)                                = 0
+time(NULL)                              = 1420890663
+socket(PF_FILE, SOCK_STREAM|SOCK_CLOEXEC, 0) = 7
+connect(7, {sa_family=AF_FILE, path="/var/run/dbus/system_bus_socket"}, 33) = 0
+fcntl64(7, F_GETFL)                     = 0x2 (flags O_RDWR)
+fcntl64(7, F_SETFL, O_RDWR|O_NONBLOCK)  = 0
+geteuid32()                             = 0
+getsockname(7, {sa_family=AF_FILE, NULL}, [2]) = 0
+poll([{fd=7, events=POLLOUT}], 1, 0)    = 1 ([{fd=7, revents=POLLOUT}])
+send(7, "\0", 1, MSG_NOSIGNAL)          = 1
+send(7, "AUTH EXTERNAL 30\r\n", 18, MSG_NOSIGNAL) = 18
+poll([{fd=7, events=POLLIN}], 1, -1)    = 1 ([{fd=7, revents=POLLIN}])
+read(7, "OK 62cf9f56a149d8dc1edf0ae100000"..., 2048) = 37
+poll([{fd=7, events=POLLOUT}], 1, -1)   = 1 ([{fd=7, revents=POLLOUT}])
+send(7, "NEGOTIATE_UNIX_FD\r\n", 19, MSG_NOSIGNAL) = 19
+poll([{fd=7, events=POLLIN}], 1, -1)    = 1 ([{fd=7, revents=POLLIN}])
+read(7, "AGREE_UNIX_FD\r\n", 2048)      = 15
+poll([{fd=7, events=POLLOUT}], 1, -1)   = 1 ([{fd=7, revents=POLLOUT}])
+send(7, "BEGIN\r\n", 7, MSG_NOSIGNAL)   = 7
+poll([{fd=7, events=POLLIN|POLLOUT}], 1, -1) = 1 ([{fd=7, revents=POLLOUT}])
+sendmsg(7, {msg_name(0)=NULL, msg_iov(2)=[{"l\1\0\1\0\0\0\0\1\0\0\0n\0\0\0\1\1o\0\25\0\0\0/org/fre"..., 128}, {"", 0}], msg_controllen=0, msg_flags=0}, MSG_NOSIGNAL) = 128
+clock_gettime(CLOCK_MONOTONIC, {902, 373292167}) = 0
+poll([{fd=7, events=POLLIN}], 1, 25000) = 1 ([{fd=7, revents=POLLIN}])
+recvmsg(7, {msg_name(0)=NULL, msg_iov(1)=[{"l\2\1\1\n\0\0\0\1\0\0\0=\0\0\0\6\1s\0\5\0\0\0:1.85\0\0\0"..., 2048}], msg_controllen=0, msg_flags=MSG_CMSG_CLOEXEC}, MSG_CMSG_CLOEXEC) = 260
+recvmsg(7, 0xbfa600a8, MSG_CMSG_CLOEXEC) = -1 EAGAIN (Resource temporarily unavailable)
+fstat64(7, {st_mode=S_IFSOCK|0777, st_size=0, ...}) = 0
+fcntl64(7, F_GETFL)                     = 0x802 (flags O_RDWR|O_NONBLOCK)
+write(6, "\1\0\0\0\0\0\0\0", 8)         = 8
+clock_gettime(CLOCK_MONOTONIC, {902, 373779484}) = 0
+sendmsg(7, {msg_name(0)=NULL, msg_iov(2)=[{"l\1\0\0017\0\0\0\2\0\0\0\177\0\0\0\1\1o\0\25\0\0\0/org/fre"..., 144}, {"2\0\0\0type='signal',interface='org"..., 55}], msg_controllen=0, msg_flags=0}, MSG_NOSIGNAL) = 199
+clock_gettime(CLOCK_MONOTONIC, {902, 374049984}) = 0
+poll([{fd=7, events=POLLIN}], 1, 25000) = 1 ([{fd=7, revents=POLLIN}])
+recvmsg(7, {msg_name(0)=NULL, msg_iov(1)=[{"l\2\1\1\0\0\0\0\3\0\0\0005\0\0\0\6\1s\0\5\0\0\0:1.85\0\0\0"..., 2048}], msg_controllen=0, msg_flags=MSG_CMSG_CLOEXEC}, MSG_CMSG_CLOEXEC) = 72
+write(6, "\1\0\0\0\0\0\0\0", 8)         = 8
+recvmsg(7, 0xbfa60128, MSG_CMSG_CLOEXEC) = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(CLOCK_MONOTONIC, {902, 374373620}) = 0
+clock_gettime(CLOCK_MONOTONIC, {902, 374440491}) = 0
+poll([{fd=6, events=POLLIN}, {fd=5, events=POLLIN}, {fd=7, events=POLLIN}], 3, 0) = 2 ([{fd=6, revents=POLLIN}, {fd=5, revents=POLLIN}])
+write(6, "\1\0\0\0\0\0\0\0", 8)         = 8
+recvmsg(5, {msg_name(0)=NULL, msg_iov(1)=[{"l\1\0\1\0\0\0\0\7\0\0\0\205\0\0\0\1\1o\0\27\0\0\0/org/gno"..., 2048}], msg_controllen=0, msg_flags=MSG_CMSG_CLOEXEC}, MSG_CMSG_CLOEXEC) = 152
+write(6, "\1\0\0\0\0\0\0\0", 8)         = 8
+recvmsg(5, 0xbfa60128, MSG_CMSG_CLOEXEC) = -1 EAGAIN (Resource temporarily unavailable)
+write(6, "\1\0\0\0\0\0\0\0", 8)         = 8
+clock_gettime(CLOCK_MONOTONIC, {902, 374872280}) = 0
+poll([{fd=6, events=POLLIN}, {fd=7, events=POLLIN}, {fd=5, events=POLLIN}], 3, 0) = 1 ([{fd=6, revents=POLLIN}])
+read(6, "\7\0\0\0\0\0\0\0", 16)         = 8
+clock_gettime(CLOCK_MONOTONIC, {902, 375036335}) = 0
+poll([{fd=6, events=POLLIN}, {fd=7, events=POLLIN}, {fd=5, events=POLLIN}], 3, 0) = 0 (Timeout)
+read(6, 0xbfa602fc, 16)                 = -1 EAGAIN (Resource temporarily unavailable)
+sendmsg(5, {msg_name(0)=NULL, msg_iov(2)=[{"l\2\1\1 \0\0\0\3\0\0\0\37\0\0\0\6\1s\0\4\0\0\0:1.2\0\0\0\0"..., 48}, {"\33\0\0\0/org/gnome/GConf/Database/0\0", 32}], msg_controllen=0, msg_flags=0}, MSG_NOSIGNAL) = 80
+clock_gettime(CLOCK_MONOTONIC, {902, 375313897}) = 0
+poll([{fd=6, events=POLLIN}, {fd=7, events=POLLIN}, {fd=5, events=POLLIN}], 3, 30696) = 1 ([{fd=5, revents=POLLIN}])
+clock_gettime(CLOCK_MONOTONIC, {902, 376832906}) = 0
+write(6, "\1\0\0\0\0\0\0\0", 8)         = 8
+recvmsg(5, {msg_name(0)=NULL, msg_iov(1)=[{"l\1\0\1@\0\0\0\10\0\0\0\235\0\0\0\1\1o\0\33\0\0\0/org/gno"..., 2048}], msg_controllen=0, msg_flags=MSG_CMSG_CLOEXEC}, MSG_CMSG_CLOEXEC) = 240
+write(6, "\1\0\0\0\0\0\0\0", 8)         = 8
+recvmsg(5, 0xbfa60128, MSG_CMSG_CLOEXEC) = -1 EAGAIN (Resource temporarily unavailable)
+write(6, "\1\0\0\0\0\0\0\0", 8)         = 8
+clock_gettime(CLOCK_MONOTONIC, {902, 377174494}) = 0
+poll([{fd=6, events=POLLIN}, {fd=7, events=POLLIN}, {fd=5, events=POLLIN}], 3, 0) = 1 ([{fd=6, revents=POLLIN}])
+time(NULL)                              = 1420890663
+time(NULL)                              = 1420890663
+access("/etc/gconf/gconf.xml.mandatory/%gconf-tree.xml", F_OK) = 0
+openat(AT_FDCWD, "/etc/gconf/gconf.xml.mandatory", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 8
+getdents64(8, /* 3 entries */, 32768)   = 88
+getdents64(8, /* 0 entries */, 32768)   = 0
+close(8)                                = 0
+open("/etc/gconf/gconf.xml.mandatory/%gconf-tree.xml", O_RDONLY) = 8
+fstat64(8, {st_mode=S_IFREG|0644, st_size=0, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7773000
+read(8, "", 4096)                       = 0
+open("/usr/share/locale/zh_CN/LC_MESSAGES/glib20.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale/zh/LC_MESSAGES/glib20.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale-langpack/zh_CN/LC_MESSAGES/glib20.mo", O_RDONLY) = 9
+fstat64(9, {st_mode=S_IFREG|0644, st_size=83436, ...}) = 0
+mmap2(NULL, 83436, PROT_READ, MAP_PRIVATE, 9, 0) = 0xb6de6000
+close(9)                                = 0
+close(8)                                = 0
+munmap(0xb7773000, 4096)                = 0
+access("/var/lib/gconf/debian.mandatory/%gconf-tree.xml", F_OK) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/var/lib/gconf/debian.mandatory", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 8
+getdents64(8, /* 2 entries */, 32768)   = 48
+getdents64(8, /* 0 entries */, 32768)   = 0
+close(8)                                = 0
+access("/root/.gconf/%gconf-tree.xml", F_OK) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/root/.gconf", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 8
+getdents64(8, /* 2 entries */, 32768)   = 48
+getdents64(8, /* 0 entries */, 32768)   = 0
+close(8)                                = 0
+access("/etc/gconf/gconf.xml.defaults/%gconf-tree.xml", F_OK) = 0
+openat(AT_FDCWD, "/etc/gconf/gconf.xml.defaults", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 8
+getdents64(8, /* 3 entries */, 32768)   = 88
+getdents64(8, /* 0 entries */, 32768)   = 0
+close(8)                                = 0
+open("/etc/gconf/gconf.xml.defaults/%gconf-tree.xml", O_RDONLY) = 8
+fstat64(8, {st_mode=S_IFREG|0644, st_size=0, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7773000
+read(8, "", 4096)                       = 0
+close(8)                                = 0
+munmap(0xb7773000, 4096)                = 0
+access("/var/lib/gconf/debian.defaults/%gconf-tree.xml", F_OK) = 0
+openat(AT_FDCWD, "/var/lib/gconf/debian.defaults", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 8
+getdents64(8, /* 3 entries */, 32768)   = 88
+getdents64(8, /* 0 entries */, 32768)   = 0
+close(8)                                = 0
+open("/var/lib/gconf/debian.defaults/%gconf-tree.xml", O_RDONLY) = 8
+fstat64(8, {st_mode=S_IFREG|0644, st_size=11163, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7773000
+read(8, "<?xml version=\"1.0\"?>\n<gconf>\n\t<"..., 4096) = 4096
+read(8, "stringvalue>mousepoll</stringval"..., 4096) = 4096
+read(8, "value>ezoom</stringvalue>\n\t\t\t\t\t\t"..., 4096) = 2971
+read(8, "", 4096)                       = 0
+close(8)                                = 0
+munmap(0xb7773000, 4096)                = 0
+access("/var/lib/gconf/defaults/%gconf-tree.xml", F_OK) = 0
+openat(AT_FDCWD, "/var/lib/gconf/defaults", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 8
+getdents64(8, /* 43 entries */, 32768)  = 1720
+getdents64(8, /* 0 entries */, 32768)   = 0
+close(8)                                = 0
+open("/var/lib/gconf/defaults/%gconf-tree.xml", O_RDONLY) = 8
+fstat64(8, {st_mode=S_IFREG|0644, st_size=622332, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7773000
+read(8, "<?xml version=\"1.0\"?>\n<gconf>\n<d"..., 4096) = 4096
+read(8, "amer/0.10/audio/profiles/voicelo"..., 4096) = 4096
+read(8, "2739\" schema=\"/schemas/desktop/i"..., 4096) = 4096
+read(8, "ry name=\"bell_pitch\" mtime=\"1407"..., 4096) = 4096
+read(8, "imations\"/>\n<entry name=\"accessi"..., 4096) = 4096
+read(8, "mote\" mtime=\"1407382739\" schema="..., 4096) = 4096
+read(8, "ringvalue>Default</stringvalue>\n"..., 4096) = 4096
+read(8, "-media\" gettext_domain=\"libgnome"..., 4096) = 4096
+read(8, "\215\347\247\260\">\n<default type=\"string\">\n<"..., 4096) = 4096
+read(8, "-profiles\">\n<local_schema locale"..., 4096) = 4096
+read(8, "ntifying the profile.\n        </"..., 4096) = 4096
+read(8, "\" gettext_domain=\"libgnome-media"..., 4096) = 4096
+brk(0x8c08000)                          = 0x8c08000
+read(8, "hema>\n</entry>\n<entry name=\"use_"..., 4096) = 4096
+read(8, "</stringvalue>\n</li>\n<li type=\"s"..., 4096) = 4096
+read(8, "ongdesc>\347\224\250\344\272\216\344\272\213\344\273\266\345\243\260\351\237\263\347\232\204 XD"..., 4096) = 4096
+read(8, "\344\275\225\346\227\266\350\257\242\351\227\256\345\257\206\347\240\201\357\274\214\345\217\257\344\276\233\351\200\211\346\213"..., 4096) = 4096
+read(8, "lue=\"true\"/>\n<longdesc>\350\256\276\345\256\232\344\270\272"..., 4096) = 4096
+read(8, "lator: Aron Xu &lt;Unknown&gt;\nL"..., 4096) = 4096
+read(8, "ld 16877)\n\">\n<default type=\"bool"..., 4096) = 4096
+read(8, "e=\"1407382739\" type=\"schema\" sty"..., 4096) = 4096
+read(8, "=\"1407382739\" type=\"schema\" styp"..., 4096) = 4096
+read(8, ": libgnome master\nReport-Msgid-B"..., 4096) = 4096
+read(8, "type=\"schema\" stype=\"bool\" owner"..., 4096) = 4096
+read(8, ">\n<longdesc>\345\234\250\345\244\232\345\260\221\346\257\253\347\247\222\345\206\205\344\273"..., 4096) = 4096
+read(8, "t_domain=\"libgnome-2.0\">\n<local_"..., 4096) = 4096
+read(8, "t=UTF-8\nContent-Transfer-Encodin"..., 4096) = 4096
+read(8, "<local_schema locale=\"C\" short_d"..., 4096) = 4096
+read(8, "chema>\n</entry>\n<entry name=\"num"..., 4096) = 4096
+read(8, "let\" mtime=\"1407382739\" type=\"sc"..., 4096) = 4096
+read(8, "l&gt;&quot;. If you set the opti"..., 4096) = 4096
+read(8, "longdesc>\n</local_schema>\n</entr"..., 4096) = 4096
+read(8, "e=\"move_to_workspace_up\" mtime=\""..., 4096) = 4096
+read(8, "ema>\n</entry>\n<entry name=\"move_"..., 4096) = 4096
+read(8, "acity\" gettext_domain=\"metacity\""..., 4096) = 4096
+read(8, "ngvalue>&lt;Alt&gt;F4</stringval"..., 4096) = 4096
+read(8, "wer or upper case, and also abbr"..., 4096) = 4096
+read(8, "ingvalue>\n</default>\n<longdesc>T"..., 4096) = 4096
+read(8, "l&gt;&lt;Alt&gt;Escape</stringva"..., 4096) = 4096
+read(8, "ult>\n<longdesc>The format looks "..., 4096) = 4096
+read(8, "ks like &quot;&lt;Control&gt;a&q"..., 4096) = 4096
+read(8, "t_desc=\"\345\210\207\346\215\242\345\210\260\345\267\245\344\275\234\345\214\272 11\">\n"..., 4096) = 4096
+read(8, "s like &quot;&lt;Control&gt;a&qu"..., 4096) = 4096
+read(8, "ring\">\n<stringvalue></stringvalu"..., 4096) = 4096
+read(8, "bell_type\" mtime=\"1407382739\" ty"..., 4096) = 4096
+read(8, "ype=\"schema\" stype=\"bool\" owner="..., 4096) = 4096
+read(8, ">\n<default type=\"string\">\n<strin"..., 4096) = 4096
+read(8, "39\" type=\"schema\" stype=\"string\""..., 4096) = 4096
+read(8, "longdesc>Opacity to use for meta"..., 4096) = 4096
+read(8, "y name=\"last-input\" mtime=\"14073"..., 4096) = 4096
+brk(0x8c29000)                          = 0x8c29000
+read(8, "type=\"schema\" stype=\"string\" own"..., 4096) = 4096
+read(8, "ult</stringvalue>\n</default>\n<lo"..., 4096) = 4096
+read(8, "ome-terminal\" gettext_domain=\"gn"..., 4096) = 4096
+read(8, "ime=\"1407382739\" type=\"schema\" s"..., 4096) = 4096
+read(8, " \n          will be no keybindin"..., 4096) = 4096
+read(8, "uot;disabled&quot;, then there \n"..., 4096) = 4096
+read(8, "<stringvalue>disabled</stringval"..., 4096) = 4096
+read(8, "I BS character), \n          &quo"..., 4096) = 4096
+read(8, "    of a colon-separated list of"..., 4096) = 4096
+read(8, "en scrolling is restricted.\n    "..., 4096) = 4096
+read(8, "ng a range) should be\n          "..., 4096) = 4096
+read(8, " name=\"default_show_menubar\" mti"..., 4096) = 4096
+read(8, "libcanberra\">\n<local_schema loca"..., 4096) = 4096
+read(8, "esc>\n</local_schema>\n</entry>\n<e"..., 4096) = 4096
+read(8, "82739\" type=\"schema\" stype=\"stri"..., 4096) = 4096
+read(8, "\n<stringvalue>Disabled</stringva"..., 4096) = 4096
+read(8, "ighlight Color\">\n<default type=\""..., 4096) = 4096
+read(8, "ocal_schema locale=\"C\" short_des"..., 4096) = 4096
+read(8, "itch to Viewport 6\">\n<default ty"..., 4096) = 4096
+read(8, "me=\"1407382739\" type=\"schema\" st"..., 4096) = 4096
+read(8, "=\"string\" owner=\"compiz-1\">\n<loc"..., 4096) = 4096
+read(8, "r=\"compiz-1\">\n<local_schema loca"..., 4096) = 4096
+read(8, "Toolbar | Utility | Dialog | Nor"..., 4096) = 4096
+read(8, "<dir name=\"options\">\n<entry name"..., 4096) = 4096
+read(8, "_schema locale=\"C\" short_desc=\"B"..., 4096) = 4096
+read(8, "ow (No popup)\">\n<default type=\"s"..., 4096) = 4096
+read(8, "=\"1407382739\" type=\"schema\" styp"..., 4096) = 4096
+read(8, "focus desktop</longdesc>\n</local"..., 4096) = 4096
+read(8, "ame=\"close_window_key\" mtime=\"14"..., 4096) = 4096
+read(8, "e=\"0\"/>\n<longdesc>Duration the p"..., 4096) = 4096
+read(8, "\"mipmap\" mtime=\"1407382739\" type"..., 4096) = 4096
+read(8, "\n<local_schema locale=\"C\" short_"..., 4096) = 4096
+read(8, "n_command15_edge\" mtime=\"1407382"..., 4096) = 4096
+read(8, "y command4</longdesc>\n</local_sc"..., 4096) = 4096
+brk(0x8c4a000)                          = 0x8c4a000
+read(8, "default type=\"string\">\n<stringva"..., 4096) = 4096
+read(8, "gdesc>\n</local_schema>\n</entry>\n"..., 4096) = 4096
+read(8, "alue>Disabled</stringvalue>\n</de"..., 4096) = 4096
+read(8, "1\">\n<local_schema locale=\"C\" sho"..., 4096) = 4096
+read(8, "mmand7\" mtime=\"1407382739\" type="..., 4096) = 4096
+read(8, "y>\n<entry name=\"position_constra"..., 4096) = 4096
+read(8, "\n</local_schema>\n</entry>\n<entry"..., 4096) = 4096
+read(8, "/local_schema>\n</entry>\n</dir>\n<"..., 4096) = 4096
+read(8, "naps windows back to their origi"..., 4096) = 4096
+read(8, "indow is dropped on the top left"..., 4096) = 4096
+read(8, " stype=\"float\" owner=\"compiz-1\">"..., 4096) = 4096
+read(8, "ocal_schema locale=\"C\" short_des"..., 4096) = 4096
+read(8, "_3_key\" mtime=\"1407382739\" type="..., 4096) = 4096
+read(8, "pe=\"int\">\n</default>\n<longdesc>U"..., 4096) = 4096
+read(8, "c=\"Window values\">\n<default type"..., 4096) = 4096
+read(8, "\" list_type=\"int\">\n<local_schema"..., 4096) = 4096
+read(8, "drawing correctly when using Nvi"..., 4096) = 4096
+read(8, "stype=\"bool\" owner=\"compiz-1\">\n<"..., 4096) = 4096
+read(8, "default type=\"int\" value=\"250\"/>"..., 4096) = 4096
+read(8, "type=\"float\" owner=\"compiz-1\">\n<"..., 4096) = 4096
+read(8, "-1\">\n<local_schema locale=\"C\" sh"..., 4096) = 4096
+read(8, "a locale=\"C\" short_desc=\"\350\217\234\345\215\225\346"..., 4096) = 4096
+read(8, "value=\"2\"/>\n<longdesc>A conglome"..., 4096) = 4096
+read(8, "lt_tab_detail_stop\" mtime=\"14073"..., 4096) = 4096
+read(8, "<entry name=\"launcher_switcher_f"..., 4096) = 4096
+read(8, "y>\n<entry name=\"reflection\" mtim"..., 4096) = 4096
+read(8, "en switching to expo mode (0 = Z"..., 4096) = 4096
+read(8, "\n</default>\n<longdesc>Rotate to "..., 4096) = 4096
+read(8, "a locale=\"C\" short_desc=\"Rotate "..., 4096) = 4096
+read(8, "l_schema locale=\"C\" short_desc=\""..., 4096) = 4096
+read(8, "\"false\"/>\n<longdesc>Snap Cube Ro"..., 4096) = 4096
+read(8, "/dir>\n</dir>\n</dir>\n<dir name=\"a"..., 4096) = 4096
+read(8, "00\"/>\n<longdesc>Vertex grid reso"..., 4096) = 4096
+brk(0x8c6b000)                          = 0x8c6b000
+read(8, "739\" type=\"schema\" stype=\"float\""..., 4096) = 4096
+read(8, "ion in milliseconds for focus ef"..., 4096) = 4096
+read(8, ">The animation effect shown when"..., 4096) = 4096
+read(8, "ingvalue>\n</li>\n<li type=\"string"..., 4096) = 4096
+read(8, "entry name=\"lower\" mtime=\"140738"..., 4096) = 4096
+read(8, "ty/keybinding_commands/command\"/"..., 4096) = 4096
+read(8, "gs/switch_to_workspace_12\"/>\n<en"..., 4096) = 4096
+read(8, "=\"name_14\" mtime=\"1407382739\" sc"..., 4096) = 4096
+read(8, "_raise\"/>\n<entry name=\"action_ri"..., 4096) = 4096
+read(8, "ound-recorder/stop-record\"/>\n<en"..., 4096) = 4096
+read(8, "schema=\"/schemas/apps/gnome-term"..., 4096) = 4096
+read(8, "\" mtime=\"1407382739\" schema=\"/sc"..., 4096) = 4096
+read(8, "\n<entry name=\"fade_mode\" mtime=\""..., 4096) = 4096
+read(8, "hlight_gradient_shadow_color\" mt"..., 4096) = 4096
+read(8, "_to_6_key\"/>\n<entry name=\"switch"..., 4096) = 4096
+read(8, "try name=\"initiate_ellipse_butto"..., 4096) = 4096
+read(8, "rce_independent_output_painting\""..., 4096) = 4096
+read(8, "v_panel_button\"/>\n<entry name=\"n"..., 4096) = 4096
+read(8, "dow_menu_button\"/>\n<entry name=\""..., 4096) = 4096
+read(8, "e=\"auto_rotate\" mtime=\"140738273"..., 4096) = 4096
+read(8, "_command19_edge\"/>\n<entry name=\""..., 4096) = 4096
+read(8, "chema=\"/schemas/apps/compiz-1/pl"..., 4096) = 4096
+read(8, "7382739\" schema=\"/schemas/apps/c"..., 4096) = 4096
+read(8, "e/screen0/options/force_placemen"..., 4096) = 4096
+read(8, "hreshold\"/>\n<entry name=\"top_edg"..., 4096) = 4096
+read(8, "as/apps/compiz-1/plugins/ezoom/s"..., 4096) = 4096
+read(8, "\"stretch_modifier\" mtime=\"140738"..., 4096) = 4096
+read(8, "me=\"1407382739\" schema=\"/schemas"..., 4096) = 4096
+brk(0x8c8c000)                          = 0x8c8c000
+read(8, "ps/compiz-1/plugins/gnomecompat/"..., 4096) = 4096
+read(8, "ity\"/>\n<entry name=\"active_opaci"..., 4096) = 4096
+read(8, "unityshell/screen0/options/overc"..., 4096) = 4096
+read(8, "hema=\"/schemas/apps/compiz-1/plu"..., 4096) = 4096
+read(8, "rotate/screen0/options/rotate_to"..., 4096) = 4096
+read(8, "407382739\" schema=\"/schemas/apps"..., 4096) = 4096
+read(8, "mp_mult\"/>\n<entry name=\"wave_wid"..., 4096) = 4096
+read(8, "urved_fold_amp_mult\"/>\n<entry na"..., 4096) = 3836
+read(8, "", 4096)                       = 0
+close(8)                                = 0
+munmap(0xb7773000, 4096)                = 0
+open("/var/lib/gconf/defaults/%gconf-tree-zh_CN.xml", O_RDONLY) = 8
+fstat64(8, {st_mode=S_IFREG|0644, st_size=73229, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb7773000
+read(8, "<?xml version=\"1.0\"?>\n<gconf>\n\t<"..., 4096) = 4096
+read(8, "\206\350\247\211\346\214\257\351\223\203\">\n\t\t\t\t\t\t\t\t\t\t<longdesc"..., 4096) = 4096
+read(8, "r>\n\t\t\t\t\t</dir>\n\t\t\t\t\t<dir name=\"a"..., 4096) = 4096
+read(8, "\">\n\t\t\t\t\t\t\t\t\t<local_schema short_"..., 4096) = 4096
+read(8, "haded_key\">\n\t\t\t\t\t\t\t\t\t<local_sche"..., 4096) = 4096
+read(8, "\252\227\345\217\243</longdesc>\n\t\t\t\t\t\t\t\t\t</loca"..., 4096) = 4096
+read(8, "l_schema>\n\t\t\t\t\t\t\t\t</entry>\n\t\t\t\t\t"..., 4096) = 4096
+read(8, "\243</longdesc>\n\t\t\t\t\t\t\t\t\t</local_sc"..., 4096) = 4096
+read(8, "desc=\"\350\277\220\350\241\214\345\221\275\344\273\2442\">\n\t\t\t\t\t\t\t\t\t\t"..., 4096) = 4096
+read(8, "ng that when invoked, will run t"..., 4096) = 4096
+read(8, "\n\t\t\t\t\t\t\t\t\t\t<longdesc>\350\260\203\347\224\250run_c"..., 4096) = 4096
+read(8, "e=\"saturation\">\n\t\t\t\t\t\t\t\t\t<local_"..., 4096) = 4096
+read(8, "\345\241\253\345\205\205\351\242\234\350\211\262\">\n\t\t\t\t\t\t\t\t\t\t<longde"..., 4096) = 4096
+read(8, "chema>\n\t\t\t\t\t\t\t\t</entry>\n\t\t\t\t\t\t\t<"..., 4096) = 4096
+read(8, "ocal_schema>\n\t\t\t\t\t\t\t\t</entry>\n\t\t"..., 4096) = 4096
+read(8, " name=\"in\">\n\t\t\t\t\t\t\t\t\t<local_sche"..., 4096) = 4096
+read(8, "entry name=\"rotate_to_10_key\">\n\t"..., 4096) = 4096
+read(8, "\t\t\t\t\t\t\t\t\t\t<longdesc>\345\220\221\345\267\246\346\227\213\350\275\254"..., 4096) = 3597
+read(8, "", 4096)                       = 0
+close(8)                                = 0
+munmap(0xb7773000, 4096)                = 0
+sendmsg(5, {msg_name(0)=NULL, msg_iov(2)=[{"l\2\1\1x\0\0\0\4\0\0\0)\0\0\0\6\1s\0\4\0\0\0:1.2\0\0\0\0"..., 64}, {"&\0\0\0/desktop/gnome/interface/acc"..., 120}], msg_controllen=0, msg_flags=0}, MSG_NOSIGNAL) = 184
+clock_gettime(CLOCK_MONOTONIC, {902, 407832539}) = 0
+poll([{fd=6, events=POLLIN}, {fd=7, events=POLLIN}, {fd=5, events=POLLIN}], 3, 30663) = 1 ([{fd=6, revents=POLLIN}])
+read(6, "\3\0\0\0\0\0\0\0", 16)         = 8
+clock_gettime(CLOCK_MONOTONIC, {902, 407991297}) = 0
+clock_gettime(CLOCK_MONOTONIC, {902, 408035566}) = 0
+poll([{fd=6, events=POLLIN}, {fd=7, events=POLLIN}, {fd=5, events=POLLIN}], 3, 30663) = 1 ([{fd=5, revents=POLLIN}])
+read(6, 0xbfa602fc, 16)                 = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(CLOCK_MONOTONIC, {903, 327019013}) = 0
+write(6, "\1\0\0\0\0\0\0\0", 8)         = 8
+recvmsg(5, {msg_name(0)=NULL, msg_iov(1)=[{"l\1\0\1D\0\0\0\t\0\0\0\235\0\0\0\1\1o\0\33\0\0\0/org/gno"..., 2048}], msg_controllen=0, msg_flags=MSG_CMSG_CLOEXEC}, MSG_CMSG_CLOEXEC) = 244
+write(6, "\1\0\0\0\0\0\0\0", 8)         = 8
+recvmsg(5, 0xbfa60128, MSG_CMSG_CLOEXEC) = -1 EAGAIN (Resource temporarily unavailable)
+write(6, "\1\0\0\0\0\0\0\0", 8)         = 8
+clock_gettime(CLOCK_MONOTONIC, {903, 327379012}) = 0
+poll([{fd=6, events=POLLIN}, {fd=7, events=POLLIN}, {fd=5, events=POLLIN}], 3, 0) = 1 ([{fd=6, revents=POLLIN}])
+time(NULL)                              = 1420890664
+sendmsg(5, {msg_name(0)=NULL, msg_iov(2)=[{"l\2\1\1H\0\0\0\5\0\0\0(\0\0\0\6\1s\0\4\0\0\0:1.2\0\0\0\0"..., 56}, {"(\0\0\0/desktop/gnome/url-handlers/"..., 72}], msg_controllen=0, msg_flags=0}, MSG_NOSIGNAL) = 128
+clock_gettime(CLOCK_MONOTONIC, {903, 327678881}) = 0
+poll([{fd=6, events=POLLIN}, {fd=7, events=POLLIN}, {fd=5, events=POLLIN}], 3, 29744) = 1 ([{fd=6, revents=POLLIN}])
+read(6, "\3\0\0\0\0\0\0\0", 16)         = 8
+clock_gettime(CLOCK_MONOTONIC, {903, 327836876}) = 0
+clock_gettime(CLOCK_MONOTONIC, {903, 327881663}) = 0
+poll([{fd=6, events=POLLIN}, {fd=7, events=POLLIN}, {fd=5, events=POLLIN}], 3, 29743) = 1 ([{fd=5, revents=POLLIN}])
+read(6, 0xbfa602fc, 16)                 = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(CLOCK_MONOTONIC, {905, 844193947}) = 0
+write(6, "\1\0\0\0\0\0\0\0", 8)         = 8
+recvmsg(5, {msg_name(0)=NULL, msg_iov(1)=[{"l\1\0\1\0\0\0\0\7\0\0\0\205\0\0\0\1\1o\0\27\0\0\0/org/gno"..., 2048}], msg_controllen=0, msg_flags=MSG_CMSG_CLOEXEC}, MSG_CMSG_CLOEXEC) = 152
+write(6, "\1\0\0\0\0\0\0\0", 8)         = 8
+recvmsg(5, 0xbfa60128, MSG_CMSG_CLOEXEC) = -1 EAGAIN (Resource temporarily unavailable)
+write(6, "\1\0\0\0\0\0\0\0", 8)         = 8
+clock_gettime(CLOCK_MONOTONIC, {905, 844750553}) = 0
+poll([{fd=6, events=POLLIN}, {fd=7, events=POLLIN}, {fd=5, events=POLLIN}], 3, 0) = 1 ([{fd=6, revents=POLLIN}])
+sendmsg(5, {msg_name(0)=NULL, msg_iov(2)=[{"l\2\1\1 \0\0\0\6\0\0\0\37\0\0\0\6\1s\0\4\0\0\0:1.4\0\0\0\0"..., 48}, {"\33\0\0\0/org/gnome/GConf/Database/0\0", 32}], msg_controllen=0, msg_flags=0}, MSG_NOSIGNAL) = 80
+clock_gettime(CLOCK_MONOTONIC, {905, 845100792}) = 0
+poll([{fd=6, events=POLLIN}, {fd=7, events=POLLIN}, {fd=5, events=POLLIN}], 3, 27226) = 1 ([{fd=6, revents=POLLIN}])
+read(6, "\3\0\0\0\0\0\0\0", 16)         = 8
+clock_gettime(CLOCK_MONOTONIC, {905, 845372144}) = 0
+clock_gettime(CLOCK_MONOTONIC, {905, 845494089}) = 0
+poll([{fd=6, events=POLLIN}, {fd=7, events=POLLIN}, {fd=5, events=POLLIN}], 3, 27226) = 1 ([{fd=5, revents=POLLIN}])
+read(6, 0xbfa602fc, 16)                 = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(CLOCK_MONOTONIC, {905, 846668726}) = 0
+write(6, "\1\0\0\0\0\0\0\0", 8)         = 8
+recvmsg(5, {msg_name(0)=NULL, msg_iov(1)=[{"l\1\0\1@\0\0\0\10\0\0\0\235\0\0\0\1\1o\0\33\0\0\0/org/gno"..., 2048}], msg_controllen=0, msg_flags=MSG_CMSG_CLOEXEC}, MSG_CMSG_CLOEXEC) = 240
+write(6, "\1\0\0\0\0\0\0\0", 8)         = 8
+recvmsg(5, 0xbfa60128, MSG_CMSG_CLOEXEC) = -1 EAGAIN (Resource temporarily unavailable)
+write(6, "\1\0\0\0\0\0\0\0", 8)         = 8
+clock_gettime(CLOCK_MONOTONIC, {905, 847221260}) = 0
+poll([{fd=6, events=POLLIN}, {fd=7, events=POLLIN}, {fd=5, events=POLLIN}], 3, 0) = 1 ([{fd=6, revents=POLLIN}])
+time(NULL)                              = 1420890667
+sendmsg(5, {msg_name(0)=NULL, msg_iov(2)=[{"l\2\1\1x\0\0\0\7\0\0\0)\0\0\0\6\1s\0\4\0\0\0:1.4\0\0\0\0"..., 64}, {"&\0\0\0/desktop/gnome/interface/acc"..., 120}], msg_controllen=0, msg_flags=0}, MSG_NOSIGNAL) = 184
+clock_gettime(CLOCK_MONOTONIC, {905, 847650075}) = 0
+poll([{fd=6, events=POLLIN}, {fd=7, events=POLLIN}, {fd=5, events=POLLIN}], 3, 27224) = 1 ([{fd=6, revents=POLLIN}])
+read(6, "\3\0\0\0\0\0\0\0", 16)         = 8
+clock_gettime(CLOCK_MONOTONIC, {905, 847921911}) = 0
+clock_gettime(CLOCK_MONOTONIC, {905, 848039900}) = 0
+poll([{fd=6, events=POLLIN}, {fd=7, events=POLLIN}, {fd=5, events=POLLIN}], 3, 27223) = 0 (Timeout)
+read(6, 0xbfa602fc, 16)                 = -1 EAGAIN (Resource temporarily unavailable)
+clock_gettime(CLOCK_MONOTONIC, {933, 98582229}) = 0
+time(NULL)                              = 1420890694
+time(NULL)                              = 1420890694
+clock_gettime(CLOCK_MONOTONIC, {933, 98767174}) = 0
+poll([{fd=6, events=POLLIN}, {fd=7, events=POLLIN}, {fd=5, events=POLLIN}], 3, 29973

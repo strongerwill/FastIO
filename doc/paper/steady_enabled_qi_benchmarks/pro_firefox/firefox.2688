@@ -1,0 +1,178 @@
+set_robust_list(0x9ffffbb0, 0xc)        = 0
+gettid()                                = 2688
+getpriority(PRIO_PROCESS, 0)            = 20
+setpriority(PRIO_PROCESS, 2688, 0)      = 0
+futex(0xa5a12164, FUTEX_WAKE_OP_PRIVATE, 1, 1, 0xa5a12160, {FUTEX_OP_SET, 0, FUTEX_OP_CMP_GT, 1}) = 1
+futex(0xa4b68d84, FUTEX_WAIT_PRIVATE, 1, NULL) = 0
+futex(0xa4b68d34, FUTEX_WAKE_PRIVATE, 1) = 0
+futex(0xa4b68d54, FUTEX_WAKE_OP_PRIVATE, 1, 1, 0xa4b68d50, {FUTEX_OP_SET, 0, FUTEX_OP_CMP_GT, 1}) = 1
+prctl(PR_SET_NAME, 0xa1481588, 0x10, 0xb7781ff4, 0xb7781ff4) = 0
+futex(0xa4b68d54, FUTEX_WAIT_PRIVATE, 3, NULL) = 0
+futex(0xa4b68d34, FUTEX_WAKE_PRIVATE, 1) = 0
+clock_gettime(CLOCK_MONOTONIC, {903, 50033670}) = 0
+fcntl64(28, F_SETLK64, {type=F_RDLCK, whence=SEEK_SET, start=123, len=1}, 0x9fffe888) = 0
+clock_gettime(CLOCK_MONOTONIC, {903, 50178938}) = 0
+fstat64(37, {st_mode=S_IFREG|0644, st_size=10485760, ...}) = 0
+clock_gettime(CLOCK_MONOTONIC, {903, 50347822}) = 0
+clock_gettime(CLOCK_MONOTONIC, {903, 50414499}) = 0
+_llseek(37, 1015808, [1015808], SEEK_SET) = 0
+read(37, "\2\0\0\0\f{\10\0\0\0\0H\177\226\177,~\302~X}\356}\204}\32|\260|F{\334"..., 32768) = 32768
+clock_gettime(CLOCK_MONOTONIC, {903, 50683335}) = 0
+clock_gettime(CLOCK_MONOTONIC, {903, 50770550}) = 0
+_llseek(37, 1933312, [1933312], SEEK_SET) = 0
+read(37, "\n\0\0\0015\2\320\0\2\320\3\32\3^\3\373\4\230\0055\5\232\0068\6\234\7\0\7d\10\2"..., 32768) = 32768
+clock_gettime(CLOCK_MONOTONIC, {903, 51020576}) = 0
+fcntl64(28, F_SETLK64, {type=F_UNLCK, whence=SEEK_SET, start=123, len=1}, 0x9fffe898) = 0
+clock_gettime(CLOCK_MONOTONIC, {903, 51173545}) = 0
+clock_gettime(CLOCK_MONOTONIC, {903, 51227745}) = 0
+clock_gettime(CLOCK_MONOTONIC, {903, 51308617}) = 0
+fcntl64(28, F_SETLK64, {type=F_RDLCK, whence=SEEK_SET, start=123, len=1}, 0x9fffe888) = 0
+clock_gettime(CLOCK_MONOTONIC, {903, 51459716}) = 0
+fstat64(37, {st_mode=S_IFREG|0644, st_size=10485760, ...}) = 0
+clock_gettime(CLOCK_MONOTONIC, {903, 51650432}) = 0
+fcntl64(28, F_SETLK64, {type=F_UNLCK, whence=SEEK_SET, start=123, len=1}, 0x9fffe898) = 0
+clock_gettime(CLOCK_MONOTONIC, {903, 51817429}) = 0
+clock_gettime(CLOCK_MONOTONIC, {903, 51888787}) = 0
+futex(0xa4b68d84, FUTEX_WAIT_PRIVATE, 3, NULL) = 0
+futex(0xa4b68d34, FUTEX_WAKE_PRIVATE, 1) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 178226919}) = 0
+fcntl64(28, F_SETLK64, {type=F_RDLCK, whence=SEEK_SET, start=123, len=1}, 0x9fffe888) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 178354406}) = 0
+fstat64(37, {st_mode=S_IFREG|0644, st_size=10485760, ...}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 178487477}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 178564301}) = 0
+_llseek(37, 2326528, [2326528], SEEK_SET) = 0
+read(37, "\n\0\0\0\233$\6\0'\16't'\332(@(\246)\f)r)\330*>*\335+?+\243"..., 32768) = 32768
+clock_gettime(CLOCK_MONOTONIC, {908, 179563498}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 179633179}) = 0
+_llseek(37, 32768, [32768], SEEK_SET)   = 0
+read(37, "\5\0\0\0\23\177\216\0\0\0\0008\177\372\177\364\177\356\177\350\177\342\177\334\177\326\177\320\177\312\177\304"..., 32768) = 32768
+clock_gettime(CLOCK_MONOTONIC, {908, 179837383}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 179891644}) = 0
+_llseek(37, 1179648, [1179648], SEEK_SET) = 0
+read(37, "\r\0\0\0\274\1\255\0\177\237\177_\177\34~\271~x~6}\340}\205}*|\333|\247|\25"..., 32768) = 32768
+clock_gettime(CLOCK_MONOTONIC, {908, 180164057}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 180219371}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 180270214}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 180327167}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 180400479}) = 0
+fcntl64(28, F_SETLK64, {type=F_UNLCK, whence=SEEK_SET, start=123, len=1}, 0x9fffe898) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 180517509}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 180567579}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 180628535}) = 0
+fcntl64(28, F_SETLK64, {type=F_RDLCK, whence=SEEK_SET, start=123, len=1}, 0x9fffe888) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 180741340}) = 0
+fstat64(37, {st_mode=S_IFREG|0644, st_size=10485760, ...}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 180869587}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 180943434}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 180995062}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 181048889}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 181096389}) = 0
+fcntl64(28, F_SETLK64, {type=F_UNLCK, whence=SEEK_SET, start=123, len=1}, 0x9fffe898) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 181206314}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 181290472}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 181360839}) = 0
+fcntl64(28, F_SETLK64, {type=F_RDLCK, whence=SEEK_SET, start=123, len=1}, 0x9fffe888) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 181477780}) = 0
+fstat64(37, {st_mode=S_IFREG|0644, st_size=10485760, ...}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 181607146}) = 0
+futex(0xb7385040, FUTEX_WAIT_PRIVATE, 2, NULL) = 0
+futex(0xb7385040, FUTEX_WAKE_PRIVATE, 1) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 182361147}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 182413082}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 182467357}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 182515145}) = 0
+fcntl64(28, F_SETLK64, {type=F_UNLCK, whence=SEEK_SET, start=123, len=1}, 0x9fffe898) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 182627426}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 182677672}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 182740954}) = 0
+fcntl64(28, F_SETLK64, {type=F_RDLCK, whence=SEEK_SET, start=123, len=1}, 0x9fffe888) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 182854308}) = 0
+fstat64(37, {st_mode=S_IFREG|0644, st_size=10485760, ...}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 182983242}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 183044405}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 183096617}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 183153419}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 183202282}) = 0
+fcntl64(28, F_SETLK64, {type=F_UNLCK, whence=SEEK_SET, start=123, len=1}, 0x9fffe898) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 183318559}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 183369357}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 183429384}) = 0
+fcntl64(28, F_SETLK64, {type=F_RDLCK, whence=SEEK_SET, start=123, len=1}, 0x9fffe888) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 183540781}) = 0
+fstat64(37, {st_mode=S_IFREG|0644, st_size=10485760, ...}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 183667741}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 183725990}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 183776449}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 183840409}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 183888405}) = 0
+fcntl64(28, F_SETLK64, {type=F_UNLCK, whence=SEEK_SET, start=123, len=1}, 0x9fffe898) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 183997692}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 184047319}) = 0
+futex(0xa4b68d84, FUTEX_WAIT_PRIVATE, 5, NULL) = 0
+futex(0xa4b68d34, FUTEX_WAKE_PRIVATE, 1) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 184425932}) = 0
+fcntl64(28, F_SETLK64, {type=F_RDLCK, whence=SEEK_SET, start=123, len=1}, 0x9fffe888) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 184537743}) = 0
+fstat64(37, {st_mode=S_IFREG|0644, st_size=10485760, ...}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 184664539}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 184729275}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 184783363}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 184840114}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 184891086}) = 0
+fcntl64(28, F_SETLK64, {type=F_UNLCK, whence=SEEK_SET, start=123, len=1}, 0x9fffe898) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 185010230}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 185060408}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 185118586}) = 0
+fcntl64(28, F_SETLK64, {type=F_RDLCK, whence=SEEK_SET, start=123, len=1}, 0x9fffe888) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 185275963}) = 0
+fstat64(37, {st_mode=S_IFREG|0644, st_size=10485760, ...}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 185436972}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 185495555}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 185545821}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 185599368}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 185646891}) = 0
+fcntl64(28, F_SETLK64, {type=F_UNLCK, whence=SEEK_SET, start=123, len=1}, 0x9fffe898) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 185807057}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 185861529}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 185927451}) = 0
+fcntl64(28, F_SETLK64, {type=F_RDLCK, whence=SEEK_SET, start=123, len=1}, 0x9fffe888) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 186038979}) = 0
+fstat64(37, {st_mode=S_IFREG|0644, st_size=10485760, ...}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 186197888}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 186285332}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 186411911}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 186480577}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 186552308}) = 0
+fcntl64(28, F_SETLK64, {type=F_UNLCK, whence=SEEK_SET, start=123, len=1}, 0x9fffe898) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 186688367}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 186744456}) = 0
+write(23, "\372", 1)                    = 1
+clock_gettime(CLOCK_MONOTONIC, {908, 186860443}) = 0
+fcntl64(28, F_SETLK64, {type=F_RDLCK, whence=SEEK_SET, start=123, len=1}, 0x9fffe888) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 186992150}) = 0
+fstat64(37, {st_mode=S_IFREG|0644, st_size=10485760, ...}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 187120782}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 187181901}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 187232401}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 187286590}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 187331742}) = 0
+fcntl64(28, F_SETLK64, {type=F_UNLCK, whence=SEEK_SET, start=123, len=1}, 0x9fffe898) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 187436616}) = 0
+clock_gettime(CLOCK_MONOTONIC, {908, 187482796}) = 0
+futex(0xa4b68d84, FUTEX_WAIT_PRIVATE, 7, NULL) = 0
+futex(0xa4b68d34, FUTEX_WAKE_PRIVATE, 1) = 0
+fcntl64(37, F_SETLK64, {type=F_WRLCK, whence=SEEK_SET, start=1073741824, len=1}, 0x9fffef48) = -1 EBADF (Bad file descriptor)
+clock_gettime(CLOCK_MONOTONIC, {942, 891884959}) = 0
+close(44)                               = 0
+clock_gettime(CLOCK_MONOTONIC, {942, 892255900}) = 0
+clock_gettime(CLOCK_MONOTONIC, {942, 892401100}) = 0
+fstat64(37, {st_mode=S_IFREG|0644, st_size=10485760, ...}) = 0
+stat64("/home/zz/.mozilla/firefox/9vk2xjm7.default-1413374979250/places.sqlite", {st_mode=S_IFREG|0644, st_size=10485760, ...}) = 0
+clock_gettime(CLOCK_MONOTONIC, {942, 892777841}) = 0
+futex(0xa4b68d84, FUTEX_WAIT_PRIVATE, 9, NULL) = 0
+futex(0xa4b68d34, FUTEX_WAKE_PRIVATE, 1) = 0
+futex(0xa14b5f40, FUTEX_WAIT_PRIVATE, 2, NULL) = 0
+futex(0xa14b5f40, FUTEX_WAKE_PRIVATE, 1) = 0
+madvise(0x9f7ff000, 8372224, MADV_DONTNEED) = 0
+_exit(0)                                = ?

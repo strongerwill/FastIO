@@ -1,0 +1,17 @@
+set_robust_list(0xa9fffbb0, 0xc)        = 0
+prctl(PR_SET_NAME, 0xa4c60220, 0, 0, 0) = 0
+clock_gettime(CLOCK_MONOTONIC, {902, 203506030}) = 0
+clock_gettime(CLOCK_MONOTONIC, {902, 203569612}) = 0
+clock_gettime(CLOCK_MONOTONIC, {902, 203618670}) = 0
+futex(0xa4c64e84, FUTEX_WAIT_PRIVATE, 1, {0, 499950330}) = 0
+futex(0xa92ec9a0, FUTEX_WAKE_PRIVATE, 1) = 0
+clock_gettime(CLOCK_MONOTONIC, {902, 204268263}) = 0
+clock_gettime(CLOCK_MONOTONIC, {902, 204315640}) = 0
+futex(0xa4c64e84, FUTEX_WAIT_PRIVATE, 3, {0, 499952360}) = -1 ETIMEDOUT (Connection timed out)
+futex(0xa92ec9a0, FUTEX_WAKE_PRIVATE, 1) = 0
+clock_gettime(CLOCK_MONOTONIC, {902, 704572773}) = 0
+clock_gettime(CLOCK_MONOTONIC, {902, 704628723}) = 0
+futex(0xa4c64f44, FUTEX_WAIT_PRIVATE, 1, {14, 999943277}) = -1 ETIMEDOUT (Connection timed out)
+futex(0xa4c66020, FUTEX_WAKE_PRIVATE, 1) = 0
+madvise(0xa97ff000, 8372224, MADV_DONTNEED) = 0
+_exit(0)                                = ?

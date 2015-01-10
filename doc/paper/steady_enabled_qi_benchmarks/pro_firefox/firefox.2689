@@ -1,0 +1,45 @@
+set_robust_list(0x9f1ffbb0, 0xc)        = 0
+gettid()                                = 2689
+getpriority(PRIO_PROCESS, 0)            = 20
+setpriority(PRIO_PROCESS, 2689, 0)      = 0
+futex(0xa0128a24, FUTEX_WAKE_OP_PRIVATE, 1, 1, 0xa0128a20, {FUTEX_OP_SET, 0, FUTEX_OP_CMP_GT, 1}) = 1
+futex(0xa0128994, FUTEX_WAIT_PRIVATE, 1, NULL) = 0
+futex(0xa0128944, FUTEX_WAKE_PRIVATE, 1) = 0
+prctl(PR_SET_NAME, 0x9f218048, 0x10, 0xb7781ff4, 0xb7781ff4) = 0
+futex(0xa0128994, FUTEX_WAIT_PRIVATE, 3, NULL) = 0
+futex(0xa0128944, FUTEX_WAKE_PRIVATE, 1) = 0
+clock_gettime(CLOCK_MONOTONIC, {933, 332177894}) = 0
+lstat64("/home/zz/.cache/mozilla/firefox/9vk2xjm7.default-1413374979250/cache2.Trash1674815645", {st_mode=S_IFDIR|0700, st_size=4096, ...}) = 0
+stat64("/home/zz/.cache/mozilla/firefox/9vk2xjm7.default-1413374979250/cache2.Trash1674815645", {st_mode=S_IFDIR|0700, st_size=4096, ...}) = 0
+openat(AT_FDCWD, "/home/zz/.cache/mozilla/firefox/9vk2xjm7.default-1413374979250/cache2.Trash1674815645", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 53
+getdents(53, /* 4 entries */, 32768)    = 72
+lstat64("/home/zz/.cache/mozilla/firefox/9vk2xjm7.default-1413374979250/cache2.Trash1674815645/entries", {st_mode=S_IFDIR|0700, st_size=4096, ...}) = 0
+stat64("/home/zz/.cache/mozilla/firefox/9vk2xjm7.default-1413374979250/cache2.Trash1674815645/entries", {st_mode=S_IFDIR|0700, st_size=4096, ...}) = 0
+openat(AT_FDCWD, "/home/zz/.cache/mozilla/firefox/9vk2xjm7.default-1413374979250/cache2.Trash1674815645/entries", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 54
+getdents(54, /* 2 entries */, 32768)    = 32
+getdents(54, /* 0 entries */, 32768)    = 0
+close(54)                               = 0
+stat64("/home/zz/.cache/mozilla/firefox/9vk2xjm7.default-1413374979250/cache2.Trash1674815645/entries", {st_mode=S_IFDIR|0700, st_size=4096, ...}) = 0
+lstat64("/home/zz/.cache/mozilla/firefox/9vk2xjm7.default-1413374979250/cache2.Trash1674815645/entries", {st_mode=S_IFDIR|0700, st_size=4096, ...}) = 0
+rmdir("/home/zz/.cache/mozilla/firefox/9vk2xjm7.default-1413374979250/cache2.Trash1674815645/entries") = 0
+getdents(53, /* 0 entries */, 32768)    = 0
+lstat64("/home/zz/.cache/mozilla/firefox/9vk2xjm7.default-1413374979250/cache2.Trash1674815645/doomed", {st_mode=S_IFDIR|0700, st_size=4096, ...}) = 0
+stat64("/home/zz/.cache/mozilla/firefox/9vk2xjm7.default-1413374979250/cache2.Trash1674815645/doomed", {st_mode=S_IFDIR|0700, st_size=4096, ...}) = 0
+openat(AT_FDCWD, "/home/zz/.cache/mozilla/firefox/9vk2xjm7.default-1413374979250/cache2.Trash1674815645/doomed", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 54
+getdents(54, /* 2 entries */, 32768)    = 32
+getdents(54, /* 0 entries */, 32768)    = 0
+close(54)                               = 0
+stat64("/home/zz/.cache/mozilla/firefox/9vk2xjm7.default-1413374979250/cache2.Trash1674815645/doomed", {st_mode=S_IFDIR|0700, st_size=4096, ...}) = 0
+lstat64("/home/zz/.cache/mozilla/firefox/9vk2xjm7.default-1413374979250/cache2.Trash1674815645/doomed", {st_mode=S_IFDIR|0700, st_size=4096, ...}) = 0
+rmdir("/home/zz/.cache/mozilla/firefox/9vk2xjm7.default-1413374979250/cache2.Trash1674815645/doomed") = 0
+close(53)                               = 0
+stat64("/home/zz/.cache/mozilla/firefox/9vk2xjm7.default-1413374979250/cache2.Trash1674815645", {st_mode=S_IFDIR|0700, st_size=4096, ...}) = 0
+lstat64("/home/zz/.cache/mozilla/firefox/9vk2xjm7.default-1413374979250/cache2.Trash1674815645", {st_mode=S_IFDIR|0700, st_size=4096, ...}) = 0
+rmdir("/home/zz/.cache/mozilla/firefox/9vk2xjm7.default-1413374979250/cache2.Trash1674815645") = 0
+write(23, "\372", 1)                    = 1
+clock_gettime(CLOCK_MONOTONIC, {933, 335149174}) = 0
+futex(0xa0128994, FUTEX_WAIT_PRIVATE, 5, NULL) = 0
+futex(0xa0128944, FUTEX_WAKE_PRIVATE, 1) = 0
+write(23, "\372", 1)                    = 1
+madvise(0x9e9ff000, 8372224, MADV_DONTNEED) = 0
+_exit(0)                                = ?

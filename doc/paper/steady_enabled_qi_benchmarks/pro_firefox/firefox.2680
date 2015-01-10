@@ -1,0 +1,10 @@
+set_robust_list(0xa47ffbb0, 0xc)        = 0
+gettid()                                = 2680
+getpriority(PRIO_PROCESS, 0)            = 20
+setpriority(PRIO_PROCESS, 2680, 0)      = 0
+prctl(PR_SET_NAME, 0xb5826dbd, 0x10, 0xb7781ff4, 0xb7781ff4) = 0
+futex(0xa4a0f648, FUTEX_WAIT_PRIVATE, 1, NULL) = 0
+futex(0xa4a34b80, FUTEX_WAKE_PRIVATE, 1) = 0
+write(23, "\372", 1)                    = 1
+madvise(0xa3fff000, 8372224, MADV_DONTNEED) = 0
+_exit(0)                                = ?

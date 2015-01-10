@@ -1,0 +1,10 @@
+set_robust_list(0xad9ffbb0, 0xc)        = 0
+gettid()                                = 2695
+getpriority(PRIO_PROCESS, 0)            = 20
+setpriority(PRIO_PROCESS, 2695, 1)      = 0
+prctl(PR_SET_NAME, 0xb553d815, 0x10, 0xb7774ff4, 0xb7774ff4) = 0
+clock_gettime(CLOCK_MONOTONIC, {905, 407664946}) = 0
+futex(0xadb94788, FUTEX_WAIT_PRIVATE, 1, NULL) = 0
+futex(0xadb813a0, FUTEX_WAKE_PRIVATE, 1) = 0
+madvise(0xad1ff000, 8372224, MADV_DONTNEED) = 0
+_exit(0)                                = ?

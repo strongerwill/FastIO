@@ -1,0 +1,6 @@
+set_robust_list(0xaedffbb0, 0xc)        = 0
+gettid()                                = 2693
+getpriority(PRIO_PROCESS, 0)            = 20
+setpriority(PRIO_PROCESS, 2693, 0)      = 0
+prctl(PR_SET_NAME, 0xb59659d7, 0x10, 0xb7774ff4, 0xb7774ff4) = 0
+futex(0xb0e69348, FUTEX_WAIT_PRIVATE, 1, NULL
