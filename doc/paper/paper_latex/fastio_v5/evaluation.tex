@@ -137,7 +137,17 @@ than that of the cache-disabled group and this is the biggest difference among a
 
 Lmbench is used to measure CPU time that processes cost (i.e., fork+exit, fork+execve, fork+/bin/sh -c), shown in Figure \ref{fig:lmbench}. The configuration parameters are selected by default, except parameters of processor MHz, a range of memory and mail result, since CPU mhz of our test machine is $3.2$ GHz rather than the default one, memory range uses $1024$ MB to save time that Lmbench-run costs and we need no results mailed. As can be seen from the figures, command of fork+exit in cache-dynamic-enabled group costs $344$ microseconds, 11\% less than that of the cache-disabled group. and other two commands also perform well. Undoubtedly, the algorithm has reduced CPU cycles.
 
-As for I/O performance, we use netperf to evaluate the performance of network-intensive workloads. To overcome the adverse effect caused by real network jitter, we physically connect the testing machine directly to a tester machine by a network cable, and then the tester machine as a client measures a network throughput by sending a bulk of TCP packets to the testing machine being a server. Specifically, the client connects to the tested server by building a single TCP connection. Test type is TCP\_STREAM, sending buffer size is $16KB$ and connection lasts $60$ seconds. On top of that, the TCP\_STREAM test of netperf is conducted for $30$ times to obtain an average value of throughput. Throughput in cache-dynamic-enabled group is $87.93 MB$ per second, 0.02\% more than that of the cache-disabled group and this makes no difference. 
+
+\begin{figure}[ht]
+\centering
+%\includegraphics[scale=0.55]{image/iotlbflush.png} \\
+\includegraphics[width=0.5\textwidth]{image/macro/netperf.png} \\
+\caption{Netperf}
+\label{fig:netperf}
+\end{figure}
+
+
+As for I/O performance, we use netperf to evaluate the performance of network-intensive workloads. To overcome the adverse effect caused by real network jitter, we physically connect the testing machine directly to a tester machine by a network cable, and then the tester machine as a client measures a network throughput by sending a bulk of TCP packets to the testing machine being a server. Specifically, the client connects to the tested server by building a single TCP connection. Test type is TCP\_STREAM, sending buffer size is $16KB$ and connection lasts $60$ seconds. On top of that, the TCP\_STREAM test of netperf is conducted for $30$ times to obtain an average value of throughput. Throughput in cache-dynamic-enabled group is $87.93 \times 10^6$ bits per second, 0.02\% more than that of the cache-disabled group, shown in Figure \ref{fig:netperf}, and this makes no difference. 
 Seemingly, the results indicate that the algorithm has no contribution to the performance improvement, contradicting with the results from micro experiments.
 
 Actually, Nadav Amit [xxx] demonstrates that the virtual I/O memory map and unmap operations consume more CPU cycles than  that of the corresponding DMA transaction so that the IOTLB has not been observed to be a bottleneck under regular circumstances. Thus, only when the cost of frequent mapping and unmapping of IOMMU buffers is sufficiently reduced, the guest physical address resolution mechanism becomes the main bottleneck. Furthermore, he proposes the so-called pseudo pass-through mode and utilizes a high-speed I/O device (i.e., Intel’s I/O Acceleration Technology) to reduce time required by DMA map and unmap operations so that IOTLB becomes the dominant factor. As a result, it is quite reasonable that netperf results with/without the algorithm are almost the same.
