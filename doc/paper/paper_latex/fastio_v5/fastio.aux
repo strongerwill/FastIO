@@ -10,54 +10,71 @@
 \citation{I remeber one paper discussing about this}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}}
 \newlabel{sec:intro}{{1}{1}}
-\@writefile{toc}{\contentsline {section}{\numberline {2}Problem Definition}{2}}
-\newlabel{sec:prob}{{2}{2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Page Table Update in Bare-Metal Environments}{2}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Evaluation}{2}}
-\newlabel{sec:eva}{{3}{2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Experimental Setup}{2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Micro-Benchmarks}{3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Frequency of IOTLB-flush}}{3}}
-\newlabel{fig:iotlbflush}{{1}{3}}
-\newlabel{fig:subfig:a}{{2(a)}{3}}
-\newlabel{sub@fig:subfig:a}{{(a)}{3}}
-\newlabel{fig:subfig:b}{{2(b)}{3}}
-\newlabel{sub@fig:subfig:b}{{(b)}{3}}
-\newlabel{fig:subfig:c}{{2(c)}{3}}
-\newlabel{sub@fig:subfig:c}{{(c)}{3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces CPU Usage for Each Level of Page Table}}{3}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {PGD}}}{3}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {PMD}}}{3}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {PTE}}}{3}}
-\newlabel{fig:PGtime}{{2}{3}}
-\newlabel{fig:subfig:a}{{3(a)}{4}}
-\newlabel{sub@fig:subfig:a}{{(a)}{4}}
-\newlabel{fig:subfig:b}{{3(b)}{4}}
-\newlabel{sub@fig:subfig:b}{{(b)}{4}}
-\newlabel{fig:subfig:c}{{3(c)}{4}}
-\newlabel{sub@fig:subfig:c}{{(c)}{4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Cache Pools Size for Cache-Pre-Enabled Group}}{4}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {PGD}}}{4}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {PMD}}}{4}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {PTE}}}{4}}
-\newlabel{fig:prePGpool}{{3}{4}}
-\newlabel{fig:subfig:a}{{4(a)}{5}}
-\newlabel{sub@fig:subfig:a}{{(a)}{5}}
-\newlabel{fig:subfig:b}{{4(b)}{5}}
-\newlabel{sub@fig:subfig:b}{{(b)}{5}}
-\newlabel{fig:subfig:c}{{4(c)}{5}}
-\newlabel{sub@fig:subfig:c}{{(c)}{5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Cache Pools Size for Cache-Dynamic-Enabled Group}}{5}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {PGD}}}{5}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {PMD}}}{5}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {PTE}}}{5}}
-\newlabel{fig:dynPGpool}{{4}{5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Macro-Benchmarks}{5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces SPECint}}{5}}
-\newlabel{fig:spec}{{5}{5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Lmbench}}{5}}
-\newlabel{fig:lmbench}{{6}{5}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Background}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}understanding of address translation}{2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.1.1}logical to linear address translation}{2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces A translation from logical address to linear address. N.B., the translation using LDT is the same process as GDT.}}{2}}
+\newlabel{fig:log2lin}{{1}{2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.1.2}linear to physical address translation}{3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces A translation from linear address to physical address. N.B., MMU need traverse the whole page table to find the physical address.}}{3}}
+\newlabel{fig:lin2phy}{{2}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}paravirtualised MMU model}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}DMA address translation}{3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces A mapping from the request identifier to the multi-level page table}}{4}}
+\newlabel{fig: dev2dom}{{3}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces A mapping from DMA address to machine address}}{4}}
+\newlabel{fig: gpa2ma}{{4}{4}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Motivation}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces a page type update from writable to page-table}}{5}}
+\newlabel{fig:wr2pt}{{5}{5}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Problem Definition}{5}}
+\newlabel{sec:prob}{{4}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Page Table Update in Bare-Metal Environments}{5}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Evaluation}{5}}
+\newlabel{sec:eva}{{5}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Experimental Setup}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Micro-Benchmarks}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Frequency of IOTLB-flush}}{6}}
+\newlabel{fig:iotlbflush}{{6}{6}}
+\newlabel{fig:subfig:a}{{7(a)}{7}}
+\newlabel{sub@fig:subfig:a}{{(a)}{7}}
+\newlabel{fig:subfig:b}{{7(b)}{7}}
+\newlabel{sub@fig:subfig:b}{{(b)}{7}}
+\newlabel{fig:subfig:c}{{7(c)}{7}}
+\newlabel{sub@fig:subfig:c}{{(c)}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces CPU Usage for Each Level of Page Table}}{7}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {PGD}}}{7}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {PMD}}}{7}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {PTE}}}{7}}
+\newlabel{fig:PGtime}{{7}{7}}
+\newlabel{fig:subfig:a}{{8(a)}{7}}
+\newlabel{sub@fig:subfig:a}{{(a)}{7}}
+\newlabel{fig:subfig:b}{{8(b)}{7}}
+\newlabel{sub@fig:subfig:b}{{(b)}{7}}
+\newlabel{fig:subfig:c}{{8(c)}{7}}
+\newlabel{sub@fig:subfig:c}{{(c)}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Cache Pools Size for Cache-Pre-Enabled Group}}{7}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {PGD}}}{7}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {PMD}}}{7}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {PTE}}}{7}}
+\newlabel{fig:prePGpool}{{8}{7}}
+\newlabel{fig:subfig:a}{{9(a)}{8}}
+\newlabel{sub@fig:subfig:a}{{(a)}{8}}
+\newlabel{fig:subfig:b}{{9(b)}{8}}
+\newlabel{sub@fig:subfig:b}{{(b)}{8}}
+\newlabel{fig:subfig:c}{{9(c)}{8}}
+\newlabel{sub@fig:subfig:c}{{(c)}{8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Cache Pools Size for Cache-Dynamic-Enabled Group}}{8}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {PGD}}}{8}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {PMD}}}{8}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {PTE}}}{8}}
+\newlabel{fig:dynPGpool}{{9}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Macro-Benchmarks}{8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces SPECint}}{8}}
+\newlabel{fig:spec}{{10}{8}}
 \bibstyle{acm}
 \bibdata{../common/bibliography}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Netperf}}{6}}
-\newlabel{fig:netperf}{{7}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Lmbench}}{9}}
+\newlabel{fig:lmbench}{{11}{9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Netperf}}{9}}
+\newlabel{fig:netperf}{{12}{9}}

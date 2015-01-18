@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.17)  12 JAN 2015 19:25
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.17)  18 JAN 2015 22:26
 entering extended mode
 **fastio.tex
 
@@ -136,44 +136,7 @@ Package: subfigure 2002/07/30 v2.1.4 subfigure package
 \subfig@bottom=\skip48
 )
 (C:\Users\zhangzhi\Dropbox\iotlb\FastIO\FastIO\doc\paper\paper_latex\fastio_v5\
-fastio.aux
-
-LaTeX Warning: Label `fig:subfig:a' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:subfig:a' multiply defined.
-
-
-LaTeX Warning: Label `fig:subfig:b' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:subfig:b' multiply defined.
-
-
-LaTeX Warning: Label `fig:subfig:c' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:subfig:c' multiply defined.
-
-
-LaTeX Warning: Label `fig:subfig:a' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:subfig:a' multiply defined.
-
-
-LaTeX Warning: Label `fig:subfig:b' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:subfig:b' multiply defined.
-
-
-LaTeX Warning: Label `fig:subfig:c' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:subfig:c' multiply defined.
-
-)
+fastio.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
 LaTeX Font Info:    ... okay on input line 30.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
@@ -286,6 +249,9 @@ Underfull \hbox (badness 1275) in paragraph at lines 8--16
 LaTeX Warning: Reference `sec:preli' on page 2 undefined on input line 34.
 
 
+LaTeX Warning: Reference `sec:prob' on page 2 undefined on input line 34.
+
+
 LaTeX Warning: Reference `sec:rationale' on page 2 undefined on input line 34.
 
 
@@ -293,6 +259,9 @@ LaTeX Warning: Reference `sec:overview' on page 2 undefined on input line 34.
 
 
 LaTeX Warning: Reference `sec:implement' on page 2 undefined on input line 34.
+
+
+LaTeX Warning: Reference `sec:eva' on page 2 undefined on input line 34.
 
 
 LaTeX Warning: Reference `sec:dis' on page 2 undefined on input line 34.
@@ -305,6 +274,101 @@ LaTeX Warning: Reference `sec:con' on page 2 undefined on input line 34.
 
 )
 (C:\Users\zhangzhi\Dropbox\iotlb\FastIO\FastIO\doc\paper\paper_latex\fastio_v5\
+background.tex
+
+LaTeX Warning: Reference `fig:log2lin' on page 2 undefined on input line 15.
+
+<image/translation/log2lin.png, id=8, 516.9714pt x 315.0972pt>
+File: image/translation/log2lin.png Graphic file (type png)
+
+<use image/translation/log2lin.png>
+Package pdftex.def Info: image/translation/log2lin.png used on input line 23.
+(pdftex.def)             Requested size: 234.87749pt x 143.15788pt.
+
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 23--23
+ [][] 
+ []
+
+
+LaTeX Warning: Reference `fig:lin2phy' on page 2 undefined on input line 29.
+
+[2 <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/paper_latex/fastio_
+v5/image/translation/log2lin.png>]
+<image/translation/lin2phy.png, id=14, 516.9714pt x 315.0972pt>
+File: image/translation/lin2phy.png Graphic file (type png)
+
+<use image/translation/lin2phy.png>
+Package pdftex.def Info: image/translation/lin2phy.png used on input line 33.
+(pdftex.def)             Requested size: 234.87749pt x 143.15788pt.
+
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 33--33
+ [][] 
+ []
+
+
+Underfull \hbox (badness 1584) in paragraph at lines 54--55
+\OT1/ptm/m/n/10 ta-ble), PGT[]l3[]page[]table (used as an L3 page ta-
+ []
+
+[3 <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/paper_latex/fastio_
+v5/image/translation/lin2phy.png>]
+
+LaTeX Warning: Reference `fig:dev2dom' on page 4 undefined on input line 63.
+
+<image/translation/dev2dom.png, id=19, 516.9714pt x 315.0972pt>
+File: image/translation/dev2dom.png Graphic file (type png)
+
+<use image/translation/dev2dom.png>
+Package pdftex.def Info: image/translation/dev2dom.png used on input line 68.
+(pdftex.def)             Requested size: 234.87749pt x 143.15788pt.
+
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 68--68
+ [][] 
+ []
+
+
+LaTeX Warning: Reference `fig:gpa2ma' on page 4 undefined on input line 75.
+
+
+LaTeX Warning: Reference `fig:lin2phy' on page 4 undefined on input line 75.
+
+
+Underfull \hbox (badness 1275) in paragraph at lines 75--76
+[]\OT1/ptm/m/n/10 Multi-level, page-table-base struc-tures trans-lates a
+ []
+
+<image/translation/gpa2ma.png, id=20, 516.9714pt x 315.0972pt>
+File: image/translation/gpa2ma.png Graphic file (type png)
+
+<use image/translation/gpa2ma.png>
+Package pdftex.def Info: image/translation/gpa2ma.png used on input line 80.
+(pdftex.def)             Requested size: 234.87749pt x 143.15788pt.
+
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 80--80
+ [][] 
+ []
+
+)
+(C:\Users\zhangzhi\Dropbox\iotlb\FastIO\FastIO\doc\paper\paper_latex\fastio_v5\
+motivation.tex [4 <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/pape
+r_latex/fastio_v5/image/translation/dev2dom.png> <C:/Users/zhangzhi/Dropbox/iot
+lb/FastIO/FastIO/doc/paper/paper_latex/fastio_v5/image/translation/gpa2ma.png>]
+
+LaTeX Warning: Reference `fig:wr2pt' on page 5 undefined on input line 9.
+
+<image/translation/wr2pt.png, id=26, 516.9714pt x 315.0972pt>
+File: image/translation/wr2pt.png Graphic file (type png)
+
+<use image/translation/wr2pt.png>
+Package pdftex.def Info: image/translation/wr2pt.png used on input line 13.
+(pdftex.def)             Requested size: 234.87749pt x 143.15788pt.
+
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 13--13
+ [][] 
+ []
+
+)
+(C:\Users\zhangzhi\Dropbox\iotlb\FastIO\FastIO\doc\paper\paper_latex\fastio_v5\
 prob.tex)
 (C:\Users\zhangzhi\Dropbox\iotlb\FastIO\FastIO\doc\paper\paper_latex\fastio_v5\
 evaluation.tex
@@ -312,6 +376,9 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 18.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 18.
+
+Underfull \vbox (badness 2310) has occurred while \output is active []
+
 
 Underfull \hbox (badness 4699) in paragraph at lines 26--27
 []\OT1/ptm/m/n/10 Besides that, we have been aware that cre-at-
@@ -322,7 +389,9 @@ Underfull \hbox (badness 1571) in paragraph at lines 26--27
 \OT1/ptm/m/n/10 ta-ble up-dates (e.g., from a page of Writable to a
  []
 
-[2] <image/micro/iotlbflush.png, id=11, 648.9846pt x 381.1038pt>
+[5 <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/paper_latex/fastio_
+v5/image/translation/wr2pt.png>]
+<image/micro/iotlbflush.png, id=31, 648.9846pt x 381.1038pt>
 File: image/micro/iotlbflush.png Graphic file (type png)
 
 <use image/micro/iotlbflush.png>
@@ -333,21 +402,25 @@ Overfull \hbox (9.03374pt too wide) in paragraph at lines 43--43
  [][] 
  []
 
-<image/micro/PGDtime.png, id=13, 683.1924pt x 386.8854pt>
+
+LaTeX Warning: Reference `fig:iotlbflush' on page 6 undefined on input line 48.
+
+
+<image/micro/PGDtime.png, id=32, 683.1924pt x 386.8854pt>
 File: image/micro/PGDtime.png Graphic file (type png)
 
 <use image/micro/PGDtime.png>
 Package pdftex.def Info: image/micro/PGDtime.png used on input line 54.
 (pdftex.def)             Requested size: 234.87749pt x 133.00923pt.
 
-<image/micro/PMDtime.png, id=14, 665.8476pt x 363.759pt>
+<image/micro/PMDtime.png, id=33, 665.8476pt x 363.759pt>
 File: image/micro/PMDtime.png Graphic file (type png)
 
 <use image/micro/PMDtime.png>
 Package pdftex.def Info: image/micro/PMDtime.png used on input line 58.
 (pdftex.def)             Requested size: 234.87749pt x 128.3111pt.
 
-<image/micro/PTEtime.png, id=15, 660.5478pt x 363.759pt>
+<image/micro/PTEtime.png, id=34, 660.5478pt x 363.759pt>
 File: image/micro/PTEtime.png Graphic file (type png)
 
 <use image/micro/PTEtime.png>
@@ -371,21 +444,24 @@ Overfull \hbox (11.53374pt too wide) in paragraph at lines 54--63
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
-<image/micro/pre_PGDpool.png, id=16, 506.3718pt x 337.7418pt>
+
+LaTeX Warning: Reference `fig:PGtime' on page 6 undefined on input line 67.
+
+<image/micro/pre_PGDpool.png, id=35, 506.3718pt x 337.7418pt>
 File: image/micro/pre_PGDpool.png Graphic file (type png)
 
 <use image/micro/pre_PGDpool.png>
 Package pdftex.def Info: image/micro/pre_PGDpool.png used on input line 73.
 (pdftex.def)             Requested size: 234.87749pt x 156.6618pt.
 
-<image/micro/pre_PMDpool.png, id=17, 506.3718pt x 329.0694pt>
+<image/micro/pre_PMDpool.png, id=36, 506.3718pt x 329.0694pt>
 File: image/micro/pre_PMDpool.png Graphic file (type png)
 
 <use image/micro/pre_PMDpool.png>
 Package pdftex.def Info: image/micro/pre_PMDpool.png used on input line 77.
 (pdftex.def)             Requested size: 234.87749pt x 152.63908pt.
 
-<image/micro/pre_PTEpool.png, id=18, 512.1534pt x 337.7418pt>
+<image/micro/pre_PTEpool.png, id=37, 512.1534pt x 337.7418pt>
 File: image/micro/pre_PTEpool.png Graphic file (type png)
 
 <use image/micro/pre_PTEpool.png>
@@ -406,27 +482,24 @@ Overfull \hbox (11.53374pt too wide) in paragraph at lines 73--82
  [] 
  []
 
-[3 <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/paper_latex/fastio_
-v5/image/micro/iotlbflush.png> <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/d
-oc/paper/paper_latex/fastio_v5/image/micro/PGDtime.png> <C:/Users/zhangzhi/Drop
-box/iotlb/FastIO/FastIO/doc/paper/paper_latex/fastio_v5/image/micro/PMDtime.png
-> <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/paper_latex/fastio_v
-5/image/micro/PTEtime.png>]
-<image/micro/dyn_PGDpool.png, id=26, 506.3718pt x 337.7418pt>
+
+LaTeX Warning: Reference `fig:prePGpool' on page 6 undefined on input line 86.
+
+<image/micro/dyn_PGDpool.png, id=38, 506.3718pt x 337.7418pt>
 File: image/micro/dyn_PGDpool.png Graphic file (type png)
 
 <use image/micro/dyn_PGDpool.png>
 Package pdftex.def Info: image/micro/dyn_PGDpool.png used on input line 98.
 (pdftex.def)             Requested size: 234.87749pt x 156.6618pt.
 
-<image/micro/dyn_PMDpool.png, id=27, 506.3718pt x 337.7418pt>
+<image/micro/dyn_PMDpool.png, id=39, 506.3718pt x 337.7418pt>
 File: image/micro/dyn_PMDpool.png Graphic file (type png)
 
 <use image/micro/dyn_PMDpool.png>
 Package pdftex.def Info: image/micro/dyn_PMDpool.png used on input line 102.
 (pdftex.def)             Requested size: 234.87749pt x 156.6618pt.
 
-<image/micro/dyn_PTEpool.png, id=28, 517.935pt x 337.7418pt>
+<image/micro/dyn_PTEpool.png, id=40, 517.935pt x 337.7418pt>
 File: image/micro/dyn_PTEpool.png Graphic file (type png)
 
 <use image/micro/dyn_PTEpool.png>
@@ -447,11 +520,28 @@ Overfull \hbox (11.53374pt too wide) in paragraph at lines 98--107
  [] 
  []
 
-[4 <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/paper_latex/fastio_
-v5/image/micro/pre_PGDpool.png> <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/
-doc/paper/paper_latex/fastio_v5/image/micro/pre_PMDpool.png> <C:/Users/zhangzhi
-/Dropbox/iotlb/FastIO/FastIO/doc/paper/paper_latex/fastio_v5/image/micro/pre_PT
-Epool.png>] <image/macro/spec.png, id=39, 688.974pt x 406.6392pt>
+
+LaTeX Warning: Reference `fig:iotlbflush' on page 6 undefined on input line 111
+.
+
+
+LaTeX Warning: Reference `fig:PGtime' on page 6 undefined on input line 111.
+
+
+LaTeX Warning: Reference `fig:dynPGpool' on page 6 undefined on input line 111.
+
+
+[6 <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/paper_latex/fastio_
+v5/image/micro/iotlbflush.png>] [7 <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/Fast
+IO/doc/paper/paper_latex/fastio_v5/image/micro/PGDtime.png> <C:/Users/zhangzhi/
+Dropbox/iotlb/FastIO/FastIO/doc/paper/paper_latex/fastio_v5/image/micro/PMDtime
+.png> <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/paper_latex/fast
+io_v5/image/micro/PTEtime.png> <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/d
+oc/paper/paper_latex/fastio_v5/image/micro/pre_PGDpool.png> <C:/Users/zhangzhi/
+Dropbox/iotlb/FastIO/FastIO/doc/paper/paper_latex/fastio_v5/image/micro/pre_PMD
+pool.png> <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/paper_latex/
+fastio_v5/image/micro/pre_PTEpool.png>]
+<image/macro/spec.png, id=59, 688.974pt x 406.6392pt>
 File: image/macro/spec.png Graphic file (type png)
 
 <use image/macro/spec.png>
@@ -463,11 +553,14 @@ Overfull \hbox (9.03374pt too wide) in paragraph at lines 122--122
  []
 
 
+LaTeX Warning: Reference `fig:spec' on page 8 undefined on input line 127.
+
+
 Underfull \hbox (badness 1831) in paragraph at lines 127--129
 \OT1/ptm/m/n/10 they are all in-voked with EXAMPLE-linux64-ia32-
  []
 
-<image/macro/lmbench.png, id=40, 688.974pt x 406.6392pt>
+<image/macro/lmbench.png, id=60, 688.974pt x 406.6392pt>
 File: image/macro/lmbench.png Graphic file (type png)
 
 <use image/macro/lmbench.png>
@@ -478,14 +571,16 @@ Overfull \hbox (9.03374pt too wide) in paragraph at lines 133--133
  [][] 
  []
 
-[5 <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/paper_latex/fastio_
+
+LaTeX Warning: Reference `fig:lmbench' on page 8 undefined on input line 138.
+
+[8 <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/paper_latex/fastio_
 v5/image/micro/dyn_PGDpool.png> <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/
 doc/paper/paper_latex/fastio_v5/image/micro/dyn_PMDpool.png> <C:/Users/zhangzhi
 /Dropbox/iotlb/FastIO/FastIO/doc/paper/paper_latex/fastio_v5/image/micro/dyn_PT
 Epool.png> <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/paper_latex
-/fastio_v5/image/macro/spec.png> <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO
-/doc/paper/paper_latex/fastio_v5/image/macro/lmbench.png>]
-<image/macro/netperf.png, id=49, 600.8046pt x 225.9642pt>
+/fastio_v5/image/macro/spec.png>]
+<image/macro/netperf.png, id=68, 600.8046pt x 225.9642pt>
 File: image/macro/netperf.png Graphic file (type png)
 
 <use image/macro/netperf.png>
@@ -496,32 +591,34 @@ Overfull \hbox (9.03374pt too wide) in paragraph at lines 144--144
  [][] 
  []
 
+
+LaTeX Warning: Reference `fig:netperf' on page 9 undefined on input line 150.
+
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
 )
 No file fastio.bbl.
-[6
-
- <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/paper_latex/fastio_v5
-/image/macro/netperf.png>]
+[9 <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/paper_latex/fastio_
+v5/image/macro/lmbench.png> <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/
+paper/paper_latex/fastio_v5/image/macro/netperf.png>]
 (C:\Users\zhangzhi\Dropbox\iotlb\FastIO\FastIO\doc\paper\paper_latex\fastio_v5\
 fastio.aux)
 
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 1644 strings out of 494045
- 24051 string characters out of 3148378
- 77843 words of memory out of 3000000
- 4904 multiletter control sequences out of 15000+200000
+ 1683 strings out of 494045
+ 25261 string characters out of 3148378
+ 77661 words of memory out of 3000000
+ 4931 multiletter control sequences out of 15000+200000
  33846 words of font info for 69 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 34i,8n,24p,985b,254s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 34i,8n,24p,1097b,254s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/font
@@ -529,9 +626,9 @@ s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 urw/symbol/usyr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.p
 fb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on fastio.pdf (6 pages, 664213 bytes).
+Output written on fastio.pdf (9 pages, 852122 bytes).
 PDF statistics:
- 77 PDF objects out of 1000 (max. 8388607)
+ 98 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 66 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 91 words of extra memory for PDF output out of 10000 (max. 10000000)
 

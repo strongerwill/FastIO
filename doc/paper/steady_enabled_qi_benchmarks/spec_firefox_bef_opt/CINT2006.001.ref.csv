@@ -1,0 +1,335 @@
+valid,1
+
+"Full Results Table"
+
+Benchmark,"Base Ref Time","Base Run Time","Base Ratio","Base Selected","Base Status","Peak Ref Time","Peak Run Time","Peak Ratio","Peak Selected","Peak Status",Description
+400.perlbench,9770,364.997988,26.767271,0,S,,,,,,"ref iteration #1"
+400.perlbench,9770,368.615029,26.504617,0,S,,,,,,"ref iteration #2"
+400.perlbench,9770,366.391081,26.665496,1,S,,,,,,"ref iteration #3"
+401.bzip2,9650,564.346833,17.099414,1,S,,,,,,"ref iteration #1"
+401.bzip2,9650,565.801011,17.055466,0,S,,,,,,"ref iteration #2"
+401.bzip2,9650,564.187447,17.104244,0,S,,,,,,"ref iteration #3"
+403.gcc,8050,367.257446,21.919229,0,S,,,,,,"ref iteration #1"
+403.gcc,8050,365.897728,22.000683,0,S,,,,,,"ref iteration #2"
+403.gcc,8050,367.182087,21.923727,1,S,,,,,,"ref iteration #3"
+429.mcf,9120,284.139038,32.096962,0,S,,,,,,"ref iteration #1"
+429.mcf,9120,285.322448,31.963836,1,S,,,,,,"ref iteration #2"
+429.mcf,9120,287.587247,31.712116,0,S,,,,,,"ref iteration #3"
+445.gobmk,10490,488.07334,21.492672,0,S,,,,,,"ref iteration #1"
+445.gobmk,10490,487.441899,21.520514,0,S,,,,,,"ref iteration #2"
+445.gobmk,10490,487.791436,21.505093,1,S,,,,,,"ref iteration #3"
+456.hmmer,9330,458.824796,20.334559,0,S,,,,,,"ref iteration #1"
+456.hmmer,9330,458.991196,20.327187,0,S,,,,,,"ref iteration #2"
+456.hmmer,9330,458.959924,20.328572,1,S,,,,,,"ref iteration #3"
+458.sjeng,12100,568.862622,21.270513,0,S,,,,,,"ref iteration #1"
+458.sjeng,12100,568.999037,21.265414,1,S,,,,,,"ref iteration #2"
+458.sjeng,12100,569.170228,21.259018,0,S,,,,,,"ref iteration #3"
+462.libquantum,20720,542.495929,38.193835,1,S,,,,,,"ref iteration #1"
+462.libquantum,20720,543.17405,38.146152,0,S,,,,,,"ref iteration #2"
+462.libquantum,20720,542.193045,38.215171,0,S,,,,,,"ref iteration #3"
+464.h264ref,22130,602.801168,36.711939,1,S,,,,,,"ref iteration #1"
+464.h264ref,22130,602.672257,36.719792,0,S,,,,,,"ref iteration #2"
+464.h264ref,22130,602.879229,36.707186,0,S,,,,,,"ref iteration #3"
+471.omnetpp,6250,298.477524,20.9396,0,S,,,,,,"ref iteration #1"
+471.omnetpp,6250,297.872751,20.982114,1,S,,,,,,"ref iteration #2"
+471.omnetpp,6250,297.527139,21.006487,0,S,,,,,,"ref iteration #3"
+473.astar,7020,476.729806,14.725322,0,S,,,,,,"ref iteration #1"
+473.astar,7020,476.111546,14.744444,1,S,,,,,,"ref iteration #2"
+473.astar,7020,474.969439,14.779898,0,S,,,,,,"ref iteration #3"
+483.xalancbmk,6900,236.427645,29.184404,0,S,,,,,,"ref iteration #1"
+483.xalancbmk,6900,239.766966,28.777943,1,S,,,,,,"ref iteration #2"
+483.xalancbmk,6900,242.024884,28.509465,0,S,,,,,,"ref iteration #3"
+
+"Selected Results Table"
+
+Benchmark,"Base Ref Time","Base Run Time","Base Ratio","Base Selected","Base Status","Peak Ref Time","Peak Run Time","Peak Ratio","Peak Selected","Peak Status",Description
+400.perlbench,9770,366.391081,26.665496,1,S,,,,,NR,"SelectedIteration (base #3)"
+401.bzip2,9650,564.346833,17.099414,1,S,,,,,NR,"SelectedIteration (base #1)"
+403.gcc,8050,367.182087,21.923727,1,S,,,,,NR,"SelectedIteration (base #3)"
+429.mcf,9120,285.322448,31.963836,1,S,,,,,NR,"SelectedIteration (base #2)"
+445.gobmk,10490,487.791436,21.505093,1,S,,,,,NR,"SelectedIteration (base #3)"
+456.hmmer,9330,458.959924,20.328572,1,S,,,,,NR,"SelectedIteration (base #3)"
+458.sjeng,12100,568.999037,21.265414,1,S,,,,,NR,"SelectedIteration (base #2)"
+462.libquantum,20720,542.495929,38.193835,1,S,,,,,NR,"SelectedIteration (base #1)"
+464.h264ref,22130,602.801168,36.711939,1,S,,,,,NR,"SelectedIteration (base #1)"
+471.omnetpp,6250,297.872751,20.982114,1,S,,,,,NR,"SelectedIteration (base #2)"
+473.astar,7020,476.111546,14.744444,1,S,,,,,NR,"SelectedIteration (base #2)"
+483.xalancbmk,6900,239.766966,28.777943,1,S,,,,,NR,"SelectedIteration (base #2)"
+
+SPECint_base2006,24.030548,,24.030548
+SPECint2006,"Not Run",,,,,,,"Not Run"
+
+"Run number:",001
+
+"Hardware Vendor:","System Vendor"
+"Hardware Model:","System Model Name"
+"Date tested:",Jan-2015
+"CPU2006 License:",0
+"Test sponsor:","Test Sponsor (Optional, defaults to hw_vendor)"
+"Tested by:","(Optional, defaults to hw_vendor)"
+"Hardware avail:",Dec-9999
+"Software avail:",May-2010
+
+
+HARDWARE
+
+"CPU Name","Intel Core i5-3470"
+"CPU Characteristics"," "
+"CPU MHz",9999
+FPU,Integrated
+"CPU(s) enabled","9999 cores, 1 chip, 9999 cores/chip"
+"CPU(s) orderable","1,2 chips"
+"Primary Cache","9999 KB I + 9999 KB D on chip per core"
+"Secondary Cache","9999 KB I+D on chip per core"
+"L3 Cache","9999 MB I+D on chip per chip"
+"Other Cache",None
+Memory,"3.341 GB fixme: If using DDR3, format is:"
+,"'N GB (M x N GB nRxn PCn-nnnnnR-n, ECC)'"
+"Disk Subsystem","53 GB  add more disk info here"
+"Other Hardware",None
+
+SOFTWARE
+
+"Operating System","Ubuntu 12.04.5 LTS"
+,3.2.0-rc1
+Compiler,"gcc, g++ & gfortran 4.3.4"
+"Auto Parallel",No
+"File System",ext4
+"System State","Run level 2 (add definition here)"
+"Base Pointers",32-bit
+"Peak Pointers",32-bit
+"Other Software",None
+
+"Submit Notes"
+
+"'numactl' was used to bind copies to the cores."
+"See the configuration file for details."
+
+"Operating System Notes"
+
+"'ulimit -s unlimited' was used to set environment stack size"
+
+"Platform Notes"
+
+" Sysinfo program /root/install_spec/Docs/sysinfo"
+" $Rev: 6775 $ $Date:: 2011-08-16 #$ 8787f7622badcf24e01c368b1db4377c"
+" running on zz Sat Jan  3 18:50:39 2015"
+
+" This section contains SUT (System Under Test) info as seen by"
+" some common utilities.  To remove or add to this section, see:"
+"   http://www.spec.org/cpu2006/Docs/config.html#sysinfo"
+
+" From /proc/cpuinfo"
+"    model name : Intel(R) Core(TM) i5-3470 CPU @ 3.20GHz"
+"       1 ""physical id""s (chips)"
+"       4 ""processors"""
+"    cores, siblings (Caution: counting these is hw and system dependent.  The"
+"    following excerpts from /proc/cpuinfo might not be reliable.  Use with"
+"    caution.)"
+"       cpu cores : 1"
+"       siblings  : 1"
+"       physical 0: cores 0 1 2 3"
+"    cache size : 6144 KB"
+
+" From /proc/meminfo"
+"    MemTotal:        3502872 kB"
+"    HugePages_Total:       0"
+"    Hugepagesize:       2048 kB"
+
+" /usr/bin/lsb_release -d"
+"    Ubuntu 12.04.5 LTS"
+
+" From /etc/*release* /etc/*version*"
+"    debian_version: wheezy/sid"
+"    os-release:"
+"       NAME=""Ubuntu"""
+"       VERSION=""12.04.5 LTS, Precise Pangolin"""
+"       ID=ubuntu"
+"       ID_LIKE=debian"
+"       PRETTY_NAME=""Ubuntu precise (12.04.5 LTS)"""
+"       VERSION_ID=""12.04"""
+
+" uname -a:"
+"    Linux zz 3.2.0-rc1 #306 SMP Sun Dec 28 18:32:05 CST 2014 i686 i686 i386"
+"    GNU/Linux"
+
+" run-level 2 Jan 3 18:32"
+
+" SPEC is set to: /root/install_spec"
+"    Filesystem     Type  Size  Used Avail Use% Mounted on"
+"    /dev/sda9      ext4   53G   21G   29G  43% /"
+
+" (End of data from sysinfo program)"
+
+"Base Compiler Invocation"
+400.perlbench," /usr/bin/gcc"," /usr/bin/gcc"
+401.bzip2," /usr/bin/gcc"," /usr/bin/gcc"
+403.gcc," /usr/bin/gcc"," /usr/bin/gcc"
+429.mcf," /usr/bin/gcc"," /usr/bin/gcc"
+445.gobmk," /usr/bin/gcc"," /usr/bin/gcc"
+456.hmmer," /usr/bin/gcc"," /usr/bin/gcc"
+458.sjeng," /usr/bin/gcc"," /usr/bin/gcc"
+462.libquantum," /usr/bin/gcc"," /usr/bin/gcc"
+464.h264ref," /usr/bin/gcc"," /usr/bin/gcc"
+471.omnetpp," /usr/bin/g++"," /usr/bin/g++"
+473.astar," /usr/bin/g++"," /usr/bin/g++"
+483.xalancbmk," /usr/bin/g++"," /usr/bin/g++"
+
+"Base Portability Flags"
+400.perlbench," -DSPEC_CPU_LINUX"
+401.bzip2
+403.gcc
+429.mcf
+445.gobmk
+456.hmmer
+458.sjeng
+462.libquantum," -DSPEC_CPU_LINUX"
+464.h264ref
+471.omnetpp
+473.astar
+483.xalancbmk," -DSPEC_CPU_LINUX"
+
+"Base Optimization Flags"
+400.perlbench," -O2"," -fno-strict-aliasing"
+401.bzip2," -O2"," -fno-strict-aliasing"
+403.gcc," -O2"," -fno-strict-aliasing"
+429.mcf," -O2"," -fno-strict-aliasing"
+445.gobmk," -O2"," -fno-strict-aliasing"
+456.hmmer," -O2"," -fno-strict-aliasing"
+458.sjeng," -O2"," -fno-strict-aliasing"
+462.libquantum," -O2"," -fno-strict-aliasing"
+464.h264ref," -O2"," -fno-strict-aliasing"
+471.omnetpp," -O2"," -fno-strict-aliasing"
+473.astar," -O2"," -fno-strict-aliasing"
+483.xalancbmk," -O2"," -fno-strict-aliasing"
+
+"Base Other Flags"
+400.perlbench," -m32"
+401.bzip2," -m32"
+403.gcc," -m32"
+429.mcf," -m32"
+445.gobmk," -m32"
+456.hmmer," -m32"
+458.sjeng," -m32"
+462.libquantum," -m32"
+464.h264ref," -m32"
+471.omnetpp," -m32"
+473.astar," -m32"
+483.xalancbmk," -m32"
+
+"Base Forbidden Flags"
+400.perlbench
+401.bzip2
+403.gcc
+429.mcf
+445.gobmk
+456.hmmer
+458.sjeng
+462.libquantum
+464.h264ref
+471.omnetpp
+473.astar
+483.xalancbmk
+
+"Base Unknown Flags"
+400.perlbench
+401.bzip2
+403.gcc
+429.mcf
+445.gobmk
+456.hmmer
+458.sjeng
+462.libquantum
+464.h264ref
+471.omnetpp
+473.astar
+483.xalancbmk
+
+"Peak Compiler Invocation"
+400.perlbench
+401.bzip2
+403.gcc
+429.mcf
+445.gobmk
+456.hmmer
+458.sjeng
+462.libquantum
+464.h264ref
+471.omnetpp
+473.astar
+483.xalancbmk
+
+"Peak Portability Flags"
+400.perlbench
+401.bzip2
+403.gcc
+429.mcf
+445.gobmk
+456.hmmer
+458.sjeng
+462.libquantum
+464.h264ref
+471.omnetpp
+473.astar
+483.xalancbmk
+
+"Peak Optimization Flags"
+400.perlbench
+401.bzip2
+403.gcc
+429.mcf
+445.gobmk
+456.hmmer
+458.sjeng
+462.libquantum
+464.h264ref
+471.omnetpp
+473.astar
+483.xalancbmk
+
+"Peak Other Flags"
+400.perlbench
+401.bzip2
+403.gcc
+429.mcf
+445.gobmk
+456.hmmer
+458.sjeng
+462.libquantum
+464.h264ref
+471.omnetpp
+473.astar
+483.xalancbmk
+
+"Peak Forbidden Flags"
+400.perlbench
+401.bzip2
+403.gcc
+429.mcf
+445.gobmk
+456.hmmer
+458.sjeng
+462.libquantum
+464.h264ref
+471.omnetpp
+473.astar
+483.xalancbmk
+
+"Peak Unknown Flags"
+400.perlbench
+401.bzip2
+403.gcc
+429.mcf
+445.gobmk
+456.hmmer
+458.sjeng
+462.libquantum
+464.h264ref
+471.omnetpp
+473.astar
+483.xalancbmk
+----------------
+"For questions about","this result, please","contact the tester.",
+"For other inquiries,","please contact",webmaster@spec.org.,
+"Copyright 2006-2015 Standard","Performance Evaluation",Corporation,
+"Tested with SPEC CPU2006 ","v1.2.  Report","generated on ","Sat Jan  3 23:34:59 2015","by SPEC CPU2006 CSV","formatter v6364."
