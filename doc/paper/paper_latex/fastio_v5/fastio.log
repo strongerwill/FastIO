@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.17)  18 JAN 2015 22:26
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.17)  18 JAN 2015 22:35
 entering extended mode
 **fastio.tex
 
@@ -136,7 +136,44 @@ Package: subfigure 2002/07/30 v2.1.4 subfigure package
 \subfig@bottom=\skip48
 )
 (C:\Users\zhangzhi\Dropbox\iotlb\FastIO\FastIO\doc\paper\paper_latex\fastio_v5\
-fastio.aux)
+fastio.aux
+
+LaTeX Warning: Label `fig:subfig:a' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subfig:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:subfig:b' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subfig:b' multiply defined.
+
+
+LaTeX Warning: Label `fig:subfig:c' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subfig:c' multiply defined.
+
+
+LaTeX Warning: Label `fig:subfig:a' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subfig:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:subfig:b' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subfig:b' multiply defined.
+
+
+LaTeX Warning: Label `fig:subfig:c' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subfig:c' multiply defined.
+
+)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
 LaTeX Font Info:    ... okay on input line 30.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
@@ -249,9 +286,6 @@ Underfull \hbox (badness 1275) in paragraph at lines 8--16
 LaTeX Warning: Reference `sec:preli' on page 2 undefined on input line 34.
 
 
-LaTeX Warning: Reference `sec:prob' on page 2 undefined on input line 34.
-
-
 LaTeX Warning: Reference `sec:rationale' on page 2 undefined on input line 34.
 
 
@@ -259,9 +293,6 @@ LaTeX Warning: Reference `sec:overview' on page 2 undefined on input line 34.
 
 
 LaTeX Warning: Reference `sec:implement' on page 2 undefined on input line 34.
-
-
-LaTeX Warning: Reference `sec:eva' on page 2 undefined on input line 34.
 
 
 LaTeX Warning: Reference `sec:dis' on page 2 undefined on input line 34.
@@ -274,11 +305,7 @@ LaTeX Warning: Reference `sec:con' on page 2 undefined on input line 34.
 
 )
 (C:\Users\zhangzhi\Dropbox\iotlb\FastIO\FastIO\doc\paper\paper_latex\fastio_v5\
-background.tex
-
-LaTeX Warning: Reference `fig:log2lin' on page 2 undefined on input line 15.
-
-<image/translation/log2lin.png, id=8, 516.9714pt x 315.0972pt>
+background.tex <image/translation/log2lin.png, id=8, 516.9714pt x 315.0972pt>
 File: image/translation/log2lin.png Graphic file (type png)
 
 <use image/translation/log2lin.png>
@@ -288,9 +315,6 @@ Package pdftex.def Info: image/translation/log2lin.png used on input line 23.
 Overfull \hbox (9.03374pt too wide) in paragraph at lines 23--23
  [][] 
  []
-
-
-LaTeX Warning: Reference `fig:lin2phy' on page 2 undefined on input line 29.
 
 [2 <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/paper_latex/fastio_
 v5/image/translation/log2lin.png>]
@@ -330,9 +354,6 @@ Overfull \hbox (9.03374pt too wide) in paragraph at lines 68--68
 LaTeX Warning: Reference `fig:gpa2ma' on page 4 undefined on input line 75.
 
 
-LaTeX Warning: Reference `fig:lin2phy' on page 4 undefined on input line 75.
-
-
 Underfull \hbox (badness 1275) in paragraph at lines 75--76
 []\OT1/ptm/m/n/10 Multi-level, page-table-base struc-tures trans-lates a
  []
@@ -353,9 +374,6 @@ Overfull \hbox (9.03374pt too wide) in paragraph at lines 80--80
 motivation.tex [4 <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/pape
 r_latex/fastio_v5/image/translation/dev2dom.png> <C:/Users/zhangzhi/Dropbox/iot
 lb/FastIO/FastIO/doc/paper/paper_latex/fastio_v5/image/translation/gpa2ma.png>]
-
-LaTeX Warning: Reference `fig:wr2pt' on page 5 undefined on input line 9.
-
 <image/translation/wr2pt.png, id=26, 516.9714pt x 315.0972pt>
 File: image/translation/wr2pt.png Graphic file (type png)
 
@@ -376,9 +394,6 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 18.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 18.
-
-Underfull \vbox (badness 2310) has occurred while \output is active []
-
 
 Underfull \hbox (badness 4699) in paragraph at lines 26--27
 []\OT1/ptm/m/n/10 Besides that, we have been aware that cre-at-
@@ -401,10 +416,6 @@ Package pdftex.def Info: image/micro/iotlbflush.png used on input line 43.
 Overfull \hbox (9.03374pt too wide) in paragraph at lines 43--43
  [][] 
  []
-
-
-LaTeX Warning: Reference `fig:iotlbflush' on page 6 undefined on input line 48.
-
 
 <image/micro/PGDtime.png, id=32, 683.1924pt x 386.8854pt>
 File: image/micro/PGDtime.png Graphic file (type png)
@@ -444,9 +455,6 @@ Overfull \hbox (11.53374pt too wide) in paragraph at lines 54--63
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
-
-LaTeX Warning: Reference `fig:PGtime' on page 6 undefined on input line 67.
-
 <image/micro/pre_PGDpool.png, id=35, 506.3718pt x 337.7418pt>
 File: image/micro/pre_PGDpool.png Graphic file (type png)
 
@@ -481,9 +489,6 @@ Overfull \hbox (11.53374pt too wide) in paragraph at lines 73--82
 Overfull \hbox (11.53374pt too wide) in paragraph at lines 73--82
  [] 
  []
-
-
-LaTeX Warning: Reference `fig:prePGpool' on page 6 undefined on input line 86.
 
 <image/micro/dyn_PGDpool.png, id=38, 506.3718pt x 337.7418pt>
 File: image/micro/dyn_PGDpool.png Graphic file (type png)
@@ -520,17 +525,6 @@ Overfull \hbox (11.53374pt too wide) in paragraph at lines 98--107
  [] 
  []
 
-
-LaTeX Warning: Reference `fig:iotlbflush' on page 6 undefined on input line 111
-.
-
-
-LaTeX Warning: Reference `fig:PGtime' on page 6 undefined on input line 111.
-
-
-LaTeX Warning: Reference `fig:dynPGpool' on page 6 undefined on input line 111.
-
-
 [6 <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/paper_latex/fastio_
 v5/image/micro/iotlbflush.png>] [7 <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/Fast
 IO/doc/paper/paper_latex/fastio_v5/image/micro/PGDtime.png> <C:/Users/zhangzhi/
@@ -553,9 +547,6 @@ Overfull \hbox (9.03374pt too wide) in paragraph at lines 122--122
  []
 
 
-LaTeX Warning: Reference `fig:spec' on page 8 undefined on input line 127.
-
-
 Underfull \hbox (badness 1831) in paragraph at lines 127--129
 \OT1/ptm/m/n/10 they are all in-voked with EXAMPLE-linux64-ia32-
  []
@@ -570,9 +561,6 @@ Package pdftex.def Info: image/macro/lmbench.png used on input line 133.
 Overfull \hbox (9.03374pt too wide) in paragraph at lines 133--133
  [][] 
  []
-
-
-LaTeX Warning: Reference `fig:lmbench' on page 8 undefined on input line 138.
 
 [8 <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/paper_latex/fastio_
 v5/image/micro/dyn_PGDpool.png> <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/
@@ -591,9 +579,6 @@ Overfull \hbox (9.03374pt too wide) in paragraph at lines 144--144
  [][] 
  []
 
-
-LaTeX Warning: Reference `fig:netperf' on page 9 undefined on input line 150.
-
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
@@ -608,13 +593,13 @@ fastio.aux)
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
  1683 strings out of 494045
  25261 string characters out of 3148378
- 77661 words of memory out of 3000000
+ 77886 words of memory out of 3000000
  4931 multiletter control sequences out of 15000+200000
  33846 words of font info for 69 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
@@ -626,7 +611,7 @@ s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 urw/symbol/usyr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.p
 fb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on fastio.pdf (9 pages, 852122 bytes).
+Output written on fastio.pdf (9 pages, 851859 bytes).
 PDF statistics:
  98 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
