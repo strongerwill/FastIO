@@ -1,8 +1,15 @@
 \section{Introduction} \label{sec:intro}
-The para-virtualization technology~\cite{XEN-SOPS03,denali-paravirtualization} is able to defend against the attacks from the software within guest Virtual Machines (VMs), but it is not armed with efficient protection approach to prevent DMA attacks~\cite{disaggregation}. To fix this gap, Intel and AMD propose the I/O virtualization (AMD-Vi~\cite{amdvt} and Intel VT-d~\cite{intelvt}) technology, which introduces a new Input/Output Memory Management Unit (IOMMU) to restrict DMA accesses on the specific physical memory addresses. Thus, the hypervisor could leverage IOMMU to protect itself by setting its occupied memory regions inaccessible for all DMA accesses. It is true for the hypervisor in the full virtualization (e.g., Hardware Virtual Machines (HVMs) and Xen~\cite{XEN-SOPS03}), since the memory boundary between the hypervisor and guest VMs are clear and statically fixed.
+The para-virtualization technology~\cite{XEN-SOPS03,denali-paravirtualization} is able to defend against the attacks from the software within guest Virtual Machines (VMs), but it is not armed with efficient protection approach to prevent DMA attacks~\cite{disaggregation}. 
+To fix this gap, Intel and AMD propose the I/O virtualization (AMD-Vi~\cite{amdvt} and Intel VT-d~\cite{intelvt}) technology, which introduces a new Input/Output Memory Management Unit (IOMMU) to restrict DMA accesses on the specific physical memory addresses. 
+Besides protecting the memory regions occupied by itself, the hypervisor also need to protect certain security-critical data strctures, like page tables, which are shared by the hypervisor and the guest VMs.
 
 
-If the hypervisor and the guest VMs work in full virtualization (e.g., Hardware Virtual Machines (HVMs) and Xen~\cite{XEN-SOPS03}), the above solution is clean and secure to defend against both software and DMA attacks from guest VMs. However, in paravirtualized environment, there are many security-critical data structures, like Global Descriptor Table (GDT) and page tables, that are inevitably used by both the hypervisor and the guest VM~\cite{A novel hardware assisted full virtualization technique?, I remeber one paper discussing about this}. In such situations, the adversary could launch DMA requests to illicitly modify those shared data structures to open the door for the malicious guest software to bypass the security restrictions set by the hypervisor.
+Intuitiviely, the hypervisor could leverage IOMMU to protect itself by setting its occupied memory regions inaccessible for all DMA accesses. 
+However, it is not true for the paravirtualized hypervisors (e.g., Xen). 
+In fact, in paravirtualized environment, there are many security-critical data structures, like Global Descriptor Table (GDT) and page tables, shared by both hypervisor and guest VMs~\cite{xxx}. 
+In such situations, only protecting the hypervisor's memory regions is far enough, as the adversary could launch DMA requests to illicitly modify those shared data structures (e.g., page tables). 
+Once these security restrictions are broken, the malicious VM's software would be able to levearge these vulnerabilities to compromise the hypervisor.
+
 
 %Highlight the problem, and emphasise the importance.
 I/O devices generate interrupts to asynchronously communicate
