@@ -1,38 +1,30 @@
 \section{Motivation}
+
 \yueqiang{Key Observation 1: Page type updates have impacts on the IOTLB miss, and thereby affect I/O performance}
-<<<<<<< HEAD
-=======
-
 \yueqiang{To serve the first observation, we need 7 page types and their update graph. Any update needs a corresponding validation $->$ IOTLB flush.}
 
-
 \yueqiang{Key Observation 2: The main source of the page type update is from writable-to-pagetable page update.}
-
 \yueqiang{To serve the second observation, we need 7 page types and their update graph. All other updates are only once in the whole life cycle, while the writable-pagetable page updates are frequent.}
 
->>>>>>> origin/master
-
-\yueqiang{To serve the first observation, we need 7 page types and their update graph. Any update needs a corresponding validation $->$ IOTLB flush.}
-
-
-\yueqiang{Key Observation 2: The main source of the page type update is from writable-to-pagetable page update.}
-
-\yueqiang{To serve the second observation, we need 7 page types and their update graph. All other updates are only once in the whole life cycle, while the writable-pagetable page updates are frequent.}
-
-
-Both guest OS and I/O devices relinquishing their write-access to guest page tables imply the relationship between page type update and I/O TLB flush. We use a new page table creation as an example to illustrate the relationship in detail.
+After analysing how Xen validates the update of page type, we have uncovered the relationship between page type update and I/O TLB flush . Here We use a specific update from writable to page-table to illustrate the relationship in detail.
 
 Every time a guest OS launches a new process, it creates a new multi-level page table, multiple pages of which are allocated from the buddy system and initialized by OS. At the time, OS fills up the pages of writable-type with entries mapping virtual addresses to the machines addresses and submits update requests to Xen.
 
 Since the pages are writable and their type reference counts are not zero at the moment, Xen firstly reduces the count to zero and then vets every entry in every level of page tables through a page table walk. If there exists an entry pointing to a machine page beyond the OS, then the update fails. If not, Xen will set and pin every page to its corresponding page-table type. The pinning mechanism is used to avoid performance cost. Specifically, each time Xen installs a new page table base pointer to the control register CR3 (i.e., context switch), it does not have to validate the page tables if they are pinned.
 
-In the meantime, Xen must clear read and write permission fields in the I/O page tables corresponding to the machine frames of guest page tables and submit to IOMMU the invalidation requests of flushing specified IOTLB entries. To achieve high performance while ensure safety, it is enough for Xen to require several page-based invalidations using queued invalidation interface. Figure \ref{fig:wr2pt} describes the process with a 4KB granularity of machine page.
+In the meantime, Xen must clear read and write permission fields in the I/O page tables corresponding to the machine frames of guest page tables and submit to IOMMU the invalidation requests of flushing specified IOTLB entries. To achieve high performance while ensure safety, Xen requires multiple page-based invalidations using queued invalidation interface. Figure \ref{fig:wr2pt} describes the process with a 4KB granularity of machine page.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.5\textwidth]{image/translation/wr2pt.png} \\
-\caption{a page type update from writable to page-table}
+\includegraphics[width=0.5\textwidth]{image/background/wr2pt.png} \\
+\caption{a page type update between writable and page-table}
 \label{fig:wr2pt}
 \end{figure}
 
-In a nutshell, page type updates as frequently occurs during processes creation/destruction, will force Xen to unmap/map the pages from I/O page table and thus causing many IOTLB-flushes. As an IOTLB-miss requires a new page-walk for translation that can result in several consecutive accesses to memory, until the translation is done and the physical host address is resolved, a DMA transaction cannot be completed, which thereby may lead to a bad effect on I/O performance. It can be concluded that Xen has sacrificed I/O performance due to the safety reason. Because of that, we are motivated to reduce as many IOTLB misses as possible while retain the safety.
+From the description above, we have two key observations as follows.
+
+1. Every page type update in figure \ref{fig:page-type-update} will force Xen to map or unmap a specific page from I/O page table and thus flush a corresponding IOTLB entry, thereby may affecting I/O performance.
+
+2. Among all page type updates, the update between writable and page-table is the main source of causing IOTLB-flush, since page table creation/destruction is a common case in the guest OS. And the updates between writable and GDT/LDT happen only once when OS boots up and powers off, respectively.
+
+Therefore, we are motivated to propose a novel algorithm for guest OS to manage page tables in order to reduce as many IOTLB flushes as possible while retain the safety.

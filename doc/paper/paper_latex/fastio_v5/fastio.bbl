@@ -1,0 +1,42 @@
+\begin{thebibliography}{1}
+
+\bibitem{x86-pv-model}
+
+
+\bibitem{amdvt}
+AMD.
+\newblock Secure virtual machine architecture reference manual.
+\newblock December 2005.
+
+\bibitem{XEN-SOPS03}
+Paul Barham, Boris Dragovic, Keir Fraser, Steven Hand, Tim Harris, Alex Ho,
+  Rolf Neugebauer, Ian Pratt, and Andrew Warfield.
+\newblock Xen and the art of virtualization.
+\newblock In {\em SOSP '03: Proceedings of the nineteenth ACM symposium on
+  Operating systems principles}, pages 164--177, New York, NY, USA, 2003. ACM.
+
+\bibitem{intelvt}
+Intel.
+\newblock Intel virtualization technology for directed i/o.
+\newblock September 2007.
+
+\bibitem{x86}
+Intel.
+\newblock Intel 64 and {IA}-32 architectures software developer's manual
+  combined volumes: 1, 2a, 2b, 2c, 3a, 3b and 3c.
+\newblock October 2011.
+
+\bibitem{disaggregation}
+Derek~Gordon Murray, Grzegorz Milos, and Steven Hand.
+\newblock Improving xen security through disaggregation.
+\newblock In {\em Proceedings of the Fourth ACM SIGPLAN/SIGOPS International
+  Conference on Virtual Execution Environments}, VEE '08, pages 151--160, New
+  York, NY, USA, 2008. ACM.
+
+\bibitem{denali-paravirtualization}
+Andrew Whitaker, Marianne Shaw, Steven~D Gribble, et~al.
+\newblock Denali: Lightweight virtual machines for distributed and networked
+  applications.
+\newblock Technical report, Citeseer, 2002.
+
+\end{thebibliography}
