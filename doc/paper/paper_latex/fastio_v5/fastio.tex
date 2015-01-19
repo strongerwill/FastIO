@@ -21,17 +21,20 @@
 
 % This version uses the latex2e styles, not the very ancient 2.09 stuff.
 \documentclass[letterpaper,twocolumn,10pt]{article}
-\usepackage{usenix,epsfig,endnotes}
-\usepackage{xspace}      % Intelligently adds space after a word via \xspace
-
+\usepackage{usenix,epsfig,endnotes,array}
 \usepackage{subfigure}
+\usepackage[normalem]{ulem}
+\usepackage{multirow}    % Use to create table with a column that spans multiple rows
+\usepackage{pifont}      % Provides the ding symbol used for comments
+\usepackage{color}       % Used to highlight comments
+\usepackage{xspace}      % Intelligently adds space after a word via \xspace
 
 
 \begin{document}
 
 \newcommand{\name}{IOSUP\xspace}
 \newcommand{\eat}[1]{}  %% for quick commenting of a large trunk of texts
-\newcommand{\yueqiang}[1]{\authcomment{Yueqiang}{#1}{red}}
+\newcommand{\authcomment}[3]{\textcolor{#3}{#1 says: #2}}\newcommand{\yueqiang}[1]{\authcomment{Yueqiang}{#1}{red}}
 \newcommand{\zhi}[1]{\authcomment{Zhi}{#1}{red}}
 
 
