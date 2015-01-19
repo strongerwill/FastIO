@@ -1,23 +1,15 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.17)  18 JAN 2015 22:35
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2014.3.9)  18 JAN 2015 19:37
 entering extended mode
-**fastio.tex
+**D:/documents/security/IOMMU_PV14/FastIO/doc/paper/paper_latex/fastio_v5/fasti
+o.tex
 
-(C:\Users\zhangzhi\Dropbox\iotlb\FastIO\FastIO\doc\paper\paper_latex\fastio_v5\
-fastio.tex
+(D:/documents/security/IOMMU_PV14/FastIO/doc/paper/paper_latex/fastio_v5/fastio
+.tex
 LaTeX2e <2011/06/27>
-Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
-abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
-croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
-lician, german, german-x-2009-06-19, greek, gujarati, hindi, hungarian, iceland
-ic, indonesian, interlingua, irish, italian, kannada, kurmanji, lao, latin, lat
-vian, lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerm
-an, ngerman-x-2009-06-19, nynorsk, oriya, panjabi, pinyin, polish, portuguese, 
-romanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swis
-sgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, u
-senglishmax, welsh, loaded.
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
+Babel <v3.8m> and hyphenation patterns for loaded.
+(C:\CTEX\MiKTeX\tex\latex\base\article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\size10.clo"
+(C:\CTEX\MiKTeX\tex\latex\base\size10.clo
 File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -32,8 +24,8 @@ File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(C:\Users\zhangzhi\Dropbox\iotlb\FastIO\FastIO\doc\paper\paper_latex\fastio_v5\
-usenix.sty ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\mathptmx.sty"
+(D:\documents\security\IOMMU_PV14\FastIO\doc\paper\paper_latex\fastio_v5\usenix
+.sty (C:\CTEX\MiKTeX\tex\latex\psnfss\mathptmx.sty
 Package: mathptmx 2005/04/12 PSNFSS-v9.2a Times w/ Math, improved (SPQR, WaS) 
 LaTeX Font Info:    Redeclaring symbol font `operators' on input line 28.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
@@ -69,35 +61,35 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> OT1/ptm/m/it on input line 35.
 LaTeX Info: Redefining \hbar on input line 50.
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\epsfig.sty"
+(C:\CTEX\MiKTeX\tex\latex\graphics\epsfig.sty
 Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+(C:\CTEX\MiKTeX\tex\latex\graphics\graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+(C:\CTEX\MiKTeX\tex\latex\graphics\keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+(C:\CTEX\MiKTeX\tex\latex\graphics\graphics.sty
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+(C:\CTEX\MiKTeX\tex\latex\graphics\trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+(C:\CTEX\MiKTeX\tex\latex\00miktex\graphics.cfg
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+(C:\CTEX\MiKTeX\tex\latex\pdftex-def\pdftex.def
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
-Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+(C:\CTEX\MiKTeX\tex\generic\oberdiek\infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/message (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
-Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+(C:\CTEX\MiKTeX\tex\generic\oberdiek\ltxcmds.sty
+Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count87
 ))
@@ -107,22 +99,27 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \epsfxsize=\dimen105
 \epsfysize=\dimen106
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\endnotes\endnotes.sty"
+(C:\CTEX\UserData\tex\latex\endnotes\endnotes.sty
 \c@endnote=\count88
 \endnotesep=\dimen107
 \@enotes=\write3
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\xspace.sty"
-Package: xspace 2009/10/20 v1.13 Space after command names (DPC,MH)
+(C:\CTEX\MiKTeX\tex\latex\tools\array.sty
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen108
+\extrarowheight=\dimen109
+\NC@list=\toks15
+\extratabsurround=\skip43
+\backup@length=\skip44
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\subfigure\subfigure.sty"
+(C:\CTEX\UserData\tex\latex\subfigure\subfigure.sty
 Package: subfigure 2002/07/30 v2.1.4 subfigure package
-\subfigtopskip=\skip43
-\subfigcapskip=\skip44
-\subfigcaptopadj=\dimen108
-\subfigbottomskip=\skip45
-\subfigcapmargin=\dimen109
-\subfiglabelskip=\skip46
+\subfigtopskip=\skip45
+\subfigcapskip=\skip46
+\subfigcaptopadj=\dimen110
+\subfigbottomskip=\skip47
+\subfigcapmargin=\dimen111
+\subfiglabelskip=\skip48
 \c@subfigure=\count89
 \c@lofdepth=\count90
 \c@subtable=\count91
@@ -131,12 +128,50 @@ Package: subfigure 2002/07/30 v2.1.4 subfigure package
 ****************************************
 * Local config file subfigure.cfg used *
 ****************************************
-("C:\Program Files\MiKTeX 2.9\tex\latex\subfigure\subfigure.cfg")
-\subfig@top=\skip47
-\subfig@bottom=\skip48
+(C:\CTEX\UserData\tex\latex\subfigure\subfigure.cfg)
+\subfig@top=\skip49
+\subfig@bottom=\skip50
 )
-(C:\Users\zhangzhi\Dropbox\iotlb\FastIO\FastIO\doc\paper\paper_latex\fastio_v5\
-fastio.aux
+(C:\CTEX\MiKTeX\tex\latex\ulem\ulem.sty
+\UL@box=\box26
+\UL@hyphenbox=\box27
+\UL@skip=\skip51
+\UL@hook=\toks16
+\UL@height=\dimen112
+\UL@pe=\count93
+\UL@pixel=\dimen113
+\ULC@box=\box28
+Package: ulem 2011/03/18
+\ULdepth=\dimen114
+)
+(C:\CTEX\MiKTeX\tex\latex\multirow\multirow.sty
+\bigstrutjot=\dimen115
+)
+(C:\CTEX\MiKTeX\tex\latex\psnfss\pifont.sty
+Package: pifont 2005/04/12 PSNFSS-v9.2a Pi font support (SPQR) 
+LaTeX Font Info:    Try loading font information for U+pzd on input line 63.
+
+(C:\CTEX\MiKTeX\tex\latex\psnfss\upzd.fd
+File: upzd.fd 2001/06/04 font definitions for U/pzd.
+)
+LaTeX Font Info:    Try loading font information for U+psy on input line 64.
+
+(C:\CTEX\MiKTeX\tex\latex\psnfss\upsy.fd
+File: upsy.fd 2001/06/04 font definitions for U/psy.
+))
+(C:\CTEX\MiKTeX\tex\latex\graphics\color.sty
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+(C:\CTEX\MiKTeX\tex\latex\00miktex\color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+)
+(C:\CTEX\MiKTeX\tex\latex\tools\xspace.sty
+Package: xspace 2009/10/20 v1.13 Space after command names (DPC,MH)
+)
+(D:\documents\security\IOMMU_PV14\FastIO\doc\paper\paper_latex\fastio_v5\fastio
+.aux
 
 LaTeX Warning: Label `fig:subfig:a' multiply defined.
 
@@ -174,138 +209,111 @@ LaTeX Warning: Label `fig:subfig:c' multiply defined.
 LaTeX Warning: Label `sub@fig:subfig:c' multiply defined.
 
 )
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 30.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 33.
+ (C:\CTEX\MiKTeX\tex\latex\psnfss\ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
-\big@size=\dimen110
+\big@size=\dimen116
 
-("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+(C:\CTEX\MiKTeX\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count93
-\scratchdimen=\dimen111
-\scratchbox=\box26
-\nofMPsegments=\count94
-\nofMParguments=\count95
-\everyMPshowfont=\toks15
-\MPscratchCnt=\count96
-\MPscratchDim=\dimen112
-\MPnumerator=\count97
-\makeMPintoPDFobject=\count98
-\everyMPtoPDFconversion=\toks16
+\scratchcounter=\count94
+\scratchdimen=\dimen117
+\scratchbox=\box29
+\nofMPsegments=\count95
+\nofMParguments=\count96
+\everyMPshowfont=\toks17
+\MPscratchCnt=\count97
+\MPscratchDim=\dimen118
+\MPnumerator=\count98
+\makeMPintoPDFobject=\count99
+\everyMPtoPDFconversion=\toks18
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 55.
-LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 55
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 61.
+LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 61
 .
- ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ztmcm.fd"
+ (C:\CTEX\MiKTeX\tex\latex\psnfss\ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 55
+LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 61
 .
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omlztmcm.fd"
+(C:\CTEX\MiKTeX\tex\latex\psnfss\omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 55
+LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 61
 .
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omsztmcm.fd"
+(C:\CTEX\MiKTeX\tex\latex\psnfss\omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 55
+LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 61
 .
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omxztmcm.fd"
+(C:\CTEX\MiKTeX\tex\latex\psnfss\omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 55.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 61.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 55.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 61.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 55.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 61.
 
-(C:\Users\zhangzhi\Dropbox\iotlb\FastIO\FastIO\doc\paper\paper_latex\fastio_v5\
-intro.tex
+(D:\documents\security\IOMMU_PV14\FastIO\doc\paper\paper_latex\fastio_v5\intro.
+tex
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 9.
 
 
-LaTeX Warning: Citation `XEN-SOPS03' on page 1 undefined on input line 2.
+LaTeX Warning: Citation `xxx' on page 1 undefined on input line 9.
 
 
-LaTeX Warning: Citation `denali-paravirtualization' on page 1 undefined on inpu
-t line 2.
-
-
-LaTeX Warning: Citation `disaggregation' on page 1 undefined on input line 2.
-
-
-LaTeX Warning: Citation `amdvt' on page 1 undefined on input line 2.
-
-
-LaTeX Warning: Citation `intelvt' on page 1 undefined on input line 2.
-
-
-LaTeX Warning: Citation `XEN-SOPS03' on page 1 undefined on input line 2.
-
-
-LaTeX Warning: Citation `XEN-SOPS03' on page 1 undefined on input line 5.
-
-
-LaTeX Warning: Citation `A novel hardware assisted full virtualization techniqu
-e?' on page 1 undefined on input line 5.
-
-
-LaTeX Warning: Citation `I remeber one paper discussing about this' on page 1 u
-ndefined on input line 5.
-
-
-Underfull \hbox (badness 1275) in paragraph at lines 8--16
-[]\OT1/ptm/m/n/10 I/O de-vices gen-er-ate in-ter-rupts to asyn-chronously
+Underfull \hbox (badness 1275) in paragraph at lines 15--23
+[]\OT1/ptm/m/n/10 I/O de-vices gen-er-ate in-ter-rupt-s to asyn-chronous-ly
  []
 
-[1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
+[1{C:/CTEX/UserData/pdftex/config/pdftex.map{Unicode.sfd}{UGBK.sfd}}
 
 
 ]
 
-LaTeX Warning: Reference `sec:preli' on page 2 undefined on input line 34.
+LaTeX Warning: Reference `sec:preli' on page 2 undefined on input line 41.
 
 
-LaTeX Warning: Reference `sec:rationale' on page 2 undefined on input line 34.
+LaTeX Warning: Reference `sec:rationale' on page 2 undefined on input line 41.
 
 
-LaTeX Warning: Reference `sec:overview' on page 2 undefined on input line 34.
+LaTeX Warning: Reference `sec:overview' on page 2 undefined on input line 41.
 
 
-LaTeX Warning: Reference `sec:implement' on page 2 undefined on input line 34.
+LaTeX Warning: Reference `sec:implement' on page 2 undefined on input line 41.
 
 
-LaTeX Warning: Reference `sec:dis' on page 2 undefined on input line 34.
+LaTeX Warning: Reference `sec:dis' on page 2 undefined on input line 41.
 
 
-LaTeX Warning: Reference `sec:related' on page 2 undefined on input line 34.
+LaTeX Warning: Reference `sec:related' on page 2 undefined on input line 41.
 
 
-LaTeX Warning: Reference `sec:con' on page 2 undefined on input line 34.
+LaTeX Warning: Reference `sec:con' on page 2 undefined on input line 41.
 
 )
-(C:\Users\zhangzhi\Dropbox\iotlb\FastIO\FastIO\doc\paper\paper_latex\fastio_v5\
-background.tex <image/translation/log2lin.png, id=8, 516.9714pt x 315.0972pt>
+(D:\documents\security\IOMMU_PV14\FastIO\doc\paper\paper_latex\fastio_v5\backgr
+ound.tex <image/translation/log2lin.png, id=8, 516.9714pt x 315.0972pt>
 File: image/translation/log2lin.png Graphic file (type png)
 
 <use image/translation/log2lin.png>
@@ -316,9 +324,7 @@ Overfull \hbox (9.03374pt too wide) in paragraph at lines 23--23
  [][] 
  []
 
-[2 <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/paper_latex/fastio_
-v5/image/translation/log2lin.png>]
-<image/translation/lin2phy.png, id=14, 516.9714pt x 315.0972pt>
+<image/translation/lin2phy.png, id=10, 516.9714pt x 315.0972pt>
 File: image/translation/lin2phy.png Graphic file (type png)
 
 <use image/translation/lin2phy.png>
@@ -329,13 +335,14 @@ Overfull \hbox (9.03374pt too wide) in paragraph at lines 33--33
  [][] 
  []
 
-
+[2]
 Underfull \hbox (badness 1584) in paragraph at lines 54--55
 \OT1/ptm/m/n/10 ta-ble), PGT[]l3[]page[]table (used as an L3 page ta-
  []
 
-[3 <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/paper_latex/fastio_
-v5/image/translation/lin2phy.png>]
+[3 <D:/documents/security/IOMMU_PV14/FastIO/doc/paper/paper_latex/fastio_v5/ima
+ge/translation/log2lin.png> <D:/documents/security/IOMMU_PV14/FastIO/doc/paper/
+paper_latex/fastio_v5/image/translation/lin2phy.png>]
 
 LaTeX Warning: Reference `fig:dev2dom' on page 4 undefined on input line 63.
 
@@ -370,30 +377,33 @@ Overfull \hbox (9.03374pt too wide) in paragraph at lines 80--80
  []
 
 )
-(C:\Users\zhangzhi\Dropbox\iotlb\FastIO\FastIO\doc\paper\paper_latex\fastio_v5\
-motivation.tex [4 <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/pape
-r_latex/fastio_v5/image/translation/dev2dom.png> <C:/Users/zhangzhi/Dropbox/iot
-lb/FastIO/FastIO/doc/paper/paper_latex/fastio_v5/image/translation/gpa2ma.png>]
+(D:\documents\security\IOMMU_PV14\FastIO\doc\paper\paper_latex\fastio_v5\motiva
+tion.tex
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 4.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 4.
+ [4 <D:/documents/security/IOMMU_PV14/FastIO/doc/paper/paper_latex/fastio_v5/im
+age/translation/dev2dom.png> <D:/documents/security/IOMMU_PV14/FastIO/doc/paper
+/paper_latex/fastio_v5/image/translation/gpa2ma.png>]
 <image/translation/wr2pt.png, id=26, 516.9714pt x 315.0972pt>
 File: image/translation/wr2pt.png Graphic file (type png)
 
 <use image/translation/wr2pt.png>
-Package pdftex.def Info: image/translation/wr2pt.png used on input line 13.
+Package pdftex.def Info: image/translation/wr2pt.png used on input line 22.
 (pdftex.def)             Requested size: 234.87749pt x 143.15788pt.
 
-Overfull \hbox (9.03374pt too wide) in paragraph at lines 13--13
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 22--22
  [][] 
  []
 
 )
-(C:\Users\zhangzhi\Dropbox\iotlb\FastIO\FastIO\doc\paper\paper_latex\fastio_v5\
-prob.tex)
-(C:\Users\zhangzhi\Dropbox\iotlb\FastIO\FastIO\doc\paper\paper_latex\fastio_v5\
-evaluation.tex
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 18.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 18.
+(D:\documents\security\IOMMU_PV14\FastIO\doc\paper\paper_latex\fastio_v5\prob.t
+ex)
+(D:\documents\security\IOMMU_PV14\FastIO\doc\paper\paper_latex\fastio_v5\evalua
+tion.tex
+Underfull \vbox (badness 1292) has occurred while \output is active []
+
 
 Underfull \hbox (badness 4699) in paragraph at lines 26--27
 []\OT1/ptm/m/n/10 Besides that, we have been aware that cre-at-
@@ -404,9 +414,9 @@ Underfull \hbox (badness 1571) in paragraph at lines 26--27
 \OT1/ptm/m/n/10 ta-ble up-dates (e.g., from a page of Writable to a
  []
 
-[5 <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/paper_latex/fastio_
-v5/image/translation/wr2pt.png>]
-<image/micro/iotlbflush.png, id=31, 648.9846pt x 381.1038pt>
+[5 <D:/documents/security/IOMMU_PV14/FastIO/doc/paper/paper_latex/fastio_v5/ima
+ge/translation/wr2pt.png>]
+<image/micro/iotlbflush.png, id=33, 648.9846pt x 381.1038pt>
 File: image/micro/iotlbflush.png Graphic file (type png)
 
 <use image/micro/iotlbflush.png>
@@ -417,21 +427,21 @@ Overfull \hbox (9.03374pt too wide) in paragraph at lines 43--43
  [][] 
  []
 
-<image/micro/PGDtime.png, id=32, 683.1924pt x 386.8854pt>
+<image/micro/PGDtime.png, id=34, 683.1924pt x 386.8854pt>
 File: image/micro/PGDtime.png Graphic file (type png)
 
 <use image/micro/PGDtime.png>
 Package pdftex.def Info: image/micro/PGDtime.png used on input line 54.
 (pdftex.def)             Requested size: 234.87749pt x 133.00923pt.
 
-<image/micro/PMDtime.png, id=33, 665.8476pt x 363.759pt>
+<image/micro/PMDtime.png, id=35, 665.8476pt x 363.759pt>
 File: image/micro/PMDtime.png Graphic file (type png)
 
 <use image/micro/PMDtime.png>
 Package pdftex.def Info: image/micro/PMDtime.png used on input line 58.
 (pdftex.def)             Requested size: 234.87749pt x 128.3111pt.
 
-<image/micro/PTEtime.png, id=34, 660.5478pt x 363.759pt>
+<image/micro/PTEtime.png, id=36, 660.5478pt x 363.759pt>
 File: image/micro/PTEtime.png Graphic file (type png)
 
 <use image/micro/PTEtime.png>
@@ -455,21 +465,21 @@ Overfull \hbox (11.53374pt too wide) in paragraph at lines 54--63
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
-<image/micro/pre_PGDpool.png, id=35, 506.3718pt x 337.7418pt>
+<image/micro/pre_PGDpool.png, id=37, 506.3718pt x 337.7418pt>
 File: image/micro/pre_PGDpool.png Graphic file (type png)
 
 <use image/micro/pre_PGDpool.png>
 Package pdftex.def Info: image/micro/pre_PGDpool.png used on input line 73.
 (pdftex.def)             Requested size: 234.87749pt x 156.6618pt.
 
-<image/micro/pre_PMDpool.png, id=36, 506.3718pt x 329.0694pt>
+<image/micro/pre_PMDpool.png, id=38, 506.3718pt x 329.0694pt>
 File: image/micro/pre_PMDpool.png Graphic file (type png)
 
 <use image/micro/pre_PMDpool.png>
 Package pdftex.def Info: image/micro/pre_PMDpool.png used on input line 77.
 (pdftex.def)             Requested size: 234.87749pt x 152.63908pt.
 
-<image/micro/pre_PTEpool.png, id=37, 512.1534pt x 337.7418pt>
+<image/micro/pre_PTEpool.png, id=39, 512.1534pt x 337.7418pt>
 File: image/micro/pre_PTEpool.png Graphic file (type png)
 
 <use image/micro/pre_PTEpool.png>
@@ -490,21 +500,30 @@ Overfull \hbox (11.53374pt too wide) in paragraph at lines 73--82
  [] 
  []
 
-<image/micro/dyn_PGDpool.png, id=38, 506.3718pt x 337.7418pt>
+[6 <D:/documents/security/IOMMU_PV14/FastIO/doc/paper/paper_latex/fastio_v5/ima
+ge/micro/iotlbflush.png>] [7 <D:/documents/security/IOMMU_PV14/FastIO/doc/paper
+/paper_latex/fastio_v5/image/micro/PGDtime.png> <D:/documents/security/IOMMU_PV
+14/FastIO/doc/paper/paper_latex/fastio_v5/image/micro/PMDtime.png> <D:/document
+s/security/IOMMU_PV14/FastIO/doc/paper/paper_latex/fastio_v5/image/micro/PTEtim
+e.png> <D:/documents/security/IOMMU_PV14/FastIO/doc/paper/paper_latex/fastio_v5
+/image/micro/pre_PGDpool.png> <D:/documents/security/IOMMU_PV14/FastIO/doc/pape
+r/paper_latex/fastio_v5/image/micro/pre_PMDpool.png> <D:/documents/security/IOM
+MU_PV14/FastIO/doc/paper/paper_latex/fastio_v5/image/micro/pre_PTEpool.png>]
+<image/micro/dyn_PGDpool.png, id=56, 506.3718pt x 337.7418pt>
 File: image/micro/dyn_PGDpool.png Graphic file (type png)
 
 <use image/micro/dyn_PGDpool.png>
 Package pdftex.def Info: image/micro/dyn_PGDpool.png used on input line 98.
 (pdftex.def)             Requested size: 234.87749pt x 156.6618pt.
 
-<image/micro/dyn_PMDpool.png, id=39, 506.3718pt x 337.7418pt>
+<image/micro/dyn_PMDpool.png, id=57, 506.3718pt x 337.7418pt>
 File: image/micro/dyn_PMDpool.png Graphic file (type png)
 
 <use image/micro/dyn_PMDpool.png>
 Package pdftex.def Info: image/micro/dyn_PMDpool.png used on input line 102.
 (pdftex.def)             Requested size: 234.87749pt x 156.6618pt.
 
-<image/micro/dyn_PTEpool.png, id=40, 517.935pt x 337.7418pt>
+<image/micro/dyn_PTEpool.png, id=58, 517.935pt x 337.7418pt>
 File: image/micro/dyn_PTEpool.png Graphic file (type png)
 
 <use image/micro/dyn_PTEpool.png>
@@ -525,16 +544,6 @@ Overfull \hbox (11.53374pt too wide) in paragraph at lines 98--107
  [] 
  []
 
-[6 <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/paper_latex/fastio_
-v5/image/micro/iotlbflush.png>] [7 <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/Fast
-IO/doc/paper/paper_latex/fastio_v5/image/micro/PGDtime.png> <C:/Users/zhangzhi/
-Dropbox/iotlb/FastIO/FastIO/doc/paper/paper_latex/fastio_v5/image/micro/PMDtime
-.png> <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/paper_latex/fast
-io_v5/image/micro/PTEtime.png> <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/d
-oc/paper/paper_latex/fastio_v5/image/micro/pre_PGDpool.png> <C:/Users/zhangzhi/
-Dropbox/iotlb/FastIO/FastIO/doc/paper/paper_latex/fastio_v5/image/micro/pre_PMD
-pool.png> <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/paper_latex/
-fastio_v5/image/micro/pre_PTEpool.png>]
 <image/macro/spec.png, id=59, 688.974pt x 406.6392pt>
 File: image/macro/spec.png Graphic file (type png)
 
@@ -548,7 +557,7 @@ Overfull \hbox (9.03374pt too wide) in paragraph at lines 122--122
 
 
 Underfull \hbox (badness 1831) in paragraph at lines 127--129
-\OT1/ptm/m/n/10 they are all in-voked with EXAMPLE-linux64-ia32-
+\OT1/ptm/m/n/10 they are al-l in-voked with EXAMPLE-linux64-ia32-
  []
 
 <image/macro/lmbench.png, id=60, 688.974pt x 406.6392pt>
@@ -562,13 +571,11 @@ Overfull \hbox (9.03374pt too wide) in paragraph at lines 133--133
  [][] 
  []
 
-[8 <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/paper_latex/fastio_
-v5/image/micro/dyn_PGDpool.png> <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/
-doc/paper/paper_latex/fastio_v5/image/micro/dyn_PMDpool.png> <C:/Users/zhangzhi
-/Dropbox/iotlb/FastIO/FastIO/doc/paper/paper_latex/fastio_v5/image/micro/dyn_PT
-Epool.png> <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/paper_latex
-/fastio_v5/image/macro/spec.png>]
-<image/macro/netperf.png, id=68, 600.8046pt x 225.9642pt>
+[8 <D:/documents/security/IOMMU_PV14/FastIO/doc/paper/paper_latex/fastio_v5/ima
+ge/micro/dyn_PGDpool.png> <D:/documents/security/IOMMU_PV14/FastIO/doc/paper/pa
+per_latex/fastio_v5/image/micro/dyn_PMDpool.png> <D:/documents/security/IOMMU_P
+V14/FastIO/doc/paper/paper_latex/fastio_v5/image/micro/dyn_PTEpool.png>]
+<image/macro/netperf.png, id=67, 600.8046pt x 225.9642pt>
 File: image/macro/netperf.png Graphic file (type png)
 
 <use image/macro/netperf.png>
@@ -583,37 +590,9 @@ Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
 )
-No file fastio.bbl.
-[9 <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/paper_latex/fastio_
-v5/image/macro/lmbench.png> <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/
-paper/paper_latex/fastio_v5/image/macro/netperf.png>]
-(C:\Users\zhangzhi\Dropbox\iotlb\FastIO\FastIO\doc\paper\paper_latex\fastio_v5\
-fastio.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
-Here is how much of TeX's memory you used:
- 1683 strings out of 494045
- 25261 string characters out of 3148378
- 77886 words of memory out of 3000000
- 4931 multiletter control sequences out of 15000+200000
- 33846 words of font info for 69 fonts, out of 3000000 for 9000
- 715 hyphenation exceptions out of 8191
- 34i,8n,24p,1097b,254s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-urw/symbol/usyr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.p
-fb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on fastio.pdf (9 pages, 851859 bytes).
-PDF statistics:
- 98 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 500000)
- 91 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+(D:\documents\security\IOMMU_PV14\FastIO\doc\paper\paper_latex\fastio_v5\fastio
+.bbl) [9 <D:/documents/security/IOMMU_PV14/FastIO/doc/paper/paper_latex/fastio_
+v5/image/macro/spec.png> <D:/documents/security/IOMMU_PV14/FastIO/doc/paper/pap
+er_latex/fastio_v5/image/macro/lmbench.png>
+!pdfTeX error: pdflatex.exe: fflush() failed (Invalid argument)
+ ==> Fatal error occurred, no output PDF file produced!
