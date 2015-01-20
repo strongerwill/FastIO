@@ -1,14 +1,14 @@
 \begin{thebibliography}{1}
 
 \bibitem{x86-pv-model}
-
+http://wiki.xenproject.org/wiki/X86\_Paravirtualised\_Memory\_Management.
 
 \bibitem{amdvt}
 AMD.
 \newblock Secure virtual machine architecture reference manual.
 \newblock December 2005.
 
-\bibitem{XEN-SOPS03}
+\bibitem{XEN-SOSP03}
 Paul Barham, Boris Dragovic, Keir Fraser, Steven Hand, Tim Harris, Alex Ho,
   Rolf Neugebauer, Ian Pratt, and Andrew Warfield.
 \newblock Xen and the art of virtualization.
