@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.17)  20 JAN 2015 00:09
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.17)  20 JAN 2015 09:54
 entering extended mode
 **fastio.tex
 
@@ -371,9 +371,6 @@ Overfull \hbox (9.03374pt too wide) in paragraph at lines 54--54
  [][] 
  []
 
-
-LaTeX Warning: Reference `fig:dev2dom' on page 4 undefined on input line 66.
-
 <image/background/dev2dom.png, id=20, 516.9714pt x 315.0972pt>
 File: image/background/dev2dom.png Graphic file (type png)
 
@@ -384,9 +381,6 @@ Package pdftex.def Info: image/background/dev2dom.png used on input line 71.
 Overfull \hbox (9.03374pt too wide) in paragraph at lines 71--71
  [][] 
  []
-
-
-LaTeX Warning: Reference `fig:gpa2ma' on page 4 undefined on input line 78.
 
 
 Underfull \hbox (badness 1275) in paragraph at lines 78--79
@@ -644,10 +638,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 1915 strings out of 494045
- 28408 string characters out of 3148378
+ 1913 strings out of 494045
+ 28383 string characters out of 3148378
  80943 words of memory out of 3000000
- 5134 multiletter control sequences out of 15000+200000
+ 5132 multiletter control sequences out of 15000+200000
  34312 words of font info for 71 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  34i,9n,24p,1407b,262s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -658,7 +652,7 @@ s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 urw/symbol/usyr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.p
 fb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on fastio.pdf (10 pages, 892577 bytes).
+Output written on fastio.pdf (10 pages, 892532 bytes).
 PDF statistics:
  103 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
