@@ -19,22 +19,20 @@ To translate a logical address into a linear address, the processor does the fol
 3. Adds the base address of the segment from the segment descriptor to the offset to form a linear address.
 
 \subsubsection{linear to physical address translation}
-To determine the physical address corresponding to a given linear address, the appropriate page table, and the correct entry within that page table must be located. 
+To determine the physical address corresponding to a given linear address, the appropriate page table, and the correct entry within that page table must be located. Figure \ref{fig:address-translation} illustrates the translation process when processor works in Physical Address Extension(PAE) Mode with 4K-size page~\cite{x86}.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.5\textwidth]{image/background/address-translation.png} \\
+\caption{address translation from logical address to physical address}
+\label{fig:address-translation}
+\end{figure}
 
 Since guest kenel is working in PAE mode on the 32-bit system in the model, we use PAE-based page table to describe paging mechanism. PAE mode has 3 levels of page tables. L1 is the bottom level, L2 is the middle level and L3 is the top level. A slot in L1 is Page-Table-Entry (PTE) slot, a slot in L1 is Page-Middle-Directory (PMD) slot, and a slot in L3 is Page-Global-Directory (PGD) slot.
 
 A given linear address is divided into 4 parts, b\_0 through b\_3. The b\_3 bits (PGD slot offset) specify an entry in the PGD page, whose base address is stored in control register CR3. The b\_1 bits (PTE slot offset) specify an entry in the PTE page, whose location is determined by the bits from b\_2 bits, which specify an entry in the PMD page respectively. Finally, processor finds the physical address by adding the offset b\_0 and the base address of the data/code page.
 
 So far, the whole two-stage address translation is completed by hardware and thus physical memory is accessible to software. Also, to facilitate linear address translation speed, a Translation Lookaside Buffer (TLB) is used by MMU as a cache of page table entries.
-
-Figure \ref{fig:address-translation} illustrates the translation process when CPU accesses physical memory.
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.5\textwidth]{image/background/address-translation.png} \\
-\caption{address translation}
-\label{fig:address-translation}
-\end{figure}
 
 \subsection{paravirtualised MMU model}
 
