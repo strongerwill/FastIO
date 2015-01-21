@@ -19,7 +19,14 @@ To translate a logical address into a linear address, the processor does the fol
 3. Adds the base address of the segment from the segment descriptor to the offset to form a linear address.
 
 \subsubsection{linear to physical address translation}
-To determine the physical address corresponding to a given linear address, the appropriate page table, and the correct entry within that page table must be located.
+To determine the physical address corresponding to a given linear address, the appropriate page table, and the correct entry within that page table must be located. Figure \ref{fig:address-translation} illustrates the translation process when processor works in Physical Address Extension(PAE) Mode with 4K-size page~\cite{x86}.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.5\textwidth]{image/background/address-translation.png} \\
+\caption{address translation from logical address to physical address}
+\label{fig:address-translation}
+\end{figure}
 
 Since guest kenel is working in PAE mode on the 32-bit system in the model, we use PAE-based page table to describe paging mechanism. PAE mode has 3 levels of page tables. L1 is the bottom level, L2 is the middle level and L3 is the top level. A slot in L1 is Page-Table-Entry (PTE) slot, a slot in L1 is Page-Middle-Directory (PMD) slot, and a slot in L3 is Page-Global-Directory (PGD) slot.
 
@@ -27,30 +34,19 @@ A given linear address is divided into 4 parts, b\_0 through b\_3. The b\_3 bits
 
 So far, the whole two-stage address translation is completed by hardware and thus physical memory is accessible to software. Also, to facilitate linear address translation speed, a Translation Lookaside Buffer (TLB) is used by MMU as a cache of page table entries.
 
-Figure \ref{fig:address-translation} illustrates the translation process when CPU accesses physical memory.
-
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.5\textwidth]{image/background/address-translation.png} \\
-\caption{address translation}
-\label{fig:address-translation}
-\end{figure}
-
 \subsection{paravirtualised MMU model}
 
 In order to prevent guest OS from subverting system, Xen PV model sets GDT/LDT and page tables be read-only. To achieve this, WP bit in the CR0 register is set, and RW bit in the PTE slots is cleared, which point to GDT/LDT and page tables. Besides, x86 architecture supports four privilege levels in hardware, ranging from ring-zero to ring-three. Typically, OS runs in ring 0, the most privileged level to execute privileged instructions, while applications executes in ring 3, the least privileged level. In the PV model, since Xen is in ring-0, it needs to modify the OS to execute in ring 1. This prevents the guest OS from executing privileged instructions to remove the read-only permissions by updating CR0.WP and RW bit in PTEs.
 
 On top of that, Xen still applies the address translation mentioned above to the de-privileged OS. Specifically, Xen allows a direct registration of guest page tables within MMU, so that the OS has direct access to machine memory by its own page tables as well as TLB, the so called direct-paging. In the meantime, Xen must also be involved in the management of updating guest page tables to prevent OS from arbitrarily modifying its page tables, otherwise OS will have a chance to access the machine memory space of Xen since they are sharing the same virtual memory space. Also, OS cannot update the GDT/LDT as well as the Interrupt Descriptor Table (IDT) directly. Therefore, Xen limits OS to read-only access in order to protect the critical structures, provides hypercalls for OS to explicitly submit all the update requests and then validates all the requests. Note that the OS is modified to be aware that a mapping between guest physical addresses and machine addresses (P2M table) so that it can writes new page tables using machine addresses before Xen validates them.
 
-To aid validation, Xen associates each page with a page type and a type reference count. Types are defined as following: PGT\_l1\_page\_table (used as an L1 page table), PGT\_l2\_page\_table (used as an L2 page table), PGT\_l3\_page\_table (used as an L3 page table), PGT\_l4\_page\_table (only used as an L4 page table for 64-bit x86 system), PGT\_seg\_desc\_page (used as an global descriptor table / local descriptor table), PGT\_writable\_page (a writable page). To ensure that every type is mutually exclusive and thus a given page could only have one type at every moment, the type reference count is maintained. That is to say, if the count does not drop to zero, the page type of a given page cannot be changed. Xen allows OSes to allocate and manage their own critical structures while it is only involved in updating them. Note that Xen maintains the IDT directly and provides OSes with a virtual one that is not associated with any special type like GDT/LDT.
-
-Xen validates the update operations in a number of ways, such as no entry of a guest page table pointing to the hypervisor's private space. Updating entries in a critical table is a sub-operation of upating the whole table that involves a page type update. As can be seen in figure \ref{fig:page-type-updates}, every page type update is between writable and non-writable type. During the operation of page type update, Xen also needs to protect the critical guest table structures from being attacked by I/O devices.
+To aid validation, Xen associates each page with a page type and a type reference count. Types are defined as following: PGT\_l1\_page\_table (used as an L1 page table), PGT\_l2\_page\_table (used as an L2 page table), PGT\_l3\_page\_table (used as an L3 page table), PGT\_l4\_page\_table (only used as an L4 page table for 64-bit x86 system), PGT\_seg\_desc\_page (used as an global descriptor table / local descriptor table), PGT\_writable\_page (a writable page). To ensure that every type is mutually exclusive and thus a given page could only have one type at every moment, the type reference count is maintained. That is to say, if the count does not drop to zero, the page type of a given page cannot be changed. Xen allows OSes to allocate and manage their own critical structures while it is only involved in updating them. Xen validates the update operation in a number of ways, such as no entry of a guest page table pointing to the hypervisor's private space. Updating entries in a critical table is a sub-operation of upating the whole table that involves a page type update. As can be seen in figure \ref{fig:page-type-update}, every page type update is between writable and non-writable type. During the type updating operation, Xen also needs to protect the table structures from being attacked by I/O devices. Note that Xen maintains the IDT directly and provides OSes with a virtual one that is not associated with any special type like GDT/LDT.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.5\textwidth]{image/background/page-type-updates.png} \\
-\caption{page type updates}
-\label{fig:page-type-updates}
+\includegraphics[width=0.5\textwidth]{image/background/page-type-update.png} \\
+\caption{}
+\label{fig:page-type-update}
 \end{figure}
 
 \subsection{DMA address translation}
@@ -58,7 +54,7 @@ Xen validates the update operations in a number of ways, such as no entry of a g
 %citing: intel vt-d
 Intel IOMMU (i.e., Intel Virtualization Technology for Directed I/O)~\cite{intelvt} mainly provides hardware support for DMA Remapping and Interrupt Remapping. DMA remapping is made use of by Xen to restrict access to particular memory area from all I/O devices. DMA remapping supports independent DMA address translation, indicating that if a specific device wants to access the machine memory through DMA, the access is via I/O page tables. Xen can utilize them to do a strict examination, such as checking if the access is permitted, working like the PV MMU model. In this case, if a device is allowed to directly access specified machine memory that belongs to a guest OS, then the device is referred to as the OS's assigned devices.
 
-More specifically, in the case of a PCI device, a DMA request is composed of two parts: a request identifier that is used to index into a specific address translation structures (i.e., multi-level I/O page table) for a domain, and then a DMA address (regarded as a guest physical address in Xen) is transformed by the page table to its corresponding machine address. Here we are concerned about how DMA address is restricted. By configuring \emph{read} and \emph{write} fields in the I/O page table, Xen is able to enforce access-control such as mapping DMA addresses to writable pages while permitting read-only access to critical structures.
+More specifically, in the case of a PCI device, a DMA request is composed of two parts: a request identifier that is used to index into a specific address translation structures (i.e., multi-level I/O page table) for a domain, and then a DMA address (regarded as a guest physical address in Xen) is transformed by the page table to its corresponding machine address. Here we are concerned about how DMA address is restricted. By configuring \emph{read} and \emph{write} fields in the I/O page table, Xen is able to enforce access-control such as mapping DMA addresses to writable pages while permitting read-only access to critical structures. 
 
 Working like the translation look-aside buffer (TLB), frequently accessed page table entries known as the IOTLB are cached in hardware to facilitate translation speed of DMA addresses. As can be seen in figure \ref{fig:dma-add-trans}, if IOTLB hit occurs, a machine address is accessed quickly. If not, then the DMA address has to go through the multi-level I/O page table, which definitely costs more time. As a result, IOTLB benefits the DMA address translation.
 
@@ -74,4 +70,4 @@ Working like the translation look-aside buffer (TLB), frequently accessed page t
 %invalidation requests and invalidation interface
 IOTLB entries are not static and Xen is responsible for explicitly flushes them when necessary. According to~\cite{intelvt}, IOMMU provides three types of IOTLB invalidation, i.e., global invalidation, domain-selective invalidation, page-selective invalidation, which differ in granularity. Intuitively, when a requested entry that corresponds to a specified DMA address needs to be invalidated, a page-selective invalidation is the best choice for the sake of performance. Besides that, IOMMU also supports two kinds of invalidation interfaces: register based invalidation and queued invalidation interface, between which queued invalidation performs better.
 
-If IOTLB flushes frequently in whatever granularity, it will largely increases the probability of IOTLB misses, thereby badly affecting I/O performance. And this is where our motivation lies.
+If IOTLB flushes frequently in whatever granularity, it will largely increases the probability of IOTLB misses, thereby badly affecting I/O performance. And this is where our motivation lies in. 
