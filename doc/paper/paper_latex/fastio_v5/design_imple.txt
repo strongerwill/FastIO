@@ -1,0 +1,20 @@
+\section{\name:Design and Implementation}
+
+%overview
+To solve the problem, \name associates a new page type with a page in the 
+hypervisor while provides every level of page-table cache pool for guest OS 
+. As revealed in previous sections, a writable page is writable to both guest
+OS and I/O devices, and guest OS has only a readable mapping to a page-table
+page while devices have no access to it. Because of that, we introduce a new
+page type called \textbf{ready} that can be write-accessed by OS while
+inaccessible to devices. When OS writes ready pages as new page tables and
+submits the request of updating page tables, Xen will not have to unmap them
+from I/O page tables, thus reducing IOTLB-flushes. 
+Besides, since page type is transparent to the OS, it needs to build a
+cache pool especially for the ready-type pages rather than free them into the
+buddy system which reserves only writable pages. Also, the cache pool benefits time efficiency when creating/destructing a page-table. 
+
+
+%firstly, talk about how to reduce the IOTLB flush.
+%secondly, design the cache pool to support it
+
