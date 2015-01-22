@@ -32,7 +32,7 @@ Figure \ref{fig:address-translation} illustrates the translation process when CP
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.5\textwidth]{image/background/address-translation.png} \\
-\caption{address translation}
+\caption{Address Translation}
 \label{fig:address-translation}
 \end{figure}
 
@@ -48,8 +48,8 @@ Xen validates the update operations in a number of ways, such as no entry of a g
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.5\textwidth]{image/background/page-type-updates.png} \\
-\caption{page type updates}
+\includegraphics[width=0.45\textwidth]{image/background/page-type-updates.png} \\
+\caption{Page Type Updates}
 \label{fig:page-type-updates}
 \end{figure}
 
@@ -60,14 +60,19 @@ Intel IOMMU (i.e., Intel Virtualization Technology for Directed I/O)~\cite{intel
 
 More specifically, in the case of a PCI device, a DMA request is composed of two parts: a request identifier that is used to index into a specific address translation structures (i.e., multi-level I/O page table) for a domain, and then a DMA address (regarded as a guest physical address in Xen) is transformed by the page table to its corresponding machine address. Here we are concerned about how DMA address is restricted. By configuring \emph{read} and \emph{write} fields in the I/O page table, Xen is able to enforce access-control such as mapping DMA addresses to writable pages while permitting read-only access to critical structures.
 
-Working like the translation look-aside buffer (TLB), frequently accessed page table entries known as the IOTLB are cached in hardware to facilitate translation speed of DMA addresses. As can be seen in figure \ref{fig:dma-add-trans}, if IOTLB hit occurs, a machine address is accessed quickly. If not, then the DMA address has to go through the multi-level I/O page table, which definitely costs more time. As a result, IOTLB benefits the DMA address translation.
+To facilitate translation speed of DMA addresses, frequently accessed page table entries known as the I/O translation look-aside buffer (IOTLB) are cached in hardware. If IOTLB hit occurs, a machine address is accessed quickly by IOTLB-path. If not, then the DMA-access has to go along the page-table path, as can be seen in figure \ref{fig:address-translation}. The page-table path definitely costs more time. As a result, IOTLB benefits the DMA address translation.
 
-\begin{figure}[ht]
+\begin{figure}
 \centering
-%\includegraphics[scale=0.55]{image/iotlbflush.png} \\
-\includegraphics[width=0.5\textwidth]{image/background/dma-address-translation.png} \\
-\caption{DMA address translation}
-\label{fig: dma-add-trans}
+\subfigure[IOTLB Path]{
+\label{fig:subfig:a}
+\includegraphics[width=0.5\textwidth]{image/background/DMA-IOTLB-translation.png}}
+\hspace{1in}
+\subfigure[Page-Table Path]{
+\label{fig:subfig:b}
+\includegraphics[width=0.5\textwidth]{image/background/DMA-pt-translation.png}}
+\caption{DMA Address Translation}
+\label{fig:dma-add-trans} %% label for entire figure
 \end{figure}
 
 %talking about how to flush IOTLB

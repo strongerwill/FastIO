@@ -17,7 +17,7 @@ In the meantime, Xen must clear \emph{read} and \emph{write} permission fields i
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.5\textwidth]{image/background/wr2pt.png} \\
-\caption{page type updates between writable and page-table}
+\caption{Page Type Updates Between Writable and Page-Table}
 \label{fig:wr2pt}
 \end{figure}
 
@@ -27,4 +27,4 @@ From the description above, we have two key observations as follows:
 
 2. Among all the page type updates, the update between writable and page-table is the main source of causing IOTLB-flush, since page table creation/destruction is very common during runtime while GDT/LDT creation/destruction is rare.
 
-Based on the observations, we are motivated to propose a novel algorithm for guest OS to manage page tables in order to reduce as many IOTLB flushes as possible while retain the safety.
+Based on the observations, we are motivated to propose a novel algorithm for guest OS to manage page tables in order to reduce as many IOTLB flushes as possible for a maximum possible use of the IOTLB-path while retain the safety.
