@@ -1,4 +1,4 @@
-\section{Background}
+\section{Background} \label{sec:background}
 
 As stated above, updating page types of guest OS leads to a number of IOTLB misses, and this is related to the security policies that paravirtualized (PV) hypervisor enforces. In the PV setting, the hypervisor is responsible for protecting and updating security-sensitive data structures so as to prevent illicit accesses from guest OSes and I/O devices. As Xen is typical and widely used today, this section mainly illustrates how Xen hypervisor~\cite{XEN-SOPS03} uses a x86 PV MMU model~\cite{x86-pv-model} to restrict OS-access while configures Intel IOMMU to restrict DMA-access, after which our motivation will be pointed out.
 
