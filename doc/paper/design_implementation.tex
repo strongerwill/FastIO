@@ -1,4 +1,24 @@
 \section{\name:Design and Implementation}
+\yueqiang{
+requirements: 
+1) minimum modifications (SLoC); 
+2) keeping security (we need a short subsection to discuss the security)
+3) minimum effects on page table allocation/deallocation in terms of memeory and CPU usage
+}
+
+\yueqiang{
+algorithm: life cycle of pt cache (allocation, free)
+pt cache(mechanism) enable and disable
+}
+
+\yueqiang {
+implementations:
+1) hooks for on-demand enable
+2) locks for algorithm
+3) data structures in algorithm
+4) threshold selection for cache free? or this discussed in design 
+5) }
+
 %overview
 As revealed in previous sections, the approach to protect page-table is straight-forward. Specifically, Xen limits guest OS to read-access (software protection) while assigned I/O devices is allowed no access (DMA protection), thus defending attacks from both sides and badly affects IOTLB. To solve the problem, \name maintains a new flag called \textbf{safe} with a machine page in the hypervisor space, indicating that the page is invisible to devices and safe from DMA attacks. Therefore, when validating a writable page with the ready flag (a safe writable page) to be of page-table, Xen only needs to revoke write-permission from the OS without unmapping the page from I/O page tables, avoiding an expensive IOTLB-flush. Also, \name proposes a novel cache algorithm in the guest OS to manage safe writable pages in order to prevent unacceptable exceptions caused by devices and facilitate the speed of creating/destructing page tables.
 
@@ -8,7 +28,7 @@ Since WR-inter-PT has a major impact on IOTLB, the safe flag takes effect when t
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.5\textwidth]{image/design/wr2pt.png} \\
+\includegraphics[width=0.5\textwidth]{image/background/wr2pt.png} \\
 \caption{Page Type Updates With Safe Flag}
 \label{fig:safe-flag}
 \end{figure}
