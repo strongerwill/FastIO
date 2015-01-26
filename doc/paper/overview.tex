@@ -17,21 +17,24 @@ R2) Achieving as good as possible performance. While benefitting IOTLB performan
 R3) Slightest possible modifications to Xen and Linux kernel for the sake of compatibility.
 
 \subsection{Design Rationale}
-\name enforces access control at a finer granularity to protect guest page tables without flushing IOTLB. Besides, guest OS builds up cache pools to manage these pages to facilitate the speed of page table allocation/deallocation, gaining big benefits of CPU efficiency while causing small impacts on memory usage.
+In the \name, Xen enforces access control at a fine granularity to ensure security without flushing IOTLB. Besides, guest OS builds up cache pools to manage pages to support the fine-grained access control while facilitate the speed of every level of page table allocation/deallocation, saving CPU time while causing small impacts on memory usage.
 
-\subsubsection{Access Control at A Finer Granularity}
+\subsubsection{Fine-Grained Access Control}
 %firstly, talk about how to reduce the IOTLB flush.
-As revealed in previous sections, for writable pages, Xen allows write-access both for guest OS and assigned I/O devices. However, \name performs DMA prevention for specified writable pages. If they are updated to be of page-table type, Xen only limits OS to read-only permission without affecting I/O page tables as well as IOTLB, still defending attacks from both sides.
+As revealed in previous sections, access control to writable pages is at a coarse granularity. Xen allows write-access both for guest OS and assigned I/O devices. Instead, \name caches a certain number of writable pages, prohibits DMA access for the cached writable pages while OS still has its write-permission. If they are updated to be page tables, Xen only limits OS to read-only permission (software protection) without modifying I/O page tables as well as IOTLB. Specifically, Xen maintains a new flag called \textbf{cache} with a machine page, indicating that the corresponding page is cached by guest OS and free from DMA-access. Whatever page type a machine page is, if it owns the flag, Xen neither maps nor unmaps it from I/O page tables, thus avoiding an IOTLB-flush. Note that \name only considers page type updates between WR-inter-PT.
 
-Specifically, Xen maintains a new flag bit called \textbf{cache} with a machine page, indicating that the corresponding page is free from DMA-access. Whatever page type a machine page is, if it is determined to own the flag, Xen neither maps nor unmaps the page from I/O page tables, thus avoiding an IOTLB-flush. As only page type updates between writable and page-table are considered, the cache flag is along with the two types. If guest OS creates a new page-table, Xen firstly reuses the validation process to enforce software protection, and then checks if the specific page has the safe flag. If not, Xen sets the page with the new flag and enforces DMA protection. If so, Xen has nothing to do but updates the page to be a safe page-table. As for the guest page table destruction, Xen also reuses existing operations to remove software protection, after which each page is set with the safe flag and updated to be writable while DMA protection is still maintained. In this way, every time a process is created/destructed, corresponding pages will own the safe flag, indicating that they are under DMA protection. Figure \ref{fig:safe-flag} describes how WR-inter-PT varies with the flag.
+For instance, if guest OS creates a new page-table, Xen firstly reuses the validation process to enforce software protection, and then checks if the page has the \textbf{cache} flag. If so, the only thing that Xen needs to do is to update the page to be a page-table. If not, Xen sets the page with the new flag, clears \emph{read} and \emph{write} permission fields in I/O page tables and flushes IOTLB. As for the guest page table destruction, Xen also reuses existing security checks to remove software protection, after which the corresponding page is set with the \textbf{cache} flag and updated to be writable while DMA prevention is still in effect. Figure \ref{fig:safe-flag} describes the process.
 
-Therefore, when validating a writable page with the ready flag (a safe writable page) to be of page-table, Xen only needs to revoke write-permission from the OS without unmapping the page from I/O page tables, avoiding an expensive IOTLB-flush. Also, \name proposes a novel cache algorithm in the guest OS to manage safe writable pages in order to prevent unacceptable exceptions caused by devices and facilitate the speed of creating/destructing page tables.
+In this way, every time page type updates between WR-inter-PT occur, every related page will own the safe flag, 
+ Xen only needs to revoke write-permission from the OS without unmapping the page from I/O page tables, theyexpensive IOTLB-flush. 
+
+Also, \name proposes a novel cache algorithm in the guest OS to manage safe writable pages in order to prevent unacceptable exceptions caused by devices and facilitate the speed of creating/destructing page tables.
 Ensuring security is demonstrated below.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.5\textwidth]{image/background/wr2pt.png} \\
-\caption{Page Type Updates With Safe Flag}
+\caption{A Lifecycle of \textbf{cache} Flag}
 \label{fig:safe-flag}
 \end{figure}
 
