@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.17)  28 JAN 2015 09:40
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.17)  28 JAN 2015 15:25
 entering extended mode
 **fastio.tex
 (C:\Users\zhangzhi\Dropbox\iotlb\FastIO\FastIO\doc\paper\fastio.tex
@@ -176,7 +176,56 @@ Package color Info: Driver file: pdftex.def on input line 130.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\xspace.sty"
 Package: xspace 2009/10/20 v1.13 Space after command names (DPC,MH)
 )
-(C:\Users\zhangzhi\Dropbox\iotlb\FastIO\FastIO\doc\paper\fastio.aux)
+(C:\Users\zhangzhi\Dropbox\iotlb\FastIO\FastIO\doc\paper\fastio.aux
+
+LaTeX Warning: Label `fig:subfig:a' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subfig:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:subfig:b' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subfig:b' multiply defined.
+
+
+LaTeX Warning: Label `fig:subfig:a' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subfig:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:subfig:b' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subfig:b' multiply defined.
+
+
+LaTeX Warning: Label `fig:subfig:c' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subfig:c' multiply defined.
+
+
+LaTeX Warning: Label `fig:subfig:a' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subfig:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:subfig:b' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subfig:b' multiply defined.
+
+
+LaTeX Warning: Label `fig:subfig:c' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:subfig:c' multiply defined.
+
+)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
 LaTeX Font Info:    ... okay on input line 33.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
@@ -190,8 +239,7 @@ LaTeX Font Info:    ... okay on input line 33.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
 LaTeX Font Info:    ... okay on input line 33.
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 33.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 \big@size=\dimen116
@@ -273,19 +321,10 @@ LaTeX Warning: Citation `intelvt' on page 1 undefined on input line 4.
 LaTeX Warning: Reference `sec:preli' on page 2 undefined on input line 34.
 
 
-LaTeX Warning: Reference `sec:prob' on page 2 undefined on input line 34.
-
-
 LaTeX Warning: Reference `sec:rationale' on page 2 undefined on input line 34.
 
 
-LaTeX Warning: Reference `sec:overview' on page 2 undefined on input line 34.
-
-
 LaTeX Warning: Reference `sec:implement' on page 2 undefined on input line 34.
-
-
-LaTeX Warning: Reference `sec:eva' on page 2 undefined on input line 34.
 
 
 LaTeX Warning: Reference `sec:dis' on page 2 undefined on input line 34.
@@ -311,12 +350,7 @@ Underfull \hbox (badness 1383) in paragraph at lines 13--14
 \OT1/ptm/m/n/10 Generally, in the X86 ar-chi-tec-ture us-ing seg-men-ta-
  []
 
-[2]
-
-LaTeX Warning: Reference `fig:address-translation' on page 3 undefined on input
- line 30.
-
-<image/background/address-translation.png, id=11, 542.5068pt x 143.0946pt>
+[2] <image/background/address-translation.png, id=11, 542.5068pt x 143.0946pt>
 File: image/background/address-translation.png Graphic file (type png)
 
 <use image/background/address-translation.png>
@@ -333,10 +367,6 @@ Underfull \hbox (badness 1584) in paragraph at lines 45--46
 \OT1/ptm/m/n/10 ta-ble), PGT[]l3[]page[]table (used as an L3 page ta-
  []
 
-
-LaTeX Warning: Reference `fig:page-type-updates' on page 3 undefined on input l
-ine 47.
-
 <image/background/page-type-updates.png, id=13, 320.8788pt x 238.0092pt>
 File: image/background/page-type-updates.png Graphic file (type png)
 
@@ -351,10 +381,6 @@ LaTeX Warning: Citation `intelvt' on page 3 undefined on input line 59.
 [3 <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/image/background/ad
 dress-translation.png> <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper
 /image/background/page-type-updates.png>]
-
-LaTeX Warning: Reference `fig:address-translation' on page 4 undefined on input
- line 63.
-
 <image/background/DMA-IOTLB-translation.png, id=19, 473.1276pt x 74.1972pt>
 File: image/background/DMA-IOTLB-translation.png Graphic file (type png)
 
@@ -389,9 +415,6 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 4.
 
-
-LaTeX Warning: Reference `fig:wr2pt' on page 4 undefined on input line 15.
-
 [4 <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/image/background/DM
 A-IOTLB-translation.png> <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/pap
 er/image/background/DMA-pt-translation.png>]
@@ -421,10 +444,6 @@ Underfull \hbox (badness 1275) in paragraph at lines 24--25
 \OT1/ptm/m/n/10 As re-vealed in pre-vi-ous sec-tions, ac-cess con-trol to
  []
 
-
-LaTeX Warning: Reference `fig:cache-flag' on page 5 undefined on input line 26.
-
-
 <image/design/cache-flag.png, id=29, 473.1276pt x 74.1972pt>
 File: image/design/cache-flag.png Graphic file (type png)
 
@@ -436,24 +455,10 @@ Overfull \hbox (9.03374pt too wide) in paragraph at lines 30--30
  [][] 
  []
 
-
-LaTeX Warning: Reference `fig:cache-flag' on page 5 undefined on input line 35.
-
-
 [5 <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/image/background/wr
 2pt.png> <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/image/design/
-cache-flag.png>]
-
-LaTeX Warning: Reference `sec:eva' on page 6 undefined on input line 43.
-
-
-LaTeX Warning: Reference `sec:implementation' on page 6 undefined on input line
- 45.
-
-) (C:\Users\zhangzhi\Dropbox\iotlb\FastIO\FastIO\doc\paper\implementation.tex
-
-LaTeX Warning: Reference `sec:eva' on page 6 undefined on input line 19.
-
+cache-flag.png>])
+(C:\Users\zhangzhi\Dropbox\iotlb\FastIO\FastIO\doc\paper\implementation.tex
 [6]) (C:\Users\zhangzhi\Dropbox\iotlb\FastIO\FastIO\doc\paper\evaluation.tex
 Underfull \hbox (badness 4699) in paragraph at lines 26--27
 []\OT1/ptm/m/n/10 Besides that, we have been aware that cre-at-
@@ -475,25 +480,21 @@ Overfull \hbox (9.03374pt too wide) in paragraph at lines 43--43
  [][] 
  []
 
-
-LaTeX Warning: Reference `fig:iotlbflush' on page 7 undefined on input line 48.
-
-
-[7] <image/micro/PGDtime.png, id=45, 683.1924pt x 386.8854pt>
+<image/micro/PGDtime.png, id=41, 683.1924pt x 386.8854pt>
 File: image/micro/PGDtime.png Graphic file (type png)
 
 <use image/micro/PGDtime.png>
 Package pdftex.def Info: image/micro/PGDtime.png used on input line 54.
 (pdftex.def)             Requested size: 234.87749pt x 133.00923pt.
 
-<image/micro/PMDtime.png, id=46, 665.8476pt x 363.759pt>
+<image/micro/PMDtime.png, id=42, 665.8476pt x 363.759pt>
 File: image/micro/PMDtime.png Graphic file (type png)
 
 <use image/micro/PMDtime.png>
 Package pdftex.def Info: image/micro/PMDtime.png used on input line 58.
 (pdftex.def)             Requested size: 234.87749pt x 128.3111pt.
 
-<image/micro/PTEtime.png, id=47, 660.5478pt x 363.759pt>
+<image/micro/PTEtime.png, id=43, 660.5478pt x 363.759pt>
 File: image/micro/PTEtime.png Graphic file (type png)
 
 <use image/micro/PTEtime.png>
@@ -514,13 +515,11 @@ Overfull \hbox (11.53374pt too wide) in paragraph at lines 54--63
  [] 
  []
 
+[7]
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
-
-LaTeX Warning: Reference `fig:PGtime' on page 8 undefined on input line 67.
-
-<image/micro/pre_PGDpool.png, id=48, 506.3718pt x 337.7418pt>
+ <image/micro/pre_PGDpool.png, id=48, 506.3718pt x 337.7418pt>
 File: image/micro/pre_PGDpool.png Graphic file (type png)
 
 <use image/micro/pre_PGDpool.png>
@@ -554,9 +553,6 @@ Overfull \hbox (11.53374pt too wide) in paragraph at lines 73--82
 Overfull \hbox (11.53374pt too wide) in paragraph at lines 73--82
  [] 
  []
-
-
-LaTeX Warning: Reference `fig:prePGpool' on page 8 undefined on input line 86.
 
 [8 <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/image/micro/iotlbfl
 ush.png> <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/image/micro/P
@@ -598,17 +594,6 @@ Overfull \hbox (11.53374pt too wide) in paragraph at lines 98--107
  [] 
  []
 
-
-LaTeX Warning: Reference `fig:iotlbflush' on page 9 undefined on input line 111
-.
-
-
-LaTeX Warning: Reference `fig:PGtime' on page 9 undefined on input line 111.
-
-
-LaTeX Warning: Reference `fig:dynPGpool' on page 9 undefined on input line 111.
-
-
 <image/macro/spec.png, id=61, 688.974pt x 406.6392pt>
 File: image/macro/spec.png Graphic file (type png)
 
@@ -619,9 +604,6 @@ Package pdftex.def Info: image/macro/spec.png used on input line 122.
 Overfull \hbox (9.03374pt too wide) in paragraph at lines 122--122
  [][] 
  []
-
-
-LaTeX Warning: Reference `fig:spec' on page 9 undefined on input line 127.
 
 
 Underfull \hbox (badness 1831) in paragraph at lines 127--129
@@ -639,9 +621,6 @@ Overfull \hbox (9.03374pt too wide) in paragraph at lines 133--133
  [][] 
  []
 
-
-LaTeX Warning: Reference `fig:lmbench' on page 9 undefined on input line 138.
-
 [9 <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/image/micro/pre_PGD
 pool.png> <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/image/micro/
 pre_PMDpool.png> <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/image
@@ -656,9 +635,6 @@ Package pdftex.def Info: image/macro/netperf.png used on input line 144.
 Overfull \hbox (9.03374pt too wide) in paragraph at lines 144--144
  [][] 
  []
-
-
-LaTeX Warning: Reference `fig:netperf' on page 10 undefined on input line 150.
 
 [10 <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/image/micro/dyn_PG
 Dpool.png> <C:/Users/zhangzhi/Dropbox/iotlb/FastIO/FastIO/doc/paper/image/micro
@@ -679,13 +655,13 @@ No file fastio.bbl.
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
  1921 strings out of 494045
  28385 string characters out of 3148378
- 81685 words of memory out of 3000000
+ 79952 words of memory out of 3000000
  5135 multiletter control sequences out of 15000+200000
  34312 words of font info for 71 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
@@ -697,7 +673,7 @@ s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 urw/symbol/usyr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.p
 fb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on fastio.pdf (11 pages, 788957 bytes).
+Output written on fastio.pdf (11 pages, 788098 bytes).
 PDF statistics:
  106 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
