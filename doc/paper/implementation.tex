@@ -7,17 +7,32 @@ implementations:
 4) threshold selection for cache free? or this discussed in design
 5) }
 
-\name implements the prototype from two aspects, namely Xen version 4.2.1 and guest kernel version 3.2.0-rc1 as follows.
+Based on Xen version 4.2.1 and guest kernel version 3.2.0-rc1, \name implements the access control related to cache flag as well as management of page-table cache.
 
-\subsection{Hypervisor Space}
+\subsection{Cache Flag}
 
-From a 32-bit field related to page type information, \name was planning to use a redundant bit to represent the cache flag in order to be compatible with its original implementation. However, each bit in the upper 9-bit of the field has its specific use and the lower 23-bit serves as the reference count of current page type, representing at most ($2^23-1$) reference counts of the page type. \name enforces a stricter rule to prevent count overflow, as cache flag occupies the top bit of the 23-bit. Also, \name adds several SLOC in the function \_\_get\_page\_type() to check if a machine has the flag bit. Besides, if each level of cache pool in the guest OS submits a list of cached pages that are going to be freed, \name implements a corresponding hypercall to clear the flag bit of all machine pages, create corresponding entries in the I/O page tables and flush IOTLB.
+From a 32-bit field related to page type information, \name was planning to use a redundant bit to represent the cache flag in order to be compatible with its original implementation. However, each bit in the upper 9-bit of the field has its specific use and the lower 23-bit serves as the reference count of current page type, representing at most ($2^{23}-1$) reference counts of the page type (see figure ~\ref{fig:subfig:a}). \name enforces a stricter rule to prevent count overflow, as cache flag occupies the top bit of the 23-bit and the maximal reference count is limited to ($2^{22}-1$), which affects Xen little (see figure ~\ref{fig:subfig:b}). Actually, Xen hypervisor is functioning well with the flag bit since the reference count of a page type during runtime cannot reach at ($2^{22}-1$). On top of that, \_\_get\_page\_type() is the critical function to be customized in order to check if a machine page has the flag bit.
 
-\subsection{Guest OS Space}
+\begin{figure}
+\centering
+\subfigure[Existing Representation]{
+\label{fig:subfig:a}
+\includegraphics[width=0.5\textwidth]{image/implementation/field-of-page-type-info.png}}
+\hspace{1in}
+\subfigure[Cache Flag Representation]{
+\label{fig:subfig:b}
+\includegraphics[width=0.5\textwidth]{image/implementation/field-of-page-type-info-with-cache-flag.png}}
+\caption{Field of Page Type Info}
+\label{fig:PGtime} %% label for entire figure
+\end{figure}
 
-In the PV setting, guest OS is required to work in PAE (i.e., Physical Address Extension) mode. As a result, \name needs three levels of cache pools. Every cache pool begins its lifecycle automatically with system booting up or dynamically during system runtime. A kernel loadable module has been developed for the on-demand activation. 
+\subsection{Management of Page Table Cache}
 
-For the top two levels used for caching PGD (i.e., Page Global Directory) and PMD (i.e., Page Middle Directory), \name maintains a structured single-linked list caching the linear address of each page for each level of cache pool. As the bottom PT (i.e., Page Table) is located in the High Memory, the mapping between its linear and physical addresses is not stable every time the PT pages are allocated/freed by PT functions. \name needs to create a similar list but caching the structured page info of pages. For each cache pool, \name defines cache allocating and freeing functions used to hook existing page-table related functions. In this way, if OS creates/destroys any process, it always fetches pages from or frees them onto the top of the list. Also note that the cache pool is a shared data structure and every cache-access function is a critical section. To prevent concurrent access while support multi-processor, \name makes use of spin locks. 
+In the PV setting, guest OS is required to work in PAE (i.e., Physical Address Extension) mode. As a result, \name maintains three levels of cache pools, each of which is essentially a structured single-linked list caching the guest physical addresses of pages. For the top two levels used for caching PGD (i.e., Page Global Directory) and PMD (i.e., Page Middle Directory), \name obtains the physical addresses directly from their linear addresses. While the bottom PT (i.e., Page Table) is located in the High Memory, the mapping between its linear and physical addresses is not stable. \name acquires the physical addresses of cached PT pages from the corresponding page-info structures.
 
-As discussed above, cache freeing function is responsible for freeing pages into the buddy system if thresholds of the two factors are met, thus a corresponding hypercall should be invoked with a single-linked list of cached pages as parameters. Since the cached page info structures of PT are not known to hypervisor, the cache freeing function needs to transform the structure to get a machine address for a specific cached page right before the hypercall is invoked.
+Every list supports operations of both removal and insertion. Removal exists within the cache allocating function, which fetches a cached page also from the top. Insertion exists within the cache freeing function, which inserts a cached page onto the top of the list. Also, \name maintains two global operation counters, namely num\_in\_use and num\_in\_pool, each logging the invocation times of removal and insertion, respectively. They are required when cache freeing function needs to free cached pages into the buddy system. Every pair of cache allocating and freeing functions is used to hook existing page-table related functions. By this way, whenever OS creates or destroys any process, it always interacts with the caches. Also note that every cache pool and operation counter are shared data resources and their related operation code are critical sections. \name makes use of locks to ensure exclusive resource-access in the multi-processor setting. More specifically, Every level of page-table cache and all its operation counters share a spin lock and irrelevant operations should be removed out of the critical section, especially those that are time-consuming.
+
+Cache mechanism begins its lifecycle either automatically with system booting up or dynamically during system runtime. \name implements a new system call to provide an interface for users to activate the cache in an on-demand way. In the system call, a global boolean variant is defined, which is initialized as false, indicating that cache is not enabled. And users can assign the variant as true to enable the cache. If the cache mechanism is running while thresholds of the two factors are met, cache freeing function is responsible for freeing pages into the buddy system , thus a corresponding hypercall should be invoked with a single-linked list of cached addresses of pages as parameters. The hypercall is a uniform interface for every level of cache freeing function, simplifying the modifications both to guest OS and Xen. As a reply to the hypercall, Xen mainly clears the flag bit of specified pages, creates entries in the I/O page tables and flushes entries of IOTLB. It can be concluded that inappropriate thresholds will lead to the flushes of IOTLB. Because of that, \name develops an interface for users to modify the default values of both thresholds in order to reduce IOTLB-flush. If available memory in the system is too small in extreme cases, users are provided with another interface to manually free all pages in cache into the buddy system, thus relieving system's pressure while badly affecting IOTLB.
+ 
+
 

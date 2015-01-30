@@ -25,6 +25,6 @@ From the description above, we have two key observations as follows:
 
 1. Every page type update in figure \ref{fig:page-type-update} will force Xen to map or unmap a specific page from I/O page table and thus flush a corresponding IOTLB entry, which may have a bad impact on I/O performance.
 
-2. Among all the page type updates, the update between writable and page-table (WR-inter-PT) is the main source of causing IOTLB-flush, since page table creation/destruction is very common during runtime while GDT/LDT creation/destruction is rare.
+2. Among all the page type updates, the update between writable and page-table is the main source of causing IOTLB-flush, since page table creation/destruction is very common during runtime while GDT/LDT creation/destruction is rare.
 
 Based on the observations, we are motivated to propose \name in order to reduce as many IOTLB flushes as possible for a maximum possible use of the IOTLB-path while retain the safety.
