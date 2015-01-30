@@ -15,7 +15,7 @@
 % changed to more closely follow the style guidelines as represented
 \section{Evaluation} \label{sec:eva}
 
-We have implemented the proposed novel algorithm demonstrated in previous sections. The implementation adds $350$ SLoC to Linux kernel and $166$ SLoc to Xen hypervisor while $2$ SLoc in the hypervisor are modified, which aims to build a cache pool for guest page tables so as to avoid unnecessary IOTLB flushes.
+We have implemented the proposed novel algorithm demonstrated in previous sections. The implementation adds $350$ SLoC to Linux kernel and $166$ SLoc to Xen hypervisor, of which $2$ SLoc in the hypervisor are modified, which aims to build a cache pool for guest page tables so as to avoid unnecessary IOTLB flushes.
 
 This section evaluates the performance of our algorithm by running both micro- and macro-benchmark kits.
 
@@ -50,15 +50,15 @@ As can be seen from Figure \ref{fig:iotlbflush}. Y-axis represents the frequency
 \begin{figure}
 \centering
 \subfigure[PGD]{
-\label{fig:subfig:a} 
+\label{fig:subfig:a}
 \includegraphics[width=0.5\textwidth]{image/micro/PGDtime.png}}
-\hspace{1in} 
+\hspace{1in}
 \subfigure[PMD]{
-\label{fig:subfig:b} 
+\label{fig:subfig:b}
 \includegraphics[width=0.5\textwidth]{image/micro/PMDtime.png}}
-\hspace{1in} 
+\hspace{1in}
 \subfigure[PTE]{
-\label{fig:subfig:c} 
+\label{fig:subfig:c}
 \includegraphics[width=0.5\textwidth]{image/micro/PTEtime.png}}
 \caption{CPU Usage for Each Level of Page Table}
 \label{fig:PGtime} %% label for entire figure
@@ -69,15 +69,15 @@ Now let’s move to CPU usage that each group will take up. Specifically, each l
 \begin{figure}
 \centering
 \subfigure[PGD]{
-\label{fig:subfig:a} 
+\label{fig:subfig:a}
 \includegraphics[width=0.5\textwidth]{image/micro/pre_PGDpool.png}}
-\hspace{1in} 
+\hspace{1in}
 \subfigure[PMD]{
-\label{fig:subfig:b} 
+\label{fig:subfig:b}
 \includegraphics[width=0.5\textwidth]{image/micro/pre_PMDpool.png}}
-\hspace{1in} 
+\hspace{1in}
 \subfigure[PTE]{
-\label{fig:subfig:c} 
+\label{fig:subfig:c}
 \includegraphics[width=0.5\textwidth]{image/micro/pre_PTEpool.png}}
 \caption{Cache Pools Size for Cache-Pre-Enabled Group}
 \label{fig:prePGpool} %% label for entire figure
@@ -94,15 +94,15 @@ Next, in a group of cache-dynamic-enabled, cache is enabled when IOTLB-flush bec
 \begin{figure}
 \centering
 \subfigure[PGD]{
-\label{fig:subfig:a} 
+\label{fig:subfig:a}
 \includegraphics[width=0.5\textwidth]{image/micro/dyn_PGDpool.png}}
-\hspace{1in} 
+\hspace{1in}
 \subfigure[PMD]{
-\label{fig:subfig:b} 
+\label{fig:subfig:b}
 \includegraphics[width=0.5\textwidth]{image/micro/dyn_PMDpool.png}}
-\hspace{1in} 
+\hspace{1in}
 \subfigure[PTE]{
-\label{fig:subfig:c} 
+\label{fig:subfig:c}
 \includegraphics[width=0.5\textwidth]{image/micro/dyn_PTEpool.png}}
 \caption{Cache Pools Size for Cache-Dynamic-Enabled Group}
 \label{fig:dynPGpool} %% label for entire figure
@@ -124,7 +124,7 @@ Different micro tests have shown optimizations in three aspects for the algorith
 \label{fig:spec}
 \end{figure}
 
-SPECint\_2006v1.2 has $12$ benchmarks in total and they are all invoked with EXAMPLE-linux64-ia32-gcc43+.cfg for integer computation, results of which produce Figure \ref{fig:spec}. 483.xalancbmk in cache-dynamic-enabled group costs $239$ seconds, 0.42\% less 
+SPECint\_2006v1.2 has $12$ benchmarks in total and they are all invoked with EXAMPLE-linux64-ia32-gcc43+.cfg for integer computation, results of which produce Figure \ref{fig:spec}. 483.xalancbmk in cache-dynamic-enabled group costs $239$ seconds, 0.42\% less
 than that of the cache-disabled group and this is the biggest difference among all benchmarks. As a result, little difference between the two groups exists, which indicates that the algorithm does not have any bad effect on system performance.
 
 \begin{figure}[ht]
@@ -147,7 +147,7 @@ Lmbench is used to measure CPU time that processes cost (i.e., fork+exit, fork+e
 \end{figure}
 
 
-As for I/O performance, we use netperf to evaluate the performance of network-intensive workloads. To overcome the adverse effect caused by real network jitter, we physically connect the testing machine directly to a tester machine by a network cable, and then the tester machine as a client measures a network throughput by sending a bulk of TCP packets to the testing machine being a server. Specifically, the client connects to the tested server by building a single TCP connection. Test type is TCP\_STREAM, sending buffer size is $16KB$ and connection lasts $60$ seconds. On top of that, the TCP\_STREAM test of netperf is conducted for $30$ times to obtain an average value of throughput. Throughput in cache-dynamic-enabled group is $87.93 \times 10^6$ bits per second, 0.02\% more than that of the cache-disabled group, shown in Figure \ref{fig:netperf}, and this makes no difference. 
+As for I/O performance, we use netperf to evaluate the performance of network-intensive workloads. To overcome the adverse effect caused by real network jitter, we physically connect the testing machine directly to a tester machine by a network cable, and then the tester machine as a client measures a network throughput by sending a bulk of TCP packets to the testing machine being a server. Specifically, the client connects to the tested server by building a single TCP connection. Test type is TCP\_STREAM, sending buffer size is $16KB$ and connection lasts $60$ seconds. On top of that, the TCP\_STREAM test of netperf is conducted for $30$ times to obtain an average value of throughput. Throughput in cache-dynamic-enabled group is $87.93 \times 10^6$ bits per second, 0.02\% more than that of the cache-disabled group, shown in Figure \ref{fig:netperf}, and this makes no difference.
 Seemingly, the results indicate that the algorithm has no contribution to the performance improvement, contradicting with the results from micro experiments.
 
 Actually, Nadav Amit [xxx] demonstrates that the virtual I/O memory map and unmap operations consume more CPU cycles than  that of the corresponding DMA transaction so that the IOTLB has not been observed to be a bottleneck under regular circumstances. Thus, only when the cost of frequent mapping and unmapping of IOMMU buffers is sufficiently reduced, the guest physical address resolution mechanism becomes the main bottleneck. Furthermore, he proposes the so-called pseudo pass-through mode and utilizes a high-speed I/O device (i.e., Intel’s I/O Acceleration Technology) to reduce time required by DMA map and unmap operations so that IOTLB becomes the dominant factor. As a result, it is quite reasonable that netperf results with/without the algorithm are almost the same.
