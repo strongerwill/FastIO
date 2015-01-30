@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.17)  30 JAN 2015 23:31
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.1.17)  30 JAN 2015 23:42
 entering extended mode
 **fastio.tex
 (C:\Users\zhangzhi\Dropbox\iotlb\FastIO\FastIO\doc\paper\fastio.tex
@@ -454,15 +454,12 @@ Underfull \hbox (badness 1946) in paragraph at lines 15--18
 []\OT1/ptm/m/n/10 R1) Re-tain-ing se-cu-rity. IO-SUP aims at re-duc-
  []
 
-
-LaTeX Warning: Reference `fig:overview' on page 5 undefined on input line 20.
-
-<image/overview/overview.png, id=29, 462.528pt x 413.8662pt>
+<image/overview/overview.png, id=29, 484.209pt x 406.6392pt>
 File: image/overview/overview.png Graphic file (type png)
 
 <use image/overview/overview.png>
 Package pdftex.def Info: image/overview/overview.png used on input line 24.
-(pdftex.def)             Requested size: 234.87749pt x 210.1659pt.
+(pdftex.def)             Requested size: 234.87749pt x 197.2508pt.
 
 Overfull \hbox (9.03374pt too wide) in paragraph at lines 24--24
  [][] 
@@ -724,7 +721,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  1937 strings out of 494045
  29232 string characters out of 3148378
- 79956 words of memory out of 3000000
+ 79965 words of memory out of 3000000
  5148 multiletter control sequences out of 15000+200000
  34312 words of font info for 71 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
@@ -736,7 +733,7 @@ s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 urw/symbol/usyr.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.p
 fb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on fastio.pdf (11 pages, 863062 bytes).
+Output written on fastio.pdf (11 pages, 863905 bytes).
 PDF statistics:
  112 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
