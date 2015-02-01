@@ -5,7 +5,7 @@ To fix this gap, the hypervisor has to resort to the I/O virtualization (AMD-Vi~
 Leveraging the combination of the paravirtualization and I/O virtualization, the hypervisor prevent all malicious accesses from processor and hardware perpherial devices.
 
 %Highlight the problem, and emphasise the importance.
-\textbf{Problem.} Although the combination of the paravirtualization and I/O virtualization brings strong security protection, but we surperisingly find out that it leads to the reduction of the DMA address translation due to the IOTLB flush. 
+\textbf{Problem.} Although the combination of the paravirtualization and I/O virtualization brings strong security protection, but we surperisingly find out that it leads to the reduction of the DMA address translation due to the additional IOTLB flushes. 
 Specifically, the paravirtualized hypervisor needs to protect all guest page tables 
 by setting them read-only and preventing all DMA accesses.  
 In addition, the guest page tables are not static/constant data structures, 
@@ -13,7 +13,7 @@ instead they are created and destroied by the guest kernel.
 Thus, the hypervisor needs to trace the page-type changes to update the IOMMU page table and flush IOTLBs.
 For instance, when a page is changed from a writable page\footnote{The \emph{writable pages} are allowed to be read and written by the guest VM.}  
 to a page-table page, the hypervisor has to update the IOMMU page table and flush IOTLB to prevent any DMA access on it.
-These flushes are necessary for the sake of the security of Xen hypervisor, but it inevitably increases the miss rate of IOTLB, and consequently reduces I/O performance, especially for the high-speed devices. 
+These flushes are necessary for the sake of the security of the hypervisor, but it inevitably increases the miss rate of IOTLB, and consequently reduces I/O performance, especially for the high-speed devices. 
 In addition, these updates and changes are often triggered during the whole life cycle of a running system.
 As a consequence, the IOTLB flushing events are frequently triggered, which inevitably lower the speed of the DMA address translation and the I/O performance of all peripheral devices.
 
