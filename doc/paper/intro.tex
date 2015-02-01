@@ -6,15 +6,12 @@ Leveraging the combination of the paravirtualization and I/O virtualization, the
 
 %Highlight the problem, and emphasise the importance.
 \textbf{Problem.} Although the combination of the paravirtualization and I/O virtualization brings strong security protection, but we surperisingly find out that it leads to the reduction of the DMA address translation due to the additional IOTLB flushes. 
-Specifically, the paravirtualized hypervisor needs to protect all guest page tables 
-by setting them read-only and preventing all DMA accesses.  
-In addition, the guest page tables are not static/constant data structures, 
-instead they are created and destroied by the guest kernel.
-Thus, the hypervisor needs to trace the page-type changes to update the IOMMU page table and flush IOTLBs.
-For instance, when a page is changed from a writable page\footnote{The \emph{writable pages} are allowed to be read and written by the guest VM.}  
-to a page-table page, the hypervisor has to update the IOMMU page table and flush IOTLB to prevent any DMA access on it.
-These flushes are necessary for the sake of the security of the hypervisor, but it inevitably increases the miss rate of IOTLB, and consequently reduces I/O performance, especially for the high-speed devices. 
-In addition, these updates and changes are often triggered during the whole life cycle of a running system.
+Specifically, the guest page tables should be protected from any DMA access.
+Thus, when a writable page\footnote{A \emph{writable page} is the page in the guest VM, allowing the guest VM to freely read and write according to its own purpose.} turns into a page-table page, the hypervisor has to update the IOMMU page table and flush IOTLBs to stop DMA access on it.
+The IOTLB flush is necessary for the sake of the security of the hypervisor, but it inevitably increases the miss rate of IOTLB, and consequently reduces I/O performance, especially for the high-speed devices. 
+At the same time, when a page-table page is turned to a writable page, the hyperisor needs to return the ownership to the guest VM.
+As a retult, the hypervisor has to update the IOMMU page table and flush IOTLBs for allowing the guest VM to freely access the returned writable page. 
+In addition, these page-type changes between page-table page and writable page are often triggered during the whole life cycle of a running system.
 As a consequence, the IOTLB flushing events are frequently triggered, which inevitably lower the speed of the DMA address translation and the I/O performance of all peripheral devices.
 
 %existing work
