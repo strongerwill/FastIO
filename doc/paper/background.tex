@@ -1,34 +1,21 @@
 \section{Background} \label{sec:background}
+The dependency between the guest page table and the IOTLB is very subtle. 
+To fully understand the dependency, we need to know the details about how the paravirtualized hypervisor protects itself through guest page table and IOMMU.
+Specifically, we explicitly describe 1) paravirtualized MMU mode, and 2) IOMMU and DMA address translation.
+As Xen~\cite{XEN-SOSP03} is a typical and popular paravirtualized hypervisor, in this section we use Xen in a x86 MMU model~\cite{x86-pv-model} to illustrate the details. We believe you can easily find the corresponding mechanisms on other paravirtualized hypervisors. 
+If you are already familar with these, you can skip this section to the motivation section (Section~\ref{sec:moti}).  
 
-As stated above, updating page types of guest OS leads to a number of IOTLB misses, and this is related to the security policies that paravirtualized (PV) hypervisor enforces. In the PV setting, the hypervisor is responsible for protecting and updating security-sensitive data structures so as to prevent illicit accesses from guest OSes and I/O devices. As Xen is typical and widely used today, this section mainly illustrates how Xen hypervisor~\cite{XEN-SOPS03} uses a x86 PV MMU model~\cite{x86-pv-model} to restrict OS-access while configures Intel IOMMU to restrict DMA-access, after which our motivation will be pointed out.
+%As stated above, updating page types of guest OS leads to a number of IOTLB misses, and this is related to the security policies that paravirtualized (PV) hypervisor enforces. In the PV setting, the hypervisor is responsible for protecting and updating security-sensitive data structures so as to prevent illicit accesses from guest OSes and I/O devices. 
 
-Since the model requires a familiarity with X86 address translation and related concepts, we need to understand the translation techniques first.
 
-\subsection{understanding of address translation}
+\subsection{Paravirtualized MMU Model}\label{sec:pvmodel}
+In this subsection, we first introduce the address translation machenism on x86, and then we highlight how Xen protect itself in the paravirtualized MMU model.
 
-There are two address translation stages: 1) segmentation mechanism: logical address to linear address translation, which is related to GDT/LDT, and 2) paging mechanism: linear address to physical address translation, which is related to page table. In the following, we will describe the details of each stage.
-
-\subsubsection{logical to linear address translation}
-
-Generally, in the X86 architecture using segmentation~\cite{x86}, an instruction operand that refers to a memory location includes a value that identifies a segment and an offset within that segment. Each segment is represented by a Segment Descriptor that describes the segment characteristics, including segment base address, limitation of segment length and other meta-data. Segment Descriptors are stored in the Global Descriptor Table (GDT) or Local Descriptor Tables (LDT). Each logical address consists of a \emph{segment} selector and \emph{offset}.
-
-To translate a logical address into a linear address, the processor does the following:
-
-1. Uses the the segment selector to locate the segment descriptor for the segment in the \emph{GDT/LDT} and reads it into the processor.
-2. Examines the segment descriptor to check the access rights and range of the segment to ensure that the segment is accessible and that the offset is within the limits of the segment. If the offset within the segment is beyond the range specified by the \emph{limit} field of the segment, the logical to linear address translation will stop as a hardware exception raise.
-3. Adds the base address of the segment from the segment descriptor to the offset to form a linear address.
-
-\subsubsection{linear to physical address translation}
-To determine the physical address corresponding to a given linear address, the appropriate page table, and the correct entry within that page table must be located.
-
-Since guest kenel is working in PAE mode on the 32-bit system in the model, we use PAE-based page table to describe paging mechanism. PAE mode has 3 levels of page tables. L1 is the bottom level, L2 is the middle level and L3 is the top level. A slot in L1 is Page-Table-Entry (PTE) slot, a slot in L1 is Page-Middle-Directory (PMD) slot, and a slot in L3 is Page-Global-Directory (PGD) slot.
-
-A given linear address is divided into 4 parts, b\_0 through b\_3. The b\_3 bits (PGD slot offset) specify an entry in the PGD page, whose base address is stored in control register CR3. The b\_1 bits (PTE slot offset) specify an entry in the PTE page, whose location is determined by the bits from b\_2 bits, which specify an entry in the PMD page respectively. Finally, processor finds the physical address by adding the offset b\_0 and the base address of the data/code page.
-
-So far, the whole two-stage address translation is completed by hardware and thus physical memory is accessible to software. Also, to facilitate linear address translation speed, a Translation Lookaside Buffer (TLB) is used by MMU as a cache of page table entries.
-
-Figure \ref{fig:address-translation} illustrates the translation process when CPU accesses physical memory.
-
+\subsubsection{Address Translation}\label{sec:addr-trans}
+There are two steps to transform logical addresses (i.e., addresses as viewed by programmers) into physical addresses (i.e., actual addresses in physical memory): 
+1) segment translation, in which a logical address (consisting of a segment selector and segment offset) are converted to a linear address, 
+and 2) page translation, in which a linear address is converted to a physical address\footnote{Physical address is also called machine address in Xen setting.}.
+Figure~\ref{fig:address-translation} illustrates the whole translation process.
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.5\textwidth]{image/background/address-translation.png} \\
@@ -36,15 +23,68 @@ Figure \ref{fig:address-translation} illustrates the translation process when CP
 \label{fig:address-translation}
 \end{figure}
 
-\subsection{paravirtualised MMU model}
 
-In order to prevent guest OS from subverting system, Xen PV model sets GDT/LDT and page tables be read-only. To achieve this, WP bit in the CR0 register is set, and RW bit in the PTE slots is cleared, which point to GDT/LDT and page tables. Besides, x86 architecture supports four privilege levels in hardware, ranging from ring-zero to ring-three. Typically, OS runs in ring 0, the most privileged level to execute privileged instructions, while applications executes in ring 3, the least privileged level. In the PV model, since Xen is in ring-0, it needs to modify the OS to execute in ring 1. This prevents the guest OS from executing privileged instructions to remove the read-only permissions by updating CR0.WP and RW bit in PTEs.
+\paragraph{Segementation Translation}\label{sec:seg-trans}
+Each logical address consists of a \emph{segment} selector and an \emph{offset}, which are used to locate a segment descriptor.
+A segment descriptor describes a segment, including the segment base address, limiation of the segment lenght and other meta-data.
+All segment descriptors are stored in the Global Descriptor Table (GDT) or Local Descriptor Tables (LDT). 
+In order to translate to the exptected linear address, the integrity of the GDT and LDT should be guaranteed. 
 
-On top of that, Xen still applies the address translation mentioned above to the de-privileged OS. Specifically, Xen allows a direct registration of guest page tables within MMU, so that the OS has direct access to machine memory by its own page tables as well as TLB, the so called direct-paging. In the meantime, Xen must also be involved in the management of updating guest page tables to prevent OS from arbitrarily modifying its page tables, otherwise OS will have a chance to access the machine memory space of Xen since they are sharing the same virtual memory space. Also, OS cannot update the GDT/LDT as well as the Interrupt Descriptor Table (IDT) directly. Therefore, Xen limits OS to read-only access in order to protect the critical structures, provides hypercalls for OS to explicitly submit all the update requests and then validates all the requests. Note that the OS is modified to be aware that a mapping between guest physical addresses and machine addresses (P2M table) so that it can writes new page tables using machine addresses before Xen validates them.
+\paragraph{Page Translation}\label{sec:page-trans}
+Page tables are used by a hardware, i.e., Memory Management Unit (MMU), to translate the linear addresses into physical addresses used by the hardware to process instructions.
+In the PAE-enabled paging mode, a page table has three levels: L1 level (bottom level), L2 level (middle level) and L3 level (top level).
+The slots in L1, L2 and L3 levels are known as Page Table Entry (PTE), Page Middle Directory (PMD) and Page Global Directory (PGD), respectively.
+A PTE slot could determine the access permissions of a page pointed by this PTE, e.g., the kernel could set a page read-only by clearing the bit within PTE slot that represents the writable permission.
 
-To aid validation, Xen associates each page with a page type and a type reference count. Types are defined as following: PGT\_l1\_page\_table (used as an L1 page table), PGT\_l2\_page\_table (used as an L2 page table), PGT\_l3\_page\_table (used as an L3 page table), PGT\_l4\_page\_table (only used as an L4 page table for 64-bit x86 system), PGT\_seg\_desc\_page (used as an global descriptor table / local descriptor table), PGT\_writable\_page (a writable page). To ensure that every type is mutually exclusive and thus a given page could only have one type at every moment, the type reference count is maintained. That is to say, if the count does not drop to zero, the page type of a given page cannot be changed. Xen allows OSes to allocate and manage their own critical structures while it is only involved in updating them. Note that Xen maintains the IDT directly and provides OSes with a virtual one that is not associated with any special type like GDT/LDT.
 
-Xen validates the update operations in a number of ways, such as no entry of a guest page table pointing to the hypervisor's private space. Updating entries in a critical table is a sub-operation of upating the whole table that involves a page type update. As can be seen in figure \ref{fig:page-type-updates}, every page type update is between writable and non-writable type. During the operation of page type update, Xen also needs to protect the critical guest table structures from being attacked by I/O devices.
+\subsubsection{Page Types and Update Policies}\label{sec:pv-security}
+%On the architecture of Xen, there are three layers: a hypervisor, guest OS and guest applications. 
+%Unfortunately, the paging mechanism offers only two protection layers, i.e., user and supervisor spaces.
+%Thus, Xen has to combine both paging and segmentation machanisms on x86. 
+\begin{table}[!ht]
+\begin{center}
+\begin{tabular}{|p{1.7cm}|p{4.3cm}|}
+\hline
+{\textbf{Page Type}}  & {\textbf{Descriptions}}     \\ \hline
+None & No special uses \\ \hline
+L\emph{N} Page-Table Page & Pages used as a page table at level \emph{N}. There are separate types for each of the 3 levels on 32bit PAE guests. \\ \hline
+Segment Descriptor Page & Pages used as part of the GDT/LDT \\ \hline
+Writable Page & Pages are writable. \\ \hline
+\end{tabular}
+\end{center}
+\caption{The page types used in Xen.}
+\label{tab:pagetype}
+\end{table}
+
+In order to ensure that the guest cannot subvert the system, Xen requires that certain update policies are maintained, 
+and therefore that all updates of the page tables should be vetted by Xen. 
+To this end, the guest OS is deprivileged, from ring-0 to ring-1, leaving ring-0 for the Xen hypervisor.
+This prevents the guest OS from executing privileged instructions, e.g., the guest OS cannot directly update control registers.
+
+Xen also defines a number of page types, which are listed in Table~\ref{tab:pagetype}, and maintain a type count for each page.
+Xen enforces the policies that any given page has exactly one type at any given time, 
+and only pages with the writable type have a writable mapping in the page tables. 
+By doing this it can ensure that the guest OS is not able to directly modify any page-table pages and therefore subvert the security of the system.
+If the guest kernel attempts to update the page table, it has to issue a hypercall to ask the hypervisor to complete the update.
+As Xen is always involved in all updaes to the page tables, the policies on the page table updates are non-bypassable.
+
+Whenever a page table is loaded into the hardware page-table base register (cr3), 
+the hypervisor must take an appropriate type reference with the L3 page-table type.
+If the page is not already of the required type, then in order to take the initial reference it must first have a type count of zero.
+In addition, it must be validated to ensure that it follows the following policy: 
+for a page with a page-table type to be valid, it is required any pages referenced 
+by a present page table entry in the page have the type of the next level down. 
+For instance, any page referenced by a page with type L3 Page Table must itself have type L2 Page Table. 
+This policy is applied recursively down to the L1 page table layer. 
+At L1 the invariant is that any data page mapped by a writeble page table entry must have the writeable page type.
+By applying these policies, Xen ensures that all page-table pages as a whole are safe to load into the page table base register.
+Similar requirements are placed on other special page types, e.g., GTD/LDT pages.
+
+The page type is allowed to be changed. 
+Xen enforces that the type of a page can only be changed when the type count is zero.  
+In addition, Xen also requires that every page type update is only happened between writable and non-writable pages, as summaried in Figure~\ref{fig:page-type-updates}.
+
+\yueqiang{This figure\ref{fig:page-type-updates} should be revised. 1) font size 2) figure size and 3) rectangle is not needed to be shaded.}
 
 \begin{figure}[ht]
 \centering
@@ -53,8 +93,8 @@ Xen validates the update operations in a number of ways, such as no entry of a g
 \label{fig:page-type-updates}
 \end{figure}
 
-\subsection{DMA address translation}
 
+\subsection{IOMMU and DMA address translation}
 %citing: intel vt-d
 Intel IOMMU (i.e., Intel Virtualization Technology for Directed I/O)~\cite{intelvt} mainly provides hardware support for DMA Remapping and Interrupt Remapping. DMA remapping is made use of by Xen to restrict access to particular memory area from all I/O devices. DMA remapping supports independent DMA address translation, indicating that if a specific device wants to access the machine memory through DMA, the access is via I/O page tables. Xen can utilize them to do a strict examination, such as checking if the access is permitted, working like the PV MMU model. In this case, if a device is allowed to directly access specified machine memory that belongs to a guest OS, then the device is referred to as the OS's assigned devices.
 
