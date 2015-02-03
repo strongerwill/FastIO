@@ -1,15 +1,13 @@
 \section{Motivation} \label{sec:moti}
-As we know there are seven page types.
-Among of them, segment descriptor pages are rarely updated, as they are almost const structures.  
-However, the page-table pages are frequently changed from/to writable pages 
-and these changes are driven by the process creations and exits.
+Based on the insights and observations, we know that there are seven page types, and the updates among of them always trigger additional IOTLB flushes. 
+In particular, segment descriptor pages are rarely updated, as they are treated as almost const structures.  
+However, the page-table pages are frequently updated from/to writable pages. 
+These updates that are driven by the process creations and exits are frequently triggered in the whole life cycle of a running system.
+Thus, they are becoming the main source for contributing the additional IOTLB flushing.
 
-Base on the above descriptions, we know that the page-type changes could trigger the invalidation of IOTLB entries.
-
-
-From the above descriptions, we can summarize the dependency between the guest page table and the IOTLB flushing into two key points. We list them as follows:
+In brief, we summarize all these into two key points, which are listed as follows:
 \begin{enumerate}
-\item (O1) Each page-type change (like the changes in Figure~\ref{fig:page-type-update}) will trigger the invalidation of at least one IOTLB entry.
+\item (O1) Each page-type change triggers the invalidation of at least one IOTLB entry.
 \item (O2) The main source of causing IOTLB flushing is the page-type changes between writable pages and page-table pages.
 \end{enumerate}
 

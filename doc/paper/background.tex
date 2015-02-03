@@ -72,7 +72,7 @@ If the guest kernel attempts to update the page table, it has to issue a hyperca
 As Xen is always involved in all updaes to the page tables, the policies on the page table updates are non-bypassable.
 
 Whenever a page table is loaded into the hardware page-table base register (cr3), 
-the hypervisor must take an appropriate type reference with the L3 page-table type.
+the hypervisor takes an appropriate type reference with the L3 page-table type.
 If the page is not already of the required type, then in order to take the initial reference it must first have a type count of zero.
 In addition, it must be validated to ensure that it follows the following policy: 
 for a page with a page-table type to be valid, it is required any pages referenced 
@@ -88,7 +88,7 @@ Xen enforces that the type of a page can only be changed when the type count is 
 In addition, Xen also requires that every page type update is only happened between writable and non-writable pages, as summaried in Figure~\ref{fig:page-type-updates}.
 
 \yueqiang{This figure\ref{fig:page-type-updates} should be revised. 1) font size 2) figure size and 3) rectangle is not needed to be shaded.}
-
+` 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.45\textwidth]{image/background/page-type-updates.png} \\
