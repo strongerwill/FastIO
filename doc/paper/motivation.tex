@@ -1,5 +1,5 @@
-\section{Motivation} \label{sec:moti}
-Based on the insights and observations, we know that there are seven page types, and the updates among of them always trigger additional IOTLB flushes. 
+\section{Motivations} \label{sec:moti}
+Based on the insights and the observations, we know that there are seven page types, and the updates among of them always trigger additional IOTLB flushes. 
 In particular, segment descriptor pages are rarely updated, as they are treated as almost const structures.  
 However, the page-table pages are frequently updated from/to writable pages. 
 These updates that are driven by the process creations and exits are frequently triggered in the whole life cycle of a running system.
@@ -18,7 +18,4 @@ In brief, we summarize all these into two key points, which are listed as follow
 \label{fig:wr2pt}
 \end{figure}
 
-
-
-
-Based on the observations, we are motivated to propose \name in order to reduce as many IOTLB flushes as possible for a maximum possible use of the IOTLB-path while retain the safety.
+%Based on the observations, we are motivated to propose \name in order to reduce as many IOTLB flushes as possible for a maximum possible use of the IOTLB-path while retain the safety.
