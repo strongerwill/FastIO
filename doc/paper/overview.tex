@@ -1,27 +1,27 @@
 \section{\name Overview} \label{sec:overview}
 \subsection{Requirements}\label{sec:req}
-Before we describe the design overview, I'd like to share the requirements we considered in the design.
+Before we describe the design overview, We'd like to share the requirements we considered in the design.
 We summarize the requirements as follows, in terms of compatibility, development cost and security.
 \begin{enumerate}
 \item (R1) Unaltered system security. The new scheme should not sacrifice the system security to obtain benefits from I/O performance. No one likes to use a system with known design loopholes.
-\item (R2) Compatible with legacy applications. The new scheme should limit the modification on the guest kernel and the hypervisor, without any modifications on the existing applications.
-\item (R3) Small modifications. The new scheme should minimize the development cost on the guest kernel and the hypervisor. 
+\item (R2) Compatible with legacy applications. The new scheme should limit the modifications on the guest kernel and the hypervisor, without any modifications on the existing applications.
+\item (R3) Small modifications. The new scheme should minimize the development cost on the guest kernel and the hypervisor.
 \item (R4) Minimizing IOTLB flushes. The new scheme should minimize the number of IOTLB flushes, such as reducing the number to zero.
 \end{enumerate}
 
 \subsection{Design Rationale}\label{sec:rationale}
 It is challenging to reduce the number of the IOTLB
-flushes, as well as achieving the above three requirements.
-A possible approach is to let the hypervisor to manage the page table in its own space. 
+flushes while achieve the above four requirements.
+A possible approach is to let the hypervisor to manage the page table in its own space.
 In this way, there is no need for flushing IOTLB, but it will dramatically increase the size of the hypervisor, and consequently reduce the system security level.
 Another approach is to do the IOTLB flushing in a batch, instead of flushing the IOTLB entry one after another.
-This approach retain the system security, but it could not eliminate all IOTLB flushes, only reducing the number of IOTLB flushes in a certain level.
+This approach retains the system security, but it could not eliminate all IOTLB flushes, only reducing the number of IOTLB flushes to a certain level.
 In this paper, we propose a novel approach - \name, which could reduce the number of IOTLB flush to zero only with small modifications on the guest kernel and the hypervisor, without sacrificing the system security.
 
 Specifically, \name creates a page table cache for caching the destructed guest page-table pages.
 For the pages in this cache pool, the guest kernel could read and write them, but the DMA requests cannot access them, meaning they are non-readable and non-writable for DMA.
-By configuring them in this way, the destructions of the guest page tables will not trigger IOTLB flushes any more, as the permissions for DMA are kept the same. 
-In addition, the creations of the page table also do not need IOTLB flush as the guest kernel could allocate pages from the cached pool, without allocating pages from the slow and inefficient buddy system. 
+By configuring them in this way, the destructions of the guest page tables will not trigger IOTLB flushes any more, as the permissions for DMA are kept the same.
+In addition, the creations of the page table also do not need IOTLB flush as the guest kernel could allocate pages from the cached pool, instead of allocating pages from the slow and inefficient buddy system.
 
 \subsection{Design Rationale}
 As can be seen in figure ~\ref{fig:overview}, \name introduces a cache flag to enforce fine-grained access control in order to ensure security without flushing IOTLB. Also, \name proposes a novel cache mechanism to support the access control while facilitate the speed of every level of page table allocation/deallocation, saving CPU time while causing small impacts on memory usage.
