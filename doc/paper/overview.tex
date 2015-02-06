@@ -11,17 +11,28 @@ We summarize the requirements as follows, in terms of compatibility, development
 
 \subsection{Design Rationale}\label{sec:rationale}
 It is challenging to reduce the number of the IOTLB
-flushes, as well as achieving the above three requirements.
+flushes, as well as achieving all above requirements.
 A possible approach is to let the hypervisor to manage the page table in its own space. 
 In this way, there is no need for flushing IOTLB, but it will dramatically increase the size of the hypervisor, and consequently reduce the system security level.
-Another approach is to do the IOTLB flushing in a batch, instead of flushing the IOTLB entry one after another.
-This approach retain the system security, but it could not eliminate all IOTLB flushes, only reducing the number of IOTLB flushes in a certain level.
-In this paper, we propose a novel approach - \name, which could reduce the number of IOTLB flush to zero only with small modifications on the guest kernel and the hypervisor, without sacrificing the system security.
+Another possible approach is to do the IOTLB flushing in a batch, meaning flushing multiple IOTLB entries all in one, instead of flushing them one after another.
+This approach is able to retain the system security, but it could not eliminate the IOTLB flushes, only reducing the number of IOTLB flushes in a certain level.
 
-Specifically, \name creates a page table cache for caching the destructed guest page-table pages.
-For the pages in this cache pool, the guest kernel could read and write them, but the DMA requests cannot access them, meaning they are non-readable and non-writable for DMA.
-By configuring them in this way, the destructions of the guest page tables will not trigger IOTLB flushes any more, as the permissions for DMA are kept the same. 
-In addition, the creations of the page table also do not need IOTLB flush as the guest kernel could allocate pages from the cached pool, without allocating pages from the slow and inefficient buddy system. 
+In this paper, we attempt to solve this problem in a smart way, which could reduce the number of IOTLB flush to zero with only small modifications of the guest kernel and the hypervisor, 
+as well as retaining the system security.
+In general, our approach is proposing a fine-grained access control to replace the old and coarse-grained one for the page type management.
+Specifically, we observe that the original coarse-grained access control is the all-or-nothing style. i.e., the writable page is simultaneously writable for both software and DMA (device) while all other page types are non-writable for both software and DMA.
+In short, there ere only two types of pages: 1) \emph{writable page} and 2) \emph{non-writable page} (including three page-table page types and two segment descriptor page types), and their access permissions are mutually exclusive from each other.
+Thus, the page-type changing between them inevitably triggers the additional IOTLB flushes, otherwise there will be a security loophole.
+To address this conflict without sacrificing the system security, we propose to create a new page type: \emph{semi-writable page}, which is writable for software but non-writable for DMA,
+and require that the page type updates between the writable page and the page-table page must go through the semi-writable page first.
+In practice,  we can further restrict that the system only updates the page-table pages to/from the semi-writable pages and holds the semi-writable pages to stop them converting back to the writable pages.
+%In addition, we replace the type updates between writable page and page-table page with the updates between semi-writable page and page-table page.
+In this way, the additional IOTLB flushes could be totally avoided.
+In order to facilitate the management of the semi-writable pages, we propose a new data structure (i.e., page table cache) in the guest kernel, and extend the existing page-management data structure in the hypervisor space.
+Similar to the management of the page-table pages, the hypervisor is only responsible for the final validation of the semi-writable page, leaving all other management operations for the guest OS.
+By doing this, we can keep the modifications as small as possible, and also retain the system security.
+
+\yueqiang{The page-table cache flush is optional, as it is a tradeoff between the IOTLB flush and the memory usage.}
 
 \subsection{Design Rationale}
 As can be seen in figure ~\ref{fig:overview}, \name introduces a cache flag to enforce fine-grained access control in order to ensure security without flushing IOTLB. Also, \name proposes a novel cache mechanism to support the access control while facilitate the speed of every level of page table allocation/deallocation, saving CPU time while causing small impacts on memory usage.
