@@ -1,11 +1,11 @@
 \section{\name Overview} \label{sec:overview}
 \subsection{Requirements}\label{sec:req}
-Before we describe the design overview, I'd like to share the requirements we considered in the design.
+Before we describe the design overview, We'd like to share the requirements we considered in the design.
 We summarize the requirements as follows, in terms of compatibility, development cost and security.
 \begin{enumerate}
 \item (R1) Unaltered system security. The new scheme should not sacrifice the system security to obtain benefits from I/O performance. No one likes to use a system with known design loopholes.
-\item (R2) Compatible with legacy applications. The new scheme should limit the modification on the guest kernel and the hypervisor, without any modifications on the existing applications.
-\item (R3) Small modifications. The new scheme should minimize the development cost on the guest kernel and the hypervisor. 
+\item (R2) Compatible with legacy applications. The new scheme should limit the modifications on the guest kernel and the hypervisor, without any modifications on the existing applications.
+\item (R3) Small modifications. The new scheme should minimize the development cost on the guest kernel and the hypervisor.
 \item (R4) Minimizing IOTLB flushes. The new scheme should minimize the number of IOTLB flushes, such as reducing the number to zero.
 \end{enumerate}
 
