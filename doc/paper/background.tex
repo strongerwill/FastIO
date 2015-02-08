@@ -134,5 +134,5 @@ The domain-selective invalidation only invalidates the selected VM domain's IOTL
 The page-selective invalidation that only invalidate the corresponding IOTLB could achieve the best performance, comparing with the previous two schemes.
 %Intuitively, when a requested entry that corresponds to a specified DMA address needs to be invalidated, a page-selective invalidation is the best choice for the sake of performance.
 Besides the invalidation scheme, IOMMU also supports two kinds of invalidation interfaces: register based invalidation and queued invalidation interface, between which queued invalidation performs better.
-No matter the IOTLB flushes frequently in whatever granularity, it will inevitably increases the probability of IOTLB misses, thereby introduce negative effects on the I/O performance.
+Whatever granularity IOTLB flushes in, it will inevitably increase the probability of IOTLB misses, thereby introducing negative effects on the I/O performance.
 %And this is where our motivation lies.
