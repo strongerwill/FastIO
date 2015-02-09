@@ -88,12 +88,11 @@ Xen enforces that the type of a page can only be changed when the type count is 
 In addition, Xen also requires that every page type update only occur between writable and non-writable pages, as summarized in Figure~\ref{fig:page-type-updates}.
 
 \yueqiang{This figure\ref{fig:page-type-updates} should be revised. 1) font size 2) figure size and 3) rectangle is not needed to be shaded.}
-
+`
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.45\textwidth]{image/background/page-type-updates.png} \\
-\caption{Page Type Updates between writable and non-writable (Writable pages are writable for both software and DMA
-while non-writable pages are inaccessible to them.)}
+\caption{Page Type Updates}
 \label{fig:page-type-updates}
 \end{figure}
 
@@ -118,12 +117,12 @@ To achieve a better I/O performance, the DMA remapping should avoid taking the p
 \centering
 \subfigure[IOTLB Path]{
 \label{fig:subfig:a}
-\includegraphics[width=0.5\textwidth]{image/background/DMA-IOTLB-translation.png}}
-\hspace{2.0cm}
+\includegraphics[height=1.0cm, width=0.5\textwidth]{image/background/DMA-IOTLB-translation.png}}
+\hspace{cm}
 \subfigure[Page-Table Path]{
 \label{fig:subfig:b}
-\includegraphics[width=0.5\textwidth]{image/background/DMA-pt-translation.png}}
-\caption{IOTLB path is orders of magnitudes faster than Page-Table Path}
+\includegraphics[height=1.0cm, width=0.5\textwidth]{image/background/DMA-pt-translation.png}}
+\caption{DMA Address Translation}
 \label{fig:dma-add-trans} %% label for entire figure
 \end{figure}
 

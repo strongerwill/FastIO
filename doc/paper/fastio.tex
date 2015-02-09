@@ -68,11 +68,11 @@ Second Institution
 
 \subsection*{Abstract}
 
-IOMMUs have been pervasively deployed on paravirtualized systems for the protection of the hypervisor and the security-critical data structures, e.g., the shared page tables. According to our observations, certain updates of the guest VM's page tables that are supposed to be orthogonal to the device I/O performance, would surprisingly lead to a large numbers of IOTLB misses. It implies that the I/O performance of all peripheral devices will be affected by the seemingly unrelated guest page table updates. Unfortunately, no existing work uncovers this dependency and adjusts the design of the paravirtualized hypervisor and the guest operating system.
+IOMMUs have been pervasively deployed on paravirtualized systems for the protection of the hypervisor and the security-critical data structures, e.g., the shared page tables. According to our observations, certain updates of the guest VM's page tables that are supposed to be orthogonal to the device I/O performance, would surprisingly lead to a large number of IOTLB misses. It implies that the I/O performance of all peripheral devices will be affected by the seemingly unrelated guest page table updates. Unfortunately, no existing work uncovers this dependency and adjusts the design of the paravirtualized hypervisor and the guest operating system.
 
 In this paper, we are the first one to deeply demonstrate the impact upon the device I/O performance due to the page table updates. Then we propose \name (I/O Speed-UP), a novel software-only approach for minimizing the negative impacts, without sacrificing the security of the hypervisor.
 By maintaining a page-table cache, \name not only successfully decreases the IOTLB flushes, but also accelerates the creations and exits of user processes.
-We implement a prototype on Xen with Linux as the guest VM's kernel. We do small modifications of Xen (xxx SLoC) and Linux kernel version 3.2.0 (xxx SLoC). We evaluate the I/O performance in both micro and macro ways. The micro experiment results indicate that \name is able to effectively reduce the flush rate of IOTLB from xxx to zero with less CPU usage, even when the page tables are frequently updated. The macro benchmarks shows that the I/O devices always produce better (or the same) performance, even when the system frequently generate many temporal processes.
+We implement a prototype on Xen with Linux as the guest VM's kernel. We do small modifications of Xen version 4.2.1 (xxx SLoC) and Linux kernel version 3.2.0 (xxx SLoC). We evaluate the I/O performance in both micro and macro ways. The micro experiment results indicate that \name is able to effectively reduce the flush rate of IOTLB from xxx to zero with less CPU usage, even when the page tables are frequently updated. The macro benchmarks shows that the I/O devices always produce better (or the same) performance, even when the system frequently generates many temporal processes.
 
 
 \input{intro.tex}
@@ -82,7 +82,7 @@ We implement a prototype on Xen with Linux as the guest VM's kernel. We do small
 %\input{rationale.tex}
 \input{overview.tex}
 \input{implementation.tex}
-%\input{evaluation.tex}
+\input{evaluation.tex}
 \input{discussion.tex}
 %\input{related.tex}
 %\input{conclusion.tex}

@@ -41,30 +41,59 @@ To begin with, micro-experiments are conducted in two groups. In one group calle
 \centering
 %\includegraphics[scale=0.55]{image/iotlbflush.png} \\
 \includegraphics[width=0.5\textwidth]{image/micro/iotlbflush.png} \\
-\caption{Frequency of IOTLB-flush}
+\caption{Frequency of IOTLB-flush drops sharply to zero whenever the page-table cache is enabled}
 \label{fig:iotlbflush}
 \end{figure}
 
 As can be seen from Figure \ref{fig:iotlbflush}. Y-axis represents the frequency of IOTLB-flush, corresponding to the time interval (i.e., one minute) of x-axis for the first thirty minutes that the running tool has taken up. From this figure, frequency in the cache-disabled group increases rapidly and remains stable five minutes later. By contrast, frequency in the cache-pre-enabled group drops to zero in a very short time and keeps zero level from then on. It can be safely concluded that our proposed algorithm does have a positive effect on reducing IOTLB frequency to zero quickly.
 
+%\begin{figure*}[!t]
+%\centering
+%\subfigure[PGD Alloc]{
+%\label{fig:subfig:a}
+%\includegraphics[width=0.5\textwidth]{image/micro/PGDalloc.png}}
+%\hspace{1in}
+%\subfigure[PGD Free]{
+%\label{fig:subfig:b}
+%\includegraphics[width=0.5\textwidth]{image/micro/PGDfree.png}}
+%\caption{Both page-table cache groups costs much less CPU cycles}
+%\label{fig:PGDtime} %% label for entire figure
+%\end{figure*}
+
 \begin{figure}
+\begin{minipage}[t]{0.5\linewidth}
 \centering
-\subfigure[PGD]{
-\label{fig:subfig:a}
-\includegraphics[width=0.5\textwidth]{image/micro/PGDtime.png}}
-\hspace{1in}
-\subfigure[PMD]{
-\label{fig:subfig:b}
-\includegraphics[width=0.5\textwidth]{image/micro/PMDtime.png}}
-\hspace{1in}
-\subfigure[PTE]{
-\label{fig:subfig:c}
-\includegraphics[width=0.5\textwidth]{image/micro/PTEtime.png}}
-\caption{CPU Usage for Each Level of Page Table}
-\label{fig:PGtime} %% label for entire figure
+\includegraphics[width=0.5\textwidth]{image/micro/PGDalloc.png}
+\caption{fig1}
+\label{fig:side:a}
+\end{minipage}%
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\includegraphics[width=0.5\textwidth]{image/micro/PGDfree.png}
+\caption{fig2}
+\label{fig:side:b}
+\end{minipage}
 \end{figure}
 
-Now let’s move to CPU usage that each group will take up. Specifically, each level of page table has its allocation functions and free functions, e.g., pgd\_alloc() and pgd\_free() and the execution time that every related function is calculated per minute. As a result, in Figure \ref{fig:PGtime}, allocation and free functions in three levels of page tables in the cache-pre-enabled group consumes 45.1\% less and 70.9\% less CPU time in nanoseconds, respectively, compared with that of the cache-disabled group, indicating that a process interacting with the pool has an advantage in saving time over one interacting with the buddy system.
+
+%\begin{figure}
+%\centering
+%\subfigure[PGD]{
+%\label{fig:subfig:a}
+%\includegraphics[width=0.5\textwidth]{image/micro/PGDtime.png}}
+%\hspace{1in}
+%\subfigure[PMD]{
+%\label{fig:subfig:b}
+%\includegraphics[width=0.5\textwidth]{image/micro/PMDtime.png}}
+%\hspace{1in}
+%\subfigure[PTE]{
+%\label{fig:subfig:c}
+%\includegraphics[width=0.5\textwidth]{image/micro/PTEtime.png}}
+%\caption{CPU Usage for Each Level of Page Table}
+%\label{fig:PGtime} %% label for entire figure
+%\end{figure}
+
+Now let’s move to CPU usage that each group will take up. Specifically, each level of page table has its allocation functions and free functions, e.g., pgd\_alloc() and pgd\_free() and the execution time that every related function is calculated per minute. As a result, in Figure \ref{fig:PGDtime}, allocation and free functions in three levels of page tables in the cache-pre-enabled group consumes 45.1\% less and 70.9\% less CPU time in nanoseconds, respectively, compared with that of the cache-disabled group, indicating that a process interacting with the pool has an advantage in saving time over one interacting with the buddy system.
 
 \begin{figure}
 \centering

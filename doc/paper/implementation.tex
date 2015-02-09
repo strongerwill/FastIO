@@ -11,19 +11,20 @@ Based on Xen version 4.2.1 and guest kernel version 3.2.0-rc1, \name implements 
 
 \subsection{Cache Flag}
 
-From a 32-bit field related to page type information, \name was planning to use a redundant bit to represent the cache flag in order to be compatible with its original implementation. However, each bit in the upper 9-bit of the field has its specific use and the lower 23-bit serves as the reference count of current page type, representing at most ($2^{23}-1$) reference counts of the page type (see figure ~\ref{fig:subfig:a}). \name enforces a stricter rule to prevent count overflow, as cache flag occupies the top bit of the 23-bit and the maximal reference count is limited to ($2^{22}-1$), which affects Xen little (see figure ~\ref{fig:subfig:b}). Actually, Xen hypervisor is functioning well with the flag bit since the reference count of a page type during runtime cannot reach at ($2^{22}-1$). On top of that, \_\_get\_page\_type() is the critical function to be customized in order to check if a machine page has the flag bit.
-
-\begin{figure}
+\begin{figure}[ht]
 \centering
-\subfigure[Existing Representation]{
-\label{fig:subfig:a}
-\includegraphics[width=0.5\textwidth]{image/implementation/field-of-page-type-info.png}}
-\hspace{1in}
-\subfigure[Cache Flag Representation]{
-\label{fig:subfig:b}
-\includegraphics[width=0.5\textwidth]{image/implementation/field-of-page-type-info-with-cache-flag.png}}
+\includegraphics[width=0.45\textwidth]{image/implementation/field-of-page-type-info.png} \\
 \caption{Field of Page Type Info}
-\label{fig:PGtime} %% label for entire figure
+\label{fig:field-of-page-type-info}
+\end{figure}
+
+From a 32-bit field related to page type information, \name was planning to use a redundant bit to represent the cache flag in order to be compatible with its original implementation. However, each bit in the upper 9-bit of the field has its specific use and the lower 23-bit serves as the reference count of current page type, representing at most ($2^{23}-1$) reference counts of the page type (see figure~\ref{fig:field-of-page-type-info}). \name enforces a stricter rule to prevent count overflow, as cache flag occupies the top bit of the 23-bit and the maximal reference count is limited to ($2^{22}-1$), which affects Xen little (see figure ~\ref{fig:field-of-semi-type}). Actually, Xen hypervisor is functioning well with the flag bit since the reference count of a page type during runtime cannot reach at ($2^{22}-1$). On top of that, \_\_get\_page\_type() is the critical function to be customized in order to check if a machine page has the flag bit.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.45\textwidth]{image/implementation/field-of-semi-type.png} \\
+\caption{Representation of Semi-Writable Page Type}
+\label{fig:field-of-semi-type}
 \end{figure}
 
 \subsection{Management of Page Table Cache}
