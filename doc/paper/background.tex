@@ -48,7 +48,7 @@ It means that if there are numerous temporary processes generated within a perio
 \begin{center}
 \begin{tabular}{|p{1.7cm}|p{4.3cm}|}
 \hline
-{\textbf{Page Type}}  & {\textbf{Descriptions}}     \\ \hline
+{\textbf{Page Type}}  & {\textbf{Description}}     \\ \hline
 None & No special uses \\ \hline
 L\emph{N} Page-Table Page & Pages used as a page table at level \emph{N}. There are separate types for each of the 3 levels on 32bit PAE guests. \\ \hline
 Segment Descriptor Page & Pages used as part of the GDT/LDT \\ \hline
@@ -114,18 +114,38 @@ By doing so, the IOTLB is very likely to be accessed, indicating that the physic
 If unlikely the IOTLB miss occurs, the DMA remapping still can go the slow page-table path to get the physical address (Figure~\ref{fig:subfig:b}).
 To achieve a better I/O performance, the DMA remapping should avoid taking the page-table path as far as possible.
 
-\begin{figure}
-\centering
-\subfigure[IOTLB Path]{
-\label{fig:subfig:a}
-\includegraphics[width=0.5\textwidth]{image/background/DMA-IOTLB-translation.png}}
-\hspace{2.0cm}
-\subfigure[Page-Table Path]{
-\label{fig:subfig:b}
-\includegraphics[width=0.5\textwidth]{image/background/DMA-pt-translation.png}}
-\caption{IOTLB path is orders of magnitudes faster than Page-Table Path}
-\label{fig:dma-add-trans} %% label for entire figure
-\end{figure}
+\begin{figure*}[t!]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=1.0in, width=0.8\textwidth]{image/background/DMA-IOTLB-translation.png}
+        \caption{IOTLB Path}
+        \label{fig:subfig:a}
+    \end{subfigure}%
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=1.0in, width=1.1\textwidth]{image/background/DMA-pt-translation.png}
+        \caption{Page-Table Path}
+        \label{fig:subfig:b}
+    \end{subfigure}
+    \caption{IOTLB path is orders of magnitudes faster than Page-Table Path}
+    \label{fig:dma-add-trans}
+\end{figure*}
+
+
+
+%\begin{figure}
+%\centering
+%\subfigure[IOTLB Path]{
+%\label{fig:subfig:a}
+%\includegraphics[width=0.5\textwidth]{image/background/DMA-IOTLB-translation.png}}
+%\hspace{2.0cm}
+%\subfigure[Page-Table Path]{
+%\label{fig:subfig:b}
+%\includegraphics[width=0.5\textwidth]{image/background/DMA-pt-translation.png}}
+%\caption{IOTLB path is orders of magnitudes faster than Page-Table Path}
+%\label{fig:dma-add-trans} %% label for entire figure
+%\end{figure}
 
 %talking about how to flush IOTLB
 %invalidation requests and invalidation interface
