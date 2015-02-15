@@ -19,7 +19,7 @@ Figure~\ref{fig:address-translation} illustrates the whole translation process.
 \begin{figure}[ht]
 \centering
 \includegraphics[height=1.5cm, width=0.5\textwidth]{image/background/address-translation.png} \\
-\caption{Address Translation}
+\caption{Address Translation.}
 \label{fig:address-translation}
 \end{figure}
 
@@ -92,7 +92,7 @@ In addition, Xen also requires that every page type update only occur between wr
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.45\textwidth]{image/background/page-type-updates.png} \\
-\caption{Page Type Updates between writable and non-writable (Writable pages are writable for both software and DMA
+\caption{Page Type Updates between writable pages and non-writable pages. (Writable pages are writable for both software and DMA
 while non-writable pages are inaccessible to them.)}
 \label{fig:page-type-updates}
 \end{figure}
@@ -114,24 +114,35 @@ By doing so, the IOTLB is very likely to be accessed, indicating that the physic
 If unlikely the IOTLB miss occurs, the DMA remapping still can go the slow page-table path to get the physical address (Figure~\ref{fig:subfig:b}).
 To achieve a better I/O performance, the DMA remapping should avoid taking the page-table path as far as possible.
 
-\begin{figure*}[t!]
-    \centering
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[height=1.0in, width=0.8\textwidth]{image/background/DMA-IOTLB-translation.png}
-        \caption{IOTLB Path}
-        \label{fig:subfig:a}
-    \end{subfigure}%
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[height=1.0in, width=1.1\textwidth]{image/background/DMA-pt-translation.png}
-        \caption{Page-Table Path}
-        \label{fig:subfig:b}
-    \end{subfigure}
-    \caption{IOTLB path is orders of magnitudes faster than Page-Table Path}
-    \label{fig:dma-add-trans}
-\end{figure*}
+\begin{figure}[!t]
+    %\centering
+    \begin{subfigure}{0.5\textwidth}
+        %\centering
 
+        %\begin{minipage}[b]{1\textwidth}
+        \includegraphics[width=1\textwidth]{image/background/DMA-IOTLB-translation.png}
+
+        \caption{\centering IOTLB Path.}
+        \label{fig:subfig:a}
+        %\end{minipage}
+    \end{subfigure}%
+    \vfill
+    \vfill
+    \vfill
+    \vfill
+    \begin{subfigure}{0.5\textwidth}
+        %\centering
+
+        %\begin{minipage}[b]{1\textwidth}
+        \includegraphics[width=1\textwidth]{image/background/DMA-pt-translation.png}
+
+        \caption{\centering I/O Page-Table Path.}
+        \label{fig:subfig:b}
+        %\end{minipage}
+    \end{subfigure}
+    \caption{IOTLB path is orders of magnitudes faster than I/O Page-Table Path.}
+    \label{fig:dma-add-trans}
+\end{figure}
 
 
 %\begin{figure}
