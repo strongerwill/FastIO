@@ -156,16 +156,20 @@ Now let’s move to CPU usage that each group will take up. Specifically, each l
 \begin{table}[!ht]
 \footnotesize
 \begin{center}
-\begin{tabular}{|l|l|l|l}
+\begin{tabular}{|l|l|l|}
 \hline
-{\textbf{Page Table}} & {\textbf{Cached}} & {\textbf{Used}} & {\textbf{Ratio}} \\ \hline
-PGD & $5$  & $4$   & $>1:1$ \\ \hline
-PMD & $26$ & $12$   & $>2:1$ \\ \hline
-PTE & $145$ & $177$ & $<1:1$ \\ \hline
-Total & $176$ & $193$ & $<1:1$ \\ \hline
+{\textbf{Page-Table Type}} & {\textbf{Cache(Page No.)}} & {\textbf{Page Table(Page No.)}} \\ \hline
+%PGD & $5$  & $4$   & $>1:1$ \\ \hline
+%PMD & $26$ & $12$   & $>2:1$ \\ \hline
+%PTE & $145$ & $177$ & $<1:1$ \\ \hline
+%Total & $176$ & $193$ & $<1:1$ \\ \hline
+PGD & $5$  & $4$ \\ \hline
+PMD & $26$ & $12$ \\ \hline
+PTE & $145$ & $177$ \\ \hline
+Total & $176$ & $193$ \\ \hline
 \end{tabular}
 \end{center}
-\caption{cache pool of cache-pre-enabled group}
+\caption{When cache is pre-enabled, the ratio between the total pages in cache and the total pages as page tables is approximately equal to 1:1, which indicates that the cache mechanism takes up a small memory percentage of the stress tool.}
 \label{tab:prePGpool}
 \end{table}
 
@@ -197,20 +201,24 @@ Next, in a group of cache-dynamic-enabled, cache is enabled when IOTLB-flush bec
 \begin{table}[!ht]
 \footnotesize
 \begin{center}
-\begin{tabular}{|l|l|l|l}
+\begin{tabular}{|l|l|l|}
 \hline
-{\textbf{Page Table}} & {\textbf{Cached}} & {\textbf{Used}} & {\textbf{Ratio}} \\ \hline
-PGD & $4$  & $2$   & $2:1$ \\ \hline
-PMD & $20$ & $4$   & $5:1$ \\ \hline
-PTE & $136$ & $182$ & $<1:1$ \\ \hline
-Total & $160$ & $188$ & $<1:1$ \\ \hline
+{\textbf{Page-Table Type}} & {\textbf{Cache(Page No.)}} & {\textbf{Page Table(Page No.)}} \\ \hline
+%PGD & $4$  & $2$   & $2:1$ \\ \hline
+%PMD & $20$ & $4$   & $5:1$ \\ \hline
+%PTE & $136$ & $182$ & $<1:1$ \\ \hline
+%Total & $160$ & $188$ & $<1:1$ \\ \hline
+PGD & $4$  & $2$ \\ \hline
+PMD & $20$ & $4$  \\ \hline
+PTE & $136$ & $182$ \\ \hline
+Total & $160$ & $188$ \\ \hline
 \end{tabular}
 \end{center}
-\caption{cache pool of cache-dynamic-enabled group}
+\caption{When cache is dynamically enabled, the pages in cache is effectively freed, while the ratio between the total pages in cache and the total pages as page tables is also approximately equal to 1:1, indicating that the feature of dynamic enabling cache efficiently consumes memory as the cache-pre-enabled group.}
 \label{tab:dynPGpool}
 \end{table}
 
-From Figure \ref{fig:iotlbflush} and \ref{fig:PGtime}, both frequency of IOTLB-flush and CPU usage in this group have a very similar trend with that of the cache-disabled group in the first five minutes, but reduces to zero quickly and stays stable, much like that of the cache-pre-enabled group. In addition, memory size that the cache-dynamic-enabled group in Figure \ref{tab:dynPGpool} takes up is only $210$ pages at most, also consuming a small percentage. And it is reasonable that the cache-dynamic-enabled group has less pages in the pool since a certain amount of page tables has been freed to the buddy system before the cache pool is put to use.
+From figure \ref{fig:iotlbflush} and \ref{fig:PGtime}, both frequency of IOTLB-flush and CPU usage in this group have a very similar trend with that of the cache-disabled group in the first five minutes, but reduces to zero quickly and stays stable, much like that of the cache-pre-enabled group. In addition, memory size that the cache-dynamic-enabled group in table \ref{tab:dynPGpool} takes up is only $210$ pages at most, also consuming a small percentage. And it is reasonable that the cache-dynamic-enabled group has less pages in the pool since a certain amount of page tables has been freed to the buddy system before the cache pool is put to use.
 
 Also note that the expected results in group of cache-dynamic-enabled is obtained after sever trials by slightly modifying default values of the proportion and the total number. Since these two factors heavily relies on a specific scenario, they may not work for all. How to decide the factors is further discussed in future work.
 
@@ -251,14 +259,14 @@ Lmbench is used to measure CPU time that processes cost (i.e., fork+exit, fork+e
 \begin{table}[!ht]
 \footnotesize
 \begin{center}
-\begin{tabular}{|l|l|l}
+\begin{tabular}{|l|l|l|}
 \hline
-{\textbf{Throughput}} & {\textbf{cache-dynamic-enabled}} & {\textbf{cache-disabled}}    \\ \hline
+{\textbf{Throughput($10^6$ bits per second)}} & {\textbf{dynamic-enabled}} & {\textbf{disabled}}    \\ \hline
 Average Throughput &  $87.927$ & $87.903$ \\ \hline
 Range of Throughput & $87.880-88.010$ & $87.880-87.950$ \\ \hline
 \end{tabular}
 \end{center}
-\caption{When the cache is enabled, the upper limit of the throughput range is improved by 0.06\% while the average throughput (in $10^6$ bits per second) of 30 runs is improved by 0.02\%. }
+\caption{When the cache is enabled, the upper limit of the throughput range is improved by 0.06\% while the average throughput of 30 runs is improved by 0.02\%. }
 \label{tab:netperf}
 \end{table}
 
