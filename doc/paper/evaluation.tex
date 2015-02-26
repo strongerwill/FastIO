@@ -158,7 +158,7 @@ Now let’s move to CPU usage that each group will take up. Specifically, each l
 \begin{center}
 \begin{tabular}{|l|l|l|}
 \hline
-{\textbf{Page-Table Type}} & {\textbf{Cache(Page No.)}} & {\textbf{Page Table(Page No.)}} \\ \hline
+{\textbf{Page-Table Type}} & {\textbf{Cache (Page \#)}} & {\textbf{Page Table (Page \#)}} \\ \hline
 %PGD & $5$  & $4$   & $>1:1$ \\ \hline
 %PMD & $26$ & $12$   & $>2:1$ \\ \hline
 %PTE & $145$ & $177$ & $<1:1$ \\ \hline
@@ -203,7 +203,7 @@ Next, in a group of cache-dynamic-enabled, cache is enabled when IOTLB-flush bec
 \begin{center}
 \begin{tabular}{|l|l|l|}
 \hline
-{\textbf{Page-Table Type}} & {\textbf{Cache(Page No.)}} & {\textbf{Page Table(Page No.)}} \\ \hline
+{\textbf{Page-Table Type}} & {\textbf{Cache (Page \#)}} & {\textbf{Page Table (Page \#)}} \\ \hline
 %PGD & $4$  & $2$   & $2:1$ \\ \hline
 %PMD & $20$ & $4$   & $5:1$ \\ \hline
 %PTE & $136$ & $182$ & $<1:1$ \\ \hline
@@ -261,7 +261,7 @@ Lmbench is used to measure CPU time that processes cost (i.e., fork+exit, fork+e
 \begin{center}
 \begin{tabular}{|l|l|l|}
 \hline
-{\textbf{Throughput($10^6$ bits per second)}} & {\textbf{dynamic-enabled}} & {\textbf{disabled}}    \\ \hline
+{\textbf{Throughput ($10^6$ bits per second)}} & {\textbf{dynamic-enabled}} & {\textbf{disabled}}    \\ \hline
 Average Throughput &  $87.927$ & $87.903$ \\ \hline
 Range of Throughput & $87.880-88.010$ & $87.880-87.950$ \\ \hline
 \end{tabular}
