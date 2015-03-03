@@ -73,17 +73,17 @@ Second Institution
 \subsection*{Abstract}
 %As a key virtualization technique, the paravirtualization technique is widely applied to many existing cloud platforms.
 When the mainstream operating systems, such as Linux, move onto the paravirtualized platforms, their page table management components are required to be properly patched.
-However, the existing updates mainly focus on the security enhancements, without enough attentions for the performance improvements. 
-Based on our observations, there are two main performance issues. 
+However, the existing updates mainly focus on the security enhancements, without enough attentions for the performance improvements.
+Based on our observations, there are two main performance issues.
 The first one is the additional dependence between the page table (de)allocations and the IOTLB flushes, which inevitably introduces extra IOTLB misses, and would consequently have negatively impacts on the I/O performance of all peripheral devices.
 The other one is the long execution paths for page table allocations and deallocations, which directly leads to the operating time of the page table creations and destructions, and consequently increases the latency of the creations and exits of processes.
 
 
 In this paper, we propose Page-Table Cache (\name), a novel software-only approach for improving the performance in page table management.
 First, \name eliminates the additional IOTLB misses with a fine-grained validation scheme, which separates the DMA and software validations, instead of doing them all in one.
-Second, \name reduces the length of the execution path of the page table (de)allocations by a page table cache, which maintains a dedicated buffer for serving page table allocations and deallocations. 
-We implement a prototype on Xen with Linux as the guest VM's kernel. We do small modifications of Xen version 4.2.1 (xxx SLoC) and Linux kernel version 3.2.0 (xxx SLoC). 
-We evaluate the I/O performance in both micro and macro ways. 
+Second, \name reduces the length of the execution path of the page table (de)allocations by a page table cache, which maintains a dedicated buffer for serving page table allocations and deallocations.
+We implement a prototype on Xen with Linux as the guest VM's kernel. We do small modifications of Xen version 4.2.1 (xxx SLoC) and Linux kernel version 3.2.0 (xxx SLoC).
+We evaluate the I/O performance in both micro and macro ways.
 The micro experiment results indicate that \name is able to effectively eliminates the additional IOTLB misses, from xxx to zero, and reduces the page table (de)allocations, (xx\%, xx\%), (xx\%, xx\%) and (xx\%, xx\%) improvements for allocation and deallocation pairs for three-levels page table, from top to bottom.
 The macro benchmarks shows that the latencies of the processes creation and exit are reduced as expected, from xx\% to xx\% on average.
 
