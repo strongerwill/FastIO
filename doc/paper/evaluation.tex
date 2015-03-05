@@ -15,7 +15,7 @@
 % changed to more closely follow the style guidelines as represented
 \section{Evaluation} \label{sec:eva}
 
-We have implemented the proposed approach demonstrated in previous sections. The implementation modifies %$350$ SLoC to Linux kernel and $166$ SLoc to Xen hypervisor, of which $2$ SLoc in the hypervisor are 
+We have implemented the proposed approach demonstrated in previous sections. The implementation modifies %$350$ SLoC to Linux kernel and $166$ SLoc to Xen hypervisor, of which $2$ SLoc in the hypervisor are
 $166$ SLoc of Xen hypervisor and $350$ SLoC of Linux kernel, which has efficiently improved the performance in page table management.
 
 This section evaluates the performance of \name by running both micro- and macro-benchmark kits.
@@ -26,27 +26,27 @@ Our experimental platform is a LENOVO QiTianM4390 PC with Intel Core i5-3470 run
 
 Besides that, we have been aware that a process creation/exit will give rise to many page table updates (e.g., from a page of Writable to a page of Page Global Directory ), upon which function iotlb\_flush\_qi() will be invoked to flush corresponding IOTLB entries, and this is how a process-related operation affects IOTLB-flush. Thus, we place a global counter into the function body to log invocation times of the function and then an average counter per minute is calculated as a frequency of IOTLB-flush. When the recorded average counter drops to zero, it means that IOTLB-flush does not occur, indicating that no process is created or terminated then. In a nutshell, there exits a mutually positive effect between a process creation/exit and IOTLB-flush.
 
-Because of that, we define two different settings, classified by the frequency of IOTLB-flush.
+Because of that, we define two different system states, classified by the frequency of IOTLB-flush.
 
-\emph{Idle-setting}: Actually, when system boots up and logins into graphical desktop, lots of system processes are created, causing many IOTLB flushes. But as time goes by, the frequency of IOTLB-flush reduces rapidly and stays stable to zero level ten minutes later, and we think that system starts to be in an idle setting, where no process creation/exit occurs and existing system daemons are still running.
+\emph{idle state}: Actually, when system boots up and logins into graphical desktop, lots of system processes are created, causing many IOTLB flushes. But as time goes by, the frequency of IOTLB-flush reduces rapidly and stays stable to zero level ten minutes later, and we think that system starts to be \emph{idle}, where no process creation/exit occurs while existing system daemons are still running.
 
-\emph{Busy-setting}: We launch a stress tool emulating an update-intensive workload to transfer the system from the idle setting to a busy one. Specifically, the tool is busy periodically launching a default browser(e.g., Mozilla Firefox 31.0 in the experiment), opening new tabs one by one and then closing the browser gracefully in an infinite loop, so as to constantly create/terminate a large number of Firefox processes, thus giving rise to frequent page type updates of page tables. More precisely, one iteration of the loop costs five minutes and the frequency of process creation/termination are $542.14 times$ per minute and $542.07 times$ per minute, respectively. Besides, the memory usage of the tool on an average iteration is 284.1 MB. Please note that since the frequency of IOTLB-flush will become stable five minutes after the tool starts to run, time period of one iteration is also set to the time interval to achieve a stable flush frequency.
+\emph{busy state}: We launch a stress tool emulating an update-intensive workload to make the system become \emph{busy}. Specifically, the tool is busy periodically launching a default browser(e.g., Mozilla Firefox 31.0 in the experiment), opening new tabs one by one and then closing the browser gracefully in an infinite loop, so as to constantly create/terminate a large number of Firefox processes, thus giving rise to frequent page type updates of page tables. More precisely, one iteration of the loop costs five minutes and the frequency of process creation/termination are $542.14 times$ per minute and $542.07 times$ per minute, respectively. Besides, the memory usage of the tool on an average iteration is 284.1 MB. Please note that since the frequency of IOTLB-flush will become stable five minutes after the tool starts to run, time period of one iteration is also set to the time interval to achieve a stable flush frequency.
 
-Since page tables do not update in the idle setting, our algorithm can not play a big role in system performance. Both micro- and macro-benchmark kits are performed under the busy setting, in which micro-tests are utilized to evaluate the frequency of IOTLB-flush, CPU usage and memory size while macro-benchmarks give an assessment on overall system performance.
+Since page tables do not update in the \emph{idle state}, both micro- and macro-benchmark kits are performed under the \emph{busy} one, in which micro-tests are utilized to evaluate the frequency of IOTLB-flush, CPU usage and memory size while macro-benchmarks give an assessment on overall system performance.
 
 \subsection{Micro-Benchmarks}
 
-To begin with, micro-experiments are conducted in two groups. In one group called cache-disabled, the "idle" system enters into the busy setting without the cache pool enabled. On the contrary, system state changes in another cache-pre-enabled group where the tool is invoked when the cache is already enabled since system begins to run.
+To begin with, micro-experiments are conducted in two groups. In one group called cache-disabled, the \emph{idle} system enters into the busy state without \name. On the contrary, in the other cache-pre-enabled group, \name is enabled since system boots up and system state switches after the tool is invoked.
 
 \begin{figure}[ht]
 \centering
 %\includegraphics[scale=0.55]{image/iotlbflush.png} \\
 \includegraphics[width=0.5\textwidth]{image/micro/iotlbflush.png} \\
-\caption{Frequency of IOTLB-flush drops sharply to zero whenever the page-table cache is enabled}
+\caption{Frequency of IOTLB-flush drops sharply to zero whenever \name is enabled}
 \label{fig:iotlbflush}
 \end{figure}
 
-As can be seen from figure\ref{fig:iotlbflush}. Y-axis represents the frequency of IOTLB-flush, corresponding to the time interval (i.e., one minute) of x-axis for the first thirty minutes that the running tool has taken up. From this figure, frequency in the cache-disabled group increases rapidly and remains stable five minutes later. By contrast, frequency in the cache-pre-enabled group drops to zero in a very short time and keeps zero level from then on. It can be safely concluded that our proposed algorithm does have a positive effect on reducing IOTLB frequency to zero quickly.
+As can be seen from figure\ref{fig:iotlbflush}. Y-axis represents the frequency of IOTLB-flush, corresponding to the time interval (i.e., one minute) of x-axis for the first thirty minutes that the running tool has taken up. From this figure, frequency in the cache-disabled group increases rapidly and remains stable five minutes later. By contrast, frequency in the cache-pre-enabled group drops to zero in a very short time and stays still from then. It can be safely concluded that our \name does eliminate the IOTLB flushes even when the system is \emph{busy}.
 
 %\begin{figure*}[!t]
 %\centering
@@ -135,8 +135,7 @@ As can be seen from figure\ref{fig:iotlbflush}. Y-axis represents the frequency 
 %\label{fig:PGtime} %% label for entire figure
 %\end{figure}
 
-Now let’s move to CPU usage that each group will take up. Specifically, each level of page table has its allocation functions and free functions, e.g., pgd\_alloc() and pgd\_free() and the execution time that every related function is calculated per minute. As a result, in Figure \ref{fig:PGDtime}, allocation and free functions in three levels of page tables in the cache-pre-enabled group consumes 45.1\% less and 70.9\% less CPU time in nanoseconds, respectively, compared with that of the cache-disabled group, indicating that a process interacting with the pool has an advantage in saving time over one interacting with the buddy system.
-
+Now let’s move to CPU usage that each group will take up. Specifically, each level of page table has its allocation functions and free functions, e.g., pgd\_alloc() and pgd\_free() and the execution time that every related function is calculated per minute. As a result, in Figure \ref{fig:PGDtime}, allocation and free functions in three levels of page tables in the cache-pre-enabled group consumes 45.1\% less and 70.9\% less CPU time in nanoseconds, respectively, compared with that of the cache-disabled group, indicating that \name has largely improved the performance of page table (de)allocations by maintaining a dedicated cache.
 %\begin{figure}
 %\centering
 %\subfigure[PGD]{
@@ -174,7 +173,7 @@ Total & $176$ & $193$ \\ \hline
 \label{tab:prePGpool}
 \end{table}
 
-Besides CPU usage, the algorithm is evaluated in the aspect of memory size since three levels of cache pools have been built to support a fast process creation/termination. Cache pools in the cache-pre-enabled group from Figure \ref{tab:prePGpool} takes up $250$ pages(i.e., ($1000$K $=$ $250 * 4K$) $<$ $1$M) at most in the long time run, only 0.35 percentage of the tool's consumption, which is an insignificant usage and reaches a satisfying tradeoff between CPU time costs and space size.
+Besides CPU usage, \name is evaluated in the aspect of cache size. Cache pools in the cache-pre-enabled group from Figure \ref{tab:prePGpool} takes up $250$ pages(i.e., ($1000$K $=$ $250 * 4K$) $<$ $1$M) at most in the long time run, only 0.35 percentage of the tool's memory consumption (i.e., 284.1 MB), which is an insignificant usage and reaches a satisfying tradeoff between CPU time and space size.
 
 But what if the memory percentage is too high? it is necessary to free pages from the cache pool to the buddy system. Pages in pool will be freed if $1$) a proportion between pages in use and in pool, and $2$) a total number of pages in use and in pool are greater. And data from group of cache-pre-enabled by default is referred to quantify the proportion and the total number. Actually, users can modify the two factors to adjust the cache pool size through an interface. On top of that, page number beyond the proportion is freed, stated in an equation below: $\Delta$num\_to\_free $=$ num\_in\_pool $-$ num\_in\_use.
 
