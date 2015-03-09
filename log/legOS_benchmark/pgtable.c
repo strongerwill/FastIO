@@ -12,7 +12,7 @@
 #include <asm/xen/hypercall.h>
 #include <asm/xen/page.h>
 #include <linux/module.h>
-
+#include <linux/math64.h>
 
 #define PGALLOC_GFP GFP_KERNEL | __GFP_NOTRACK | __GFP_REPEAT | __GFP_ZERO
 
@@ -23,7 +23,6 @@
 #endif
 
 gfp_t __userpte_alloc_gfp = PGALLOC_GFP | PGALLOC_USER_GFP;
-
 
 
 /*
@@ -42,6 +41,7 @@ struct ptrpte_p {
 
 
 //added by zhang
+//spin locks for cache operations and cache pages counter 
 DEFINE_SPINLOCK(pgd_cache_lock);
 DEFINE_SPINLOCK(pmd_cache_lock); 
 DEFINE_SPINLOCK(pte_cache_lock);
@@ -52,16 +52,51 @@ DEFINE_SPINLOCK(pgd_free_cnt_lock);
 DEFINE_SPINLOCK(pmd_free_cnt_lock);
 DEFINE_SPINLOCK(pte_free_cnt_lock);
 
+//cache head and cache trace
 struct ptrpgd *pgd_head = NULL;
 struct ptrpmd *pmd_head = NULL;
 struct ptrpte_p *pte_head = NULL;
-unsigned long  pgd_used_counter = 0;
-unsigned long  pgd_free_counter = 0;
-unsigned long  pmd_used_counter = 0;
-unsigned long  pmd_free_counter = 0;
-unsigned long  pte_used_counter = 0;
-unsigned long  pte_free_counter = 0;
+long  pgd_used_counter = 0;
+long  pgd_free_counter = 0;
+long  pmd_used_counter = 0;
+long  pmd_free_counter = 0;
+long  pte_used_counter = 0;
+long  pte_free_counter = 0;
 
+/* turn on cache */
+int cache_on = 0;
+EXPORT_SYMBOL(cache_on);
+
+/* turn on cache */
+int timing_on = 0;
+EXPORT_SYMBOL(timing_on);
+
+/* calculate screen output time */
+static int time_switch=1;
+static ktime_t tstart, tend;
+static int tm_incret = 1;
+
+/* time of allocing page tables */
+static s64 pgd_alloc_waste = 0;
+static int pgd_alloc_cnt = 0;
+
+s64 pmd_alloc_waste = 0;
+int pmd_alloc_cnt = 0;
+
+s64 pte_alloc_waste = 0;
+int pte_alloc_cnt = 0;
+
+/* time of freeing page tables */
+static s64 pgd_free_waste = 0;
+static int pgd_free_cnt = 0;
+
+s64 pmd_free_waste = 0;
+int pmd_free_cnt = 0;
+
+s64 pte_free_waste = 0;
+int pte_free_cnt = 0;
+
+//unsigned long  pgop_cnt = 0;
 
 unsigned long alloc_pgd_page(void)
 {
@@ -324,6 +359,8 @@ void free_pmd_page(unsigned long addr)
 */
 
 //void free_pte_page(struct mmu_gather* tlb, struct page *pte)
+static s64 test_free_kmalloc_time;
+static int test_free_kmalloc_counter;
 void free_pte_page(struct page *pte)
 {
     struct ptrpte_p *newstruct = NULL;
@@ -331,7 +368,23 @@ void free_pte_page(struct page *pte)
     int i = 0;
     int counter = 0;
     
-    newstruct = (struct ptrpte_p *)kmalloc(sizeof(struct ptrpte_p), GFP_KERNEL);
+	ktime_t local_tstart, local_tend;
+	s64 local_act_time;
+	
+	if(timing_on)
+	{	
+		local_tstart=ktime_get();	
+		newstruct = (struct ptrpte_p *)kmalloc(sizeof(struct ptrpte_p), GFP_KERNEL);
+		local_tend=ktime_get();
+		local_act_time=ktime_to_ns(ktime_sub(local_tend, local_tstart));
+        
+		test_free_kmalloc_time += local_act_time;
+		test_free_kmalloc_counter++;
+	}
+	  else
+		newstruct = (struct ptrpte_p *)kmalloc(sizeof(struct ptrpte_p), GFP_KERNEL);
+    
+	
     newstruct -> content = pte;
     //newstruct -> mmu_tlb = tlb;
 
@@ -510,6 +563,7 @@ pte_t *pte_alloc_one_kernel(struct mm_struct *mm, unsigned long address)
 	//return (pte_t *)alloc_pte_page();
 }
 
+/*
 struct zz_pte {
     //struct page *content;
     unsigned long content;
@@ -593,25 +647,8 @@ int free_zz_pte(unsigned long addr)
     else 
 	return 0;
 }
+*/
 
-unsigned int pte_alloc_waste = 0;
-unsigned int pte_alloc_cnt = 0;
-
-/* time of freeing page tables */
-static unsigned int pgd_free_waste = 0;
-static unsigned int pgd_free_cnt = 0;
-unsigned int pmd_free_waste = 0;
-unsigned int pmd_free_cnt = 0;
-unsigned int pte_free_waste = 0;
-unsigned int pte_free_cnt = 0;
-
-/* turn on cache */
-int cache_on = 0;
-EXPORT_SYMBOL(cache_on);
-
-/* turn on cache */
-int timing_on = 0;
-EXPORT_SYMBOL(timing_on);
 
 pgtable_t pte_alloc_one(struct mm_struct *mm, unsigned long address)
 {
@@ -630,7 +667,7 @@ pgtable_t pte_alloc_one(struct mm_struct *mm, unsigned long address)
 		local_act_time=ktime_to_ns(ktime_sub(local_tend, local_tstart));
         
 		spin_lock(&pte_alloc_cnt_lock);
-		pte_alloc_waste += (unsigned int)local_act_time;
+		pte_alloc_waste += local_act_time;
         	pte_alloc_cnt++;
 		spin_unlock(&pte_alloc_cnt_lock);
 	  }
@@ -647,7 +684,7 @@ pgtable_t pte_alloc_one(struct mm_struct *mm, unsigned long address)
 		local_act_time=ktime_to_ns(ktime_sub(local_tend, local_tstart));
         
 		spin_lock(&pte_alloc_cnt_lock);
-		pte_alloc_waste += (unsigned int)local_act_time;
+		pte_alloc_waste += local_act_time;
         	pte_alloc_cnt++;
 		spin_unlock(&pte_alloc_cnt_lock);
 
@@ -704,7 +741,7 @@ void ___pte_free_tlb(struct mmu_gather *tlb, struct page *pte)
 		local_act_time=ktime_to_ns(ktime_sub(local_tend, local_tstart));
         
 		spin_lock(&pte_free_cnt_lock);
-		pte_free_waste += (unsigned int)local_act_time;
+		pte_free_waste += local_act_time;
         	pte_free_cnt++;
 		spin_unlock(&pte_free_cnt_lock);
 
@@ -723,7 +760,7 @@ void ___pte_free_tlb(struct mmu_gather *tlb, struct page *pte)
 		local_act_time=ktime_to_ns(ktime_sub(local_tend, local_tstart));
         
 		spin_lock(&pte_free_cnt_lock);
-		pte_free_waste += (unsigned int)local_act_time;
+		pte_free_waste += local_act_time;
         	pte_free_cnt++;
 		spin_unlock(&pte_free_cnt_lock);
 	   }
@@ -751,7 +788,7 @@ void ___pmd_free_tlb(struct mmu_gather *tlb, pmd_t *pmd)
 		local_act_time=ktime_to_ns(ktime_sub(local_tend, local_tstart));
         
 		spin_lock(&pmd_free_cnt_lock);
-		pmd_free_waste += (unsigned int)local_act_time;
+		pmd_free_waste += local_act_time;
         	pmd_free_cnt++;
 		spin_unlock(&pmd_free_cnt_lock);
  	  }
@@ -768,7 +805,7 @@ void ___pmd_free_tlb(struct mmu_gather *tlb, pmd_t *pmd)
 		local_act_time=ktime_to_ns(ktime_sub(local_tend, local_tstart));
         
 		spin_lock(&pmd_free_cnt_lock);
-		pmd_free_waste += (unsigned int)local_act_time;
+		pmd_free_waste += local_act_time;
         	pmd_free_cnt++;
 		spin_unlock(&pmd_free_cnt_lock);
 	  }
@@ -906,8 +943,6 @@ static void free_pmds(pmd_t *pmds[])
 }
 
 
-unsigned int pmd_alloc_cnt = 0;
-unsigned int pmd_alloc_waste = 0;
 static int preallocate_pmds(pmd_t *pmds[])
 {
 	int i;
@@ -931,7 +966,7 @@ static int preallocate_pmds(pmd_t *pmds[])
 			local_act_time=ktime_to_ns(ktime_sub(local_tend, local_tstart));
 			
 			spin_lock(&pmd_alloc_cnt_lock);
-        		pmd_alloc_waste += (unsigned int)local_act_time;
+        		pmd_alloc_waste += local_act_time;
         		pmd_alloc_cnt++;
 			spin_unlock(&pmd_alloc_cnt_lock);
 	          }
@@ -948,7 +983,7 @@ static int preallocate_pmds(pmd_t *pmds[])
 			local_act_time=ktime_to_ns(ktime_sub(local_tend, local_tstart));
 			
 			spin_lock(&pmd_alloc_cnt_lock);
-        		pmd_alloc_waste += (unsigned int)local_act_time;
+        		pmd_alloc_waste += local_act_time;
         		pmd_alloc_cnt++;
 			spin_unlock(&pmd_alloc_cnt_lock);
 		  }
@@ -1016,13 +1051,6 @@ static void pgd_prepopulate_pmd(struct mm_struct *mm, pgd_t *pgd, pmd_t *pmds[])
 		pud_populate(mm, pud, pmd);
 	}
 }
-/* calculate screen output time */
-static int time_switch=1;
-static ktime_t tstart, tend;
-static unsigned int pgd_alloc_waste = 0;
-static unsigned int pgd_alloc_cnt = 0;
-static int tm_incret = 1;
-//unsigned long  pgop_cnt = 0;
 
 pgd_t *pgd_alloc(struct mm_struct *mm)
 {
@@ -1053,7 +1081,7 @@ pgd_t *pgd_alloc(struct mm_struct *mm)
 			local_act_time=ktime_to_ns(ktime_sub(local_tend, local_tstart));
         		
 			spin_lock(&pgd_alloc_cnt_lock);
-			pgd_alloc_waste += (unsigned int)local_act_time;
+			pgd_alloc_waste += local_act_time;
         		pgd_alloc_cnt++;
 			spin_unlock(&pgd_alloc_cnt_lock);
 
@@ -1071,51 +1099,52 @@ pgd_t *pgd_alloc(struct mm_struct *mm)
 			local_act_time=ktime_to_ns(ktime_sub(local_tend, local_tstart));
     			
 			spin_lock(&pgd_alloc_cnt_lock);
-        		pgd_alloc_waste += (unsigned int)local_act_time;
+        		pgd_alloc_waste += local_act_time;
         		pgd_alloc_cnt++;
 			spin_unlock(&pgd_alloc_cnt_lock);
 			
 			tend=ktime_get();	
 			act_time=ktime_to_ms(ktime_sub(tend, tstart));
-			if((unsigned int)act_time>=tm_incret*60*1000)
+			if(act_time>=tm_incret*60*1000)
 			{
-				spin_lock(&pgd_alloc_cnt_lock);
+				
 				tm_incret+=1;	
-        			printk("PGD alloc:(average:%uns per %u)\n", (pgd_alloc_waste*100)/pgd_alloc_cnt, pgd_alloc_cnt);
+				spin_lock(&pgd_alloc_cnt_lock);
+        		printk("PGD alloc:(average:%lldns per %d)\n", div_s64(pgd_alloc_waste, pgd_alloc_cnt), pgd_alloc_cnt);
 				pgd_alloc_waste=0;
 				pgd_alloc_cnt=0;
 				spin_unlock(&pgd_alloc_cnt_lock);
         			
 			
 				spin_lock(&pgd_free_cnt_lock);
-        			printk("PGD free:(average:%uns per %u)\n", (pgd_free_waste*100)/pgd_free_cnt, pgd_free_cnt);
+        		printk("PGD free:(average:%lldns per %d)\n", div_s64(pgd_free_waste, pgd_free_cnt), pgd_free_cnt);
 				pgd_free_waste=0;
 				pgd_free_cnt=0;
 				spin_unlock(&pgd_free_cnt_lock);
 
 
 				spin_lock(&pmd_alloc_cnt_lock);
-				printk("PMD alloc:(average:%uns per %u)\n", (pmd_alloc_waste*100)/pmd_alloc_cnt, pmd_alloc_cnt);
+				printk("PMD alloc:(average:%lldns per %d)\n", div_s64(pmd_alloc_waste, pmd_alloc_cnt), pmd_alloc_cnt);
 				pmd_alloc_waste=0;
 				pmd_alloc_cnt=0;
 				spin_unlock(&pmd_alloc_cnt_lock);
         			
 				
 				spin_lock(&pmd_free_cnt_lock);
-				printk("PMD free:(average:%uns per %u)\n", (pmd_free_waste*100)/pmd_free_cnt, pmd_free_cnt);
+				printk("PMD free:(average:%lldns per %d)\n", div_s64(pmd_free_waste, pmd_free_cnt), pmd_free_cnt);
 				pmd_free_waste=0;
 				pmd_free_cnt=0;
 				spin_unlock(&pmd_free_cnt_lock);
 
 				spin_lock(&pte_alloc_cnt_lock);
-				printk("PTE alloc:(average:%uns per %u)\n", (pte_alloc_waste*100)/pte_alloc_cnt, pte_alloc_cnt);
+				printk("PTE alloc:(average:%lldns per %d)\n", div_s64(pte_alloc_waste, pte_alloc_cnt), pte_alloc_cnt);
 				pte_alloc_waste=0;
 				pte_alloc_cnt=0;
 				spin_unlock(&pte_alloc_cnt_lock);
 			
 				
 				spin_lock(&pte_free_cnt_lock);
-				printk("PTE free:(average:%uns per %u)\n", (pte_free_waste*100)/pte_free_cnt, pte_free_cnt);
+				printk("PTE free:(average:%lldns per %d)\n", div_s64(pte_free_waste, pte_free_cnt), pte_free_cnt);
 				pte_free_waste=0;
 				pte_free_cnt=0;
 				spin_unlock(&pte_free_cnt_lock);
@@ -1158,8 +1187,8 @@ pgd_t *pgd_alloc(struct mm_struct *mm)
 			local_act_time=ktime_to_ns(ktime_sub(local_tend, local_tstart));
         		
 			spin_lock(&pgd_alloc_cnt_lock);
-			pgd_alloc_waste += (unsigned int)local_act_time;
-        		pgd_alloc_cnt++;
+			pgd_alloc_waste += local_act_time;
+        	pgd_alloc_cnt++;
 			spin_unlock(&pgd_alloc_cnt_lock);
 
 			time_switch=0;	
@@ -1175,53 +1204,53 @@ pgd_t *pgd_alloc(struct mm_struct *mm)
 			local_act_time=ktime_to_ns(ktime_sub(local_tend, local_tstart));
     			
 			spin_lock(&pgd_alloc_cnt_lock);
-        		pgd_alloc_waste += (unsigned int)local_act_time;
-        		pgd_alloc_cnt++;
+        	pgd_alloc_waste += local_act_time;
+        	pgd_alloc_cnt++;
 			spin_unlock(&pgd_alloc_cnt_lock);
 			
 			tend=ktime_get();	
 			act_time=ktime_to_ms(ktime_sub(tend, tstart));
-			if((unsigned int)act_time>=tm_incret*60*1000)
+			if(act_time>=tm_incret*60*1000)
 			{
-				
+				printk("pte free kmalloc:(average:%lldns per %d)\n", div_s64(test_free_kmalloc_time, test_free_kmalloc_counter), test_free_kmalloc_counter);
 			
-				spin_lock(&pgd_alloc_cnt_lock);
 				tm_incret+=1;	
-        			printk("PGD alloc:(average:%uns per %u)\n", (pgd_alloc_waste*100)/pgd_alloc_cnt, pgd_alloc_cnt);
+				spin_lock(&pgd_alloc_cnt_lock);
+        		printk("PGD alloc:(average:%lldns per %d)\n", div_s64(pgd_alloc_waste, pgd_alloc_cnt), pgd_alloc_cnt);
 				pgd_alloc_waste=0;
 				pgd_alloc_cnt=0;
 				spin_unlock(&pgd_alloc_cnt_lock);
         			
 			
 				spin_lock(&pgd_free_cnt_lock);
-        			printk("PGD free:(average:%uns per %u)\n", (pgd_free_waste*100)/pgd_free_cnt, pgd_free_cnt);
+        		printk("PGD free:(average:%lldns per %d)\n", div_s64(pgd_free_waste, pgd_free_cnt), pgd_free_cnt);
 				pgd_free_waste=0;
 				pgd_free_cnt=0;
 				spin_unlock(&pgd_free_cnt_lock);
 
 
 				spin_lock(&pmd_alloc_cnt_lock);
-				printk("PMD alloc:(average:%uns per %u)\n", (pmd_alloc_waste*100)/pmd_alloc_cnt, pmd_alloc_cnt);
+				printk("PMD alloc:(average:%lldns per %d)\n", div_s64(pmd_alloc_waste, pmd_alloc_cnt), pmd_alloc_cnt);
 				pmd_alloc_waste=0;
 				pmd_alloc_cnt=0;
 				spin_unlock(&pmd_alloc_cnt_lock);
         			
 				
 				spin_lock(&pmd_free_cnt_lock);
-				printk("PMD free:(average:%uns per %u)\n", (pmd_free_waste*100)/pmd_free_cnt, pmd_free_cnt);
+				printk("PMD free:(average:%lldns per %d)\n", div_s64(pmd_free_waste, pmd_free_cnt), pmd_free_cnt);
 				pmd_free_waste=0;
 				pmd_free_cnt=0;
 				spin_unlock(&pmd_free_cnt_lock);
 
 				spin_lock(&pte_alloc_cnt_lock);
-				printk("PTE alloc:(average:%uns per %u)\n", (pte_alloc_waste*100)/pte_alloc_cnt, pte_alloc_cnt);
+				printk("PTE alloc:(average:%lldns per %d)\n", div_s64(pte_alloc_waste, pte_alloc_cnt), pte_alloc_cnt);
 				pte_alloc_waste=0;
 				pte_alloc_cnt=0;
 				spin_unlock(&pte_alloc_cnt_lock);
 			
 				
 				spin_lock(&pte_free_cnt_lock);
-				printk("PTE free:(average:%uns per %u)\n", (pte_free_waste*100)/pte_free_cnt, pte_free_cnt);
+				printk("PTE free:(average:%lldns per %d)\n", div_s64(pte_free_waste, pte_free_cnt), pte_free_cnt);
 				pte_free_waste=0;
 				pte_free_cnt=0;
 				spin_unlock(&pte_free_cnt_lock);
@@ -1327,7 +1356,7 @@ void pgd_free(struct mm_struct *mm, pgd_t *pgd)
 		local_act_time=ktime_to_ns(ktime_sub(local_tend, local_tstart));
         
 		spin_lock(&pgd_free_cnt_lock);
-		pgd_free_waste += (unsigned int)local_act_time;
+		pgd_free_waste += local_act_time;
         	pgd_free_cnt++;
 		spin_unlock(&pgd_free_cnt_lock);
 	  }
@@ -1344,7 +1373,7 @@ void pgd_free(struct mm_struct *mm, pgd_t *pgd)
 		local_act_time=ktime_to_ns(ktime_sub(local_tend, local_tstart));
         
 		spin_lock(&pgd_free_cnt_lock);
-		pgd_free_waste += (unsigned int)local_act_time;
+		pgd_free_waste += local_act_time;
         	pgd_free_cnt++;
 		spin_unlock(&pgd_free_cnt_lock);
            }
