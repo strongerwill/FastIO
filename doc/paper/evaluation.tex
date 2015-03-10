@@ -256,24 +256,6 @@ Lmbench is used to measure CPU time that processes cost (i.e., fork+exit, fork+e
 %\end{figure}
 %|p{1.7cm}|p{1.8cm}|p{1.7cm}
 
-\begin{table}[!ht]
-\footnotesize
-\begin{center}
-\begin{tabular}{|l|l|l|}
-\hline
-{\textbf{Throughput ($10^6$ bits per second)}} & {\textbf{dynamic-enabled}} & {\textbf{disabled}}    \\ \hline
-Average Throughput &  $87.927$ & $87.903$ \\ \hline
-Range of Throughput & $87.880-88.010$ & $87.880-87.950$ \\ \hline
-\end{tabular}
-\end{center}
-\caption{When the cache is enabled, the upper limit of the throughput range is improved by 0.06\% while the average throughput of 30 runs is improved by 0.02\%. }
-\label{tab:netperf}
-\end{table}
-
-As for I/O performance, we use netperf to evaluate the performance of network-intensive workloads. To overcome the adverse effect caused by real network jitter, we physically connect the testing machine directly to a tester machine by a network cable, and then the tester machine as a client measures a network throughput by sending a bulk of TCP packets to the testing machine being a server. Specifically, the client connects to the tested server by building a single TCP connection. Test type is TCP\_STREAM, sending buffer size is $16KB$ and connection lasts $60$ seconds. On top of that, the TCP\_STREAM test of netperf is conducted for $30$ runs to obtain an average throughput. Throughput in cache-dynamic-enabled group is $87.93 \times 10^6$ bits per second, 0.02\% more than that of the cache-disabled group, shown in figure\ref{tab:netperf}, and this makes no difference.
-Seemingly, the results indicate that the algorithm has no contribution to the performance improvement, contradicting with the results from micro experiments.
-
-Actually, Nadav Amit [xxx] demonstrates that the virtual I/O memory map and unmap operations consume more CPU cycles than  that of the corresponding DMA transaction so that the IOTLB has not been observed to be a bottleneck under regular circumstances. Thus, only when the cost of frequent mapping and unmapping of IOMMU buffers is sufficiently reduced, the guest physical address resolution mechanism becomes the main bottleneck. Furthermore, he proposes the so-called pseudo pass-through mode and utilizes a high-speed I/O device (i.e., Intel’s I/O Acceleration Technology) to reduce time required by DMA map and unmap operations so that IOTLB becomes the dominant factor. As a result, it is quite reasonable that netperf results with/without the algorithm are almost the same.
 
 
 
