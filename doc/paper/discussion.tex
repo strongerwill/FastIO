@@ -20,7 +20,7 @@ Range of Throughput & $87.880-88.010$ & $87.880-87.950$ \\ \hline
 
 Actually, Nadav Amit~\cite{amit2012iommu} and Moshe Malka~\cite{malka2015riommu} demonstrate that the overhead causing by walking IOMMU page tables due to the IOTLB misses is negligible and cannot be observed to be a I/O performance bottleneck under normal circumstances such as the netperf benchmark. Specifically, the main bottleneck is induced by I/O interrupt process and the TCP/IP stack.
 
-To eliminate the high latencies of both interrupt delay and TCP/IP stack, Nadav Amit proposes a pseudo pass-through mode of IOMMU and utilizes a high-speed I/O device (i.e., Intel’s I/O Acceleration Technology~\cite{lauritzenintel}) to observe the execution time penalty as a result of IOTLB misses. While Moshe Malka makes use of ibverbs library~\cite{ibverbs evaluation,kerr2011dissecting} to measure the cost of an IOTLB miss.
+To eliminate the high latencies of both interrupt delay and TCP/IP stack, Nadav Amit proposes a pseudo pass-through mode of IOMMU and utilizes a high-speed I/O device (i.e., Intel’s I/O Acceleration Technology~\cite{lauritzenintel}) to observe the execution time penalty as a result of IOTLB misses. While Moshe Malka makes use of ibverbs library~\cite{ibverbsevaluation,kerr2011dissecting} to measure the cost of an IOTLB miss.
 Both studies aim to create high performance settings that reduce the DMA transactions to the magnitude of $\upmu$s so that IOTLB becomes the dominant factor.
 
 \subsection{When to Free Pages in Cache}
