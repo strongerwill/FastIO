@@ -1,4 +1,4 @@
-\section{\name Discussion} \label{sec:dis}
+\section{Discussion} \label{sec:dis}
 %\zhi{Macrobenchmark results of netperf do not reveal IOTLB's impacts on the DMA transactions.}
 \subsection{IOTLB Impacts on I/O Performance}
 
@@ -32,7 +32,7 @@ As talked before, when to free pages in cache relies on both the memory size of 
 \item (P3) The frequency will reach the level as soon as possible.
 \end{enumerate}
 
-Firstly, a upper limit to the cache size is set based on the memory usage of a target application. Under the limit, the algorithm is trying to eliminate IOTLB-flush with a fewest cache usage. By scanning the the frequency of IOTLB-flush periodically, the algorithm will appropriately adjust the cache size based on both the memory pages in cache and in page tables residing in the target application.
+Firstly, a upper limit to the cache size is set based on the memory usage of a target application. Under the limit, the algorithm manages to eliminate IOTLB-flush with a fewest cache usage. By scanning the the frequency of IOTLB-flush periodically, the algorithm will appropriately adjust the cache size based on both the memory pages in cache and in page tables residing in the target application.
 
 
 %When users dynamically enable the cache for the application, the algorithm is also invoked to record the memory usage by scanning  and then determine the proportion between them. If IOTLB-flush occurs during the period, increase the cache size. If the cache exceeds a particular percentage of , it is not supposed to be any higher even if IOTLB still flushes.

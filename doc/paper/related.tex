@@ -1,0 +1,7 @@
+\section{Related Work} \label{sec:rel}
+In the paravirtualised setting, a VM takes responsibility for (de)allocating its own page tables while hypervisor~\cite{x86-pv-model,barham2003xen,pratt2005xen,chisnall2008definitive} is only involved in the page table updates so as to prevent its illicit access or faults, achieving a good tradeoff between performance and safety for software access.
+Besides, the hypervisor armed with IOMMU~\cite{ben2008xen,intelvt,amdvt} allows direct access to I/O devices by untrusted VMs while prevents buggy device drivers from overwriting any part of the system's memory, thereby largely improving the system's availability and reliability for DMA access.
+
+Although the hypervisor provides valuable services for memory access from both sides, it is far from enough.
+~\cite{disaggregation} improves Xen security by disaggregating the management of virtual machines. ~\cite{amit2012iommu,malka2015riommu}
+~\cite{IOTLB-bottleneck,}
