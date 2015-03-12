@@ -9,7 +9,7 @@ Leveraging the combination of the paravirtualization and I/O virtualization, the
 Specifically, the guest page tables should be protected from every DMA access.
 Thus, when a writable page\footnote{A \emph{writable page} is the page in the guest VM, allowing the guest VM to freely read and write according to its own purpose.} turns into a page-table page, the hypervisor has to update the IOMMU page table and flush an IOTLB entry to prevent DMA from accessing it.
 The IOTLB flush is necessary for the sake of the security of the hypervisor, but it inevitably increases the miss rate of IOTLB, and consequently reduces I/O performance, especially for the high-speed devices.
-Similarly, when a page-table page is turned to a writable page, the hyperisor needs to return the ownership to the guest VM.
+Similarly, when a page-table page is turned to a writable page, the hypervisor needs to return the ownership to the guest VM.
 As a result, the hypervisor has to update the IOMMU page table and flush IOTLBs for allowing the guest VM to freely access the returned writable page.
 In addition, these page-type changes between page-table pages and writable pages are \emph{often} triggered during the whole life cycle of a running system.
 As a consequence, the IOTLB flushing events are \emph{frequently} triggered, which inevitably lower the speed of the DMA address translation and further badly affect I/O performance of all peripheral devices.

@@ -79,7 +79,7 @@
 When the mainstream operating systems move onto the paravirtualized platforms, their page table managements are required to be properly patched.
 However, the existing patches mainly focus on the security enhancements, without enough attentions for the performance improvements, which results in two noticeable issues.
 The first one is the long execution path of the page table (de)allocations, which consequently increases the latencies of the creations and exits of processes.
-Another one is the the additional dependence between the page table (de)allocations and the IOTLB flushes, which inevitably introduces extra IOTLB misses, and may consequently introduce negatively impacts on the I/O performance of all peripheral devices.
+The other one is the the additional dependence between the page table (de)allocations and the IOTLB flushes, which inevitably introduces extra IOTLB misses, and may consequently introduce negatively impacts on the I/O performance of all peripheral devices.
 
 
 In this paper, we propose Page-Table Cache (\name), a novel software-only approach for improving the performance in page table management.
@@ -87,7 +87,7 @@ First, \name shortens the length of the execution path of the page table (de)all
 Second, \name eliminates the additional IOTLB misses with a fine-grained validation scheme, which separates the DMA and software validations, instead of verifying both together as before.
 We implement a prototype on Xen with Linux as the guest kernel. We do small modifications of Xen version 4.2.1 ($166$ SLoC) and Linux kernel version 3.2.0 ($350$ SLoC).
 We evaluate the I/O performance in both micro and macro ways.
-The micro experiment results indicate that \name is able to effectively eliminates the additional IOTLB misses, from xxx to zero, and reduces (de)allocation time of the page table by xx\% on average. 
+The micro experiment results indicate that \name is able to effectively eliminates the additional IOTLB flushes, and reduces (de)allocation time of the page table by xx\% on average. 
 %There are (xx\%, xx\%), (xx\%, xx\%) and (xx\%, xx\%) improvements for allocation and deallocation pairs for three-levels page table, from top to bottom.
 The macro benchmarks show that there is no negative impact on the CPU computation, network I/O and disk I/O. 
 Moreover, the latencies of the process creations and exits are expectedly reduced by xx\% on average. 
