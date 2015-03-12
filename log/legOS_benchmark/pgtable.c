@@ -170,7 +170,7 @@ struct ptrpte_p *alloc_pte_km(void)
     if(pte_km_head)
     {
         spin_lock(&pte_km_lock);
-	pte_ptr = pte_km_head->content;
+        pte_ptr = pte_km_head->content;
         km_struct = pte_km_head;
         pte_km_head = pte_km_head->next;
         spin_unlock(&pte_km_lock);
@@ -189,17 +189,17 @@ void free_pgd_km(struct ptrpgd * pgd_ptr)
     int eachitem = 0; 
     if(pgd_km_switch)
     {
-	pgd_km_switch=0;
-	for(eachitem=0; eachitem<128; eachitem++)
-	{
-		km_struct = (struct pgd_km *)kmalloc(sizeof(struct pgd_km), GFP_KERNEL);
-		km_struct -> content = (struct ptrpgd *)kmalloc(sizeof(struct ptrpgd), GFP_KERNEL);
+        pgd_km_switch=0;
+        for(eachitem=0; eachitem<128; eachitem++)
+        {
+            km_struct = (struct pgd_km *)kmalloc(sizeof(struct pgd_km), GFP_KERNEL);
+            km_struct -> content = (struct ptrpgd *)kmalloc(sizeof(struct ptrpgd), GFP_KERNEL);
 
-		spin_lock(&pgd_km_lock);
-		km_struct -> next = pgd_km_head;
-		pgd_km_head = km_struct;
-		spin_unlock(&pgd_km_lock);
-	}
+            spin_lock(&pgd_km_lock);
+            km_struct -> next = pgd_km_head;
+            pgd_km_head = km_struct;
+            spin_unlock(&pgd_km_lock);
+        }
 
     }
     newstruct = (struct pgd_km *)kmalloc(sizeof(struct pgd_km), GFP_KERNEL);
