@@ -56,6 +56,17 @@ DEFINE_SPINLOCK(pte_free_cnt_lock);
 struct ptrpgd *pgd_head = NULL;
 struct ptrpmd *pmd_head = NULL;
 struct ptrpte_p *pte_head = NULL;
+
+struct ptrpgd *pgd_tail = NULL;
+struct ptrpmd *pmd_tail = NULL;
+struct ptrpte_p *pte_tail = NULL;
+DEFINE_SPINLOCK(pgd_tail_lock);
+DEFINE_SPINLOCK(pmd_tail_lock); 
+DEFINE_SPINLOCK(pte_tail_lock);
+//static int pgd_tail_switch=1;
+//static int pmd_tail_switch=1;
+//static int pte_tail_switch=1;
+
 long  pgd_used_counter = 0;
 long  pgd_free_counter = 0;
 long  pmd_used_counter = 0;
@@ -64,11 +75,11 @@ long  pte_used_counter = 0;
 long  pte_free_counter = 0;
 
 /* turn on cache */
-int cache_on = 0;
+int cache_on = 1;
 EXPORT_SYMBOL(cache_on);
 
 /* turn on cache */
-int timing_on = 0;
+int timing_on = 1;
 EXPORT_SYMBOL(timing_on);
 
 /* calculate screen output time */
@@ -99,6 +110,7 @@ int pte_free_cnt = 0;
 //unsigned long  pgop_cnt = 0;
 
 //page table structure cache and locks
+/*
 struct pgd_km *pgd_km_head = NULL;
 struct pmd_km *pmd_km_head = NULL;
 struct pte_km *pte_km_head = NULL;
@@ -122,11 +134,12 @@ struct pte_km {
 static int pgd_km_switch=1;
 static int pmd_km_switch=1;
 static int pte_km_switch=1;
+*/
 
 struct ptrpgd *alloc_pgd_km(void)
 {
+    /*
     struct pgd_km * km_struct;
-    struct ptrpgd * pgd_ptr;
     if(pgd_km_head)
     {
 	spin_lock(&pgd_km_lock);
@@ -141,10 +154,25 @@ struct ptrpgd *alloc_pgd_km(void)
     {   
 	return (struct ptrpgd *)kmalloc(sizeof(struct ptrpgd), GFP_KERNEL);
     }
+    */
+    struct ptrpgd * pgd_ptr = NULL;
+    if(pgd_tail)
+    {
+	spin_lock(&pgd_tail_lock);
+	pgd_ptr = pgd_tail;
+	pgd_tail = pgd_tail->next;
+	spin_unlock(&pgd_tail_lock);
+	return pgd_ptr;
+
+
+    }
+    else
+	return (struct ptrpgd *)kmalloc(sizeof(struct ptrpgd), GFP_KERNEL);
 }
 
 struct ptrpmd *alloc_pmd_km(void)
 {
+    /*
     struct pmd_km * km_struct;
     struct ptrpmd * pmd_ptr;
     if(pmd_km_head)
@@ -161,16 +189,32 @@ struct ptrpmd *alloc_pmd_km(void)
     {   
 	return (struct ptrpmd *)kmalloc(sizeof(struct ptrpmd), GFP_KERNEL);
     }
+    */
+
+    struct ptrpmd * pmd_ptr = NULL;
+    if(pmd_tail)
+    {
+	spin_lock(&pmd_tail_lock);
+	pmd_ptr = pmd_tail;
+	pmd_tail = pmd_tail->next;
+	spin_unlock(&pmd_tail_lock);
+	return pmd_ptr;
+
+
+    }
+    else
+	return (struct ptrpmd *)kmalloc(sizeof(struct ptrpmd), GFP_KERNEL);
 }
 
 struct ptrpte_p *alloc_pte_km(void)
 {
+    /*
     struct pte_km * km_struct;
     struct ptrpte_p * pte_ptr;
     if(pte_km_head)
     {
         spin_lock(&pte_km_lock);
-        pte_ptr = pte_km_head->content;
+	pte_ptr = pte_km_head->content;
         km_struct = pte_km_head;
         pte_km_head = pte_km_head->next;
         spin_unlock(&pte_km_lock);
@@ -181,25 +225,40 @@ struct ptrpte_p *alloc_pte_km(void)
     {   
         return (struct ptrpte_p *)kmalloc(sizeof(struct ptrpte_p), GFP_KERNEL);
     }
+    */
+    struct ptrpte_p * pte_ptr = NULL;
+    if(pte_tail)
+    {
+	spin_lock(&pte_tail_lock);
+	pte_ptr = pte_tail;
+	pte_tail = pte_tail->next;
+	spin_unlock(&pte_tail_lock);
+	return pte_ptr;
+
+
+    }
+    else
+        return (struct ptrpte_p *)kmalloc(sizeof(struct ptrpte_p), GFP_KERNEL);
 }
 void free_pgd_km(struct ptrpgd * pgd_ptr)
 {
+    /*
     struct pgd_km *newstruct = NULL;
     struct pgd_km *km_struct = NULL;
     int eachitem = 0; 
     if(pgd_km_switch)
     {
-        pgd_km_switch=0;
-        for(eachitem=0; eachitem<128; eachitem++)
-        {
-            km_struct = (struct pgd_km *)kmalloc(sizeof(struct pgd_km), GFP_KERNEL);
-            km_struct -> content = (struct ptrpgd *)kmalloc(sizeof(struct ptrpgd), GFP_KERNEL);
+	pgd_km_switch=0;
+	for(eachitem=0; eachitem<128; eachitem++)
+	{
+		km_struct = (struct pgd_km *)kmalloc(sizeof(struct pgd_km), GFP_KERNEL);
+		km_struct -> content = (struct ptrpgd *)kmalloc(sizeof(struct ptrpgd), GFP_KERNEL);
 
-            spin_lock(&pgd_km_lock);
-            km_struct -> next = pgd_km_head;
-            pgd_km_head = km_struct;
-            spin_unlock(&pgd_km_lock);
-        }
+		spin_lock(&pgd_km_lock);
+		km_struct -> next = pgd_km_head;
+		pgd_km_head = km_struct;
+		spin_unlock(&pgd_km_lock);
+	}
 
     }
     newstruct = (struct pgd_km *)kmalloc(sizeof(struct pgd_km), GFP_KERNEL);
@@ -211,10 +270,37 @@ void free_pgd_km(struct ptrpgd * pgd_ptr)
     spin_unlock(&pgd_km_lock);
     
     return;
+    */
+
+    /*
+    int eachitem = 0; 
+    struct ptrpgd *newstruct = NULL;
+    if(pgd_tail_switch)
+    {
+	pgd_tail_switch=0;
+	for(eachitem=0; eachitem<128; eachitem++)
+	{
+		newstruct = (struct ptrpgd *)kmalloc(sizeof(struct ptrpgd), GFP_KERNEL);
+
+		spin_lock(&pgd_tail_lock);
+		newstruct -> next = pgd_tail;
+		pgd_tail = newstruct;
+		spin_unlock(&pgd_tail_lock);
+	}
+
+    }
+    */
+ 
+    spin_lock(&pgd_tail_lock);
+    pgd_ptr -> next = pgd_tail;
+    pgd_tail = pgd_ptr;
+    spin_unlock(&pgd_tail_lock);
+    return;
 }  
 
 void free_pmd_km(struct ptrpmd * pmd_ptr)
 {
+    /*
     struct pmd_km *newstruct = NULL;
     struct pmd_km *km_struct = NULL;
     
@@ -241,12 +327,38 @@ void free_pmd_km(struct ptrpmd * pmd_ptr)
     newstruct -> next = pmd_km_head;
     pmd_km_head = newstruct;
     spin_unlock(&pmd_km_lock);
+    return;
+    */
     
+    /*
+    int eachitem = 0; 
+    struct ptrpmd *newstruct = NULL;
+    if(pmd_tail_switch)
+    {
+	pmd_tail_switch=0;
+	for(eachitem=0; eachitem<512; eachitem++)
+	{
+		newstruct = (struct ptrpmd *)kmalloc(sizeof(struct ptrpmd), GFP_KERNEL);
+
+		spin_lock(&pmd_tail_lock);
+		newstruct -> next = pmd_tail;
+		pmd_tail = newstruct;
+		spin_unlock(&pmd_tail_lock);
+	}
+
+    }
+    */
+
+    spin_lock(&pmd_tail_lock);
+    pmd_ptr -> next = pmd_tail;
+    pmd_tail = pmd_ptr;
+    spin_unlock(&pmd_tail_lock);
     return;
 } 
  
 void free_pte_km(struct ptrpte_p * pte_ptr)
 {
+    /*
     struct pte_km *newstruct = NULL;
     struct pte_km *km_struct = NULL;
     
@@ -272,7 +384,32 @@ void free_pte_km(struct ptrpte_p * pte_ptr)
     newstruct -> next = pte_km_head;
     pte_km_head = newstruct;
     spin_unlock(&pte_km_lock);
-    
+    return;
+    */
+
+    /*
+    int eachitem = 0; 
+    struct ptrpte_p *newstruct = NULL;
+    if(pte_tail_switch)
+    {
+	pte_tail_switch=0;
+	for(eachitem=0; eachitem<512; eachitem++)
+	{
+		newstruct = (struct ptrpte_p *)kmalloc(sizeof(struct ptrpte_p), GFP_KERNEL);
+
+		spin_lock(&pte_tail_lock);
+		newstruct -> next = pte_tail;
+		pte_tail = newstruct;
+		spin_unlock(&pte_tail_lock);
+	}
+
+    }
+    */
+
+    spin_lock(&pte_tail_lock);
+    pte_ptr -> next = pte_tail;
+    pte_tail = pte_ptr;
+    spin_unlock(&pte_tail_lock);
     return;
 } 
 unsigned long alloc_pgd_page(void)
@@ -381,8 +518,10 @@ void free_pgd_page(unsigned long addr)
     if(pgd_used_counter)
     	pgd_used_counter--;
     pgd_free_counter++;
-    //spin_unlock(&pgd_cache_lock);
-   
+    
+    spin_unlock(&pgd_cache_lock);
+    return; 
+    /* 
     if(pgd_used_counter)
     { 
     	//if((pgd_free_counter/pgd_used_counter>=4) && ((pgd_used_counter + pgd_free_counter) >= 450))
@@ -439,6 +578,7 @@ void free_pgd_page(unsigned long addr)
     }
     
     return;
+    */
 }  
 
 void free_pmd_page(unsigned long addr)
@@ -461,7 +601,10 @@ void free_pmd_page(unsigned long addr)
     if(pmd_used_counter)
     	pmd_used_counter--;
     pmd_free_counter++;
-   
+  
+    spin_unlock(&pmd_cache_lock);
+    return;
+    /* 
     if(pmd_used_counter) 
     {
 	//if((pmd_free_counter/pmd_used_counter>=3) && ((pmd_used_counter + pmd_free_counter) >= 1800))
@@ -518,37 +661,19 @@ void free_pmd_page(unsigned long addr)
     }
     
     return;
+    */
 }
  
-/* 
-void free_pmd_page(unsigned long addr)
-{
-    struct ptrpmd * newstruct = NULL;
-    newstruct = (struct ptrpmd *)kmalloc(sizeof(struct ptrpmd), GFP_KERNEL);
-    newstruct -> content = addr;
-   
 
-    spin_lock(&pmd_cache_lock);
-    newstruct -> next = pmd_head;
-    pmd_head = newstruct;
-    
-
-    pmd_used_counter--;
-    pmd_free_counter++;
-    spin_unlock(&pmd_cache_lock);
-    return;
-}
-*/
-
-static s64 test_free_kmalloc_time;
-static int test_free_kmalloc_counter;
+//static s64 test_free_kmalloc_time;
+//static int test_free_kmalloc_counter;
 void free_pte_page(struct page *pte)
 {
     struct ptrpte_p *newstruct = NULL;
     struct ptrpte_p *temp_head = NULL;
     int i = 0;
     int counter = 0;
-    
+ 	/*          
 	ktime_t local_tstart, local_tend;
 	s64 local_act_time;
 
@@ -563,11 +688,11 @@ void free_pte_page(struct page *pte)
 		test_free_kmalloc_time += local_act_time;
 		test_free_kmalloc_counter++;
 	}
-	  else
-		newstruct = (struct ptrpte_p *)kmalloc(sizeof(struct ptrpte_p), GFP_KERNEL);
-	
+	else
+    		newstruct = alloc_pte_km();
+	*/	
     //newstruct = (struct ptrpte_p *)kmalloc(sizeof(struct ptrpte_p), GFP_KERNEL);
-    //newstruct = alloc_pte_km();
+    newstruct = alloc_pte_km();
     newstruct -> content = pte;
     //newstruct -> mmu_tlb = tlb;
 
@@ -580,8 +705,11 @@ void free_pte_page(struct page *pte)
     if(pte_used_counter)
     	pte_used_counter--;
     pte_free_counter++;
-    //spin_unlock(&pte_cache_lock);
-   
+    
+    spin_unlock(&pte_cache_lock);
+    return;
+  
+    /* 
     if(pte_used_counter)
     { 
     	//if((pte_free_counter/pte_used_counter>=8) && ((pte_used_counter + pte_free_counter) >= 2100))
@@ -653,6 +781,7 @@ void free_pte_page(struct page *pte)
     }
    
     return;
+    */
 } 
 
 /* 
@@ -1289,7 +1418,7 @@ pgd_t *pgd_alloc(struct mm_struct *mm)
 			if(act_time>=tm_incret*60*1000)
 			{
 				
-				tm_incret+=1;	
+				tm_incret+=5;	
 				spin_lock(&pgd_alloc_cnt_lock);
         		printk("PGD alloc:(average:%lldns per %d)\n", div_s64(pgd_alloc_waste, pgd_alloc_cnt), pgd_alloc_cnt);
 				pgd_alloc_waste=0;
@@ -1393,7 +1522,7 @@ pgd_t *pgd_alloc(struct mm_struct *mm)
 			act_time=ktime_to_ms(ktime_sub(tend, tstart));
 			if(act_time>=tm_incret*60*1000)
 			{
-				printk("pte free km:(average:%lldns per %d)\n", div_s64(test_free_kmalloc_time, test_free_kmalloc_counter), test_free_kmalloc_counter);
+				//printk("pte free opt:(average:%lldns per %d)\n", div_s64(test_free_kmalloc_time, test_free_kmalloc_counter), test_free_kmalloc_counter);
 			
 				tm_incret+=1;	
 				spin_lock(&pgd_alloc_cnt_lock);
