@@ -1,7 +1,10 @@
 \section{Related Work} \label{sec:rel}
-In the paravirtualised setting, a VM takes responsibility for (de)allocating its own page tables while hypervisor~\cite{x86-pv-model,barham2003xen,pratt2005xen,chisnall2008definitive} is only involved in the page table updates so as to prevent its illicit access or faults, achieving a good tradeoff between performance and safety for software access.
-Besides, the hypervisor armed with IOMMU~\cite{ben2008xen,intelvt,amdvt} allows direct access to I/O devices by untrusted VMs while prevents buggy device drivers from overwriting any part of the system's memory, thereby largely improving the system's availability and reliability for DMA access.
+VMware~\cite{devine2002virtualization} implements a full virtualization of the underlying computer hardware and allows unmodified guest operating systems to execute on a hypervisor. However, it has degraded system performance. Denali~\cite{whitaker2002scale} is the first to use paravirtualization techniques to achieve high performance for modified virtual machines running network services while Xen~\cite{barham2003xen} is intended to support real operating systems hosting industry standard applications.
 
-Although the hypervisor provides valuable services for memory access from both sides, it is far from enough.
-~\cite{disaggregation} improves Xen security by disaggregating the management of virtual machines. ~\cite{amit2012iommu,malka2015riommu}
-~\cite{IOTLB-bottleneck,}
+When an OS is ported to Xen, the OS takes responsibility for (de)allocating its own page tables while Xen is only involved in the page table updates so as to reduce the performance degradation for the OS inside a VM while prevent illicit access or faults from the OS, achieving a good tradeoff between performance and safety for software access. Further, Murray~\cite{disaggregation} disaggregates the management of VMs and exposes less interfaces to VMs, protecting Xen from software attacks.
+
+Besides, Ben-Yehuda~\cite{ben2008xen} talks about the I/O virtualization of Xen by IOMMU~\cite{intelvt,amdvt}, which not only allows direct access to I/O devices by untrusted VMs but prevents buggy device drivers from overwriting system's memory, thereby largely improving the system's availability and reliability for DMA access. Willmann~\cite{willmann2008protection} introduces new strategies for Xen to manage IOMMU in order to reduce I/O performance overhead without sacrificing Xen's security. Amit~\cite{amit2012iommu} deeply analyzes IOMMU IOTLBs and quantifies its bottleneck overhead in high I/O performance environments.   
+
+%Although the hypervisor provides valuable services for memory access from both sides, it is far from enough.
+
+
