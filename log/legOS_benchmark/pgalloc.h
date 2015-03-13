@@ -38,6 +38,7 @@ extern pgtable_t pte_alloc_one(struct mm_struct *, unsigned long);
 
 //added by zhang
 //our cache added. by Wang
+extern void ptkm_init(void);
 extern void free_pgd_page(unsigned long addr);
 extern void free_pmd_page(unsigned long addr);
 extern void free_pte_page(struct page *pte);
@@ -131,8 +132,6 @@ static inline void pte_free(struct mm_struct *mm, struct page *pte)
 	   else
 		__free_page(pte);
 	}
-
-
 }
 
 extern void ___pte_free_tlb(struct mmu_gather *tlb, struct page *pte);

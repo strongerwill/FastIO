@@ -1,0 +1,143 @@
+
+<4>[  600.823083] timing on.
+
+
+<4>[  771.834094] PGD alloc:(average:1130ns per 525)
+<4>[  771.834098] PGD free:(average:178ns per 521)
+<4>[  771.834101] PMD alloc:(average:581ns per 1572)
+<4>[  771.834103] PMD free:(average:246ns per 1563)
+<4>[  771.834105] PTE alloc:(average:747ns per 6471)
+<4>[  771.834107] PTE free:(average:49ns per 6308)
+<4>[  771.834108] 
+
+<4>[  830.854406] PGD alloc:(average:1123ns per 550)
+<4>[  830.854410] PGD free:(average:202ns per 550)
+<4>[  830.854412] PMD alloc:(average:602ns per 1650)
+<4>[  830.854414] PMD free:(average:270ns per 1650)
+<4>[  830.854416] PTE alloc:(average:770ns per 6685)
+<4>[  830.854418] PTE free:(average:45ns per 6665)
+<4>[  830.854420] 
+
+<4>[  890.880546] PGD alloc:(average:1147ns per 560)
+<4>[  890.880550] PGD free:(average:186ns per 560)
+<4>[  890.880552] PMD alloc:(average:581ns per 1680)
+<4>[  890.880554] PMD free:(average:260ns per 1680)
+<4>[  890.880556] PTE alloc:(average:742ns per 6733)
+<4>[  890.880558] PTE free:(average:45ns per 6710)
+<4>[  890.880560] 
+
+<4>[  951.141671] PGD alloc:(average:1129ns per 560)
+<4>[  951.141675] PGD free:(average:157ns per 560)
+<4>[  951.141678] PMD alloc:(average:600ns per 1680)
+<4>[  951.141680] PMD free:(average:256ns per 1680)
+<4>[  951.141682] PTE alloc:(average:747ns per 6778)
+<4>[  951.141684] PTE free:(average:45ns per 6755)
+<4>[  951.141685] 
+
+<4>[ 1010.502333] PGD alloc:(average:1110ns per 550)
+<4>[ 1010.502337] PGD free:(average:181ns per 550)
+<4>[ 1010.502339] PMD alloc:(average:591ns per 1650)
+<4>[ 1010.502342] PMD free:(average:249ns per 1650)
+<4>[ 1010.502343] PTE alloc:(average:721ns per 6678)
+<4>[ 1010.502345] PTE free:(average:45ns per 6659)
+<4>[ 1010.502347] 
+
+<4>[ 1037.314940] cache on.
+<4>[ 1070.297550] pte free km:(average:122ns per 3646)
+<4>[ 1070.297554] PGD alloc:(average:957ns per 521)
+<4>[ 1070.297556] PGD free:(average:242ns per 522)
+<4>[ 1070.297558] PMD alloc:(average:578ns per 1563)
+<4>[ 1070.297560] PMD free:(average:293ns per 1566)
+<4>[ 1070.297562] PTE alloc:(average:441ns per 6474)
+<4>[ 1070.297564] PTE free:(average:163ns per 6563)
+<4>[ 1070.297566] 
+
+<4>[ 1130.394292] pte free km:(average:127ns per 10397)
+<4>[ 1130.394296] PGD alloc:(average:765ns per 560)
+<4>[ 1130.394298] PGD free:(average:248ns per 560)
+<4>[ 1130.394300] PMD alloc:(average:514ns per 1680)
+<4>[ 1130.394302] PMD free:(average:325ns per 1680)
+<4>[ 1130.394304] PTE alloc:(average:207ns per 6772)
+<4>[ 1130.394306] PTE free:(average:257ns per 6751)
+<4>[ 1130.394308] 
+
+<4>[ 1190.545984] pte free km:(average:128ns per 17163)
+<4>[ 1190.545988] PGD alloc:(average:806ns per 560)
+<4>[ 1190.545990] PGD free:(average:254ns per 560)
+<4>[ 1190.545992] PMD alloc:(average:512ns per 1680)
+<4>[ 1190.545994] PMD free:(average:331ns per 1680)
+<4>[ 1190.545996] PTE alloc:(average:216ns per 6785)
+<4>[ 1190.545998] PTE free:(average:260ns per 6766)
+<4>[ 1190.546000] 
+
+<4>[ 1250.738519] pte free km:(average:128ns per 23930)
+<4>[ 1250.738523] PGD alloc:(average:771ns per 560)
+<4>[ 1250.738525] PGD free:(average:250ns per 560)
+<4>[ 1250.738527] PMD alloc:(average:503ns per 1680)
+<4>[ 1250.738529] PMD free:(average:321ns per 1680)
+<4>[ 1250.738531] PTE alloc:(average:217ns per 6789)
+<4>[ 1250.738533] PTE free:(average:251ns per 6767)
+<4>[ 1250.738535] 
+
+<4>[ 1309.818258] pte free km:(average:126ns per 30585)
+<4>[ 1309.818262] PGD alloc:(average:809ns per 550)
+<4>[ 1309.818264] PGD free:(average:261ns per 550)
+<4>[ 1309.818266] PMD alloc:(average:502ns per 1650)
+<4>[ 1309.818269] PMD free:(average:303ns per 1650)
+<4>[ 1309.818270] PTE alloc:(average:215ns per 6677)
+<4>[ 1309.818272] PTE free:(average:242ns per 6655)
+<4>[ 1309.818274] 
+
+<4>[ 1369.692275] pte free km:(average:127ns per 37492)
+<4>[ 1369.692279] PGD alloc:(average:739ns per 548)
+<4>[ 1369.692281] PGD free:(average:268ns per 548)
+<4>[ 1369.692283] PMD alloc:(average:502ns per 1644)
+<4>[ 1369.692285] PMD free:(average:308ns per 1644)
+<4>[ 1369.692287] PTE alloc:(average:221ns per 6813)
+<4>[ 1369.692289] PTE free:(average:260ns per 6907)
+<4>[ 1369.692290] 
+
+<4>[ 1429.736404] pte free km:(average:127ns per 44080)
+<4>[ 1429.736408] PGD alloc:(average:802ns per 560)
+<4>[ 1429.736410] PGD free:(average:266ns per 560)
+<4>[ 1429.736412] PMD alloc:(average:515ns per 1680)
+<4>[ 1429.736414] PMD free:(average:332ns per 1680)
+<4>[ 1429.736416] PTE alloc:(average:210ns per 6604)
+<4>[ 1429.736418] PTE free:(average:251ns per 6588)
+<4>[ 1429.736420] 
+
+<4>[ 1489.833079] pte free km:(average:127ns per 50692)
+<4>[ 1489.833083] PGD alloc:(average:772ns per 560)
+<4>[ 1489.833085] PGD free:(average:263ns per 560)
+<4>[ 1489.833088] PMD alloc:(average:523ns per 1680)
+<4>[ 1489.833090] PMD free:(average:331ns per 1680)
+<4>[ 1489.833092] PTE alloc:(average:213ns per 6634)
+<4>[ 1489.833094] PTE free:(average:245ns per 6612)
+<4>[ 1489.833095] 
+
+<4>[ 1549.938517] pte free km:(average:127ns per 57256)
+<4>[ 1549.938521] PGD alloc:(average:788ns per 560)
+<4>[ 1549.938523] PGD free:(average:260ns per 560)
+<4>[ 1549.938525] PMD alloc:(average:507ns per 1680)
+<4>[ 1549.938527] PMD free:(average:334ns per 1680)
+<4>[ 1549.938529] PTE alloc:(average:210ns per 6586)
+<4>[ 1549.938531] PTE free:(average:251ns per 6564)
+<4>[ 1549.938533] 
+
+<4>[ 1609.999381] pte free km:(average:127ns per 63871)
+<4>[ 1609.999386] PGD alloc:(average:776ns per 560)
+<4>[ 1609.999388] PGD free:(average:268ns per 560)
+<4>[ 1609.999390] PMD alloc:(average:508ns per 1680)
+<4>[ 1609.999392] PMD free:(average:316ns per 1680)
+<4>[ 1609.999394] PTE alloc:(average:213ns per 6636)
+<4>[ 1609.999396] PTE free:(average:254ns per 6615)
+<4>[ 1609.999398] 
+
+<4>[ 1669.305709] pte free km:(average:127ns per 70338)
+<4>[ 1669.305714] PGD alloc:(average:742ns per 550)
+<4>[ 1669.305716] PGD free:(average:266ns per 550)
+<4>[ 1669.305718] PMD alloc:(average:499ns per 1650)
+<4>[ 1669.305720] PMD free:(average:310ns per 1650)
+<4>[ 1669.305722] PTE alloc:(average:211ns per 6487)
+<4>[ 1669.305724] PTE free:(average:241ns per 6467)
+<4>[ 1669.305725] 
