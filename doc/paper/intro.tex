@@ -1,45 +1,57 @@
 \section{Introduction} \label{sec:intro}
-In the paravirtualization~\cite{XEN-SOSP03,denali-paravirtualization}, the kernel of each guest Virtual Machine (VM) and the hypervisor share the same virtual space including many security-critical data structures, like page tables and Global Descriptor Table (GDT). All these data structures are managed by the guest VM, but their updates are intercepted and validated by the hypervisor~\cite{XEN-SOSP03} with the purpose of preventing malicious accesses from the guest software.
-However, the paravirtualization technology itself is not armed with efficient protection to prevent DMA attacks~\cite{disaggregation}.
-To fix this gap, the hypervisor has to resort to the I/O virtualization (AMD-Vi~\cite{amdvt} or Intel VT-d~\cite{intelvt}) technology, which introduces a new Input/Output Memory Management Unit (IOMMU) to restrict DMA accesses on the physical memory addresses occupied by the hypervisor and the shared security-critical data structures.
-Leveraging the combination of the paravirtualization and I/O virtualization, the hypervisor prevents all malicious accesses from processor and hardware peripheral devices.
+In paravirtualization~\cite{XEN-SOSP03,whitaker2002scale}, the operating system of each Virtual Machines (a.k.a. guest or guest domain) and the hypervisor share the same virtual space.
+In order to prevent malicious accesses from the guest OS, the hypervisor has to set the guest page tables read-only, and intercepts and validates the updates~\cite{XEN-SOSP03}.
+However, the page-table-based protection is not enough to defend against the DMA attacks driven by the malicious guest OS~\cite{disaggregation}.
+To fix this gap, the hypervisor has to resort to the I/O virtualization (AMD-Vi~\cite{amdvt} or Intel VT-d~\cite{intelvt}) technology, which introduces a new Input/Output Memory Management Unit (IOMMU) to restrict DMA accesses on the physical memory addresses occupied by the hypervisor and the guest page tables.
+% talk about the security protection in software and dma aspects
+To integrate the above two protection techniques, the guest page table management and the hypervisor are required to be properly patched.
 
-%Highlight the problem, and emphasise the importance.
-\textbf{Problem.} Although the combination of the paravirtualization and I/O virtualization brings strong security protection, we surprisingly find out that it slows down the speed of DMA address translation due to the additional I/O translation look-aside buffer (IOTLB) flushes.
-Specifically, the guest page tables should be protected from every DMA access.
-Thus, when a writable page\footnote{A \emph{writable page} is the page in the guest VM, allowing the guest VM to freely read and write according to its own purpose.} turns into a page-table page, the hypervisor has to update the IOMMU page table and flush an IOTLB entry to prevent DMA from accessing it.
-The IOTLB flush is necessary for the sake of the security of the hypervisor, but it inevitably increases the miss rate of IOTLB, and consequently reduces I/O performance, especially for the high-speed devices.
-Similarly, when a page-table page is turned to a writable page, the hypervisor needs to return the ownership to the guest VM.
-As a result, the hypervisor has to update the IOMMU page table and flush IOTLBs for allowing the guest VM to freely access the returned writable page.
-In addition, these page-type changes between page-table pages and writable pages are \emph{often} triggered during the whole life cycle of a running system.
-As a consequence, the IOTLB flushing events are \emph{frequently} triggered, which inevitably lower the speed of the DMA address translation and further badly affect I/O performance of all peripheral devices.
+%Highlight the problem, and emphasize the importance.
+\mypara{Problem} 
+However, all these patches are mainly focus on the security enhancements of the hypervisor, without enough attentions on the performance improvements.
+It results in two noticeable issues.
+The fist one is the long execution paths of the guest page table (de)allocatioins, which involve the complex memory allocation process and the additional security validation precedure. 
+The memory allocation process frequently invovles the \emph{slab} allocator and the page frame allocations that are frequently managed with a buddy system, which introduces deep invocations for each page-table (de)allocation.
+Moreover, the additional security validations procedure always adds extra costs for preventing malicious software and DMA accesses.  
+All these lead to poor performance of the page table (de)allocation, and consequently result in the long latencies of the creations and exits of processes. 
 
-%existing work
+The other one is the additional IOTLB flushes introduced by the security validations of the page table (de)allocations. 
+The guest page tables should be non-readable for any DMA requests and the occupied pages should be readable and writable when the page tables are released. 
+The updates of the access permissions require IOTLB flushes to refresh the access permissions, which is necessary for the sake of the security of the hypervisor.
+In addition, these access permission update events are \emph{often} triggered during the whole life cycle of a running system.
+As a consequence, the IOTLB flusing events are \emph{frequently} involved, which inevitably increases the IOTLB miss rate and lowers the seepd of the DMA address translation, and would intuitively introduce negative impacts on the I/O performance of all peripheral devices. 
 
+\mypara{Solution}
 %introduce our approach
-This new dependency issue between guest page tables and the DMA transferring urges us to reshape the design of the hypervisor and the guest operating system to minimize the effects on the I/O performance.
-In response to this problem, we aim to improve the guest kernel and the hypervisor to reduce the flush rate of IOTLB, and therefore ameliorate its impacts on the I/O performance of all peripheral devices.
+The above identified perfromance issues urge us to revise the design of the page table management to improve the perfromance and keep the security guarantees. 
+In response to the revision appeal, in this paper we propose \name, a novel software-only approach for improving performance in page table management. 
+First, \name shortens the length of the execution path of the page table (de)allocations by a page table cache, which maintains a dedicated buffer for serving page table (de)allocations.
+The page table cache queues the released/freed page-table page in the hope that 
+it will be reused (popped out of the cache) in the allocation of page table in the near future.
+By doing so, the page table allocations do not need to involve the costly memory management subsystem every time, instead they could directly get the pages from the cached buffer.
+As the functionalities of the page table cache are concentrated, it relatively easy to make it small, simple and efficient, dramantically reducing the execution path.
 
-Our approach rests on the observation that the high IOTLB flush rates experienced by a guest VM
-are due to the page-type changes generated by the numerous creations and destructions of page tables.
-We cannot reduce the number of the creation/destruction of page table, but reducing the number of page-type change is possible.
-Inspired by this observation, we propose the page-table cache, which queues the released/freed page-table page in the hope
-it will be reused (popped out the cache) in the creation of page table in the near future.
-During this process, the destruction and the creation of the page table will not introduce page type change, and therefore there will be no IOTLB flush.
-Besides minimizing the IOTLB flush rate, the page-table cache also accelerates the creation and destruction of page table.
-The reason is that the kernel does not need to ask for pages from enormous and costly memory management subsystem, instead it could quickly get pages from the page-table cache with very small cost.
-In order to allow the kernel memory management subsystem to use the pages cached in the page-table cache, we add an interface for the page-table cache to free pages.
+Second, \name eliminates the additional IOTLB flushes with a fine-grained validation scheme, which separates the DMA and software validations.
+In the original design, there are two types of pages: writable page that is writable for software and DMA requests, and non-writable page that are non-writable both software and DMA.
+The page table allocations and deallocations are essentially the type changes between the two of them.
+Thus, the hypervisor has to do the DMA and software validations together to ensure both of them are not violating the security policies.
+However, we observed that it is not necessary to do DMA validation every time if we create a new page type (i.e., semi-writable page) with non-writable DMA permission, and make the page type changes only happened between the non-writable pages and the semi-writable pages during the page table allocations and deallocations. 
+Interestingly, the semi-writable pages can be smoothly maintained by the page table cache with very small extra cost.
 
-We implement the page-table cache with small modifications of hypervisor Xen version 4.2.1 (xxx SLoC) and Linux kernel version 3.2.0 (xxx SLoC), and evaluate the I/O performance in micro and macro ways.
-The micro experiment results indicate that the new page-table cache is able to effectively reduce the miss rate of IOTLB (from xxx to zero) with \emph{less CPU usage}, even when the page tables are frequently updated.
-The macro benchmarks shows that the I/O devices always produce better (or the same) performance, even when the system frequently generates many temporal processes.
+We implement a prototype on Xen with Linux as the guest kernel. We do small modifications of Xen version 4.2.1 ($166$ SLoC) and Linux kernel version 3.2.0 ($350$ SLoC).
+We evaluate the I/O performance in both micro and macro ways.
+The micro experiment results indicate that \name is able to completely eliminates the additional IOTLB flushes, and effectively reduces (de)allocation time of the page table. 
+There are (xx\%, xx\%), (xx\%, xx\%) and (xx\%, xx\%) improvements for allocation and deallocation pairs for three-levels page table, from top to bottom.
+The macro benchmarks show that there is no negative impact on the CPU computation, network I/O and disk I/O. 
+Moreover, the latencies of the process creations and exits are expectedly reduced by xx\% on average. 
 
 
 In particular, we make the following contributions:
 \begin{enumerate}
-\item We are the first, to the best of our knowledge, to identify the dependency issue between guest page table and DMA transferring.
-\item We proposed a novel approach - page table cache, to improve I/O performance of all peripheral devices by minimizing the flush rate of IOTLB, without sacrificing the system security.
+\item We identify two significant performance issues in the page table management. In particular, we are the first, to the best of our knowledge, to identify the performance issue between guest page table (de)allocations and the IOTLB flushes.
+\item We proposed a novel approach - called \name, to shorten the execution paths of the page table allocation and deallocations, and elimiate the additional IOTLB flushes, without sacrificing the system security.
 \item We implemented a prototype of the page table cache and evaluated the performance in both micro and macro ways.
+\item The experiment results indicate the design of \name can benifit the page table (de)allocation of the paravirtualized and the mainstream operating systems.
 \end{enumerate}
 
 The rest of the paper is structured as follows: In Section~\ref{sec:preli} and Section~\ref{sec:prob}, we briefly describe the background knowledge, and highlight our goal and the thread model. In Section~\ref{sec:rationale} we discuss the design rationale. Then we describe the system overview and implementation in Section~\ref{sec:overview} and Section~\ref{sec:implement}. In Section~\ref{sec:eva}, we evaluate the security and performance of the system, and discuss several attacks and possible extension in Section~\ref{sec:dis}. At last, we discuss the related work in Section~\ref{sec:related}, and conclude the whole paper in Section~\ref{sec:con}.

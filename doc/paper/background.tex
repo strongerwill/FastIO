@@ -26,9 +26,9 @@ Figure~\ref{fig:address-translation} illustrates the whole translation process.
 
 \paragraph{Segementation Descriptor Table}\label{sec:gdt}
 Each logical address consists of a \emph{segment} selector and an \emph{offset}, which are used to locate a segment descriptor.
-A segment descriptor describes a segment, including the segment base address, limiation of the segment lenght and other meta-data.
+A segment descriptor describes a segment, including the segment base address, limitation of the segment length and other meta-data.
 All segment descriptors are stored in the Global Descriptor Table (GDT) or Local Descriptor Tables (LDT).
-In order to translate to the exptected linear address, the integrity of the GDT and LDT should be guaranteed.
+In order to translate to the expected linear address, the integrity of the GDT and LDT should be guaranteed.
 
 \paragraph{Page Table}\label{sec:pagetable}
 Page tables are used by a hardware, i.e., Memory Management Unit (MMU), to translate the linear addresses into physical addresses used by the hardware to execute instructions.
