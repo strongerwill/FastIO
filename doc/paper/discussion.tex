@@ -8,7 +8,8 @@ Actually, Nadav Amit \emph{et al.}~\cite{amit2012iommu} claims that IOTLB misses
 
 Also, rIOMMU~\cite{malka2015riommu} demonstrates that the overhead caused by walking IOMMU page tables due to IOTLB misses is so negligible that cannot be measured in the netperf benchmark. The benchmark results show that the main latency induced by I/O interrupt processing and the TCP/IP stack is several orders of magnitude larger than that of walking the page tables.
 
-Although it is ascertained that IOTLB has fewer impacts on I/O performance in previous studies, we also use netperf to evaluate IOTLB performance when system is in a \emph{busy state}. To overcome the adverse effect caused by real network jitter, we physically connect the tested machine directly to a tester machine by a network cable, and then the tester machine as a client measures the network throughput by sending a bulk of TCP packets to the tested machine being a server. Specifically, the client connects to the server by building a single TCP connection. Test type is TCP\_STREAM, size of sending buffer is $16KB$ and the connection lasts $60$ seconds. On top of that, the TCP\_STREAM test of netperf is conducted for $30$ runs, results of which are shown in figure\ref{tab:netperf}. By comparing both values of \mu and \sigma, we can safely conclude that the throughputs in both groups change little and IOTLB misses affect little on netperf, which further supports the viewpoint made by rIOMMU. 
+Although it is ascertained that IOTLB has fewer impacts on I/O performance in previous studies, we also use netperf to evaluate IOTLB performance when system is in a \emph{busy state}. To overcome the adverse effect caused by real network jitter, we physically connect the tested machine directly to a tester machine by a network cable, and then the tester machine as a client measures the network throughput by sending a bulk of TCP packets to the tested machine being a server.
+Specifically, the client connects to the server by building a single TCP connection. Test type is TCP\_STREAM, size of sending buffer is $16KB$ and the connection lasts $60$ seconds. On top of that, the TCP\_STREAM test of netperf is conducted for $30$ runs, results of which are shown in figure\ref{tab:netperf}. By comparing both values of $\mu$ and $\sigma$, we can safely conclude that the throughputs in both groups change little and IOTLB misses affect little on netperf, which further supports the viewpoint made by rIOMMU. 
 
 %The slight throughput improvement is possibly because that \name spends less CPU cycles executing netperf. Seemingly, benefits of IOTLB-flush eliminations have not been observed so far.
 
@@ -20,11 +21,11 @@ Although it is ascertained that IOTLB has fewer impacts on I/O performance in pr
 \hline
 {\textbf{Throughput (\emph{Mbps})}} & {\textbf{Dynamic-enabled}} & {\textbf{Disabled}}    \\ \hline
 Range & $87.880-88.010$ & $87.880-87.950$ \\ \hline
-Arithmetic Mean (\mu)  &  $87.927$ & $87.903$ \\ \hline
-Standard Deviation (\sigma) &  $87.927$ & $87.903$ \\ \hline
+Arithmetic Mean ($\mu$)  &  $87.927$ & $87.903$ \\ \hline
+Standard Deviation ($\sigma$) &  $87.927$ & $87.903$ \\ \hline
 \end{tabular}
 \end{center}
-\caption{The throughput values in both groups show few differences by comparing both values of \mu and \sigma, indicating that the IOTLB benefits brought by \name have not been observed so far.}
+\caption{The throughput values in both groups show few differences by comparing both values of $\mu$ and $\sigma$, indicating that the IOTLB benefits brought by \name have not been observed so far.}
 \label{tab:netperf}
 \end{table}
 
