@@ -1,35 +1,15 @@
 \section{Problem Definition} \label{sec:prob}
+In this section, we focus on describing the two identified performance issues.
+First, we describe the critical steps of the long execution paths of the page table (de)allocation, and then describe the dependency between the page table (de)allocation and IOTLB flushes.
 
-The dependency between the guest page table and the IOTLB is very subtle.
-To fully understand the dependency, we need to know the details about how the paravirtualized hypervisor protects itself through guest page table and IOMMU.
-Specifically, we explicitly describe 1) paravirtualized MMU mode, and 2) IOMMU and DMA address translation.
 As Xen~\cite{XEN-SOSP03} is a typical and popular paravirtualized hypervisor, in this section we use Xen in a x86 MMU model~\cite{x86-pv-model} to illustrate the details. We believe you can easily find the corresponding mechanisms on other paravirtualized hypervisors.
-If you are already familar with these, you can skip this section to the motivation section (Section~\ref{sec:moti}).
-
-%As stated above, updating page types of guest OS leads to a number of IOTLB misses, and this is related to the security policies that paravirtualized (PV) hypervisor enforces. In the PV setting, the hypervisor is responsible for protecting and updating security-sensitive data structures so as to prevent illicit accesses from guest OSes and I/O devices.
-
+If you are already familiar with these, you can skip this section to the motivation section (Section~\ref{sec:moti}).
 
 \subsection{Paravirtualized MMU Model}\label{sec:pvmodel}
-In this subsection, we firstly introduce the address translation mechanism on x86, and then we highlight how Xen protects itself in the paravirtualized MMU model.
-
-\subsubsection{Address Translation}\label{sec:addr-trans}
+%In this subsection, we firstly introduce the address translation mechanism on x86, and then we highlight how Xen protects itself in the paravirtualized MMU model.
 There are two steps to transform logical addresses (i.e., addresses as viewed by programmers) into physical addresses (i.e., actual addresses in physical memory):
 1) segment translation, in which a logical address (consisting of a segment selector and segment offset) is converted to a linear address,
 and 2) page translation, in which a linear address is converted to a physical address\footnote{Physical address is also called machine address in Xen setting.}.
-Figure~\ref{fig:address-translation} illustrates the whole translation process.
-\begin{figure}[ht]
-\centering
-\includegraphics[height=1.5cm, width=0.5\textwidth]{image/background/address-translation.png} \\
-\caption{Address Translation.}
-\label{fig:address-translation}
-\end{figure}
-
-
-\paragraph{Segementation Descriptor Table}\label{sec:gdt}
-Each logical address consists of a \emph{segment} selector and an \emph{offset}, which are used to locate a segment descriptor.
-A segment descriptor describes a segment, including the segment base address, limitation of the segment length and other meta-data.
-All segment descriptors are stored in the Global Descriptor Table (GDT) or Local Descriptor Tables (LDT).
-In order to translate to the expected linear address, the integrity of the GDT and LDT should be guaranteed.
 
 \paragraph{Page Table}\label{sec:pagetable}
 Page tables are used by a hardware, i.e., Memory Management Unit (MMU), to translate the linear addresses into physical addresses used by the hardware to execute instructions.
@@ -41,25 +21,14 @@ There are many page tables in a guest VM, as each user process has its own page 
 The creation and exit of a user process will be accompanied by the creation and destruction of a page table respectively.
 It means that if there are numerous temporary processes generated within a period, there will be a large number of page tables created.
 
-\subsubsection{Page Types and Security Validations}\label{sec:pv-security}
-%On the architecture of Xen, there are three layers: a hypervisor, guest OS and guest applications.
-%Unfortunately, the paging mechanism offers only two protection layers, i.e., user and supervisor spaces.
-%Thus, Xen has to combine both paging and segmentation machanisms on x86.
-\begin{table}[!ht]
-\begin{center}
-\begin{tabular}{|p{1.7cm}|p{4.3cm}|}
-\hline
-{\textbf{Page Type}}  & {\textbf{Description}}     \\ \hline
-None & No special uses \\ \hline
-L\emph{N} Page-Table Page & Pages used as a page table at level \emph{N}. There are separate types for each of the 3 levels on 32bit PAE guests. \\ \hline
-Segment Descriptor Page & Pages used as part of the GDT/LDT \\ \hline
-Writable Page & Pages are writable for software and DMA. \\ \hline
-\end{tabular}
-\end{center}
-\caption{The page types used in Xen.}
-\label{tab:pagetype}
-\end{table}
 
+\subsection{Long Execution Path of Page Table (De)allocation}\label{sec:exe-path}
+
+\subsubsection{Costly Memory Allocators}
+
+\subsubsection{Security Validations}
+
+\mypara{Page Table Validations}\label{sec:pv-security}
 In order to ensure that the guest cannot subvert the system, Xen requires that certain update policies are maintained,
 and thus all updates of the page tables should be vetted by Xen.
 To this end, the guest OS is deprivileged, from ring-0 to ring-1, leaving ring-0 for the Xen hypervisor.
@@ -88,8 +57,6 @@ The page type is allowed to be changed.
 Xen enforces that the type of a page can only be changed when the type count is zero.
 In addition, Xen also requires that every page type update only occur between writable and non-writable pages, as summarized in Figure~\ref{fig:page-type-updates}.
 
-\yueqiang{This figure\ref{fig:page-type-updates} should be revised. 1) font size 2) figure size and 3) rectangle is not needed to be shaded.}
-
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.45\textwidth]{image/background/page-type-updates.png} \\
@@ -99,7 +66,13 @@ while non-writable pages are inaccessible to them.)}
 \end{figure}
 
 
-\subsection{IOMMU and DMA address translation}
+\mypara{DMA Validations}
+
+\subsection{Addition IOTLB Flushes}
+The dependency between the guest page table and the IOTLB is very subtle.
+To fully understand the dependency, we need to know the details about how the paravirtualized hypervisor protects itself through guest page table and IOMMU.
+Specifically, we explicitly describe 1) paravirtualized MMU mode, and 2) IOMMU and DMA address translation.
+
 %citing: intel vt-d
 The input/output memory management unit (IOMMU)~\cite{directio} is a memory management unit (MMU) that connects a DMA-capable I/O bus to the main memory.
 Like a traditional MMU, the IOMMU maps device addresses (also called as I/O addresses) to physical addresses through a dedicated page table.
@@ -116,48 +89,20 @@ If unlikely the IOTLB miss occurs, the DMA remapping still can go the slow page-
 To achieve a better I/O performance, the DMA remapping should avoid taking the page-table path as far as possible.
 
 \begin{figure}[!t]
-    %\centering
     \begin{subfigure}{0.5\textwidth}
-        %\centering
-
-        %\begin{minipage}[b]{1\textwidth}
         \includegraphics[width=1\textwidth]{image/background/DMA-IOTLB-translation.png}
-
         \caption{\centering IOTLB Path.}
         \label{fig:subfig:a}
-        %\end{minipage}
     \end{subfigure}%
-    \vfill
-    \vfill
-    \vfill
-    \vfill
+    \vfill \vfill \vfill \vfill
     \begin{subfigure}{0.5\textwidth}
-        %\centering
-
-        %\begin{minipage}[b]{1\textwidth}
         \includegraphics[width=1\textwidth]{image/background/DMA-pt-translation.png}
-
         \caption{\centering I/O Page-Table Path.}
         \label{fig:subfig:b}
-        %\end{minipage}
     \end{subfigure}
     \caption{IOTLB path is orders of magnitudes faster than I/O Page-Table Path.}
     \label{fig:dma-add-trans}
 \end{figure}
-
-
-%\begin{figure}
-%\centering
-%\subfigure[IOTLB Path]{
-%\label{fig:subfig:a}
-%\includegraphics[width=0.5\textwidth]{image/background/DMA-IOTLB-translation.png}}
-%\hspace{2.0cm}
-%\subfigure[Page-Table Path]{
-%\label{fig:subfig:b}
-%\includegraphics[width=0.5\textwidth]{image/background/DMA-pt-translation.png}}
-%\caption{IOTLB path is orders of magnitudes faster than Page-Table Path}
-%\label{fig:dma-add-trans} %% label for entire figure
-%\end{figure}
 
 %talking about how to flush IOTLB
 %invalidation requests and invalidation interface

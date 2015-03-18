@@ -27,7 +27,7 @@ To address this conflict without sacrificing the system security, we propose to 
 and require that the page type updates between the writable page and the page-table page must go through the semi-writable page first.
 In practice,  we can further restrict that the system only updates the page-table pages to/from the semi-writable pages and holds the semi-writable pages to stop them converting back to the writable pages.
 since both of them are already inaccessible to DMA, there is no need to do IOTLB flushes, meaning the additional IOTLB flushes could be totally avoided.
-In order to facilitate the management of the semi-writable pages, we propose a new data structure (i.e., page table cache) in the guest kernel, and extend the existing page-management data structure in the hypervisor space.
+In order to facilitate the management of the semi-writable pages, we propose a new data structure (i.e., page table cache) in the guest kernel, and extend the existing page-management data structure in the hypervisor space.         l                  
 Similar to the management of the page-table pages, the hypervisor is only responsible for the final validation of the semi-writable page, leaving all other management operations for the guest OS.
 By doing this, we can keep the modifications as small as possible by reusing existing validation process and page-table management subsystem, and also retain the system security.
 
