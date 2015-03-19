@@ -14,9 +14,9 @@
 % more easily include the .sty file into an existing document.  Also
 % changed to more closely follow the style guidelines as represented
 \section{Evaluation} \label{sec:eva}
-
-We have implemented the proposed approach demonstrated in previous sections. The implementation modifies %$350$ SLoC to Linux kernel and $166$ SLoc to Xen hypervisor, of which $2$ SLoc in the hypervisor are
-$166$ SLoc of Xen hypervisor and $350$ SLoC of Linux kernel, which has efficiently improved the performance in page table management.
+%
+We have implemented the proposed approach demonstrated in previous sections. The implementation added or changed %$350$ SLoC to Linux kernel and $166$ SLoc to Xen hypervisor, of which $2$ SLoc in the hypervisor are
+$166$ SLoc of Xen hypervisor and $350$ SLoC of Linux kernel, which efficiently improved the performance in page table management.
 
 This section evaluates the performance of \name by running both micro- and macro-benchmark kits.
 
@@ -24,7 +24,7 @@ This section evaluates the performance of \name by running both micro- and macro
 
 Our experimental platform is a LENOVO QiTianM4390 PC with Intel Core i5-3470 running at 3.20 GHz, four CPU cores available to the system. We enable the Intel VT-d feature in the BIOS menu, which supports queue-based invalidation interface in the granularity of page invalidation. Xen version 4.2.1 is used as the hypervisor while domain0 uses the Ubuntu version 12.04 and kernel version 3.2.0-rc1. In addition, domain 0 as the testing system configures its grub.conf to turn on I/O address translation for itself and to print log information to a serial port in debug mode.
 
-Besides that, we have been aware that a process creation/exit will give rise to many page table updates (e.g., from a page of Writable to a page of Page Global Directory ), upon which function iotlb\_flush\_qi() will be invoked to flush corresponding IOTLB entries, and this is how a process-related operation affects IOTLB-flush. Thus, we place a global counter into the function body to log invocation times of the function and then an average counter per minute is calculated as a frequency of IOTLB-flush. When the recorded average counter drops to zero, it means that IOTLB-flush does not occur, indicating that no process is created or terminated then. In a nutshell, there exits a mutually positive effect between a process creation/exit and IOTLB-flush.
+Besides that, we have been aware that a process creation/exit will give rise to many page table updates (e.g., from a page of Writable to a page of Page Global Directory ), upon which function iotlb\_flush\_qi will be invoked to flush corresponding IOTLB entries, and this is how a process-related operation affects IOTLB-flush. Thus, we place a global counter into the function body to log invocation times of the function and then an average counter per minute is calculated as a frequency of IOTLB-flush. When the recorded average counter drops to zero, it means that IOTLB-flush does not occur, indicating that no process is created or terminated then. In a nutshell, there exits a mutually positive effect between a process creation/exit and IOTLB-flush.
 
 Because of that, we define two different system states, classified by the frequency of IOTLB-flush.
 
@@ -66,14 +66,14 @@ As can be seen from figure\ref{fig:iotlbflush}. Y-axis represents the frequency 
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{image/micro/PGDalloc.png}
-        \caption{Time measurements of pgd\_alloc()}
+        \caption{Time measurements of pgd\_alloc}
         \label{fig:subfig:a}
     \end{subfigure}%
     ~
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{image/micro/PGDfree.png}
-        \caption{Time Measurement of pgd\_free()}
+        \caption{Time Measurement of pgd\_free}
         \label{fig:subfig:b}
     \end{subfigure}
     \caption{When the cache is enabled, both functions of PGD Alloc and PGD Free costs much less CPU cycles.}
@@ -85,7 +85,7 @@ As can be seen from figure\ref{fig:iotlbflush}. Y-axis represents the frequency 
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{image/micro/PMDalloc.png}
-        \caption{Time measurements of pmd\_alloc()}
+        \caption{Time measurements of pmd\_alloc}
         \label{fig:subfig:a}
     \end{subfigure}%
     ~
@@ -135,7 +135,7 @@ As can be seen from figure\ref{fig:iotlbflush}. Y-axis represents the frequency 
 %\label{fig:PGtime} %% label for entire figure
 %\end{figure}
 
-Now let’s move to CPU usage that each group will cost. Specifically, each level of page table has its allocation functions and free functions, e.g., pgd\_alloc() and pgd\_free(), and the execution time of each function is per minute calculated. As a result, in Figure \ref{fig:PGDtime}, allocation and free functions in three levels of page tables in the cache-pre-enabled group consumes $5.1$\% less and $70.9$\% less CPU time in nanoseconds, respectively, compared with that of the cache-disabled group, indicating that \name has largely improved the performance of page table (de)allocations by maintaining a dedicated cache.
+Now let’s move to CPU usage that each group will cost. Specifically, each level of page table has its allocation functions and free functions, e.g., pgd\_alloc and pgd\_free, and the execution time of each function is per minute calculated. As a result, in Figure \ref{fig:PGDtime}, allocation and free functions in three levels of page tables in the cache-pre-enabled group consumes $5.1$\% less and $70.9$\% less CPU time in nanoseconds, respectively, compared with that of the cache-disabled group, indicating that \name has largely improved the performance of page table (de)allocations by maintaining a dedicated cache.
 %\begin{figure}
 %\centering
 %\subfigure[PGD]{
