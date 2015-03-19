@@ -2,7 +2,7 @@
 In this section, we focus on describing the two identified performance issues.
 First, we describe the critical steps of the long execution paths of the page table (de)allocation, and then describe the dependency between the page table (de)allocation and IOTLB flushes.
 
-As Xen~\cite{XEN-SOSP03} is a typical and popular paravirtualized hypervisor, in this section we use Xen in a x86 MMU model~\cite{x86-pv-model} to illustrate the details. We believe you can easily find the corresponding mechanisms on other paravirtualized hypervisors.
+As Xen~\cite{XEN-SOSP03} is a typical and popular paravirtual hypervisor, in this section we use Xen in a x86 MMU model~\cite{x86-pv-model} to illustrate the details. We believe you can easily find the corresponding mechanisms on other paravirtual hypervisors.
 If you are already familiar with these, you can skip this section to the motivation section (Section~\ref{sec:moti}).
 
 \subsection{Paravirtualized MMU Model}\label{sec:pvmodel}
@@ -25,6 +25,15 @@ It means that if there are numerous temporary processes generated within a perio
 \subsection{Long Execution Path of Page Table (De)allocation}\label{sec:exe-path}
 
 \subsubsection{Costly Memory Allocators}
+To allocate or free a page-table page, the guest kernel has to invoke the system allocators, typically from slab allocator to buddy allocator.
+Each of these allocators maintains a set of complex data structures to track the internal status.
+%not only returns or release the page, the internal status will be updated correspondingly.
+any allocation and deallocation invocation will trigger the updates of such data structures. 
+% in addition, to support multicore setting, such allocators have to leverage locks to prevent race conditions.
+% in one invocation, there will be many locks locked and unlocked 
+
+All these increase the invocation time.
+In fact, it is not 
 
 \subsubsection{Security Validations}
 

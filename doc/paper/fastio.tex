@@ -53,7 +53,7 @@
 
 \begin{document}
 
-\newcommand{\name}{PTCache\xspace}
+\newcommand{\name}{PiBooster\xspace}
 \newcommand{\eat}[1]{}  %% for quick commenting of a large trunk of texts
 \newcommand{\authcomment}[3]{\textcolor{#3}{#1 says: #2}}\newcommand{\yueqiang}[1]{\authcomment{Yueqiang}{#1}{red}}
 \newcommand{\zhi}[1]{\authcomment{Zhi}{#1}{red}}
@@ -65,7 +65,8 @@
 
 %make title bold and 14 pt font (Latex default is non-bold, 16 pt)
 %\title{\Large \bf Improving I/O Performance of All Peripheral Devices on Paravirtualized Platforms}
-\title{\Large \bf Performance Improvements in Page Table (De)allocations in Paravirtualized VMs}
+%\title{\Large \bf Performance Improvements in Page Table (De)allocations in Paravirtualized VMs}
+\title{\Large \bf PiBooster: a Lightweight Approach to Simultaneously Improve Performance in Page Table Management and IOMMU for Paravirtual Platforms}
 
 \authorinfo{Anonymous}{}
 %Shen Qingni ??????qingnishen@ss.pku.edu.cn? MoE Key Lab of Network and Software Assurance, Peking University, Beijing?100871, China
@@ -79,19 +80,20 @@
 
 \begin{abstract}
 In paravirtualization, the page table management components of the guest operating systems are properly patched for the security guarantees of the hypervisor.
-However, none of them pay enough attentions to the performance improvements, which results in two noticeable issues.
-The first one is the long execution paths of the page table (de)allocations, which consequently increase the latencies of the creations and exits of processes.
-The other one is the additional IOTLB flushes introduced by the security validations during the page table (de)allocation, which inevitably introduces extra IOTLB misses, and would intuitively introduce negative impacts on the I/O performance of all peripheral devices.
+However, none of them pay enough attentions to the performance improvements, which result in two noticeable issues.
+First, such security patches exacerbate the problem that the execution path of the guest page table (de)allocation becomes extremely long, which would consequently increase the latencies of the processes' creations and exits.
+Second, the security validations introduce many additional IOTLB flushes. Obviously, they would lead to extra IOTLB misses, and many have negative impacts on the I/O performance of all peripheral devices.
 
 
-In this paper, we propose Page-Table Cache (\name), a novel software-only approach for improving the performance in page table management.
+In this paper, we propose \name, a novel lightweight approach for improving the performance in page table management.
 First, \name shortens the length of the execution path of the page table (de)allocations by a page table cache, which maintains a dedicated buffer for serving page table (de)allocations.
-Second, \name eliminates the additional IOTLB misses with a fine-grained validation scheme, which separates the DMA and software validations, instead of verifying both together as before.
-We implement a prototype on Xen with Linux as the guest kernel. We do small modifications of Xen version 4.2.1 ($166$ SLoC) and Linux kernel version 3.2.0 ($350$ SLoC).
+Second, \name eliminates the additional IOTLB misses with a fine-grained validation scheme, which perform DMA and software validations separately, instead of doing both together as before.
+We implement a prototype on Xen with Linux as the guest kernel. We do small modifications of Xen ($166$ SLoC) and Linux kernel ($350$ SLoC).
 We evaluate the I/O performance in both micro and macro ways.
-The micro experiment results indicate that \name is able to completely eliminates the additional IOTLB flushes, and effectively reduces (de)allocation time of the page table by xx\% on average. 
-The macro benchmarks show that there is no negative impact on the CPU computation, network I/O and disk I/O. 
-Moreover, the latencies of the process creations and exits are expectedly reduced by xx\% on average. 
+The micro experiment results indicate that \name is able to \emph{completely eliminates} the additional IOTLB flushes, and effectively reduces (de)allocation time of the page table by xx\% on average. 
+In worst cases, the additional latency is only xx\%.
+The macro benchmarks show that the latencies of the process creations and exits are expectedly reduced by xx\% and xx\% on average respectively.
+Moreover, \name has no negative impacts on CPU computation, network I/O and disk I/O. 
 \end{abstract}
 %\category{CR-number}{subcategory}{third-level}
 
