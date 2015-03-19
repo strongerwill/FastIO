@@ -21,7 +21,7 @@ Specifically, the client connects to the server by building a single TCP connect
 \hline
 {\textbf{Throughput (\emph{Mbps})}} & {\textbf{Dynamic-enabled}} & {\textbf{Disabled}}    \\ \hline
 Range & $87.880-88.010$ & $87.880-87.950$ \\ \hline
-Arithmetic Mean ($\mu$)  &  $87.927$ & $87.903$ \\ \hline
+Arithmetic Mean ($\mu$)  &  $87.926$ & $87.913$ \\ \hline
 Standard Deviation ($\sigma$) &  $0.028$ & $0.021$ \\ \hline
 \end{tabular}
 \end{center}
@@ -47,7 +47,7 @@ Firstly, an upper limit to the cache size is set based on the memory usage of a 
 
 %When users dynamically enable the cache for the application, the algorithm is also invoked to record the memory usage by scanning and then determine the proportion between them. If IOTLB-flush occurs during the period, increase the cache size. If the cache exceeds a particular percentage of , it is not supposed to be any higher even if IOTLB still flushes.
 
-\subsection{\name benefits the mainstream operating systems}
+\subsection{Benefits for Page Table (De)allocations in the Mainstream Operating Systems}
 
 As stated before, we can break \name into two components, a page table cache and a fine-grained validation module. As the component of page table cache is a specially reserved memory buffer to facilitate the page table (de)allocations in paravirtualized environments, intuitively, we believe that the high-performance component can be extended to the mainstream OS so that the execution cost of page table (de)allocations will also be largely reduced, thereby benefitting the performance of process creations and exits as expected. As a result, we will port the component to the OS and evaluate its performance effects in the future work.
 
