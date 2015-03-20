@@ -20,6 +20,15 @@ The updates of the access permissions require IOTLB flushes to refresh the acces
 In addition, these access permission update events are \emph{often} triggered during the whole life cycle of a running system.
 As a consequence, the IOTLB flushing events are \emph{frequently} involved, which inevitably increases the IOTLB miss rate and lowers the speed of the DMA address translation, and would intuitively introduce negative impacts on the I/O performance of all peripheral devices. 
 
+
+\begin{figure*}[ht]
+\centering
+\includegraphics[width=0.9\textwidth]{image/overview/overview.pdf} \\
+\caption{Solution Overview. When the \name cache and fine-gained validation mechanisms are enabled, 
+the execution path of page table allocation is dramatically reduced, and the additional IOTLB flushes are eliminated.}
+\label{fig:overview}
+\end{figure*}
+
 \mypara{Solution}
 %introduce our approach
 The above identified performance issues urge us to revise the design of the page table management to improve the performance and keep the security guarantees. 
@@ -43,7 +52,6 @@ The micro experiment results indicate that \name is able to completely eliminate
 There are (xx\%, xx\%), (xx\%, xx\%) and (xx\%, xx\%) improvements for allocation and deallocation pairs for three-levels page table, from top to bottom.
 The macro benchmarks show that there is no negative impact on the CPU computation, network I/O and disk I/O. 
 Moreover, the latencies of the process creations and exits are expectedly reduced by xx\% on average. 
-
 
 In particular, we make the following contributions:
 \begin{enumerate}

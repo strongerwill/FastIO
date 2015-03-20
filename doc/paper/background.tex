@@ -1,12 +1,20 @@
 \section{Problem Definition} \label{sec:prob}
-In this section, we focus on describing the identified performance issues: 1) long execution paths of the guest page table (de)allocation and 2) the additional IOTLB flushes.
-As Xen~\cite{XEN-SOSP03} is a typical and popular paravirtual hypervisor, in this section we use Xen in a x86 MMU model~\cite{x86-pv-model} to illustrate the details. 
-It is easy to map the descriptions into the corresponding mechanisms on other paravirtual hypervisors.
+In this section, we describe the identified performance issues: 1) long execution paths of the guest page table (de)allocation and 2) the additional IOTLB flushes.
+As Xen~\cite{XEN-SOSP03} is a typical and popular paravirtual hypervisor, we use Xen in a x86 MMU model~\cite{x86-pv-model} to illustrate the details of issues. 
+%It is easy to map the descriptions into the corresponding mechanisms on other paravirtual hypervisors.
 
 \subsection{Long Execution Path}\label{sec:longpath}
+The long execution path issue refers to the execution paths for installing/uninstalling a the guest page table page.
+In the current design, installing/uninstalling a page table page has to invoke the complex memory allocators and performance both software (i.e., page table) and DMA validations.
+%In addition, the DMA validations always lead to additional IOTLB flushes, which would reduce the DMA address translation speed and may consequently lower the I/O performances.
+In addition, such installation and uninstallation events are frequently happened in the system, e.g., the process creation and exits will result in many page-table page installations/uninstallations.
+Thus, it is necessary to shorten the execution paths to save CPU usage, benefiting 
 
+%As the uninstallation process of the guest page table page is the reverse to the installation process. In this section, we only present the details of installation.
+ 
 \subsubsection{Costly Memory Allocators}
-To allocate or free a page-table page, the guest kernel has to invoke the system allocators, typically from slab allocator to buddy allocator.
+To allocate a page-table page, the guest kernel has to invoke the system allocators, typically from slab allocator to buddy allocator.
+There are many functions are 
 Each of these allocators maintains a set of complex data structures to track the internal status.
 %not only returns or release the page, the internal status will be updated correspondingly.
 any allocation and deallocation invocation will trigger the updates of such data structures. 
@@ -14,9 +22,12 @@ any allocation and deallocation invocation will trigger the updates of such data
 % in one invocation, there will be many locks locked and unlocked 
 
 All these increase the invocation time.
-In fact, it is not 
+
+Similarly, to free a page-table page, the guest kernel also has to leverage the system allocators to return the page back to the system.
+
 
 \subsubsection{Security Validations}
+Once getting a page, it is not ready to install.
 
 \paragraph{Page Table Validations}\label{sec:pv-security}
 

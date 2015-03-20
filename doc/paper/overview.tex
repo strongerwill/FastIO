@@ -1,4 +1,12 @@
 \section{\name Overview} \label{sec:overview}
+\begin{figure*}[ht]
+\centering
+\includegraphics[width=0.8\textwidth]{image/overview/arch.pdf} \\
+\caption{\name Architecture. The semi-writable pages are managed by the \name cache, and all page type updates are validated by the \name module.
+Through the cooperation of \name cache and \name module, \name successfully shortens the execution path of the guest page table (de)allocation and eliminates additional IOTLB flashes.}
+\label{fig:overview}
+\end{figure*}
+
 \subsection{Requirements}\label{sec:req}
 Before we describe the design overview, We'd like to share the requirements we considered in the design.
 We summarize the requirements as follows, in terms of compatibility, development cost and security.
@@ -36,12 +44,6 @@ By doing this, we can keep the modifications as small as possible by reusing exi
 \subsection{Design Rationale}
 As can be seen in figure ~\ref{fig:overview}, \name introduces a cache flag to enforce fine-grained access control in order to ensure security without flushing IOTLB. Also, \name proposes a novel cache mechanism to support the access control while facilitate the speed of every level of page table allocation/deallocation, saving CPU time while causing small impacts on memory usage.
 
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.5\textwidth]{image/overview/overview.png} \\
-\caption{Overview}
-\label{fig:overview}
-\end{figure}
 
 \subsubsection{Fine-Grained Access Control}
 %firstly, talk about how to reduce the IOTLB flush.
