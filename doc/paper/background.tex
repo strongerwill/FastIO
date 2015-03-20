@@ -1,28 +1,9 @@
 \section{Problem Definition} \label{sec:prob}
-In this section, we focus on describing the two identified performance issues.
-First, we describe the critical steps of the long execution paths of the page table (de)allocation, and then describe the dependency between the page table (de)allocation and IOTLB flushes.
+In this section, we focus on describing the identified performance issues: 1) long execution paths of the guest page table (de)allocation and 2) the additional IOTLB flushes.
+As Xen~\cite{XEN-SOSP03} is a typical and popular paravirtual hypervisor, in this section we use Xen in a x86 MMU model~\cite{x86-pv-model} to illustrate the details. 
+It is easy to map the descriptions into the corresponding mechanisms on other paravirtual hypervisors.
 
-As Xen~\cite{XEN-SOSP03} is a typical and popular paravirtual hypervisor, in this section we use Xen in a x86 MMU model~\cite{x86-pv-model} to illustrate the details. We believe you can easily find the corresponding mechanisms on other paravirtual hypervisors.
-If you are already familiar with these, you can skip this section to the motivation section (Section~\ref{sec:moti}).
-
-\subsection{Paravirtualized MMU Model}\label{sec:pvmodel}
-%In this subsection, we firstly introduce the address translation mechanism on x86, and then we highlight how Xen protects itself in the paravirtualized MMU model.
-There are two steps to transform logical addresses (i.e., addresses as viewed by programmers) into physical addresses (i.e., actual addresses in physical memory):
-1) segment translation, in which a logical address (consisting of a segment selector and segment offset) is converted to a linear address,
-and 2) page translation, in which a linear address is converted to a physical address\footnote{Physical address is also called machine address in Xen setting.}.
-
-\paragraph{Page Table}\label{sec:pagetable}
-Page tables are used by a hardware, i.e., Memory Management Unit (MMU), to translate the linear addresses into physical addresses used by the hardware to execute instructions.
-In the PAE-enabled paging mode, a page table has three levels: L1 level (bottom level), L2 level (middle level) and L3 level (top level).
-The slots in L1, L2 and L3 levels are known as Page Table Entry (PTE), Page Middle Directory (PMD) and Page Global Directory (PGD), respectively.
-A PTE slot could determine the access permissions of a page, e.g., the kernel could set a page as read-only by clearing the bit within a PTE slot that represents the writable permission.
-
-There are many page tables in a guest VM, as each user process has its own page tables.
-The creation and exit of a user process will be accompanied by the creation and destruction of a page table respectively.
-It means that if there are numerous temporary processes generated within a period, there will be a large number of page tables created.
-
-
-\subsection{Long Execution Path of Page Table (De)allocation}\label{sec:exe-path}
+\subsection{Long Execution Path}\label{sec:longpath}
 
 \subsubsection{Costly Memory Allocators}
 To allocate or free a page-table page, the guest kernel has to invoke the system allocators, typically from slab allocator to buddy allocator.
@@ -37,7 +18,17 @@ In fact, it is not
 
 \subsubsection{Security Validations}
 
-\mypara{Page Table Validations}\label{sec:pv-security}
+\paragraph{Page Table Validations}\label{sec:pv-security}
+
+Page tables are used by a hardware, i.e., Memory Management Unit (MMU), to translate the linear addresses into physical addresses used by the hardware to execute instructions.
+In the PAE-enabled paging mode, a page table has three levels: L1 level (bottom level), L2 level (middle level) and L3 level (top level).
+The slots in L1, L2 and L3 levels are known as Page Table Entry (PTE), Page Middle Directory (PMD) and Page Global Directory (PGD), respectively.
+A PTE slot could determine the access permissions of a page, e.g., the kernel could set a page as read-only by clearing the bit within a PTE slot that represents the writable permission.
+
+There are many page tables in a guest VM, as each user process has its own page tables.
+The creation and exit of a user process will be accompanied by the creation and destruction of a page table respectively.
+It means that if there are numerous temporary processes generated within a period, there will be a large number of page tables created.
+
 In order to ensure that the guest cannot subvert the system, Xen requires that certain update policies are maintained,
 and thus all updates of the page tables should be vetted by Xen.
 To this end, the guest OS is deprivileged, from ring-0 to ring-1, leaving ring-0 for the Xen hypervisor.
@@ -75,13 +66,14 @@ while non-writable pages are inaccessible to them.)}
 \end{figure}
 
 
-\mypara{DMA Validations}
+\paragraph{DMA Validations}
 
-\subsection{Addition IOTLB Flushes}
+\subsection{Additional IOTLB Flush Issue}
 The dependency between the guest page table and the IOTLB is very subtle.
 To fully understand the dependency, we need to know the details about how the paravirtualized hypervisor protects itself through guest page table and IOMMU.
 Specifically, we explicitly describe 1) paravirtualized MMU mode, and 2) IOMMU and DMA address translation.
 
+\subsubsection{DMA Address Translation}
 %citing: intel vt-d
 The input/output memory management unit (IOMMU)~\cite{directio} is a memory management unit (MMU) that connects a DMA-capable I/O bus to the main memory.
 Like a traditional MMU, the IOMMU maps device addresses (also called as I/O addresses) to physical addresses through a dedicated page table.
@@ -96,6 +88,8 @@ The IOTLB is used to cache frequently accessed page table entries.
 By doing so, the IOTLB is very likely to be accessed, indicating that the physical address of a queried DMA address will be immediately fetched through the IOTLB path (Figure~\ref{fig:subfig:a}).
 If unlikely the IOTLB miss occurs, the DMA remapping still can go the slow page-table path to get the physical address (Figure~\ref{fig:subfig:b}).
 To achieve a better I/O performance, the DMA remapping should avoid taking the page-table path as far as possible.
+
+\subsubsection{Negative Impacts}
 
 \begin{figure}[!t]
     \begin{subfigure}{0.5\textwidth}

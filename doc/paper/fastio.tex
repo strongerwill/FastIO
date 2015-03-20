@@ -80,7 +80,7 @@
 
 \begin{abstract}
 In paravirtualization, the page table management components of the guest operating systems are properly patched for the security guarantees of the hypervisor.
-However, none of them pay enough attentions to the performance improvements, which result in two noticeable issues.
+However, none of them pay enough attentions to the performance improvements, which result in two noticeable performance issues.
 First, such security patches exacerbate the problem that the execution path of the guest page table (de)allocation becomes extremely long, which would consequently increase the latencies of the processes' creations and exits.
 Second, the security validations introduce many additional IOTLB flushes. Obviously, they would lead to extra IOTLB misses, and many have negative impacts on the I/O performance of all peripheral devices.
 
