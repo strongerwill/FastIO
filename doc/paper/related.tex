@@ -30,8 +30,9 @@ As a result, they typically focus on how to improve hypervisor security by valid
 Since we have observed that the security validations by Xen during guest page table (de)allocations will lead to lots of IOTLB flushes, \name focuses on eliminating the additional IOTLB misses by a find-grained validation scheme.
 
 \mypara{I/O performance improvement} The last category is to improve the performance of I/O virtualization. Generally, I/O virtualization is implemented in two ways, i.e., Paravirtual I/O and Direct I/O.
+
 \emph{Paravirtual I/O} The paravirtual I/O method introduced by Xen is efficient to transfer I/O data. Instead of emulating hardware devices, Xen asks the \emph{backend} of a device running in the privileged domain to communicate with the \emph{frontend} of that device residing in a guest domain by passing the data info through shared-memory, etc. To further improve the performance, Har'El \emph{et al.}~\cite{har2013efficient} provides a more efficient paravirtual I/O system by combing a fine-grained I/O scheduling and exitless notifications with separate cores, each core dedicated to handling one domain's I/O requests. Unlike running I/O workloads in parallel on a different set of cores, vTurbo~\cite{xu2013vturbo} facilitates I/O processing for virtual machines by offloading the processing to a designated core with a smaller time-slice than usual. The dedicated core will process most I/O requests, hence achieving low I/O latency.
- 
-\emph{Direct I/O} 
+
+\emph{Direct I/O}
 
 %With the aid of IOMMU, virtual machines can interact with devices directly and securely (a.k.a., direct assignment), which enhances the I/O performance. But it is not enough, ELI~\cite{eli} is introduced to remove the hypervisor from the I/O interrupt handling path while handle the interrupts within VMs securely, thereby approaching bare-metal I/O performance.
