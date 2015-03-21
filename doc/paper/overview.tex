@@ -35,7 +35,7 @@ To address this conflict without sacrificing the system security, we propose to 
 and require that the page type updates between the writable page and the page-table page must go through the semi-writable page first.
 In practice,  we can further restrict that the system only updates the page-table pages to/from the semi-writable pages and holds the semi-writable pages to stop them converting back to the writable pages.
 since both of them are already inaccessible to DMA, there is no need to do IOTLB flushes, meaning the additional IOTLB flushes could be totally avoided.
-In order to facilitate the management of the semi-writable pages, we propose a new data structure (i.e., page table cache) in the guest kernel, and extend the existing page-management data structure in the hypervisor space.         l                  
+In order to facilitate the management of the semi-writable pages, we propose a new data structure (i.e., page table cache) in the guest kernel, and extend the existing page-management data structure in the hypervisor space.         l
 Similar to the management of the page-table pages, the hypervisor is only responsible for the final validation of the semi-writable page, leaving all other management operations for the guest OS.
 By doing this, we can keep the modifications as small as possible by reusing existing validation process and page-table management subsystem, and also retain the system security.
 
@@ -46,6 +46,7 @@ As can be seen in figure ~\ref{fig:overview}, \name introduces a cache flag to e
 
 
 \subsubsection{Fine-Grained Access Control}
+
 %firstly, talk about how to reduce the IOTLB flush.
 As revealed in previous sections, access control to writable pages is at a coarse granularity. Xen allows write-access both for guest OS and assigned I/O devices. Instead, \name caches a certain number of writable pages, prohibits DMA access for the cached writable pages while OS still has its write-permission. If they are updated to be page tables, Xen only limits OS to read-only permission (software protection) without modifying I/O page tables as well as IOTLB. Specifically, Xen maintains a new flag called \textbf{cache} with a machine page (a cached page), indicating that the corresponding page is cached by guest OS and free from DMA-access. Whatever page type a machine page is, if it owns the flag, Xen neither maps nor unmaps it from I/O page tables, thus avoiding an IOTLB-flush. Note that \name only considers page type updates between writable and page-table.
 
@@ -73,3 +74,6 @@ During the runtime of the cache, \name also needs to control the memory size tha
 This is the life-cycle of a cached page, originating from the buddy system, freed into the cache, then maybe allocated by the cache and finally freed into the buddy system when necessary.
 
 Section~\ref{sec:implementation} will demonstrate its small modifications in details.
+
+\zhi{But what if the memory percentage is too high? it is necessary to free pages from the cache pool to the buddy system. Pages in pool will be freed if $1$) a proportion between pages in use and in pool, and $2$) a total number of pages in use and in pool are greater. And data from group of cache-pre-enabled by default is referred to quantify the proportion and the total number. Actually, users can modify the two factors to adjust the cache pool size through an interface. 
+On top of that, page number beyond the proportion is freed, stated in an equation below: $\Delta$num\_to\_free $=$ num\_in\_pool $-$ num\_in\_use. Since pre-enabling the cache is not flexible enough, we also provide another interface for users to activate the cache mechanism in an on-demand way. Users may make use of this feature to better improve system performance dynamically.} 
