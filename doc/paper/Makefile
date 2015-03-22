@@ -17,4 +17,4 @@ $(PAPERNAME).pdf: $(DEPENDENCIES)
 	$(PDFLATEX) -synctex=1 -interaction=nonstopmode $(INPUTNAME).tex
 
 clean:
-	rm -f $(INPUTNAME).PDF *.tgz *.dvi *.aux *.log *.blg *.bbl *~ *.ent *.gz
+	rm -f $(INPUTNAME).PDF *.tgz *.out *.dvi *.aux *.log *.blg *.bbl *~ *.ent *.gz

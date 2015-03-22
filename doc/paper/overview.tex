@@ -18,8 +18,18 @@ We summarize the requirements as follows, in terms of compatibility, development
 \end{enumerate}
 
 \subsection{Design Rationale}\label{sec:rationale}
-It is challenging to reduce the number of the IOTLB
-flushes, as well as achieving all above requirements.
+The basic idea behind the \name allocator is to have caches of semi-writable pages kept in an initialized state available for use as page table pages by the kernel. 
+Without the page oriented \name allocator, the kernel will spend much of its time allocating, initializing and freeing page-table pages. 
+The slab allocator that is similar to the \name allocator cannot be used in our settings, due to the following reasons.
+First, it violates the security requirements of page-table pages enforced by the hypervisor due to the reference counter.
+Unfortunately, the design and the implementation of slab allocator are not aware of this.
+Second, it does not natively support the fine-grained validation mechanism.
+It will be costly to customize the slab allocator to support this mechanism. Moreover, this mechanism is not suitable for other objects. 
+Based on the above reasons, it is necessary and reasonable to add the \name allocator.
+
+
+
+It is challenging to reduce the number of the IOTLB flushes, as well as achieving all above requirements.
 A possible approach is to let the hypervisor to manage the page table in its own space.
 In this way, there is no need for flushing IOTLB, but it will dramatically increase the size of the hypervisor, and consequently reduce the system security level.
 Another possible approach is to do the IOTLB flushing in a batch, meaning flushing multiple IOTLB entries all in one, instead of flushing them one after another.
@@ -43,6 +53,11 @@ By doing this, we can keep the modifications as small as possible by reusing exi
 
 \subsection{Design Rationale}
 As can be seen in figure ~\ref{fig:overview}, \name introduces a cache flag to enforce fine-grained access control in order to ensure security without flushing IOTLB. Also, \name proposes a novel cache mechanism to support the access control while facilitate the speed of every level of page table allocation/deallocation, saving CPU time while causing small impacts on memory usage.
+
+\subsection{\name Allocator}
+The \name allocator aims to to cache the freed object so that the basic structure is preserved between uses.
+
+The
 
 
 \subsubsection{Fine-Grained Access Control}
