@@ -7,9 +7,9 @@ implementations:
 4) threshold selection for cache free? or this discussed in design
 5) }
 
-Based on Xen version 4.2.1 and guest kernel version 3.2.0-rc1, \name implements the access control related to cache flag as well as management of page-table cache.
+Based on guest kernel version 3.2.0 and Xen version 4.2.1, \name implements the cache and the fine-grained validation module.
 
-\subsection{Cache Flag}
+\subsection{\name Find-grained Validation Module}
 
 \begin{figure}[ht]
 \centering
@@ -27,7 +27,7 @@ From a 32-bit field related to page type information, \name was planning to use 
 \label{fig:field-of-semi-type}
 \end{figure}
 
-\subsection{Management of Page Table Cache}
+\subsection{\name Cache}
 
 In the PV setting, guest OS is required to work in PAE (i.e., Physical Address Extension) mode. As a result, \name maintains three levels of cache pools, each of which is essentially a structured single-linked list caching the guest physical addresses of pages. For the top two levels used for caching PGD (i.e., Page Global Directory) and PMD (i.e., Page Middle Directory), \name obtains the physical addresses directly from their linear addresses. While the bottom PT (i.e., Page Table) is located in the High Memory, the mapping between its linear and physical addresses is not stable. \name acquires the physical addresses of cached PT pages from the corresponding page-info structures.
 
@@ -35,8 +35,5 @@ Every list supports operations of both removal and insertion. Removal exists wit
 
 \name implements a new system call to provide an interface for users to activate the cache in an on-demand way. In the system call, a global boolean variant is defined, which is initialized as false, indicating that cache is not enabled. And users can assign the variant as true to enable the cache. Anther two user interfaces related to modification of default thresholds and freeing all pages in cache are also implemented through system calls. For the modification, new thresholds of the proportion and total page number are passed as agruments while users can frees all cached pages by resetting a global boolean variant, which is initialized as true.
 
-Within the cache freeing function, a hypercall is implemented with a single-linked list of cached addresses of pages as the parameter. The hypercall is a uniform interface for every level of cache freeing function, simplifying the modifications both to guest OS and Xen. As a reply to the hypercall, Xen mainly zeroes the flag bit of 32-bit field and invokes the important function interface intel\_iommu\_map\_page to create entries in the I/O page tables as well as flush IOTLB.
-
-
-
+Within the cache freeing function, a hypercall is implemented with a single-linked list of cached addresses of pages as the parameter. The hypercall is a uniform interface for every level of cache freeing function, simplifying the modifications both to guest OS and Xen. As a reply to the hypercall, Xen mainly zeroes the flag bit of 32-bit field and invokes the important function interface intel\_iommu\_map\_page to create entries in the I/O page tables as well as flush IOTLBs.
 
