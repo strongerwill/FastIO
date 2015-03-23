@@ -1,4 +1,4 @@
-\section{Discussion} \label{sec:dis}
+\section{Discussion}\label{sec:dis}
 %\zhi{Macrobenchmark results of netperf do not reveal IOTLB's impacts on the DMA transactions.}
 \subsection{IOTLB Impacts on I/O Performance}
 
@@ -29,7 +29,7 @@ Standard Deviation ($\sigma$) &  $0.028$ & $0.021$ \\ \hline
 \label{tab:netperf}
 \end{table}
 
-How to make IOTLB become a dominant factor? Nadav Amit \emph{et al.} proposes a pseudo pass-through mode of IOMMU and utilizes a high-speed I/O device (i.e., Intelâ€™s I/O Acceleration Technology~\cite{lauritzenintel}) to do DMA copy operations so as to observe the execution time penalty due to IOTLB misses. While rIOMMU makes use of ibverbs library~\cite{ibverbsevaluation,kerr2011dissecting} to measure the cost of an IOTLB miss in high performance settings where execution time is largely reduced.
+How to make IOTLB become a dominant factor? Nadav Amit \emph{et al.} proposes a pseudo pass-through mode of IOMMU and utilizes a high-speed I/O device (i.e., Intel'€™s I/O Acceleration Technology~\cite{lauritzenintel}) to do DMA copy operations so as to observe the execution time penalty due to IOTLB misses. While rIOMMU makes use of ibverbs library~\cite{ibverbsevaluation,kerr2011dissecting} to measure the cost of an IOTLB miss in high performance settings where execution time is largely reduced.
 we believe that \name can play an important role in I/O environments requiring high performance, which will be evaluated in our future work by utilizing the previous approaches and the I/O high-speed device.
 %Both studies aim to create high performance settings that reduce the DMA transactions to the magnitude of $\upmu$s so that IOTLB becomes the dominant factor.
 

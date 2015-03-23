@@ -54,10 +54,11 @@
 \begin{document}
 
 \newcommand{\name}{PiBooster\xspace}
+\newcommand{\cache}{PiBooster cache\xspace}
 \newcommand{\eat}[1]{}  %% for quick commenting of a large trunk of texts
 \newcommand{\authcomment}[3]{\textcolor{#3}{#1 says: #2}}\newcommand{\yueqiang}[1]{\authcomment{Yueqiang}{#1}{red}}
 \newcommand{\zhi}[1]{\authcomment{Zhi}{#1}{red}}
- \newcommand{\mypara}[1]{\vspace{2pt}\noindent\textbf{{#1. }}}
+\newcommand{\mypara}[1]{\vspace{2pt}\noindent\textbf{{#1. }}}
 
 
 %don't want date printed
@@ -66,7 +67,8 @@
 %make title bold and 14 pt font (Latex default is non-bold, 16 pt)
 %\title{\Large \bf Improving I/O Performance of All Peripheral Devices on Paravirtualized Platforms}
 %\title{\Large \bf Performance Improvements in Page Table (De)allocations in Paravirtualized VMs}
-\title{\Large \bf PiBooster: a Lightweight Approach to Simultaneously Improve Performance in Page Table Management and IOMMU for Paravirtual Platforms}
+%\title{\Large \bf PiBooster: a Lightweight Approach to Simultaneously Improve Performance in Page Table Management and IOMMU for Paravirtual Platforms}
+\title{\Large \bf PiBooster: Performance Acceleration in Page Table Management for Paravirtual VMs}
 
 \authorinfo{\#30}{}
 %Shen Qingni ??????qingnishen@ss.pku.edu.cn? MoE Key Lab of Network and Software Assurance, Peking University, Beijing?100871, China
@@ -93,7 +95,7 @@ We evaluate the I/O performance in both micro and macro ways.
 The micro experiment results indicate that \name is able to \emph{completely eliminates} the additional IOTLB flushes in the most of the time, and effectively reduces (de)allocation time of the page table by xx\% on average. 
 In worst cases, the additional latency is only xx\%.
 The macro benchmarks show that the latencies of the process creations and exits are expectedly reduced by xx\% and xx\% on average respectively.
-Moreover, \name has no negative impacts on CPU computation, network I/O and disk I/O. 
+Moreover, the \emph{SPECINT} and \emph{netperf} results indicate that \name has \emph{no} negative impacts on CPU computation and network I/O.% and disk I/O. 
 \end{abstract}
 %\category{CR-number}{subcategory}{third-level}
 
@@ -106,11 +108,11 @@ Moreover, \name has no negative impacts on CPU computation, network I/O and disk
 \input{intro.tex}
 \input{prob.tex}
 \input{overview.tex}
-%\input{implementation.tex}
-%\input{evaluation.tex}
+\input{implementation.tex}
+\input{evaluation.tex}
 \input{discussion.tex}
 \input{related.tex}
-%\input{conclusion.tex}
+\input{conclusion.tex}
 
 %ACKNOWLEDGMENTS are optional
 %\section{Acknowledgments}
