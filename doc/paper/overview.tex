@@ -20,7 +20,10 @@ We summarize the requirements as follows, in terms of compatibility, development
 \subsection{\name Architecture}
 Figure~\ref{fig:arch} depicts the architecture of \name. It consists of a \cache in the guest kernel and a \name module in the hypervisor space. 
 %The \name kernel module enforces the protection on the selected application.
-The \cache maintains 
+In the initial phase, the \cache allocates several pages from writable pages, converts them into semi-writable pages, and maintains them in a dedicated cache list.
+When the guest kernel needs the page-table pages, the \cache pops out the semi-writable pages and asks the \module to.
+ manages the page type updates between semi-writable page and page-table pages.
+The \cache
 The \name module enforces the fine-grained validation scheme on the page table pages.
 
 %The \name kernel module is installed and executed before any user applications, and starts to enforce XnR property on the selected applications by manipulating the configurations of their page tables, e.g., clear the present bit in page table entries (PTEs) to set code pages non-readable.
@@ -37,6 +40,7 @@ First, it violates the security requirements of page-table pages enforced by the
 In particular, the type count should be zero when a page is updated between writable page and page-table page.
 However, the pages in the slab allocator are not always satisfy this restriction.
 Second, it does not distinguish the page-table page with other pages that have the same size.
+\yueqiang{interface issue, and size-oriented management}
 At last, adding the fine-grained validation mechanism only for one object (i.e., page-table page) will subvert its generality of the slab allocator.
 Considering the above three reasons, we give up customizing the existing slab allocator and aim to create a dedicated, called \cache, for page table allocation and deallocation.
 
@@ -61,6 +65,7 @@ A possible approach is to let the hypervisor to manage the page table in its own
 In this way, there is no need for flushing IOTLB, but it will dramatically increase the size of the hypervisor, and consequently reduce the system security level.
 Another possible approach is to do the IOTLB flushing in a batch, meaning flushing multiple IOTLB entries all in one, instead of flushing them one after another.
 This approach is able to retain the system security, but it could not eliminate the IOTLB flushes, only reducing the number of IOTLB flushes in a certain level.
+\yueqiang{In addition, this approach may lead to security gap in a short time.}
 
 In this paper, we attempt to solve this problem in a smart way, which could reduce the number of IOTLB flush to zero with only small modifications of the guest kernel and the hypervisor,
 as well as retaining the system security.
