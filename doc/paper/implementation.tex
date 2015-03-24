@@ -1,24 +1,17 @@
 \section{Implementation} \label{sec:impl}
-\yueqiang {
-implementations:
-1) hooks for on-demand enable
-2) locks for mechanism
-3) data structures in mechanism
-4) threshold selection for cache free? or this discussed in design
-5) }
-
-Based on guest kernel version 3.2.0 and Xen version 4.2.1, \name implements the cache and the fine-grained validation module.
+In this section, we present the implementation details on the \module and the \cache based on Linux (the guest kernel) and Xen (the hypervisor). 
 
 \subsection{\name Module}
-
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.45\textwidth]{image/implementation/field-of-page-type-info.png} \\
 \caption{Field of Page Type Info}
 \label{fig:field-of-page-type-info}
 \end{figure}
-
-From a 32-bit field related to page type information, \name was planning to use a redundant bit to represent the cache flag in order to be compatible with its original implementation. However, each bit in the upper 9-bit of the field has its specific use and the lower 23-bit serves as the reference count of current page type, representing at most ($2^{23}-1$) reference counts of the page type (see figure~\ref{fig:field-of-page-type-info}). \name enforces a stricter rule to prevent count overflow, as cache flag occupies the top bit of the 23-bit and the maximal reference count is limited to ($2^{22}-1$), which affects Xen little (see figure ~\ref{fig:field-of-semi-type}). Actually, Xen hypervisor is functioning well with the flag bit since the reference count of a page type during runtime cannot reach at ($2^{22}-1$). On top of that, \_\_get\_page\_type() is the critical function to be customized in order to check if a machine page has the flag bit.
+The first main task of the \module is to extend the existing data structures to support semi-writable page table.
+Unfortunately, the existing page types have occupy all page type bits, leaving no extra bit for semi-writable page.
+ 
+From a 32-bit field related to page type information, \name was planning to use a redundant bit to represent the cache flag in order to be compatible with its original implementation. However, each bit in the upper 9-bit of the field has its specific use and the lower 23-bit serves as the reference count of current page type, representing at most ($2^{23}-1$) reference counts of the page type (see figure~\ref{fig:field-of-page-type-info}). \name enforces a stricter rule to prevent count overflow, as cache flag occupies the top bit of the 23-bit and the maximal reference count is limited to ($2^{22}-1$), which affects Xen little (see figure ~\ref{fig:field-of-semi-type}). Actually, the hypervisor is functioning well with the flag bit since the reference count of a page type during runtime cannot reach at ($2^{22}-1$). On top of that, \_\_get\_page\_type() is the critical function to be customized in order to check if a machine page has the flag bit.
 
 \begin{figure}[ht]
 \centering
