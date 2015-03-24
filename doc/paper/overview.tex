@@ -7,7 +7,7 @@ Through the cooperation of \name cache and \name module, \name successfully shor
 \label{fig:arch}
 \end{figure*}
 
-\subsection{Requirements}\label{sec:req}
+\subsection{Desired Properties}\label{sec:req}
 Before we describe the design overview, We'd like to share the requirements we considered in the design.
 We summarize the requirements as follows, in terms of compatibility, development cost and security.
 \begin{enumerate}
@@ -20,11 +20,21 @@ We summarize the requirements as follows, in terms of compatibility, development
 \subsection{\name Architecture}
 Figure~\ref{fig:arch} depicts the architecture of \name. It consists of a \cache in the guest kernel and a \name module in the hypervisor space. 
 %The \name kernel module enforces the protection on the selected application.
-In the initial phase, the \cache allocates several pages from writable pages, converts them into semi-writable pages, and maintains them in a dedicated cache list.
-When the guest kernel needs the page-table pages, the \cache pops out the semi-writable pages and asks the \module to.
- manages the page type updates between semi-writable page and page-table pages.
-The \cache
-The \name module enforces the fine-grained validation scheme on the page table pages.
+In the initial phase, the \cache allocates several pages from writable pages using existing system allocators, converts them into semi-writable pages, and maintains them in a dedicated cache list.
+At runtime, the page table deallocations are always fast and successfully completed by pushing deallocated pages into the \cache.
+When the guest kernel needs page-table pages, the \cache  will pop out the cache pages to satisfy the requirements.
+In certain extremely cases, if the cached pages are not enough for the request of a page table allocation, the \cache has to re-invokes the system allocators to get new ones.
+Fortunately, the re-invocations are rarely happened in a workflow-stable system. 
+In fact, there are almost always several semi-writable pages in the \cache that are ready for page-table allocations after the system is running a few minutes in our experiments.
+If the \cache is disabled or the system explicitly requires the \cache to release the cached pages, it will deallocate them through the existing system allocators.
+During these periods, all page type updates are reported by the \cache to the \module through hypercalls. Once they pass the security validations , the page type will be successfully updated.
+When the guest kernel needs the page-table pages, the \cache pops out the semi-writable pages and asks the \module to convert them into page-table page.
+
+The \module enforces the fine-grained validation scheme on the page table updates. 
+Specifically, it performs page table validations that validate the page table contents as well as the type count and the DMA validations that ensure that the DMA requests cannot write the page-table pages and the semi-writable pages.
+In the original validation scheme, the DMA validations always triggers the additional IOTLB flushes due to the access permission updates between the writable pages and the page-table pages.
+In the fine-grained validation scheme, both the semi-writable page and the page-table page are non-writable for DMA requests. 
+Thus, the hypervisor never needs to do the IOTLB flushes or IOMMU page table updates, which will save many time for the security validation.
 
 %The \name kernel module is installed and executed before any user applications, and starts to enforce XnR property on the selected applications by manipulating the configurations of their page tables, e.g., clear the present bit in page table entries (PTEs) to set code pages non-readable.
 %Thus, any data loads/store accesses on the code pages of the protected application are rejected.
@@ -33,24 +43,28 @@ The \name module enforces the fine-grained validation scheme on the page table p
 %To prevent the protected process from reading this code page, the \name kernel module will revert the change in an atomic way immediately after the success of the first instruction fetch.
 
 \subsection{\name Cache}
-The basic idea behind the \cache is to have caches of semi-writable pages kept in an initialized state available for use as page table pages by the kernel. 
+The basic idea behind the \cache is to have caches of semi-writable pages available for use as page table pages by the kernel. 
 Without the page oriented \cache, the kernel will spend much of its time allocating, initializing and freeing page-table pages. 
-The slab allocator that is similar to the \cache cannot be used in our settings, due to the following reasons.
-First, it violates the security requirements of page-table pages enforced by the hypervisor due to the type count.
-In particular, the type count should be zero when a page is updated between writable page and page-table page.
-However, the pages in the slab allocator are not always satisfy this restriction.
-Second, it does not distinguish the page-table page with other pages that have the same size.
-\yueqiang{interface issue, and size-oriented management}
-At last, adding the fine-grained validation mechanism only for one object (i.e., page-table page) will subvert its generality of the slab allocator.
-Considering the above three reasons, we give up customizing the existing slab allocator and aim to create a dedicated, called \cache, for page table allocation and deallocation.
+The slab allocator that is similar to the \cache is not used in our settings, due to the following reasons.
+First, it violates one of security requirements of the page-table pages enforced by the hypervisor.
+In particular, the type count should be zero when a page is updated among the writable page, the semi-writable page and the page-table page.
+However, the pages in the slab allocator are not always satisfy this restriction, leading to the exceptional crashes.
+Second, the existing size-oriented management does not distinguish the page-table page with other pages that have the same size, and we believe the customization of this management mechanism would need lots of development costs, such as interface updates, internal data structure updates. 
+In addition, the related components that rely on the slab allocators may also be affected.
+At last, adding the fine-grained validation mechanism only for one object (i.e., page-table page) will subvert the generality of the slab allocator.
+Considering the above three reasons, we give up reusing the existing slab allocator and aim to build a dedicated one, called \cache, for page table allocation and deallocation.
 
-\subsubsection{Cache Creation and Destruction}
+\subsubsection{\name Cache Creation and Destruction}
+The \cache is created in the system boots up.
 
+In the initialization phase, the \cache is
 
 \subsubsection{Cache Shrinking}
 The \name cache does not automatically shrink itself.
 When the memory management daemon (e.g., \emph{kswapd}) notices that memory is tight, it will explicitly call the exported interface of the \cache to free some memory.
 %talk about the interface
+There are two interfaces to shrink the cache pages. One is based on the page number. The memory management daemon can specify a number to ask the \cache to release.
+The other one is based on the relative percentage.
 The interfaces support to release pages by numbers or by percentage. 
 For instance, the 
 %the size of the cache.
@@ -58,7 +72,7 @@ In fact, the number of pages maintained in the \cache is not too much. In our ex
 Adding some meta data, the total size is always under $1MB$. 
 Thus, in the almost 
 
-\subsection{Fine-Grained Validation Mechanism}
+\subsection{\module and Fine-Grained Validation}
 
 It is challenging to reduce the number of the IOTLB flushes, as well as achieving all above requirements.
 A possible approach is to let the hypervisor to manage the page table in its own space.
