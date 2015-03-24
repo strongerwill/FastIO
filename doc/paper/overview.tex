@@ -7,9 +7,8 @@ Through the cooperation of \name cache and \name module, \name successfully shor
 \label{fig:arch}
 \end{figure*}
 
-\subsection{Desired Properties}\label{sec:req}
-Before we describe the design overview, We'd like to share the requirements we considered in the design.
-We summarize the requirements as follows, in terms of compatibility, development cost and security.
+\subsection{Design Requirements}\label{sec:req}
+In the design of \name, we consider several requirements, which are summarized and listed as follows.
 \begin{enumerate}
 \item (R1) Unaltered system security. The new scheme should not sacrifice the system security to obtain benefits from I/O performance. No one likes to use a system with known design loopholes.
 \item (R2) Compatible with legacy applications. The new scheme should limit the modifications on the guest kernel and the hypervisor, without any modifications on the existing applications.
@@ -19,61 +18,23 @@ We summarize the requirements as follows, in terms of compatibility, development
 
 \subsection{\name Architecture}
 Figure~\ref{fig:arch} depicts the architecture of \name. It consists of a \cache in the guest kernel and a \name module in the hypervisor space. 
-%The \name kernel module enforces the protection on the selected application.
-In the initial phase, the \cache allocates several pages from writable pages using existing system allocators, converts them into semi-writable pages, and maintains them in a dedicated cache list.
-At runtime, the page table deallocations are always fast and successfully completed by pushing deallocated pages into the \cache.
-When the guest kernel needs page-table pages, the \cache  will pop out the cache pages to satisfy the requirements.
-In certain extremely cases, if the cached pages are not enough for the request of a page table allocation, the \cache has to re-invokes the system allocators to get new ones.
-Fortunately, the re-invocations are rarely happened in a workflow-stable system. 
-In fact, there are almost always several semi-writable pages in the \cache that are ready for page-table allocations after the system is running a few minutes in our experiments.
-If the \cache is disabled or the system explicitly requires the \cache to release the cached pages, it will deallocate them through the existing system allocators.
-During these periods, all page type updates are reported by the \cache to the \module through hypercalls. Once they pass the security validations , the page type will be successfully updated.
-When the guest kernel needs the page-table pages, the \cache pops out the semi-writable pages and asks the \module to convert them into page-table page.
+%the mechanism of the \cache
+The \cache allocates a number of semi-writable pages at the initial stage,  which are newly introduced by the fine-grained validation scheme (Section~\ref{sec:fine-grained}).
+These semi-writable pages are maintained in a dedicated cache.
+At runtime, the \cache responses the page table allocation and deallocation requests.
+%If the \cache is disabled or the system explicitly requires the \cache to release the cached pages, it will deallocate them through the existing system allocators.
+During these periods, there are many page type updates from/to the semi-writable pages.
+The \cache mediates these updates and issues hypercalls to the hypervisor, asking it to perform the fine-gained security validations on the update requests.
+Once the verified pages pass the validations, their page types will be updated accordingly.
+The guest kernel cannot bypass the security validation process, as the hypervisor is the only one to determine/update the page type.
 
 The \module enforces the fine-grained validation scheme on the page table updates. 
-Specifically, it performs page table validations that validate the page table contents as well as the type count and the DMA validations that ensure that the DMA requests cannot write the page-table pages and the semi-writable pages.
+It performs (1) the page table validations that validate the page table contents as well as the type count, and (2) the DMA validations that ensure that the DMA requests cannot write the page-table pages and the semi-writable pages.
 In the original validation scheme, the DMA validations always triggers the additional IOTLB flushes due to the access permission updates between the writable pages and the page-table pages.
 In the fine-grained validation scheme, both the semi-writable page and the page-table page are non-writable for DMA requests. 
 Thus, the hypervisor never needs to do the IOTLB flushes or IOMMU page table updates, which will save many time for the security validation.
 
-%The \name kernel module is installed and executed before any user applications, and starts to enforce XnR property on the selected applications by manipulating the configurations of their page tables, e.g., clear the present bit in page table entries (PTEs) to set code pages non-readable.
-%Thus, any data loads/store accesses on the code pages of the protected application are rejected.
-%To allow the legal instruction fetch requires from the processor, the \name kernel module will temporally set back the present bit.
-%The success of one instruction fetch will trigger the processor to cache the PTE entry in the iTLB, facilitating the following instruction fetch requests on this code page. Note that the iTLB only allows instruction fetches, rather than the data loads/stores, which rely on the dTLBs.
-%To prevent the protected process from reading this code page, the \name kernel module will revert the change in an atomic way immediately after the success of the first instruction fetch.
-
-\subsection{\name Cache}
-The basic idea behind the \cache is to have caches of semi-writable pages available for use as page table pages by the kernel. 
-Without the page oriented \cache, the kernel will spend much of its time allocating, initializing and freeing page-table pages. 
-The slab allocator that is similar to the \cache is not used in our settings, due to the following reasons.
-First, it violates one of security requirements of the page-table pages enforced by the hypervisor.
-In particular, the type count should be zero when a page is updated among the writable page, the semi-writable page and the page-table page.
-However, the pages in the slab allocator are not always satisfy this restriction, leading to the exceptional crashes.
-Second, the existing size-oriented management does not distinguish the page-table page with other pages that have the same size, and we believe the customization of this management mechanism would need lots of development costs, such as interface updates, internal data structure updates. 
-In addition, the related components that rely on the slab allocators may also be affected.
-At last, adding the fine-grained validation mechanism only for one object (i.e., page-table page) will subvert the generality of the slab allocator.
-Considering the above three reasons, we give up reusing the existing slab allocator and aim to build a dedicated one, called \cache, for page table allocation and deallocation.
-
-\subsubsection{\name Cache Creation and Destruction}
-The \cache is created in the system boots up.
-
-In the initialization phase, the \cache is
-
-\subsubsection{Cache Shrinking}
-The \name cache does not automatically shrink itself.
-When the memory management daemon (e.g., \emph{kswapd}) notices that memory is tight, it will explicitly call the exported interface of the \cache to free some memory.
-%talk about the interface
-There are two interfaces to shrink the cache pages. One is based on the page number. The memory management daemon can specify a number to ask the \cache to release.
-The other one is based on the relative percentage.
-The interfaces support to release pages by numbers or by percentage. 
-For instance, the 
-%the size of the cache.
-In fact, the number of pages maintained in the \cache is not too much. In our experiments, it is always less than $180$, meaning the size of the cache is less than $720KB$.
-Adding some meta data, the total size is always under $1MB$. 
-Thus, in the almost 
-
-\subsection{\module and Fine-Grained Validation}
-
+\subsection{\module and Fine-Grained Validation}\label{sec:fine-grained}
 It is challenging to reduce the number of the IOTLB flushes, as well as achieving all above requirements.
 A possible approach is to let the hypervisor to manage the page table in its own space.
 In this way, there is no need for flushing IOTLB, but it will dramatically increase the size of the hypervisor, and consequently reduce the system security level.
@@ -96,38 +57,49 @@ Similar to the management of the page-table pages, the hypervisor is only respon
 By doing this, we can keep the modifications as small as possible by reusing existing validation process and page-table management subsystem, and also retain the system security.
 
 
-\eat{
-\subsubsection{Fine grained access control}
-%firstly, talk about how to reduce the IOTLB flush.
-As revealed in previous sections, access control to writable pages is at a coarse granularity. Xen allows write-access both for guest OS and assigned I/O devices. Instead, \name caches a certain number of writable pages, prohibits DMA access for the cached writable pages while OS still has its write-permission. If they are updated to be page tables, Xen only limits OS to read-only permission (software protection) without modifying I/O page tables as well as IOTLB. Specifically, Xen maintains a new flag called \textbf{cache} with a machine page (a cached page), indicating that the corresponding page is cached by guest OS and free from DMA-access. Whatever page type a machine page is, if it owns the flag, Xen neither maps nor unmaps it from I/O page tables, thus avoiding an IOTLB-flush. Note that \name only considers page type updates between writable and page-table.
+\subsection{\name Cache}
+The basic idea behind the \cache is to have caches of semi-writable pages available for page table allocations and deallocations. 
+Without the page oriented \cache, the kernel will spend much of its time allocating, initializing and freeing page-table pages. 
+The slab allocator that is similar to the \cache is not used in our settings, due to the following reasons.
+First, it violates one of security requirements of the page-table pages enforced by the hypervisor.
+In particular, the type count should be zero when a page is updated among the writable page, the semi-writable page and the page-table page.
+However, the pages in the slab allocator are not always satisfy this restriction, leading to the exceptional crashes.
+Second, the existing size-oriented management does not distinguish the page-table page with other pages that have the same size, and we believe the customization of this management mechanism would need lots of development costs, such as interface updates, internal data structure updates. 
+In addition, the related components that rely on the slab allocators may also be affected.
+At last, adding the fine-grained validation mechanism only for one object (i.e., page-table page) will subvert the generality of the slab allocator.
+Considering the above three reasons, we give up reusing the existing slab allocator and aim to build a dedicated one, called \cache, for page table allocation and deallocation.
 
-For instance, if guest OS creates a new page-table, Xen firstly reuses the validation process to enforce software protection, and then checks if the page has the \textbf{cache} flag. If so, the only thing that Xen needs to do is to update the page to be a page-table. If not, Xen sets the page with the new flag, clears \emph{read} and \emph{write} permission fields in I/O page tables and flushes IOTLB. As for the guest page table destruction, Xen also reuses existing security checks to remove software protection while maintains DMA prevention, after which the corresponding page is (if without the flag) set with the \textbf{cache} flag and updated to be writable. Figure \ref{fig:semi-type} describes the process.
+\subsubsection{\name Cache Initialization and Destruction}
+The \cache is enabled in the system bootup phase by default.
+By doing so, the page tables of all user processes are maintained by the \cache from the very beginning.
+To increase the flexibility, it is also allowed to dynamically enable it at runtime through the prepared interface.
 
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.5\textwidth]{image/overview/page-type-updates-with-semi-type.png} \\
-\caption{Page Type Updates between writable and page-table are through Semi-Writable}
-\label{fig:semi-type}
-\end{figure}
+In the initialization phase, the \cache allocates several pages from writable pages using existing system allocators, converts them into semi-writable pages, and maintains them in a dedicated cache list.
+At runtime, the page table deallocations are always successful by efficiently pushing deallocated pages into the \cache.
+When the guest kernel needs page-table pages, the \cache  will pop out the cached pages to satisfy the requirements.
+In certain extremely cases (e.g., many allocation requests with a few or none of deallocations), if the cached pages are not enough for the request of a page table allocation, the \cache has to re-invokes the system allocators to get new ones.
+Fortunately, the re-invocations are rarely happened in a workflow-stable system. 
+In fact, there are almost always several semi-writable pages in the \cache that are ready for page-table allocations after the system is running a few minutes in our experiments.
 
-As can be seen in Figure \ref{fig:cache-flag}, every time page type updates between writable and page-table occur, every related page will own the flag, inaccessible to devices and all Xen needs to is to validate guest OS, having protected guest page tables and improved IOTLB performance, which satisfies R1,2.
+The \cache works in the whole life cycle of the guest by default, but the end  user is able to explicitly disable it at any time through the exported interface.
+Once the \cache received the disable command, it will release all resources, e.g., deallocating the cached pages through the existing system allocators and releasing the data structures that are used for managing the cached pages.
+In addition, it will also issue a hypercall to inform the hypervisor, which will disable the fine-grained validation mechanism and switch back to the original coarse-grained validation scheme.
+%As the disable costs are quite high, we recommend that always keeping the \name running once it starts to work.
 
-As writable pages with \textbf{cache} flag freed by guest OS cannot be mixed with ordinary pages in the buddy system, \name builds up cache pools to manage freed writable pages in the OS space to function properly and serve as caches of page tables.
+\subsubsection{Cache Shrinking}
+When the memory management daemon (e.g., \emph{kswapd}) notices that memory is tight, it will explicitly call the exported interface of the \cache to free some memory.
+%talk about the interface
+There are two interfaces to shrink the cache pages. One is based on the page number. The memory management daemon can specify a number to ask the \cache to release.
+The other one is based on the percentage. For instance, the kernel could ask the \cache to release 50\% cached pages.
+%the size of the cache.
+In fact, the number of semi-writable pages maintained in the \cache is not too much. In our experiments, it is always less than $180$, meaning the size of the cache is less than $720KB$.
 
-\subsection{Cache Mechanism}
-%secondly, design the cache pool to support it
-If guest OS directly frees pages with cache flag to the buddy system, which may allocate them for DMA transactions. This will lead to unacceptable access faults. As a result, \name enables OS to cache the writable pages for page-tables. Specifically, \name defines new cache allocating and freeing functions for every level of page table to manage cache and whichever existing page-table function will invoke the corresponding cache function. By this approach, \name reserves page-table caches. When dealing with process creation/destruction, OS allocates pages from or frees them into the cache pool instead of the buddy system, reducing time cost, thus meeting R2.
-
-Cache mechanism begins its life-cycle either automatically with system booting up or dynamically during system runtime. \name provides an interface for users to activate dynamically. Utilizing the feature, users can improve system performance in an on-demand way (e.g., too many process-creation at some time). Basically, if the mechanism is activated dynamically, there may exists a few writable pages without cache flag and this does not ruin the security while flush IOTLB only once. Also note that when every cache pool is empty initially or OS asks for more pages (e.g., many processes creations) than cache pool could supply, cache allocating function always requests pages from the buddy system, which also affect IOTLB once.
-
-During the runtime of the cache, \name also needs to control the memory size that caches take up. If the cache size becomes larger, it is necessary for cache freeing function to free pages from the pool into the buddy system. When to free pages in pool depends on two factors, namely $1$) a proportion between pages in use and in pool, and $2$) a total number of pages in use and in pool. If both factors exceed specific thresholds, respectively, corresponding cache flags must be cleared before the pages are freed. Thus, \name defines a new hypercall for OS. When handling the hypercall, Xen mainly clears the flag of specified pages, maps freed pages in the I/O page tables and flushes IOTLB. It can be concluded that inappropriate thresholds will lead to the flushes of IOTLB. Because of that, \name offers an interface for users to modify the default values of both thresholds in order to reduce IOTLB-flush or adjust cache size (meets R2). The default thresholds are determined by conducting experiments where no pages are freed to the buddy system (see details in section~\ref{sec:eva}), and the page number to free is stated in the equation below: $\Delta$num\_to\_free $=$ num\_in\_pool $-$ num\_in\_use. If users have only a few available memory in extreme cases, they are provided with another interface to manually free all pages in cache into the buddy system, thus relieving system's pressure while badly affecting IOTLB. Using the two interfaces, users have full control of the page-table cache.
-
-This is the life-cycle of a cached page, originating from the buddy system, freed into the cache, then maybe allocated by the cache and finally freed into the buddy system when necessary.
-
-Section~\ref{sec:implementation} will demonstrate its small modifications in details.
-
-\zhi{But what if the memory percentage is too high? it is necessary to free pages from the cache pool to the buddy system. Pages in pool will be freed if $1$) a proportion between pages in use and in pool, and $2$) a total number of pages in use and in pool are greater. And data from group of cache-pre-enabled by default is referred to quantify the proportion and the total number. Actually, users can modify the two factors to adjust the cache pool size through an interface. 
-On top of that, page number beyond the proportion is freed, stated in an equation below: $\Delta$num\_to\_free $=$ num\_in\_pool $-$ num\_in\_use. Since pre-enabling the cache is not flexible enough, we also provide another interface for users to activate the cache mechanism in an on-demand way. Users may make use of this feature to better improve system performance dynamically.} 
+The \cache could also automatically shrink itself through the predefined threshold. 
+The threshold can be defined according to the page number or the proportion (i.e., the number of the cached semi-writable pages over the number of the page-table pages), or the combination of them.
+%In the current prototype, the threshold is the combination of the page number and the percentage.
 
 
-}
+
+
+
+
