@@ -104,7 +104,7 @@ As can be seen from Figure~\ref{fig:iotlbflush}. Y-axis represents the frequency
     \label{fig:PTEtime}
 \end{figure*}
 
-Now let’s move to CPU time that every group will cost. Specifically, each level of page table has its (de)allocation functions, e.g., pgd\_alloc and pgd\_free, and the average execution time of each function is calculated per minute. As shown in Figure~ \ref{fig:PGDtime},\ref{fig:PMDtime},\ref{fig:PTEtime}, both allocation and deallocation functions in all levels of page table in the pre-\name group respectively consume xx\% less and xx\% less CPU time in nanoseconds on average, compared to that of the baseline group, indicating that \name has largely improved the performance of page table (de)allocations by maintaining a dedicated cache.
+Now let’s move to CPU time that every group will cost. Specifically, each level of page table has its (de)allocation functions, e.g., pgd\_alloc and pgd\_free, and the average execution time of each function is calculated per minute. As shown in Figure~ \ref{fig:PGDtime},\ref{fig:PMDtime},\ref{fig:PTEtime}, both allocation and deallocation functions in all levels of page table in the pre-\name group respectively consume 45\% less and 55\% less CPU time in nanoseconds on average, compared to that of the baseline group, indicating that \name has largely improved the performance of page table (de)allocations by maintaining a dedicated cache.
 
 %When cache is pre-enabled, the ratio between the total pages in cache and the total pages as page tables is approximately equal to 1:1, which indicates that the cache mechanism takes up a small memory percentage of the stress tool.
 \begin{table}[!ht]
@@ -119,7 +119,7 @@ PTE & $145$ & $177$ \\ \hline
 Total & $176$ & $193$ \\ \hline
 \end{tabular}
 \end{center}
-\caption{In the pre-\name group, the ratio between the total cached pages in cache and the page table pages is approximately equal to 1:1 just as expected. And the memory size of cached pages only takes up to xx\% of the tool's memory.}
+\caption{In the pre-\name group, the ratio between the total cached pages in cache and the page table pages is approximately equal to 1:1 just as expected. And the memory size of cached pages only takes up to 0.2\% of the tool's memory.}
 \label{tab:prePGpool}
 \end{table}
 
@@ -135,16 +135,16 @@ PTE & $136$ & $182$ \\ \hline
 Total & $160$ & $188$ \\ \hline
 \end{tabular}
 \end{center}
-\caption{In the dyn-\name group, the ratio between the total cached pages in cache and the page table pages is approximately equal to 1:1 as expected. And the memory size of cached pages only takes up to xx\% of the tool's memory.}
+\caption{In the dyn-\name group, the ratio between the total cached pages in cache and the page table pages is approximately equal to 1:1 as expected. And the memory size of cached pages only takes up to 0.2\% of the tool's memory.}
 \label{tab:dynPGpool}
 \end{table}
 
-Besides CPU usage, \name is evaluated in the aspect of memory consumption. Cache size in the pre-\name group shown in Table \ref{tab:prePGpool} reaches only $176$ pages(i.e., ($176 * 4K$) $<$ $1$M) at most in the long time run, only xx\% percentage of the tool's memory (i.e., $284.1$ MB). Besides, memory size in Table \ref{tab:dynPGpool} shows that the dyn-\name group takes up is only $160$ pages at most, also a small percentage of the tool's memory. Both groups consume an insignificant memory usage and reach a satisfying tradeoff between CPU time and memory size. Also note that the conditions of freeing pages in cache in the dyn-\name group heavily rely on a specific scenario, which may not work for other situations. We will further discuss the conditions in future work.
+Besides CPU usage, \name is evaluated in the aspect of memory consumption. Cache size in the pre-\name group shown in Table \ref{tab:prePGpool} reaches only $176$ pages(i.e., ($176 * 4K$) $<$ $1$M) at most in the long time run, only 0.2\% percentage of the tool's memory (i.e., $284.1$ MB). Besides, memory size in Table \ref{tab:dynPGpool} shows that the dyn-\name group takes up is only $160$ pages at most, also a small percentage of the tool's memory. Both groups consume an insignificant memory usage and reach a satisfying tradeoff between CPU time and memory size. Also note that the conditions of freeing pages in cache in the dyn-\name group heavily rely on a specific scenario, which may not work for other situations. We will further discuss the conditions in future work.
 
 %And the reason why the dyn-\name group has fewer cached pages than that of the pre-\name group is that a certain number of page table pages has been freed to the memory allocator before the \name is enabled.
 
 \mypara{a worst case} As mentioned before, guest kernel firstly goes through \name cache to require enough semi-writable pages when page creations occur. If the cache cannot satisfy the requirements (a.k.a, cache miss), writable pages from the memory allocator will be allocated to corresponding process creations, and these pages will be validated by \name module. Since these pages are judged not to be semi-writable, Xen will enforce both software and DMA protections, which will produce the same number of IOTLB flushes as the baseline. As a result, the execution path of page table allocation in \name in this worst case is longer than that of the baseline. More precisely, \name executes four more instructions than the baseline, and they are two conditional statements, i.e., \name checks if the cache is NULL, \name checks whether the allocated page is semi-writable. Nevertheless, the worse case does not often occur in \name. According to our observations in the dyn-\name group, the probability of cache miss is only xx\% for the thirty minutes since \name is enabled, which indicates that \name performs much better than the baseline in the long-time run.
-\zhi{In the pre-\name group, the probabilities of cache miss are 9/550 (0.01\% PGD), 38/2200(0.01\% PMD), 322/6633(0.04\% PTE),respectively. In the dyn-\name group, the probabilities of cache miss are 7/540 (0.01\% PGD), 24/2160(0.01\% PMD), 320/6333(0.05\% PTE),respectively.}
+\zhi{In the pre-\name group, the probabilities of cache miss are 9/550 (1\% PGD), 38/2200(1\% PMD), 322/6633(4\% PTE),respectively. In the dyn-\name group, the probabilities of cache miss are 7/540 (1\% PGD), 24/2160(1\% PMD), 320/6333(5\% PTE),respectively.}
 
 
 \subsection{Macro-Benchmarks}
@@ -155,11 +155,11 @@ Macro-benchmarks are made use of to evaluate the effects of \name on overall sys
 \centering
 %\includegraphics[scale=0.55]{image/iotlbflush.png} \\
 \includegraphics[width=0.5\textwidth]{image/macro/lmbench.png} \\
-\caption{The execution time of all processes in the dyn-\name group is reduced by xx\%, compared to that of the baseline group.}
+\caption{The execution time of all processes in the dyn-\name group is reduced by 24\%, compared to that of the baseline group.}
 \label{fig:lmbench}
 \end{figure}
 
-Lmbench is used to measure CPU time that processes cost (i.e., fork+exit, fork+execve, fork+/bin/sh -c), shown in Figure~\ref{fig:lmbench}. The configuration parameters are selected by default, except parameters of processor MHz, a range of memory and mail result, since CPU mhz of our test machine is $3.2$ GHz rather than the default one, memory range uses $1024$ MB to save time cost of one Lmbench-run and we need no results mailed. As can be seen from the figure, the processes of fork+exit, fork+execve and fork+/bin/sh -c in the dyn-\name group costs $xx$, $xx$, and $xx$ in microseconds, 11\%, xx\%, xx\% fewer than that of the baseline group. Undoubtedly, \name has improved CPU performance.
+Lmbench is used to measure CPU time that processes cost (i.e., fork+exit, fork+execve, fork+/bin/sh -c), shown in Figure~\ref{fig:lmbench}. The configuration parameters are selected by default, except parameters of processor MHz, a range of memory and mail result, since CPU mhz of our test machine is $3.2$ GHz rather than the default one, memory range uses $1024$ MB to save time cost of one Lmbench-run and we need no results mailed. As can be seen from the figure, the processes of fork+exit, fork+execve and fork+/bin/sh -c in the dyn-\name group costs $344$, $365$, and $1567$ in microseconds, $11$\%, $17$\%, $21$\% fewer than that of the baseline group. Undoubtedly, \name has improved CPU performance.
 
 \begin{figure}[htp]
 \centering

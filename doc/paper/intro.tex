@@ -1,6 +1,6 @@
 \section{Introduction} \label{sec:intro}
-In paravirtualization~\cite{XEN-SOSP03,whitaker2002scale}, the operating system of each Virtual Machines (a.k.a. guest or guest domain) and the hypervisor share the same virtual space.
-In order to prevent malicious accesses from the guest OS, the hypervisor sets the guest page tables read-only, and intercepts and validates the updates to ensure that there is no runtime violation~\cite{XEN-SOSP03}.
+In paravirtualization~\cite{XEN-SOSP03,whitaker2002scale}, the operating system of each Virtual Machine (a.k.a. guest or guest domain) and the hypervisor share the same virtual space.
+In order to prevent malicious accesses from the guest OS, the hypervisor sets the guest page tables as read-only, and intercepts and validates the updates to ensure that there is no runtime violation~\cite{XEN-SOSP03}.
 However, the page-table-based protection is not enough to defend against the DMA attacks driven by the malicious guest OS~\cite{disaggregation}.
 To fix this gap, the hypervisor resorts to the I/O virtualization (AMD-Vi~\cite{amdvt} or Intel VT-d~\cite{intelvt}) technology, which leverages a new Input/Output Memory Management Unit (IOMMU) to restrict DMA accesses on the physical memory pages occupied by the hypervisor and the guest page tables.
 % talk about the security protection in software and dma aspects
@@ -9,49 +9,49 @@ To integrate the above protection techniques, the guest page table management an
 \begin{figure*}[ht]
 \centering
 \includegraphics[width=0.9\textwidth]{image/overview/overview.pdf} \\
-\caption{Solution Overview. When the \name cache and fine-gained validation mechanisms are enabled, 
+\caption{Solution Overview. When the \name cache and fine-gained validation mechanisms are enabled,
 the execution path of page table allocation is dramatically reduced, and the additional IOTLB flushes are eliminated.}
 \label{fig:overview}
 \end{figure*}
 
 %Highlight the problem, and emphasize the importance.
-\mypara{Problem} 
-However, all existing patches are mainly focus on the security enhancements of the hypervisor, without enough attentions on the performance improvements, which results in two noticeable issues.
-The first one is the long execution paths of the guest page table (de)allocations, which involve the complex memory allocation process and the additional security validation procedure. 
+\mypara{Problem}
+However, all existing patches mainly focus on the security enhancements of the hypervisor, without enough attentions to the performance improvements, which results in two noticeable issues.
+The first one is the long execution paths of the guest page table (de)allocations, which involve the complex memory allocation process and the additional security validation procedure.
 The memory allocation process frequently involves the \emph{slab} allocator and the page frame allocations that are frequently managed with a buddy system, which introduces deep invocations for each page-table (de)allocation.
-Moreover, the additional security validations procedure always adds extra costs for preventing malicious software and DMA accesses.  
-All these lead to poor performance of the page table (de)allocation, and consequently result in the long latencies of the creations and exits of processes. 
+Moreover, the additional security validations procedure always adds extra costs for preventing malicious software and DMA accesses.
+All these lead to poor performance of the page table (de)allocation, and consequently result in the long latencies of the creations and exits of processes.
 
-The other one is the additional IOTLB flushes introduced by the security validations of the page table (de)allocations. 
-The guest page tables should be non-readable for any DMA requests and the occupied pages should be readable and writable when the page tables are released. 
+The other one is the additional IOTLB flushes introduced by the security validations of the page table (de)allocations.
+The guest page tables should be non-readable for any DMA requests and the occupied pages should be readable and writable when the page tables are released.
 The updates of the access permissions require IOTLB flushes to refresh the access permissions, which is necessary for the sake of the security of the hypervisor.
 In addition, these access permission update events are \emph{often} triggered during the whole life cycle of a running system.
-As a consequence, the IOTLB flushing events are \emph{frequently} involved, which inevitably increases the IOTLB miss rate and lowers the speed of the DMA address translation, and would intuitively introduce negative impacts on the I/O performance of all peripheral devices. 
+As a consequence, the IOTLB flushing events are \emph{frequently} involved, which inevitably increases the IOTLB miss rate and lowers the speed of the DMA address translation, and would intuitively introduce negative impacts on the I/O performance of all peripheral devices.
 The baseline of Figure~\ref{fig:overview} illustrates the two issues in the page table allocation.
 
 \mypara{Solution}
 %introduce our approach
-The above identified performance issues urge us to revise the design of the page table management to improve the performance and keep the security guarantees. 
-In response to the revision appeal, in this paper we propose \name, a novel software-only approach for improving performance in page table management. 
+The above identified performance issues urge us to revise the design of the page table management to improve the performance and keep the security guarantees.
+In response to the revision appeal, in this paper we propose \name, a novel software-only approach for improving performance in page table management.
 First, \name shortens the length of the execution path of the page table (de)allocations by \name allocator, which maintains a dedicated buffer for serving page table (de)allocations (Figure~\ref{fig:overview} (b)).
-The \name allocator queues the released/freed page-table page in the hope that 
+The \name allocator queues the released/freed page-table page in the hope that
 it will be reused (popped out of the cache) in the allocation of page table in the near future.
 By doing so, the page table allocations do not need to involve the costly memory management subsystem every time, instead they could directly get the pages from the cached buffer.
-As the functionalities of the \name allocator are concentrated, it relatively easy to make it small, simple and efficient, dramatically reducing the execution path.
+As the functionalities of the \name allocator are concentrated, it is relatively easy to make it small, simple and efficient, dramatically reducing the execution path.
 
 Second, \name eliminates the additional IOTLB flushes with a fine-grained validation scheme (Figure~\ref{fig:overview} (c)), which separates the DMA and software validations.
 In the original design, there are two types of pages: writable page that is writable for software and DMA requests, and non-writable page that are non-writable both software and DMA.
 The page table allocations and deallocations are essentially the type changes between the two of them.
-Thus, the hypervisor has to do the DMA and software validations together to ensure both of them are not violating the security policies.
-However, we observed that it is not necessary to do DMA validation every time if we create a new page type (i.e., semi-writable page) with non-writable DMA permission, and make the page type changes only happened between the non-writable pages and the semi-writable pages during the page table allocations and deallocations. 
+Thus, the hypervisor has to do the DMA and software validations together to ensure that both of them are not violating the security policies.
+However, we observed that it is not necessary to do DMA validation every time if we create a new page type (i.e., semi-writable page) with non-writable DMA permission, and make the page type changes only happen between the non-writable pages and the semi-writable pages during the page table allocations and deallocations.
 Interestingly, the semi-writable pages can be smoothly maintained by the \name allocator with very small extra cost.
 
 We implement a prototype on Xen with Linux as the guest kernel. We do small modifications of Xen version 4.2.1 ($166$ SLoC) and Linux kernel version 3.2.0 ($350$ SLoC).
 We evaluate the I/O performance in both micro and macro ways.
-The micro experiment results indicate that \name is able to completely eliminates the additional IOTLB flushes, and effectively reduces (de)allocation time of the page table. 
-There are (xx\%, xx\%), (xx\%, xx\%) and (xx\%, xx\%) improvements for allocation and deallocation pairs for three-levels page table, from top to bottom.
-The macro benchmarks show that there is no negative impact on the CPU computation, network I/O and disk I/O. 
-Moreover, the latencies of the process creations and exits are expectedly reduced by xx\% on average. 
+The micro experiment results indicate that \name is able to completely eliminate the additional IOTLB flushes, and effectively reduces (de)allocation time of the page table.
+There are (34\%, 47\%), (38\%, 22\%) and (65\%, 65\%) improvements for a pair of allocation and deallocation for three-level page table, from top to bottom.
+The macro benchmarks show that there is no negative impact on the CPU computation, network I/O and disk I/O.
+Moreover, the latencies of the process creations and exits are expectedly reduced by 24\% on average.
 
 In particular, we make the following contributions:
 \begin{enumerate}

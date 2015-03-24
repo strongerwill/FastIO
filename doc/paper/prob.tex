@@ -1,29 +1,29 @@
 \section{Problem Definition} \label{sec:prob}
 In this section, we describe the necessary background knowledge and highlight the identified two performance issues: 1) long execution paths of the guest page table (de)allocation and 2) the additional IOTLB flushes.
-As Xen~\cite{XEN-SOSP03} is a typical and popular paravirtual hypervisor, we use Xen in a x86 MMU model~\cite{x86-pv-model} to illustrate the details. 
+As Xen~\cite{XEN-SOSP03} is a typical and popular paravirtual hypervisor, we use Xen in a x86 MMU model~\cite{x86-pv-model} to illustrate the details.
 The presented or similar mechanisms are available on the other paravirtual settings.
- 
+
 
 \subsection{Long Execution Path}\label{sec:longpath}
 The long execution path issue refers to the execution paths for the guest page table page allocation and deallocation.
 In the existing design, allocating and deallocating a page table page are time costly, as they have to invoke the complex memory allocators and performance both software (i.e., page table) and DMA validations.
 %In addition, the DMA validations always lead to additional IOTLB flushes, which would reduce the DMA address translation speed and may consequently lower the I/O performances.
-In addition, such allocation and deallocation events are frequently happened in the system, i.e., the numerous process creation and exits will result in many page-table page allocations and deallocations.
-Thus, it is necessary to deeply understand the long execution path issue and improve the performance accordingly. 
+In addition, such allocation and deallocation events frequently occur in the system, i.e., the numerous process creations and exits will result in many page-table page allocations and deallocations.
+Thus, it is necessary to deeply understand the long execution path issue and improve the performance accordingly.
 
 \subsubsection{Page Allocation and Deallocation}
 To allocate a page, the guest kernel has to invoke the system allocators, typically from slab allocator to buddy allocator.
-The slab allocator~\cite{slaballocator} consists of a variable number of caches that are linked together on a doubly linked circular list. 
-Each cache maintains blocks of contiguous pages in memory called slabs, which are carved up into small chunks for the data structures and objects. 
-When \emph{kmalloc} is called, all it does is searching through the prepared caches. 
+The slab allocator~\cite{slaballocator} consists of a variable number of caches that are linked together on a doubly linked circular list.
+Each cache maintains blocks of contiguous pages in memory called slabs, which are carved up into small chunks for the data structures and objects.
+When \emph{kmalloc} is called, all it does is searching through the prepared caches.
 If there is no suitable object, the buddy allocator will be involved.
-The Buddy allocator~\cite{buddyallocator} manages all free pages that are allocated in blocks with the sizes of powers of 2.  
+The Buddy allocator~\cite{buddyallocator} manages all free pages that are allocated in blocks with the sizes of powers of 2.
 When the allocation function is invoked, it first searches for blocks of pages of the size requested following the chain.
-If no blocks of the requested size are free, blocks of the next size (which is twice that of the size requested) are looked for. 
-This process continues until all of the free area has been searched or until a block of pages has been found. 
+If no blocks of the requested size are free, blocks of the next size (which is twice that of the size requested) are looked for.
+This process continues until all of the free area has been searched or until a block of pages has been found.
 
 In contrast to the page allocation, the page deallocation is to return the page back to the system.
-The deallocation process may also invoke slab allocator and/or buddy allocator, and would trigger the updates of the corresponding data structures, 
+The deallocation process may also invoke slab allocator and/or buddy allocator, and would trigger the updates of the corresponding data structures,
 e.g., the buddy allocator always attempts to recombine the freed pages into larger blocks.
 
 In brief, the page allocation and deallocation are time costly due to the deep invocations and complex updates of the dependent data structures.
@@ -51,11 +51,11 @@ Typically, each user process has its own page table, and the creation and exit o
 The hypervisor defines two page types 1) \emph{writable page} that is writable for software and DMA, and 2) \emph{non-writable page} that is non-writable for both software and DMA.
 The non-writable page has several sub-page types, such as page-table page and GDT/LDT pages.
 In addition, the hypervisor also requires that every page type update only occur between writable and non-writable pages, as summarized in Figure~\ref{fig:page-type-updates}.
-The hypervisor maintains a type reference count for each page, and enforces the policy that any given page has exactly one type at any given time. 
+The hypervisor maintains a type reference count for each page, and enforces the policy that any given page has exactly one type at any given time.
 In addition, it also enforces that only pages with the writable type have a writable mapping in the page tables.
 By doing this it can ensure that the guest OS is not able to directly modify any page-table pages and therefore cannot subvert the security of the whole system.
 
-Whenever a page table is loaded to work, there should be an page type update from writable page to non-writable page (i.e., page-table page).
+Whenever a page table is loaded to work, there should be a page type update from writable page to non-writable page (i.e., page-table page).
 First, the hypervisor must ensure the L3 page-table page has a type count of zero.
 In addition, it must be validated to ensure that it follows the following policy:
 for a page with a page-table type to be valid, it is required that any pages referenced
@@ -64,7 +64,7 @@ For instance, any page referenced by a page with type L3 Page Table must itself 
 This policy is applied recursively down to the L1 page table layer.
 At L1 the invariant is that any data page mapped by a writable page table entry must have the writable page type.
 By applying these policies, Xen ensures that all page-table pages as a whole are safe to be loaded.
-The hypervisor also verify all slots of the page table to ensure that the mappings and access permissions are correct and expected.
+The hypervisor also verifies all slots of the page table to ensure that the mappings and access permissions are correct and expected.
 Note that the hypervisor is always involved in all updates of the page tables, the policies on the page table updates are non-bypassable.
 
 The validation process in the page table deallocation is contrary to the one in the page table allocation.
@@ -76,7 +76,7 @@ The input/output memory management unit (IOMMU)~\cite{intelvt} is a memory manag
 Like a traditional MMU, the IOMMU maps device addresses (also called as I/O addresses) to physical addresses through a dedicated page table.
 %This technique is also known as DMA remapping.
 The IOMMU page table that is created and maintained by the hypervisor in its own space is able to restrict the access on a particular page by configuring the permission bits.
-The hypervisor grants different access permissions for different page types, such as the writable pages are always allowed full access permissions, while the page-table pages are always inaccessible to any devices.
+The hypervisor grants different access permissions for different page types, such as the writable pages are always allowed with full access permissions, while the page-table pages are always inaccessible to any devices.
 
 However, if the DMA address translation always needs to look up the IOMMU page table, it will be slow and inefficient.
 To accelerate the translation speed, the I/O translation look-aside buffer (IOTLB) is introduced.
@@ -107,7 +107,7 @@ To achieve a better I/O performance, the DMA address translation should avoid ta
 The page table allocation and deallocation always trigger the updates between the writable pages and the page-table pages, and they have different access permission for DMA requests.
 To keep the security of the hypervisor, the DMA validation is necessary.
 Specifically, the hypervisor will update the corresponding entries of the IOMMU page table to set correct access permissions.
-After this, the hypervisor also needs to flush IOTLB entries to invalidate the old entries, without which the security of the hypervisor would be violated, e.g., the DMA requests could write the page-table pages through out-of-date IOTLB entries.
+After this, the hypervisor also needs to flush IOTLB entries to invalidate the old entries, without which the security of the hypervisor would be violated, e.g., the DMA requests could write the page-table pages through stale IOTLB entries.
 
 \begin{figure}[ht]
 \centering
@@ -120,9 +120,9 @@ After this, the hypervisor also needs to flush IOTLB entries to invalidate the o
 In addition, the additional IOTLB flushes are likely to let the DMA address
 translations take the slow and inefficient page-table path,
 instead of taking the fast and efficient IOTLB path (Figure~\ref{fig:pro-ill}), due to the additional IOTLB misses.
-Numerous IOTLB misses would lower the speed of the DMA transferring, especially for the high performance devices. such as the Intel I/OAT ~\cite{lauritzenintel}.
+Numerous IOTLB misses would lower the speed of the DMA transferring, especially for the high performance devices, such as the Intel I/OAT ~\cite{lauritzenintel}.
 %Moreover, the DMA validations are frequently triggered if there are many creations and exits of user processes due to certain cases.
-%In fact, it 
+%In fact, it
 
 
 %In brief, we summarize all these into three key points, which are listed as follows:

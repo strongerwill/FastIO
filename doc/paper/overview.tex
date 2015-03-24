@@ -3,7 +3,7 @@
 \centering
 \includegraphics[width=0.8\textwidth]{image/overview/arch.pdf} \\
 \caption{\name Architecture. The semi-writable pages are managed by the \name cache, and all page type updates are validated by the \name module.
-Through the cooperation of \name cache and \name module, \name successfully shortens the execution path of the guest page table (de)allocation and eliminates additional IOTLB flashes.}
+Through the cooperation of \name cache and \name module, \name successfully shortens the execution path of the guest page table (de)allocation and eliminates additional IOTLB flushes.}
 \label{fig:arch}
 \end{figure*}
 
@@ -17,7 +17,7 @@ In the design of \name, we consider several requirements, which are summarized a
 \end{enumerate}
 
 \subsection{\name Architecture}
-Figure~\ref{fig:arch} depicts the architecture of \name. It consists of a \cache in the guest kernel and a \name module in the hypervisor space. 
+Figure~\ref{fig:arch} depicts the architecture of \name. It consists of a \cache in the guest kernel and a \name module in the hypervisor space.
 %the mechanism of the \cache
 The \cache allocates a number of semi-writable pages at the initial stage,  which are newly introduced by the fine-grained validation scheme (Section~\ref{sec:fine-grained}).
 These semi-writable pages are maintained in a dedicated cache.
@@ -27,10 +27,10 @@ The \cache mediates these updates and issues hypercalls to the hypervisor, askin
 Once the verified pages pass the validations, their page types will be updated accordingly.
 %The guest kernel cannot bypass the security validation process, as the hypervisor is the only one to determine/update the page type.
 
-The \module enforces the fine-grained validation scheme on the page table updates. 
+The \module enforces the fine-grained validation scheme on the page table updates.
 It performs (1) the page table validations that validate the page table contents as well as the type count, and (2) the DMA validations that ensure that the DMA requests cannot write the page-table pages and the semi-writable pages.
 In the original validation scheme, the DMA validations always triggers the additional IOTLB flushes due to the access permission updates between the writable pages and the page-table pages.
-In the fine-grained validation scheme, both the semi-writable page and the page-table page are non-writable for DMA requests. 
+In the fine-grained validation scheme, both the semi-writable page and the page-table page are non-writable for DMA requests.
 Thus, the hypervisor never needs to do the IOTLB flushes or IOMMU page table updates, which will save the time of the whole security validation.
 Moreover, it also further reduces the execution time of the page table allocations and deallocations.
 
@@ -51,7 +51,7 @@ To address this conflict without sacrificing the system security, we propose to 
 and require that the page type updates between the writable page and the page-table page must go through the semi-writable page first.
 %In practice,  we can further restrict that the system only updates the page-table pages to/from the semi-writable pages and holds the semi-writable pages to stop them converting back to the writable pages.
 since the semi-writable page and page-table page are already inaccessible to DMA, there is no need to do IOTLB flushes, meaning the additional IOTLB flushes could be totally avoided.
-In order to facilitate the management of the semi-writable pages, we propose a cache, called \cache, in the guest kernel, and extend the existing page management data structure in the hypervisor space.  
+In order to facilitate the management of the semi-writable pages, we propose a cache, called \cache, in the guest kernel, and extend the existing page management data structure in the hypervisor space.
 Similar to the management of the page-table pages, the hypervisor is only responsible for the final validation of the semi-writable page, leaving all other management operations for the \cache.
 By doing this, we can keep the modifications as small as possible by reusing existing validation process and page-table management subsystem, and also retain the system security.
 
@@ -66,13 +66,13 @@ By doing this, we can keep the modifications as small as possible by reusing exi
 3) new hypercalls for \cache
 
 \subsection{\name Cache}\label{sec:cache}
-The basic idea behind the \cache is to have caches of semi-writable pages available for page table allocations and deallocations. 
-Without the page oriented \cache, the kernel will spend much of its time allocating, initializing and freeing page-table pages. 
+The basic idea behind the \cache is to have caches of semi-writable pages available for page table allocations and deallocations.
+Without the page oriented \cache, the kernel will spend much of its time allocating, initializing and freeing page-table pages.
 The slab allocator that is similar to the \cache is not used in our settings, due to the following reasons.
 First, it violates one of security requirements of the page-table pages enforced by the hypervisor.
 In particular, the type count should be zero when a page is updated among the writable page, the semi-writable page and the page-table page.
 However, the pages in the slab allocator are not always satisfy this restriction, leading to the exceptional crashes.
-Second, the existing size-oriented management does not distinguish the page-table page with other pages that have the same size, and we believe the customization of this management mechanism would need lots of development costs, such as interface updates, internal data structure updates. 
+Second, the existing size-oriented management does not distinguish the page-table page with other pages that have the same size, and we believe the customization of this management mechanism would need lots of development costs, such as interface updates, internal data structure updates.
 In addition, the related components that rely on the slab allocators may also be affected.
 At last, adding the fine-grained validation mechanism only for one object (i.e., page-table page) will subvert the generality of the slab allocator.
 Considering the above three reasons, we give up reusing the existing slab allocator and aim to build a dedicated one, called \cache, for page table allocation and deallocation.
@@ -86,7 +86,7 @@ In the initialization phase, the \cache allocates several pages from writable pa
 At runtime, the page table deallocations are always successful by efficiently pushing deallocated pages into the \cache.
 When the guest kernel needs page-table pages, the \cache  will pop out the cached pages to satisfy the requirements.
 In certain extremely cases (e.g., many allocation requests with a few or none of deallocations), if the cached pages are not enough for the request of a page table allocation, the \cache has to re-invokes the system allocators to get new ones.
-Fortunately, the re-invocations are rarely happened in a workflow-stable system. 
+Fortunately, the re-invocations are rarely happened in a workflow-stable system.
 In fact, there are almost always several semi-writable pages in the \cache that are ready for page-table allocations after the system is running a few minutes in our experiments.
 
 The \cache works in the whole life cycle of the guest by default, but the end  user is able to explicitly disable it at any time through the exported interface.
@@ -102,7 +102,7 @@ The other one is based on the percentage. For instance, the kernel could ask the
 %the size of the cache.
 In fact, the number of semi-writable pages maintained in the \cache is not too much. In our experiments, it is always less than $180$, meaning the size of the cache is less than $720KB$.
 
-The \cache could also automatically shrink itself through the predefined threshold. 
+The \cache could also automatically shrink itself through the predefined threshold.
 The threshold can be defined according to the page number or the proportion (i.e., the number of the cached semi-writable pages over the number of the page-table pages), or the combination of them.
 %In the current prototype, the threshold is the combination of the page number and the percentage.
 
