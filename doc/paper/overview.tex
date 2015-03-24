@@ -10,10 +10,10 @@ Through the cooperation of \name cache and \name module, \name successfully shor
 \subsection{Design Requirements}\label{sec:req}
 In the design of \name, we consider several requirements, which are summarized and listed as follows.
 \begin{enumerate}
-\item (R1) Unaltered system security. The new scheme should not sacrifice the system security to obtain benefits from I/O performance. No one likes to use a system with known design loopholes.
-\item (R2) Compatible with legacy applications. The new scheme should limit the modifications on the guest kernel and the hypervisor, without any modifications on the existing applications.
-\item (R3) Small modifications. The new scheme should minimize the development cost on the guest kernel and the hypervisor.
-\item (R4) Minimizing additional IOTLB flushes. The new scheme should minimize the number of IOTLB flushes, such as reducing the number to zero.
+\item Unaltered system security. The new scheme should not sacrifice the system security to obtain benefits from I/O performance. No one likes to use a system with known design loopholes.
+\item Compatible with legacy applications. The new scheme should limit the modifications on the guest kernel and the hypervisor, without any modifications on the existing applications.
+\item Small modifications. The new scheme should minimize the development cost on the guest kernel and the hypervisor.
+\item Minimizing additional IOTLB flushes. The new scheme should minimize the number of IOTLB flushes, such as reducing the number to zero.
 \end{enumerate}
 
 \subsection{\name Architecture}
@@ -21,28 +21,27 @@ Figure~\ref{fig:arch} depicts the architecture of \name. It consists of a \cache
 %the mechanism of the \cache
 The \cache allocates a number of semi-writable pages at the initial stage,  which are newly introduced by the fine-grained validation scheme (Section~\ref{sec:fine-grained}).
 These semi-writable pages are maintained in a dedicated cache.
-At runtime, the \cache responses the page table allocation and deallocation requests.
-%If the \cache is disabled or the system explicitly requires the \cache to release the cached pages, it will deallocate them through the existing system allocators.
+At runtime, the \cache is able to satisfy all page table allocation and deallocation requests, shortening the execution path and saving the time.
 During these periods, there are many page type updates from/to the semi-writable pages.
 The \cache mediates these updates and issues hypercalls to the hypervisor, asking it to perform the fine-gained security validations on the update requests.
 Once the verified pages pass the validations, their page types will be updated accordingly.
-The guest kernel cannot bypass the security validation process, as the hypervisor is the only one to determine/update the page type.
+%The guest kernel cannot bypass the security validation process, as the hypervisor is the only one to determine/update the page type.
 
 The \module enforces the fine-grained validation scheme on the page table updates. 
 It performs (1) the page table validations that validate the page table contents as well as the type count, and (2) the DMA validations that ensure that the DMA requests cannot write the page-table pages and the semi-writable pages.
 In the original validation scheme, the DMA validations always triggers the additional IOTLB flushes due to the access permission updates between the writable pages and the page-table pages.
 In the fine-grained validation scheme, both the semi-writable page and the page-table page are non-writable for DMA requests. 
-Thus, the hypervisor never needs to do the IOTLB flushes or IOMMU page table updates, which will save many time for the security validation.
+Thus, the hypervisor never needs to do the IOTLB flushes or IOMMU page table updates, which will save the time of the whole security validation.
+Moreover, it also further reduces the execution time of the page table allocations and deallocations.
 
-\subsection{\module and Fine-Grained Validation}\label{sec:fine-grained}
-It is challenging to reduce the number of the IOTLB flushes, as well as achieving all above requirements.
-A possible approach is to let the hypervisor to manage the page table in its own space.
-In this way, there is no need for flushing IOTLB, but it will dramatically increase the size of the hypervisor, and consequently reduce the system security level.
-Another possible approach is to do the IOTLB flushing in a batch, meaning flushing multiple IOTLB entries all in one, instead of flushing them one after another.
-This approach is able to retain the system security, but it could not eliminate the IOTLB flushes, only reducing the number of IOTLB flushes in a certain level.
-\yueqiang{In addition, this approach may lead to security gap in a short time.}
+\subsection{Fine-Grained Validation}\label{sec:fine-grained}
+%To reduce the number of the IOTLB flushes, a possible approach is to let the hypervisor to manage the page table in its own space.
+%In this way, there is no need for flushing IOTLB, but it will dramatically increase the size of the hypervisor, and consequently reduce the system security level.
+%Another possible approach is to do the IOTLB flushing in a batch, meaning flushing multiple IOTLB entries all in one, instead of flushing them one after another.
+%This approach is able to retain the system security, but it could not eliminate the IOTLB flushes, only reducing the number of IOTLB flushes in a certain level.
+%In addition, this approach may result in security loopholes as the IOTLB entries are not synchronized with the corresponding IOMMU page table slots.
 
-In this paper, we attempt to solve this problem in a smart way, which could reduce the number of IOTLB flush to zero with only small modifications of the guest kernel and the hypervisor,
+We attempt to solve this problem in a smart way, which could reduce the number of IOTLB flush to zero with only small modifications of the guest kernel and the hypervisor,
 as well as retaining the system security.
 In general, our approach is proposing a fine-grained security validation to replace the old and coarse-grained one doing page-table and DMA validation together.
 Specifically, we observe that the original coarse-grained access control is the all-or-nothing style. i.e., the writable page is simultaneously writable for both software and DMA (device) while all other page types are non-writable for both software and DMA.
@@ -50,14 +49,23 @@ Specifically, we observe that the original coarse-grained access control is the 
 %Thus, the page-type changing between them inevitably triggers the additional IOTLB flushes, otherwise there will be a security loophole.
 To address this conflict without sacrificing the system security, we propose to create a new page type: \emph{semi-writable page}, which is writable for software but non-writable for DMA,
 and require that the page type updates between the writable page and the page-table page must go through the semi-writable page first.
-In practice,  we can further restrict that the system only updates the page-table pages to/from the semi-writable pages and holds the semi-writable pages to stop them converting back to the writable pages.
-since both of them are already inaccessible to DMA, there is no need to do IOTLB flushes, meaning the additional IOTLB flushes could be totally avoided.
-In order to facilitate the management of the semi-writable pages, we propose a new data structure (i.e., page table cache) in the guest kernel, and extend the existing page-management data structure in the hypervisor space.         l
-Similar to the management of the page-table pages, the hypervisor is only responsible for the final validation of the semi-writable page, leaving all other management operations for the guest OS.
+%In practice,  we can further restrict that the system only updates the page-table pages to/from the semi-writable pages and holds the semi-writable pages to stop them converting back to the writable pages.
+since the semi-writable page and page-table page are already inaccessible to DMA, there is no need to do IOTLB flushes, meaning the additional IOTLB flushes could be totally avoided.
+In order to facilitate the management of the semi-writable pages, we propose a cache, called \cache, in the guest kernel, and extend the existing page management data structure in the hypervisor space.  
+Similar to the management of the page-table pages, the hypervisor is only responsible for the final validation of the semi-writable page, leaving all other management operations for the \cache.
 By doing this, we can keep the modifications as small as possible by reusing existing validation process and page-table management subsystem, and also retain the system security.
 
+1) bad impacts of original coarse-grained validation scheme 1) additional IOTLB flushes, and 2) long validation process
 
-\subsection{\name Cache}
+2) How to do the fine-grained validation 1) semi-writable page 2) new page type updates 3) why save time and eliminate IOTLB flushes
+\subsection{\name Module}\label{sec:module}
+1) mark semi-writable page using new bits/flag
+
+2) keep the page-table validations, update the DMA update process
+
+3) new hypercalls for \cache
+
+\subsection{\name Cache}\label{sec:cache}
 The basic idea behind the \cache is to have caches of semi-writable pages available for page table allocations and deallocations. 
 Without the page oriented \cache, the kernel will spend much of its time allocating, initializing and freeing page-table pages. 
 The slab allocator that is similar to the \cache is not used in our settings, due to the following reasons.

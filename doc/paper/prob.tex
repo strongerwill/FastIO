@@ -101,12 +101,6 @@ To achieve a better I/O performance, the DMA address translation should avoid ta
     \label{fig:dma-add-trans}
 \end{figure}
 
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.45\textwidth]{image/background/problem-illustration.png} \\
-\caption{The DMA validations in page type updates introduce additional IOTLB flushes, which lead to selecting the slow path  (i.e., I/O page-table path) of the DMA address translation.}
-\label{fig:pro-ill}
-\end{figure}
 
 \subsubsection{Additional IOTLB Flushes}
 %In paravirtualization, the writable page is writable for DMA requests, while the non-writable page (e.g., the page table page) is non-writable for DMA requests.
@@ -114,6 +108,14 @@ The page table allocation and deallocation always trigger the updates between th
 To keep the security of the hypervisor, the DMA validation is necessary.
 Specifically, the hypervisor will update the corresponding entries of the IOMMU page table to set correct access permissions.
 After this, the hypervisor also needs to flush IOTLB entries to invalidate the old entries, without which the security of the hypervisor would be violated, e.g., the DMA requests could write the page-table pages through out-of-date IOTLB entries.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.45\textwidth]{image/background/problem-illustration.png} \\
+\caption{The DMA validations in page type updates introduce additional IOTLB flushes, which lead to selecting the slow path  (i.e., I/O page-table path) of the DMA address translation.}
+\label{fig:pro-ill}
+\end{figure}
+
 
 In addition, the additional IOTLB flushes are likely to let the DMA address
 translations take the slow and inefficient page-table path,
