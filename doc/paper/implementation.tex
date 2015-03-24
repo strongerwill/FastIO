@@ -5,19 +5,26 @@ In this section, we present the implementation details of the \module and the \c
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.45\textwidth]{image/implementation/field-of-page-type-info.jpg} \\
-\caption{Field of Page Type Info}
+\caption{The layout of the original data structure for page type.}
 \label{fig:field-of-page-type-info}
 \end{figure}
 The first main task of the \module is to extend the existing data structures to support semi-writable page table.
-Unfortunately, the existing page types have occupy all page type bits, leaving no extra bit for semi-writable page.
-As illustrated in Figure~\ref{fig:field-of-page-type-info}, bits 28 \~31 are allocated for page type, bits 23 \~ 27 is for others (e.g., bit 26 is set as 1 to indicate that this page has been validated for use as its current type) and bits (0 \~ 22) is for reference count.
+As illustrated in Figure~\ref{fig:field-of-page-type-info}, the data structure for labelling page types is 32bits, i.e., bits 28 - 31 are allocated for page type, bits 23 - 27 is for others (e.g., bit 26 indicate if this page has been validated), and bits (0 - 22) is for reference count.
+The existing page types have occupied all page type bits, and there is no extra bit for semi-writable page.
+Facing this problem, we do not choose to introducing new data structures, as it would increase the management complexity and result in many modifications of all related management functions.
+Instead, we choose to borrowing a bit from \emph{reference count}.
+In particular, the \emph{reference count} field has 23 bits, presenting how many references on a page. 
+In fact, the system usually does not build so many references on one page. Thus, we borrow the highest bit (bit 22) as the semi-page table bit (as illustrated in Figure~\ref{fig:field-of-semi-type}).
+As a consequence, it still supports more than 4 million reference counts, enough for almost all cases. 
+Actually, the hypervisor is functioning well in our experiments.
 
-From a 32-bit field related to page type information, \name was planning to use a redundant bit to represent the cache flag in order to be compatible with its original implementation. However, each bit in the upper 9-bit of the field has its specific use and the lower 23-bit serves as the reference count of current page type, representing at most ($2^{23}-1$) reference counts of the page type (see figure~\ref{fig:field-of-page-type-info}). \name enforces a stricter rule to prevent count overflow, as cache flag occupies the top bit of the 23-bit and the maximal reference count is limited to ($2^{22}-1$), which affects Xen little (see figure ~\ref{fig:field-of-semi-type}). Actually, the hypervisor is functioning well with the flag bit since the reference count of a page type during runtime cannot reach at ($2^{22}-1$). On top of that, \_\_get\_page\_type() is the critical function to be customized in order to check if a machine page has the flag bit.
+In the page type checking functions (e.g., \_\_get\_page\_type), we only add a few of lines of code to check the semi-writable pages.
+When a semi-writable page is involved in the page type update, some validations (e.g., the DMA validations) necessary before may be skipped, simplifying the validation logic in a certain level. 
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.45\textwidth]{image/implementation/field-of-semi-type.jpg} \\
-\caption{Representation of Semi-Writable Page Type}
+\caption{The semi-writable page type support.}
 \label{fig:field-of-semi-type}
 \end{figure}
 
