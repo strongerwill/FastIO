@@ -18,8 +18,9 @@ In fact, the system usually does not build so many references on one page. Thus,
 As a consequence, it still supports more than 4 million reference counts, enough for almost all cases. 
 Actually, the hypervisor is functioning well in our experiments.
 
-In the page type checking functions (e.g., \_\_get\_page\_type), we only add a few of lines of code to check the semi-writable pages.
-When a semi-writable page is involved in the page type update, some validations (e.g., the DMA validations) necessary before may be skipped, simplifying the validation logic in a certain level. 
+The \module also needs to patch the page type checking functions, e.g., \_\_get\_page\_type, to adjust the checking logic. 
+The added checking logic is straightforward, such that we only add 166 SloC to achieve the whole patch.
+In addition, some validation steps (e.g., DMA validations) necessary before could be skipped when the semi-writable page is involved in the page type update, simplifying the whole validation logic in a certain level. 
 
 \begin{figure}[ht]
 \centering
@@ -29,7 +30,6 @@ When a semi-writable page is involved in the page type update, some validations 
 \end{figure}
 
 \subsection{\name Cache}
-
 In the PV setting, guest OS is required to work in PAE (i.e., Physical Address Extension) mode. As a result, \name maintains three levels of cache pools, each of which is essentially a structured single-linked list caching the guest physical addresses of pages. For the top two levels used for caching PGD (i.e., Page Global Directory) and PMD (i.e., Page Middle Directory), \name obtains the physical addresses directly from their linear addresses. While the bottom PT (i.e., Page Table) is located in the High Memory, the mapping between its linear and physical addresses is not stable. \name acquires the physical addresses of cached PT pages from the corresponding page-info structures.
 
 Every list supports operations of both removal and insertion. Removal exists within the cache allocating function, which fetches a cached page from the top of the list. Insertion is located within the cache freeing function, which inserts a cached page also onto the top. Also, \name maintains two global operation counters, namely num\_in\_use and num\_in\_pool, each logging the invocation times of removal and insertion, respectively. They are required when cache freeing function needs to free cached pages into the buddy system. Every pair of cache allocating and freeing functions is used to hook existing page-table related functions. By this way, whenever OS creates or destroys any process, it always interacts with the caches. Also note that every cache pool and operation counter are shared data resources and their related operation code are critical sections. \name makes use of locks to ensure exclusive resource-access in the multi-processor setting. More specifically, Every level of page-table cache and all its operation counters share a spin lock and irrelevant operations should be removed out of the critical section, especially those that are time-consuming.
