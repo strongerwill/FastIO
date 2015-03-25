@@ -47,7 +47,7 @@ In the \emph{push} interface, the \cache saves the base address of the deallocat
 Obviously, the pop and push interfaces are extremely fast as they could response to the allocation and deallocation requests in a constant time.
 
 %provide interfaces for end user
-The \cache also adds several files in \emph{sysfs} that is a virtual file system provided by the Linux kernel.
+The \cache also adds several files in \emph{sysfs}~\cite{love2004linux,mochel2005sysfs} that is a virtual file system provided by the Linux kernel.
 By using the virtual files, the end user could send command to the \cache, as well as query and configure the internal status.
 In the current implementation, we only support one command, which is able to activate and deactivate the cache service in an on-demand way.
 In addition, the end user could use the new interface to query the number of the cached pages, and dynamically shrink the cache size.
