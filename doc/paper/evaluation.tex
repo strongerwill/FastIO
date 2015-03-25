@@ -51,14 +51,14 @@ Thus, we can conclude that the fine-grained validation scheme is able efficientl
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{image/micro/PGDalloc.png}
-        \caption{Execution time of pgd\_alloc}
+        \caption{Execution time of L1 allocation.}
         \label{fig:subfig:a}
     \end{subfigure}%
     ~
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{image/micro/PGDfree.png}
-        \caption{Execution time of pgd\_free}
+        \caption{Execution time of L1 deallocation.}
         \label{fig:subfig:b}
     \end{subfigure}
     \caption{The time cost in the dyn-\name group is reduced quickly within two minutes to the low level as pre-\name group maintains. And the total execution time of both functions in the pre-\name group is reduced by xx\% compared to that of the baseline group.}
@@ -70,14 +70,14 @@ Thus, we can conclude that the fine-grained validation scheme is able efficientl
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{image/micro/PMDalloc.png}
-        \caption{Execution time of pmd\_alloc}
+        \caption{Execution time of L2 allocation.}
         \label{fig:subfig:a}
     \end{subfigure}%
     ~
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{image/micro/PMDfree.png}
-        \caption{Execution time of pmd\_free}
+        \caption{Execution time of L2 deallocation.}
         \label{fig:subfig:b}
     \end{subfigure}
     \caption{The trend of time cost in the dyn-\name group behaves like Figure~\cite{fig:PGDtime}. And the total execution time of both functions in the pre-\name group is reduced by xx\% compared to that of the baseline group.}
@@ -89,21 +89,27 @@ Thus, we can conclude that the fine-grained validation scheme is able efficientl
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{image/micro/PTEalloc.png}
-        \caption{Execution time of pte\_alloc}
+        \caption{Execution time of L3 allocation.}
         \label{fig:subfig:a}
     \end{subfigure}%
     ~
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{image/micro/PTEfree.png}
-        \caption{Execution time of pte\_free}
+        \caption{Execution time of L3 deallocation.}
         \label{fig:subfig:b}
     \end{subfigure}
     \caption{The trend of time cost in the dyn-\name group behaves like Figure~\ref{fig:PGDtime} and \ref{fig:PMDtime}. And the total execution time of both functions in the pre-\name group is reduced by xx\% compared to that of the baseline group.}
     \label{fig:PTEtime}
 \end{figure*}
 
-Now letâ€™s move to CPU time that every group will cost. Specifically, each level of page table has its (de)allocation functions, e.g., pgd\_alloc and pgd\_free, and the average execution time of each function is calculated per minute. As shown in Figure~ \ref{fig:PGDtime},\ref{fig:PMDtime},\ref{fig:PTEtime}, both allocation and deallocation functions in all levels of page table in the pre-\name group respectively consume 45\% less and 55\% less CPU time in nanoseconds on average, compared to that of the baseline group, indicating that \name has largely improved the performance of page table (de)allocations by maintaining a dedicated cache.
+\mypara{CPU Usage Measurement}
+€™As there are three levels of the guest page table, and each level has its (de)allocation functions, e.g., pgd\_alloc and pgd\_free for the L1 level. 
+In order to clearly observe the changes of the CPU usage, we measure them separately.
+We continuously measure them in 30 minutes, and calculate the average execution time of each function in each one minute. 
+Note that in the \dynname group, we enable the \name at 5 minute.
+
+As shown in Figure~\ref{fig:PGDtime}, \ref{fig:PMDtime}, and \ref{fig:PTEtime}, both allocation and deallocation functions in all levels of page table in the pre-\name group respectively consume 45\% less and 55\% less CPU time in nanoseconds on average, compared to that of the baseline group, indicating that \name has largely improved the performance of page table (de)allocations by maintaining a dedicated cache.
 
 %When cache is pre-enabled, the ratio between the total pages in cache and the total pages as page tables is approximately equal to 1:1, which indicates that the cache mechanism takes up a small memory percentage of the stress tool.
 \begin{table}[!ht]
@@ -153,7 +159,7 @@ Macro-benchmarks are made use of to evaluate the effects of \name on overall sys
 \begin{figure}[htp]
 \centering
 %\includegraphics[scale=0.55]{image/iotlbflush.png} \\
-\includegraphics[width=0.5\textwidth]{image/macro/lmbench.png} \\
+\includegraphics[width=0.4\textwidth]{image/macro/lmbench.png} \\
 \caption{The execution time of all processes in the dyn-\name group is reduced by 24\%, compared to that of the baseline group.}
 \label{fig:lmbench}
 \end{figure}
