@@ -1,6 +1,6 @@
 \section{Evaluation} \label{sec:eva}
 We have implemented the prototype of \name on our experiment platform.
-Xen version 4.2.1 is the hypervisor while the guest VM is Ubuntu version 12.04 with Linux kernel version 3.2.0.
+Xen version 4.2.1 is the hypervisor while the guest VM (i.e., Dom0) is Ubuntu version 12.04 with Linux kernel version 3.2.0.
 %The \cache introduces $350$ SLoC in the Linux kernel and the \module adds $166$ SLoC in Xen.
 \name added or changed $350$ SLoC in the Linux kernel and $166$ SLoC in Xen, respectively. 
 To fully evaluate the performance and its effects on the whole system, we measured the \name in both micro-benchamrks (e.g., the frequency of IOTLB flushes, the execution time of page table allocation) and macro-benchmarks (e.g., \emph{SPECINT}, \emph{netperf} and \emph{lmbench}).
@@ -11,6 +11,7 @@ We enable the Intel VT-d feature through BIOS and grub configuration file. The I
 
 %In the original design of Xen, page table (de)allocations will give rise to page type updates, upon which the function iotlb\_flush\_qi will be invoked to flush corresponding IOTLB entries. Thus, a global counter is placed into the function body to record invocation times of the function and then an average counter per minute is calculated as a frequency of IOTLB-flush. When the IOTLB-flush stays at zero level, it means that no page table is (de)allocated, indicating that no process creation/exit occurs then. In a nutshell, there exists a mutually positive effect between a process creation/exit and IOTLB-flush.
 
+\mypara{Workload Emulation}
 In order to allow us to repeatedly measure the effects of the \name on 1) page table allocations and deallocations, and 2) the IOTLB flushes, we use a stress tool to explicitly emulate a heavy workload with many short-time concurrently-running processes.
 Specifically, the tool periodically launches a browser (i.e., Mozilla Firefox 31.0 in the experiment), continuously opens new tabs one by one, and terminates the browser gracefully.
 The purpose of these operations is to frequently create and terminate a large number of processes, leading to many page table allocations and deallocations.
@@ -21,19 +22,29 @@ At this moment, the memory usage of the browser reaches to $284.1$ MB on average
 %Both micro- and macro-benchmark measurements are performed under this environment. in which micro tests are utilized to evaluate the frequency of IOTLB-flush, CPU usage and memory size while macro-benchmarks give an assessment on overall system performance.
 
 \subsection{Micro-Benchmarks}
-
-Micro-experiments are conducted in three groups. In a baseline group, the \emph{idle} system enters into the \emph{busy state} under Xen's original design. On the contrary, in a pre-\name group, \name is enabled before system becomes \emph{busy}. Besides, in another group of dyn-\name, \name is dynamically enabled (e.g., five minutes after the tool is invoked) so as to evaluate the performance of dyn-\name compared to the other groups.
-%micro tests are utilized to evaluate the frequency of IOTLB-flush, CPU usage and memory size
+The micro-benchmark measurements are to evaluate the frequency of the IOTLB flushes, as well as the CPU usage and the memory usage of the \name.
+For each measurement, there are two control groups and one baseline/normal group.
+In the baseline group, we run the workload emulation in the guest VM with default settings, without enabling the \name mechanism.
+On the contrary, the two control groups are: 1) the \prename group, where the \name is enabled before the workload emulation starts and 2) the \dynname group, where the \name is enabled after the workload emulation runs five minutes. The \dynname group is to evaluate if 1) the \name is able to enter a stable state, and 2) how fast the \name is able to enter the stable state.
 
 \begin{figure}[ht]
 \centering
 %\includegraphics[scale=0.55]{image/iotlbflush.png} \\
 \includegraphics[width=0.5\textwidth]{image/micro/iotlbflush.jpg} \\
-\caption{Frequency of IOTLB-flush in the pre-\name group is reduced to zero within one minute. If \name is dynamically enabled when IOTLB is flushing frequently, the frequency drops sharply within two minutes from the high level to zero and remains unchanged since then, contrary to that of the baseline group.}
+\caption{The frequency of IOTLB flushes.  In the \prename group the frequency is reduced from a very low level to zero within 1 minutes. In the \dynname group, the frequency drops sharply within two minutes from the high level to zero. Both control groups indicate that the \name could always enter the stable state (i.e., zero frequency).}
 \label{fig:iotlbflush}
 \end{figure}
 
-As can be seen from Figure~\ref{fig:iotlbflush}. Y-axis represents the frequency of IOTLB-flush, corresponding to the time period (i.e., one minute) of x-axis for the first thirty minutes that the \emph{busy state} lasts. From this figure, frequency in the baseline group increases rapidly and remains stable five minutes later. By contrast, frequency in the pre-\name group drops to zero level in a very short time. It can be safely concluded that the fine-grained validation module proposed by \name does eliminate the IOTLB flushes caused by concurrent processes creations/exits. The dyn-\name group shows that the frequency also can be dropped to zero level very quickly even if the system is already in a \emph{busy state}.
+\mypara{Frequency of IOTLB Flushes}
+In this test, we aim to evaluate the effectiveness of the fine-grained validation on the addition IOTLB flushes.
+We sample the frequency of the IOTLB flushes in 30 minutes.
+The measurement results are illustrated in Figure~\ref{fig:iotlbflush}.
+In the baseline setting, the frequency of the IOTLB flushes is increasing in the first five minutes, and then keeps at a high flush rate until the test finishes.
+In the \prename group, the flush frequency quickly decreases to zero in about one minutes and keep at zero.
+In the \dynname group, the flush frequency sharply decreases to zero when the \name is enabled. The \name roughly spends two minutes entering the stable state.
+Thus, we can conclude that the fine-grained validation scheme is able efficiently and effectively eliminate the IOTLB flushes introduced by the DMA validations.
+
+%Y-axis represents the frequency of IOTLB-flush, corresponding to the time period (i.e., one minute) of x-axis for the first thirty minutes that the \emph{busy state} lasts. From this figure, frequency in the baseline group increases rapidly and remains stable five minutes later. By contrast, frequency in the pre-\name group drops to zero level in a very short time. It can be safely concluded that the fine-grained validation module proposed by \name does eliminate the IOTLB flushes caused by concurrent processes creations/exits. The dyn-\name group shows that the frequency also can be dropped to zero level very quickly even if the system is already in a \emph{busy state}.
 
 \begin{figure*}[t!]
     \centering
@@ -157,6 +168,9 @@ Lmbench is used to measure CPU time that processes cost (i.e., fork+exit, fork+e
 \label{fig:spec}
 \end{figure}
 
+SPEC CINT2006 [12] is an industrystandard
+benchmark intended for measuring the performance of the CPU and
+memory.
 SPECint\_2006v1.2 has $12$ benchmarks in total and they are all invoked with EXAMPLE-linux64-ia32-gcc43+.cfg for integer computation, results of which produce Figure~\ref{fig:spec}. Among the benchmarks, the time costs between the two groups vary little and the maximum difference is within 0.42\%, which is produced by the 483.xalancbmk. In the dyn-\name group it costs $239$ seconds, 0.42\% fewer than that of the baseline group, which poses . Thus, the little difference between the two groups indicates that \name does not impose any bad effect on system performance.
 
 
