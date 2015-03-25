@@ -30,11 +30,38 @@ In addition, some validation steps (e.g., DMA validations) necessary before coul
 \end{figure}
 
 \subsection{\name Cache}
-In the PV setting, guest OS is required to work in PAE (i.e., Physical Address Extension) mode. As a result, \name maintains three levels of cache pools, each of which is essentially a structured single-linked list caching the guest physical addresses of pages. For the top two levels used for caching PGD (i.e., Page Global Directory) and PMD (i.e., Page Middle Directory), \name obtains the physical addresses directly from their linear addresses. While the bottom PT (i.e., Page Table) is located in the High Memory, the mapping between its linear and physical addresses is not stable. \name acquires the physical addresses of cached PT pages from the corresponding page-info structures.
+%data structures
+There are three levels of the guest page table, and the \cache maintains a single-linked list for each of them.
+Each node of the list has a pointer pointing to the next node and a page ID that is the base address of a cached page.
+Note that this address should be a physical address, rather than a virtual address, because physical address is unique in the whole system but its virtual addresses could have many.
+Thus, using virtual address would lead to the confusion of the page type tracing and the semi-writable page management.
+As the page table allocations and deallocations could happen at any time on any core, each list has its own lock and supports concurrent updates.
 
-Every list supports operations of both removal and insertion. Removal exists within the cache allocating function, which fetches a cached page from the top of the list. Insertion is located within the cache freeing function, which inserts a cached page also onto the top. Also, \name maintains two global operation counters, namely num\_in\_use and num\_in\_pool, each logging the invocation times of removal and insertion, respectively. They are required when cache freeing function needs to free cached pages into the buddy system. Every pair of cache allocating and freeing functions is used to hook existing page-table related functions. By this way, whenever OS creates or destroys any process, it always interacts with the caches. Also note that every cache pool and operation counter are shared data resources and their related operation code are critical sections. \name makes use of locks to ensure exclusive resource-access in the multi-processor setting. More specifically, Every level of page-table cache and all its operation counters share a spin lock and irrelevant operations should be removed out of the critical section, especially those that are time-consuming.
+%interfaces
+The \cache has two interfaces for the runtime page table allocations and deallocations.
+The \emph{pop} interface is for the page table allocations.
+When this interface is invoked, the \cache will fetch the top node of the corresponding list, extract the base address of the cache page, and then returns it to the caller.
+Correspondingly, the \emph{push} interface is serving for the page table deallocations.
+In the push interface, the \cache saves the base address of the deallocated page into a node, and inserts it on the top of the list.
+Obviously, the pop and push interfaces are extremely fast as they could response to the allocation and deallocation requests in a constant time.
 
-\name implements a new system call to provide an interface for users to activate the cache in an on-demand way. In the system call, a global boolean variant is defined, which is initialized as false, indicating that cache is not enabled. And users can assign the variant as true to enable the cache. Anther two user interfaces related to modification of default thresholds and freeing all pages in cache are also implemented through system calls. For the modification, new thresholds of the proportion and total page number are passed as agruments while users can frees all cached pages by resetting a global boolean variant, which is initialized as true.
+%provide interfaces for end user
+The \cache also add several files in \emph{sysfs} that is a virtual file system provided by the Linux kernel. 
+By using the virtual files, the end user could send command to the \cache, as well as query and configure the internal status.
+In the current implementation, we only support one command, which is able to activate and deactivate the cache service in an on-demand way.
+In addition, the end user could use the new interface to query the number of the cached pages, and dynamically shrink the cache size. 
+For instance, the end user could explicitly ask the \cache to release all the cached pages by setting the number of the cached pages to be zero.
 
-Within the cache freeing function, a hypercall is implemented with a single-linked list of cached addresses of pages as the parameter. The hypercall is a uniform interface for every level of cache freeing function, simplifying the modifications both to guest OS and Xen. As a reply to the hypercall, Xen mainly zeroes the flag bit of 32-bit field and invokes the important function interface intel\_iommu\_map\_page to create entries in the I/O page tables as well as flush IOTLBs.
+% handle cache shrinking and page type update
+The \cache mediates all page type updates related to the semi-writable pages. 
+For each page type update, the \cache would issue the hypercall exported by the \module to explicitly inform the hypervisor to perform security validations.
+In certain cases, such as shrinking the cached semi-writable pages to writable pages, the \cache could submit a batch of requests through the hypercall.
+In such cases, the hypervisor would update the I/O page tables as well as flush IOTLBs in one time, saving time for the cache shrinking.
+
+
+
+
+
+
+
 

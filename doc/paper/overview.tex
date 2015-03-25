@@ -62,7 +62,7 @@ The \module works in the hypervisor space, extended from the original coarse-gai
 The first task of the \module is to trace the page type. 
 Instead of adding a new data structure for tracing the semi-writable pages, the \module chooses to reuse the existing ones.
 By extending the existing page-type data structure, the \module adds a new bit for \emph{semi-writable page}.
-By doing so, the \module could reuse all existing interfaces 
+By doing so, the \module could reuse all existing interfaces.
 
 The second task of the \module is perform the security validations on all page type update requests.
 The purpose of the security validations is to prevent software and DMA attacks on the hypervisor.

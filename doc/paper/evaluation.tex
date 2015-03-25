@@ -1,27 +1,13 @@
-% TEMPLATE for Usenix papers, specifically to meet requirements of
-%  USENIX '05
-% originally a template for producing IEEE-format articles using LaTeX.
-%   written by Matthew Ward, CS Department, Worcester Polytechnic Institute.
-% adapted by David Beazley for his excellent SWIG paper in Proceedings,
-%   Tcl 96
-% turned into a smartass generic template by De Clarke, with thanks to
-%   both the above pioneers
-% use at your own risk.  Complaints to /dev/null.
-% make it two column with no page numbering, default is 10 point
-
-% Munged by Fred Douglis <douglis@research.att.com> 10/97 to separate
-% the .sty file from the LaTeX source template, so that people can
-% more easily include the .sty file into an existing document.  Also
-% changed to more closely follow the style guidelines as represented
 \section{Evaluation} \label{sec:eva}
-%
-We have implemented the proposed prototype demonstrated in previous sections. The implementation added or changed %$350$ SLoC to Linux kernel and $166$ SLoc to Xen hypervisor, of which $2$ SLoc in the hypervisor are
-$166$ SLoc of Xen hypervisor and $350$ SLoC of Linux kernel.
-This section evaluates the performance of \name by running both micro- and macro-benchmark kits.
+We have implemented the prototype of \name on our experiment platform.
+Xen version 4.2.1 is the hypervisor while the guest VM is Ubuntu version 12.04 with Linux kernel version 3.2.0. 
+The \cache introduces $350$ SLoC in the Linux kernel and the \module adds $166$ SLoC in Xen.
+To fully evaluate the performance and its effects on the whole system, we measured the \name in both micro- and macro-benchmarks (e.g., SPECINT, netperf and lmbench).
 
-\subsection{Experimental Setup}
-
-Our experimental platform is a LENOVO QiTianM4390 PC with Intel Core i5-3470 running at 3.20 GHz, four CPU cores available to the system. We enable the Intel VT-d feature in the BIOS menu, which supports queue-based invalidation interface in the granularity of page invalidation. Xen version 4.2.1 is used as the hypervisor while \emph{domain 0} uses the Ubuntu version 12.04 and kernel version 3.2.0. Besides, \emph{domain 0} configures its grub.conf to enable DMA address translation mode of IOMMU and to print log information to a serial port in debug mode.
+\subsection{Experiment Setup}
+Our experiment platform is a LENOVO QiTian M4390 PC with four Intel Cores i5-3470 running at 3.20 GHz. 
+We enable the Intel VT-d feature through BIOS and grub configuration file. The IOMMU on our platform supports queue-based invalidation interface in the granularity of page invalidation. 
+%Xen version 4.2.1 is used as the hypervisor while \emph{domain 0} uses the Ubuntu version 12.04 and kernel version 3.2.0. Besides, \emph{domain 0} configures its grub.conf to enable DMA address translation mode of IOMMU and to print log information to a serial port in debug mode.
 
 In the original design of Xen, page table (de)allocations will give rise to page type updates, upon which the function iotlb\_flush\_qi will be invoked to flush corresponding IOTLB entries. Thus, a global counter is placed into the function body to record invocation times of the function and then an average counter per minute is calculated as a frequency of IOTLB-flush. When the IOTLB-flush stays at zero level, it means that no page table is (de)allocated, indicating that no process creation/exit occurs then. In a nutshell, there exists a mutually positive effect between a process creation/exit and IOTLB-flush.
 
