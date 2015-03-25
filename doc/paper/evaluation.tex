@@ -15,7 +15,7 @@ We enable the Intel VT-d feature through BIOS and grub configuration file. The I
 In order to allow us to repeatedly measure the effects of the \name on 1) page table allocations and deallocations, and 2) the IOTLB flushes, we use a stress tool to explicitly emulate a heavy workload with many short-time concurrently-running processes.
 Specifically, the tool periodically launches a browser (i.e., Mozilla Firefox 31.0 in the experiment), continuously opens new tabs one by one, and terminates the browser gracefully.
 The purpose of these operations is to frequently create and terminate a large number of processes, leading to many page table allocations and deallocations.
-The frequency can be configured. In our experiment setting, there are $542$ process creations and exits per minute.
+The frequency can be configured. In our experiment setting, there are $542$ processes created and exited per minute.
 In order to avoid the browser occupying too much memory, we terminate it in every 5 minutes.
 At this moment, the memory usage of the browser reaches to $284.1$ MB on average.
 
@@ -35,7 +35,7 @@ On the contrary, the two control groups are: 1) the \prename group, where the \n
 \label{fig:iotlbflush}
 \end{figure}
 
-\mypara{Frequency of IOTLB Flushes}
+\subsubsection{Frequency of IOTLB Flushes}
 In this test, we aim to evaluate the effectiveness of the fine-grained validation on the addition IOTLB flushes.
 We sample the frequency of the IOTLB flushes in 30 minutes.
 The measurement results are illustrated in Figure~\ref{fig:iotlbflush}.
@@ -51,17 +51,17 @@ Thus, we can conclude that the fine-grained validation scheme is able efficientl
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{image/micro/PGDalloc.png}
-        \caption{Execution time of L1 allocation.}
-        \label{fig:subfig:a}
+        \caption{Execution time of L1 allocation is improved by 34\%.}
+        \label{fig:l1a}
     \end{subfigure}%
     ~
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{image/micro/PGDfree.png}
-        \caption{Execution time of L1 deallocation.}
-        \label{fig:subfig:b}
+        \caption{Execution time of L1 deallocation is improved by 47\%.}
+        \label{fig:l1b}
     \end{subfigure}
-    \caption{The time cost in the dyn-\name group is reduced quickly within two minutes to the low level as pre-\name group maintains. And the total execution time of both functions in the pre-\name group is reduced by xx\% compared to that of the baseline group.}
+    \caption{The execution time of L1 allocation and deallocation. The \name in the \dynname group can quickly enter the stable state in 2 minutes.}
     \label{fig:PGDtime}
 \end{figure*}
 
@@ -70,17 +70,17 @@ Thus, we can conclude that the fine-grained validation scheme is able efficientl
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{image/micro/PMDalloc.png}
-        \caption{Execution time of L2 allocation.}
-        \label{fig:subfig:a}
+        \caption{Execution time of L2 allocation is improved by 38\%.}
+        \label{fig:l2a}
     \end{subfigure}%
     ~
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{image/micro/PMDfree.png}
-        \caption{Execution time of L2 deallocation.}
-        \label{fig:subfig:b}
+        \caption{Execution time of L2 deallocation is improved by 22\%.}
+        \label{fig:l2b}
     \end{subfigure}
-    \caption{The trend of time cost in the dyn-\name group behaves like Figure~\cite{fig:PGDtime}. And the total execution time of both functions in the pre-\name group is reduced by xx\% compared to that of the baseline group.}
+    \caption{The execution time of L2 allocation and deallocation. The \name in the \dynname group can quickly enter the stable state in 2 minutes.}
     \label{fig:PMDtime}
 \end{figure*}
 
@@ -89,27 +89,44 @@ Thus, we can conclude that the fine-grained validation scheme is able efficientl
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{image/micro/PTEalloc.png}
-        \caption{Execution time of L3 allocation.}
-        \label{fig:subfig:a}
+        \caption{Execution time of L3 allocation is improved by 65\%.}
+        \label{fig:l3a}
     \end{subfigure}%
     ~
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{image/micro/PTEfree.png}
-        \caption{Execution time of L3 deallocation.}
-        \label{fig:subfig:b}
+        \caption{Execution time of L3 deallocation is improved by 65\%.}
+        \label{fig:l3b}
     \end{subfigure}
-    \caption{The trend of time cost in the dyn-\name group behaves like Figure~\ref{fig:PGDtime} and \ref{fig:PMDtime}. And the total execution time of both functions in the pre-\name group is reduced by xx\% compared to that of the baseline group.}
+    \caption{The execution time of L3 allocation and deallocation. The \name in the \dynname group can quickly enter the stable state in 2 minutes.}
     \label{fig:PTEtime}
 \end{figure*}
 
-\mypara{CPU Usage Measurement}
+\subsubsection{CPU Usage Measurement}
 €™As there are three levels of the guest page table, and each level has its (de)allocation functions, e.g., pgd\_alloc and pgd\_free for the L1 level. 
 In order to clearly observe the changes of the CPU usage, we measure them separately.
 We continuously measure them in 30 minutes, and calculate the average execution time of each function in each one minute. 
 Note that in the \dynname group, we enable the \name at 5 minute.
 
-As shown in Figure~\ref{fig:PGDtime}, \ref{fig:PMDtime}, and \ref{fig:PTEtime}, both allocation and deallocation functions in all levels of page table in the pre-\name group respectively consume 45\% less and 55\% less CPU time in nanoseconds on average, compared to that of the baseline group, indicating that \name has largely improved the performance of page table (de)allocations by maintaining a dedicated cache.
+
+As shown in Figure~\ref{fig:PGDtime}, \ref{fig:PMDtime}, and \ref{fig:PTEtime}, there are (34\%, 47\%), (38\%, 22\%) and (65\%, 65\%) improvements for a pair of allocation and deallocation for three-level page table, from top to bottom.
+%putting together
+Putting them together, the page table allocations and deallocation can be improved by 45\% and 55\% on average respectively.
+Note that the \name in the \dynname groups can achieve the same performance improvement as the one in the \prename group.
+The transitional stage to the stable state only needs less than 2 minutes, as illustrated in Figure~\ref{fig:PGDtime}, \ref{fig:PMDtime}, and \ref{fig:PTEtime}.
+
+\mypara{The Worst Case} 
+As mentioned before, the guest kernel firstly goes through the \cache to allocate page-table pages. If the cached semi-writable pages cannot satisfy the requirements (a.k.a, cache miss), the \cache would have to allocate writable pages using the existing memory allocators following the traditional paths,.
+During this period, the execution time is the traditional execution path plus the path in the \cache.
+As a result, the execution time of the page table allocation is even longer than the baseline (Figure~\ref{fig:overview}).
+However, the overhead in this condition is not big, due to the list is empty and the control flow will immediately return.
+In fact, the overhead is only on the extra function innovation, stack adjustment and the checking of the cache list and the page type.
+Putting them together, the overhead are less than 20 instructions.
+Fortunately, the worse case does not often occur. According to our observations in the \dynname group, the number of the worst cases is $348$, out of $198990$ allocation requests in 30 minutes.
+Note that the page-table deallocation is always successful, finishing in a constant time.
+
+%\zhi{In the pre-\name group, the probabilities of cache miss are 9/550 (1\% PGD), 38/2200(1\% PMD), 322/6633(4\% PTE),respectively. In the dyn-\name group, the probabilities of cache miss are 7/540 (1\% PGD), 24/2160(1\% PMD), 320/6333(5\% PTE),respectively.}
 
 %When cache is pre-enabled, the ratio between the total pages in cache and the total pages as page tables is approximately equal to 1:1, which indicates that the cache mechanism takes up a small memory percentage of the stress tool.
 \begin{table}[!ht]
@@ -117,14 +134,15 @@ As shown in Figure~\ref{fig:PGDtime}, \ref{fig:PMDtime}, and \ref{fig:PTEtime}, 
 \begin{center}
 \begin{tabular}{|l|l|l|}
 \hline
-{\textbf{Page-Table Type}} & {\textbf{Cache (Page \#)}} & {\textbf{Page Table (Page \#)}} \\ \hline
-PGD & $5$  & $4$ \\ \hline
-PMD & $26$ & $12$ \\ \hline
-PTE & $145$ & $177$ \\ \hline
+{\textbf{Levels of Page Table}} & {\textbf{Semi-writable Page (\#)}} & {\textbf{Page-Table Page (\#)}} \\ \hline
+L1 & $5$  & $4$ \\ \hline
+L2 & $26$ & $12$ \\ \hline
+L3 & $145$ & $177$ \\ \hline
 Total & $176$ & $193$ \\ \hline
 \end{tabular}
 \end{center}
-\caption{In the pre-\name group, the ratio between the total cached pages in cache and the page table pages is approximately equal to 1:1 just as expected. And the memory size of cached pages only takes up to 0.2\% of the tool's memory.}
+\caption{In the \prename group, the ratio between the total cached pages in cache and the page table pages is approximately 1:1. }
+%And the memory size of cached pages only takes up to 0.2\% of the tool's memory.
 \label{tab:prePGpool}
 \end{table}
 
@@ -133,23 +151,29 @@ Total & $176$ & $193$ \\ \hline
 \begin{center}
 \begin{tabular}{|l|l|l|}
 \hline
-{\textbf{Page-Table Type}} & {\textbf{Cache (Page \#)}} & {\textbf{Page Table (Page \#)}} \\ \hline
-PGD & $4$  & $2$ \\ \hline
-PMD & $20$ & $4$  \\ \hline
-PTE & $136$ & $182$ \\ \hline
+{\textbf{Levels of Page Table}} & {\textbf{Semi-writable Page (\#)}} & {\textbf{Page-Table Page (\#)}} \\ \hline
+L1 & $4$  & $2$ \\ \hline
+L2 & $20$ & $4$  \\ \hline
+L3 & $136$ & $182$ \\ \hline
 Total & $160$ & $188$ \\ \hline
 \end{tabular}
 \end{center}
-\caption{In the dyn-\name group, the ratio between the total cached pages in cache and the page table pages is approximately equal to 1:1 as expected. And the memory size of cached pages only takes up to 0.2\% of the tool's memory.}
+\caption{In the \dynname group, the ratio between the total cached pages in cache and the page table pages is approximately equal to 1:1 as expected. And the memory size of cached pages only takes up to 0.2\% of the tool's memory.}
 \label{tab:dynPGpool}
 \end{table}
 
-Besides CPU usage, \name is evaluated in the aspect of memory consumption. Cache size in the pre-\name group shown in Table \ref{tab:prePGpool} reaches only $176$ pages(i.e., ($176 * 4K$) $<$ $1$M) at most in the long time run, only 0.2\% percentage of the tool's memory (i.e., $284.1$ MB). Besides, memory size in Table \ref{tab:dynPGpool} shows that the dyn-\name group takes up is only $160$ pages at most, also a small percentage of the tool's memory. Both groups consume an insignificant memory usage and reach a satisfying tradeoff between CPU time and memory size. Also note that the conditions of freeing pages in cache in the dyn-\name group heavily rely on a specific scenario, which may not work for other situations. We will further discuss the conditions in future work.
+\subsubsection{Memory Usage Measurement}
+Besides CPU usage, we also measured the memory consumption of the \cache. 
+To clearly see the page usage in different levels, we measured the numbers of the semi-writable pages and the page-table pages in three levels. 
+The measurement results are listed in Table \ref{tab:prePGpool}.
+In the \prename group the \cache has $5$, $26$ and $145$ semi-writable pages ready for allocations, totally occupying memory $704KB$.
+In addition, it has already popped out $193$ page-table pages for serving 4 user processes. Roughly each process needs $48.25$ page-table pages.
+The conditions is quite similar In the \dynname group, where the cache has $160$ semi-writable pages ready for allocations, totally occupying memory $640KB$.
+In the both groups, the \cache consumes an insignificant memory usage, always less $1MB$. 
+%Also note that the conditions of freeing pages in cache in the dyn-\name group heavily rely on a specific scenario, which may not work for other situations. We will further discuss the conditions in future work.
 
 %And the reason why the dyn-\name group has fewer cached pages than that of the pre-\name group is that a certain number of page table pages has been freed to the memory allocator before the \name is enabled.
 
-\mypara{a worst case} As mentioned before, guest kernel firstly goes through \name cache to require enough semi-writable pages when page creations occur. If the cache cannot satisfy the requirements (a.k.a, cache miss), writable pages from the memory allocator will be allocated to corresponding process creations, and these pages will be validated by \name module. Since these pages are judged not to be semi-writable, Xen will enforce both software and DMA protections, which will produce the same number of IOTLB flushes as the baseline. As a result, the execution path of page table allocation in \name in this worst case is longer than that of the baseline. More precisely, \name executes four more instructions than the baseline, and they are two conditional statements, i.e., \name checks if the cache is NULL, \name checks whether the allocated page is semi-writable. Nevertheless, the worse case does not often occur in \name. According to our observations in the dyn-\name group, the probability of cache miss is only xx\% for the thirty minutes since \name is enabled, which indicates that \name performs much better than the baseline in the long-time run.
-\zhi{In the pre-\name group, the probabilities of cache miss are 9/550 (1\% PGD), 38/2200(1\% PMD), 322/6633(4\% PTE),respectively. In the dyn-\name group, the probabilities of cache miss are 7/540 (1\% PGD), 24/2160(1\% PMD), 320/6333(5\% PTE),respectively.}
 
 
 \subsection{Macro-Benchmarks}
