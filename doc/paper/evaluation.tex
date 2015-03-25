@@ -2,26 +2,27 @@
 We have implemented the prototype of \name on our experiment platform.
 Xen version 4.2.1 is the hypervisor while the guest VM is Ubuntu version 12.04 with Linux kernel version 3.2.0. 
 The \cache introduces $350$ SLoC in the Linux kernel and the \module adds $166$ SLoC in Xen.
-To fully evaluate the performance and its effects on the whole system, we measured the \name in both micro- and macro-benchmarks (e.g., SPECINT, netperf and lmbench).
+To fully evaluate the performance and its effects on the whole system, we measured the \name in both micro-benchamrks (e.g., the frequency of IOTLB flushes, the execution time of page table allocation) and macro-benchmarks (e.g., \emph{SPECINT}, \emph{netperf} and \emph{lmbench}).
 
-\subsection{Experiment Setup}
-Our experiment platform is a LENOVO QiTian M4390 PC with four Intel Cores i5-3470 running at 3.20 GHz. 
-We enable the Intel VT-d feature through BIOS and grub configuration file. The IOMMU on our platform supports queue-based invalidation interface in the granularity of page invalidation. 
-%Xen version 4.2.1 is used as the hypervisor while \emph{domain 0} uses the Ubuntu version 12.04 and kernel version 3.2.0. Besides, \emph{domain 0} configures its grub.conf to enable DMA address translation mode of IOMMU and to print log information to a serial port in debug mode.
+\subsection{Experiment Setting}
+The experiment platform is a LENOVO QiTian M4390 PC with four CPU (i.e., Intel Core i5-3470) running at 3.20 GHz. 
+We enable the Intel VT-d feature through BIOS and grub configuration file. The IOMMU supports queue-based invalidation interface in the granularity of page invalidation. 
 
-In the original design of Xen, page table (de)allocations will give rise to page type updates, upon which the function iotlb\_flush\_qi will be invoked to flush corresponding IOTLB entries. Thus, a global counter is placed into the function body to record invocation times of the function and then an average counter per minute is calculated as a frequency of IOTLB-flush. When the IOTLB-flush stays at zero level, it means that no page table is (de)allocated, indicating that no process creation/exit occurs then. In a nutshell, there exists a mutually positive effect between a process creation/exit and IOTLB-flush.
+%In the original design of Xen, page table (de)allocations will give rise to page type updates, upon which the function iotlb\_flush\_qi will be invoked to flush corresponding IOTLB entries. Thus, a global counter is placed into the function body to record invocation times of the function and then an average counter per minute is calculated as a frequency of IOTLB-flush. When the IOTLB-flush stays at zero level, it means that no page table is (de)allocated, indicating that no process creation/exit occurs then. In a nutshell, there exists a mutually positive effect between a process creation/exit and IOTLB-flush.
 
-Because of that, we define two different system states, classified by the frequency of IOTLB-flush.
+In order to allow us to repeatedly measure the effects of the \name on 1) page table allocations and deallocations, and 2) the IOTLB flushes, we use a stress tool to explicitly emulate a heavy workload with many short-time concurrently-running processes. 
+Specifically, the tool periodically launches a browser (i.e., Mozilla Firefox 31.0 in the experiment), continuously opens new tabs one by one, and terminates the browser gracefully.
+The purpose of these operations is to frequently create and terminate a large number of processes, leading to many page table allocations and deallocations.
+The frequency can be configured. In our experiment setting, there are $542$ process creations and exits per minute.
+In order to avoid the browser occupying too much memory, we terminate it in every 5 minutes.  
+At this moment, the memory usage of the browser reach to $284.1$ MB on average.
 
-\emph{idle state}: When the system boots up and logins into the graphical desktop, lots of system processes are created, causing many IOTLB flushes. But as time goes by, the frequency of IOTLB-flush reduces rapidly and stays stable to zero level ten minutes later, and we think that system starts to be in an \emph{idle state}, where no new process creation/exit does occur while existing system daemons are still running.
-
-\emph{busy state}: A stress tool emulating a concurrent-processes workload is developed to make the system become \emph{busy}. Specifically, the tool is busy periodically launching a default browser(e.g., Mozilla Firefox 31.0 in the experiment), opening new tabs one by one and then closing the browser gracefully in an infinite loop, so as to constantly create/terminate a large number of Firefox processes, thus giving rise to frequent page type updates of page tables. More specifically, one iteration of the loop costs five minutes and the frequencies of process creation and exit are $542.14$ times per minute and $542.07$ times per minute, respectively. Besides, the memory usage of the tool on an average iteration is $284.1$ MB. Please note that since the frequency of IOTLB-flush will become stable five minutes after the tool is launched, time period of one iteration is also set to that interval to achieve a stable frequency of IOTLB-flush.
-
-Both micro- and macro-benchmark kits are performed under the \emph{busy state}, in which micro tests are utilized to evaluate the frequency of IOTLB-flush, CPU usage and memory size while macro-benchmarks give an assessment on overall system performance.
+%Both micro- and macro-benchmark measurements are performed under this environment. in which micro tests are utilized to evaluate the frequency of IOTLB-flush, CPU usage and memory size while macro-benchmarks give an assessment on overall system performance.
 
 \subsection{Micro-Benchmarks}
 
 Micro-experiments are conducted in three groups. In a baseline group, the \emph{idle} system enters into the \emph{busy state} under Xen's original design. On the contrary, in a pre-\name group, \name is enabled before system becomes \emph{busy}. Besides, in another group of dyn-\name, \name is dynamically enabled (e.g., five minutes after the tool is invoked) so as to evaluate the performance of dyn-\name compared to the other groups.
+%micro tests are utilized to evaluate the frequency of IOTLB-flush, CPU usage and memory size
 
 \begin{figure}[ht]
 \centering
