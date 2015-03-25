@@ -177,31 +177,38 @@ In the both groups, the \cache consumes an insignificant memory usage, always le
 
 
 \subsection{Macro-Benchmarks}
-
-Macro-benchmarks are made use of to evaluate the effects of \name on overall system performance. Since dyn-\name group does apply in real cases, macro tests are conducted in two groups, i.e., a baseline group and a dyn-\name group.
+The purpose of the macro-benchmarks are to evaluate the effects of \name on the overall system. 
+All measurements are divided into two groups: 1) the baseline group with the default settings, and 2) the \name group with the \name enabled.
 
 \begin{figure}[htp]
 \centering
 %\includegraphics[scale=0.55]{image/iotlbflush.png} \\
 \includegraphics[width=0.4\textwidth]{image/macro/lmbench.png} \\
-\caption{The execution time of all processes in the dyn-\name group is reduced by 24\%, compared to that of the baseline group.}
+\caption{The execution time on average in the \name group is reduced by 11\%, 17\% and 21\%, from left to right.}
 \label{fig:lmbench}
 \end{figure}
 
-Lmbench is used to measure CPU time that processes cost (i.e., fork+exit, fork+execve, fork+/bin/sh -c), shown in Figure~\ref{fig:lmbench}. The configuration parameters are selected by default, except parameters of processor MHz, a range of memory and mail result, since CPU mhz of our test machine is $3.2$ GHz rather than the default one, memory range uses $1024$ MB to save time cost of one Lmbench-run and we need no results mailed. As can be seen from the figure, the processes of fork+exit, fork+execve and fork+/bin/sh -c in the dyn-\name group costs $344$, $365$, and $1567$ in microseconds, $11$\%, $17$\%, $21$\% fewer than that of the baseline group. Undoubtedly, \name has improved CPU performance.
+\subsubsection{Latency Improvements in Process Creations and Exits}
+Lmbench is the macro-benchmark tool for measuring the latency of the process creations and exits (i.e., fork+exit, fork+execve, fork+/bin/sh -c), shown in Figure~\ref{fig:lmbench}. 
+The Lmbench are configured using the default parameters, except for the parameters of processor MHz and memory range.
+In our experiment platform, the CPU frequency is $3.2$ GHz, memory range is set as $1024$ MB to save measurement time. 
+As illustrated in Figure~\ref{fig:lmbench}, the processes of \emph{fork+exit}, \emph{fork+execve} and \emph{fork+/bin/sh -c} in the \name group costs $344$, $365$, and $1567$ in microseconds, $11$\%, $17$\%, $21$\% faster than the ones in the baseline group. 
+We believe this improvement will significantly benefit the workloads that rely on many short-time temporary processes.
 
 \begin{figure}[htp]
 \centering
 %\includegraphics[scale=0.55]{image/iotlbflush.png} \\
 \includegraphics[width=0.5\textwidth]{image/macro/spec.png} \\
-\caption{the maximum difference among all the benchmarks is within 0.42\%, indicating that system performance produced by \name is almost the same as the baseline.}
+\caption{The differences among all the benchmarks are within 0.42\%, indicating that the \name has no negative effect on system performance.}
 \label{fig:spec}
 \end{figure}
 
-SPEC CINT2006 [12] is an industrystandard
-benchmark intended for measuring the performance of the CPU and
-memory.
-SPECint\_2006v1.2 has $12$ benchmarks in total and they are all invoked with EXAMPLE-linux64-ia32-gcc43+.cfg for integer computation, results of which produce Figure~\ref{fig:spec}. Among the benchmarks, the time costs between the two groups vary little and the maximum difference is within 0.42\%, which is produced by the 483.xalancbmk. In the dyn-\name group it costs $239$ seconds, 0.42\% fewer than that of the baseline group, which poses . Thus, the little difference between the two groups indicates that \name does not impose any bad effect on system performance.
+\subsubsection{SPECINT}
+SPEC CINT2006~\cite{specint} is an industry standard benchmark intended for measuring the performance of the CPU and memory.
+In our experiment, the tool version is SPECint 2006 v1.2, which has $12$ benchmarks in total and they are all invoked with the configuration file \emph{linux64-ia32-gcc43+.cfg}.
+All measurement results are list in Figure~\ref{fig:spec}. 
+Among the benchmarks, the time differences between the baseline group and the \name group are very small, e.g., the maximum difference is within 0.42\%, which is produced by the \emph{483.xalancbmk}.  
+All of them produce the same or a little better performance results, indicating the \name has no negative effect on system performance.
 
 
 
