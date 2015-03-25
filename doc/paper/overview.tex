@@ -32,7 +32,7 @@ It performs (1) the page table validations that validate the page table contents
 In the original validation scheme, the DMA validations always triggers the additional IOTLB flushes due to the access permission updates between the writable pages and the page-table pages.
 In the fine-grained validation scheme, both semi-writable pages and page-table pages are non-writable for DMA requests.
 Thus, the hypervisor never needs to do the IOTLB flushes or IOMMU page table updates, which will benefit the I/O performance of the peripheral devices.
-Moreover, it also save the time of the whole security validation, reducing the execution time of the page table allocations and deallocations.
+Moreover, it also saves the time of the whole security validation, reducing the execution time of the page table allocations and deallocations.
 
 \subsection{Fine-Grained Validation}\label{sec:fine-grained}
 %To reduce the number of the IOTLB flushes, a possible approach is to let the hypervisor to manage the page table in its own space.
@@ -40,11 +40,11 @@ Moreover, it also save the time of the whole security validation, reducing the e
 %Another possible approach is to do the IOTLB flushing in a batch, meaning flushing multiple IOTLB entries all in one, instead of flushing them one after another.
 %This approach is able to retain the system security, but it could not eliminate the IOTLB flushes, only reducing the number of IOTLB flushes in a certain level.
 %In addition, this approach may result in security loopholes as the IOTLB entries are not synchronized with the corresponding IOMMU page table slots.
-The fine-grained validation scheme aims to eliminate the additional IOTLB flushes and reduce the total time of the security validations.
-Specifically, in the traditional security validation scheme, there are only two general page types: writable page and non-writable page, 
+The fine-grained validation scheme aims to eliminate the additional IOTLB flushes and reduces the total time of the security validations.
+Specifically, in the traditional security validation scheme, there are only two general page types: writable page and non-writable page,
 and the type updates between them are required to do both page table validations and DMA validations.
 The DMA validations not only increase the total validation time, but also introduce numerous additional IOTLB flushes, which are likely to reduce the I/O performance of all related peripheral devices.
-Moreover, the additional IOTLB flushes cannot be skipped, because it would provide a time gap for the adversary to attack the hypervisor by leveraging the stale IOTLB entries. 
+Moreover, the additional IOTLB flushes cannot be skipped, because it would provide a time gap for the adversary to attack the hypervisor by leveraging the stale IOTLB entries.
 %1) bad impacts of original coarse-grained validation scheme 1) additional IOTLB flushes, and 2) long validation process
 
 %2) How to do the fine-grained validation 1) semi-writable page 2) new page type updates 3) why save time and eliminate IOTLB flushes
@@ -59,7 +59,7 @@ As a consequence, the time of the whole security validation process is also redu
 
 \subsection{\name Module}\label{sec:module}
 The \module works in the hypervisor space, extended from the original coarse-gained validation module.
-The first task of the \module is to trace the page type. 
+The first task of the \module is to trace the page type.
 Instead of adding a new data structure for tracing the semi-writable pages, the \module chooses to reuse the existing ones.
 By extending the existing page-type data structure, the \module adds a new bit for \emph{semi-writable page}.
 By doing so, the \module could reuse all existing interfaces.
@@ -79,8 +79,8 @@ Without the page oriented \cache, the kernel will spend much of its time allocat
 The slab allocator that is similar to the \cache is not used in our settings, due to the following reasons.
 First, it violates one of security requirements of the page-table pages enforced by the hypervisor.
 In particular, the type count should be zero when a page is updated among the writable page, the semi-writable page and the page-table page.
-However, the pages in the slab allocator are not always satisfy this restriction, leading to the exceptional crashes.
-Second, the existing size-oriented management does not distinguish the page-table page with other pages that have the same size, and we believe the customization of this management mechanism would need lots of development costs, such as interface updates, internal data structure updates.
+However, the pages in the slab allocator do not always satisfy this restriction, leading to the exceptional crashes.
+Second, the existing size-oriented management does not distinguish the page-table page from other pages that have the same size, and we believe that the customization of this management mechanism would need lots of development costs, such as interface updates, internal data structure updates.
 In addition, the related components that rely on the slab allocators may also be affected.
 At last, adding the fine-grained validation mechanism only for one object (i.e., page-table page) will subvert the generality of the slab allocator.
 Considering the above three reasons, we give up reusing the existing slab allocator and aim to build a dedicated one, called \cache, for page table allocation and deallocation.

@@ -1,21 +1,22 @@
 \section{Evaluation} \label{sec:eva}
 We have implemented the prototype of \name on our experiment platform.
-Xen version 4.2.1 is the hypervisor while the guest VM is Ubuntu version 12.04 with Linux kernel version 3.2.0. 
-The \cache introduces $350$ SLoC in the Linux kernel and the \module adds $166$ SLoC in Xen.
+Xen version 4.2.1 is the hypervisor while the guest VM is Ubuntu version 12.04 with Linux kernel version 3.2.0.
+%The \cache introduces $350$ SLoC in the Linux kernel and the \module adds $166$ SLoC in Xen.
+\name added or changed $350$ SLoC in the Linux kernel and $166$ SLoC in Xen, respectively. 
 To fully evaluate the performance and its effects on the whole system, we measured the \name in both micro-benchamrks (e.g., the frequency of IOTLB flushes, the execution time of page table allocation) and macro-benchmarks (e.g., \emph{SPECINT}, \emph{netperf} and \emph{lmbench}).
 
 \subsection{Experiment Setting}
-The experiment platform is a LENOVO QiTian M4390 PC with four CPU (i.e., Intel Core i5-3470) running at 3.20 GHz. 
-We enable the Intel VT-d feature through BIOS and grub configuration file. The IOMMU supports queue-based invalidation interface in the granularity of page invalidation. 
+The experiment platform is a LENOVO QiTian M4390 PC with four CPU cores (i.e., Intel Core i5-3470) running at 3.20 GHz.
+We enable the Intel VT-d feature through BIOS and grub configuration file. The IOMMU supports queue-based invalidation interface in the granularity of page invalidation.
 
 %In the original design of Xen, page table (de)allocations will give rise to page type updates, upon which the function iotlb\_flush\_qi will be invoked to flush corresponding IOTLB entries. Thus, a global counter is placed into the function body to record invocation times of the function and then an average counter per minute is calculated as a frequency of IOTLB-flush. When the IOTLB-flush stays at zero level, it means that no page table is (de)allocated, indicating that no process creation/exit occurs then. In a nutshell, there exists a mutually positive effect between a process creation/exit and IOTLB-flush.
 
-In order to allow us to repeatedly measure the effects of the \name on 1) page table allocations and deallocations, and 2) the IOTLB flushes, we use a stress tool to explicitly emulate a heavy workload with many short-time concurrently-running processes. 
+In order to allow us to repeatedly measure the effects of the \name on 1) page table allocations and deallocations, and 2) the IOTLB flushes, we use a stress tool to explicitly emulate a heavy workload with many short-time concurrently-running processes.
 Specifically, the tool periodically launches a browser (i.e., Mozilla Firefox 31.0 in the experiment), continuously opens new tabs one by one, and terminates the browser gracefully.
 The purpose of these operations is to frequently create and terminate a large number of processes, leading to many page table allocations and deallocations.
 The frequency can be configured. In our experiment setting, there are $542$ process creations and exits per minute.
-In order to avoid the browser occupying too much memory, we terminate it in every 5 minutes.  
-At this moment, the memory usage of the browser reach to $284.1$ MB on average.
+In order to avoid the browser occupying too much memory, we terminate it in every 5 minutes.
+At this moment, the memory usage of the browser reaches to $284.1$ MB on average.
 
 %Both micro- and macro-benchmark measurements are performed under this environment. in which micro tests are utilized to evaluate the frequency of IOTLB-flush, CPU usage and memory size while macro-benchmarks give an assessment on overall system performance.
 

@@ -17,9 +17,9 @@ The slab allocator~\cite{slaballocator} consists of a variable number of caches 
 Each cache maintains blocks of contiguous pages in memory called slabs, which are carved up into small chunks for the data structures and objects.
 When \emph{kmalloc} is called, all it does is searching through the prepared caches.
 If there is no suitable object, the buddy allocator will be involved.
-The Buddy allocator~\cite{buddyallocator} manages all free pages that are allocated in blocks with the sizes of powers of 2.
-When the allocation function is invoked, it first searches for blocks of pages of the size requested following the chain.
-If no blocks of the requested size are free, blocks of the next size (which is twice that of the size requested) are looked for.
+The Buddy allocator~\cite{buddyallocator} manages all free pages that are managed in blocks as a power of 2.
+When the allocation function is invoked, it first searches the blocks of pages of the requested size following the chain.
+If no blocks of the requested size are free, the allocator will blocks of the next size (which is twice that of the requested size) are looked for.
 This process continues until all of the free area has been searched or until a block of pages has been found.
 
 In contrast to the page allocation, the page deallocation is to return the page back to the system.
