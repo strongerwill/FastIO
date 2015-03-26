@@ -209,7 +209,7 @@ The measurement results are listed in Table~\ref{tab:netperf}.
 By comparing both values of $\mu$ and $\sigma$, we find that there is no detectable improments on the network I/O.
 
 Similarly, we also test the disk I/O using \emph{lmbench}. The results indicate that the disk I/O speed remains the same.
-The above two experiments also as new evidences to support the observations in ~\cite{amit2012iommu, malka2015riommu}.
+The above two experiments as new evidences support the observations in ~\cite{amit2012iommu, malka2015riommu}.
 
 \begin{table}[!ht]
 \footnotesize
@@ -226,13 +226,7 @@ Standard Deviation ($\sigma$) &  $0.028$ & $0.021$ \\ \hline
 \label{tab:netperf}
 \end{table}
 
-To evaluate the benefits of the \name on the IOTLB miss reduction, we need a extremely high-speed I/O device, like the one in Intel's I/O Acceleration Technology~\cite{lauritzenintel}.
-In fact, in rIOMMU project, the authors has established a high-performance setting with the ibverbs library~\cite{ibverbsevaluation,kerr2011dissecting} to measure the cost of one IOTLB miss.
-The experiments results indicate that the DMA-copy speed is largely reduced by the IOTLB misses.
-
-In fact, it is suggested that the overhead introduced by the IOTLB misses can be measured by using a high-speed I/O device (i.e., Intel's I/O Acceleration Technology~\cite{lauritzenintel}) so as to do DMA copy operations in a pseudo pass-through mode of IOMMU~\cite{amit2012iommu}. The experiment results indicate that DMA-copy speed is largely reduced by the IOTLB misses.
-Moshe et al. use rIOMMU with ibverbs library~\cite{ibverbsevaluation,kerr2011dissecting} to establish a high-performance setting in order to measure the cost of one IOTLB miss.
-
+In fact, the effects of the IOTLB misses are measurable, but it relies on the extremely high-speed I/O device, e.g., the one in Intel's I/O Acceleration Technology~\cite{lauritzenintel}, or the newly designed IOMMU, e.g., rIOMMU project~\cite{malka2015riommu} establishes a high-performance setting with the newly designed IOMMU and the ibverbs library~\cite{ibverbsevaluation,kerr2011dissecting}.
 We believe that the \name can effectively reduce the overhead in the above high-speed settings, and we also plan to conduct experiments in the future.
 %However, currently we do not have a machine with the Intel I/O acceleration technology. Thus, we have to postpone this experiment. 
 
