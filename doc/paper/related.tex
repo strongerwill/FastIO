@@ -24,13 +24,14 @@
 %introduce
 %In our work, we focus on the paravirtual page table (de)allocations as well as their impacts on the IOTLB performance. The related work will be introduced from the two aspects as follows.
 \mypara{Guest Page Table Protection}
-In paravirtualization, the hypervisor and guest OS are sharing the same virtual space.
-As a result, the guest page table becomes the security critical data structure.
+%In paravirtualization, the hypervisor and guest OS are sharing the same virtual space.
+%As a result, the guest page table becomes the security critical data structure.
+In paravirtualization, the guest page table becomes the security critical data structure.
 To protect the integrity of the page table and allow legitimate updates, Xen~\cite{barham2003xen} sets the guest page table as read-only and validates every update of guest page tables so as to prevent any malicious access.
 However, the protected guest page table is still writable for DMA requests~\cite{disaggregation,adams2006comparison}.
 To fix this gap, the hypervisor has to enable the I/O virtualization (AMD-Vi~\cite{amdvt} or Intel VT-d~\cite{intelvt}) technology, preventing any DMA access on the guest page table.
-In this paper, we aim to improve the performance in the page table management, without downgrading the security guarantee.
-%In addition, there are many other approaches~\cite{wang2010hypersafe,hypersentry} to further enhance the security of the hypervisor.
+In this paper, we do not break or downgrade the page-table base security, instead we keep its security and accelerate the performance in the page table management.
+
 
 \mypara{IOTLB Misses Reduction}
 There are some existing approaches~\cite{amit2012iommu, malka2015riommu, willmann2008protection} analyzing and reducing the negative effects of the IOTLB misses.
@@ -43,9 +44,9 @@ Different from the previous approaches that attempt to reduce the overall IOTLB 
 There are many schemes trying to improve the I/O performance in different directions.
 The approaches~\cite{menon2006optimizing,4734994,santos2008bridging} aim to improve the network throughput by optimizing the paravirtual I/O model on network.
 In CDNA~\cite{cdna}, the authors propose a method for concurrent and direct network access for virtual machines.
-Ongaro et al.~\cite{ongaro2008scheduling} study the impacts of guest scheduling on guest I/O performance by concurrently running different combinations of processor-intensive, bandwidth-intensive and latency-sensitive workloads. The approaches in~\cite{gordon2012towards,har2013efficient} attempt to reduce VM exits. The studies in~\cite{liao2008software,liu2009virtualization,shalev2010isostack,landau2011splitx,xu2013vturbo} accelerate I/O performance by  designating cores to specific uses.
+Ongaro et al.~\cite{ongaro2008scheduling} study the impacts of guest scheduling on guest I/O performance by concurrently running different combinations of processor-intensive, bandwidth-intensive and latency-sensitive workloads. The approaches in~\cite{gordon2012towards,har2013efficient} attempt to reduce the number of VM exits. The studies in~\cite{liao2008software,liu2009virtualization,shalev2010isostack,landau2011splitx,xu2013vturbo} accelerate I/O performance by  designating cores to specific uses.
 %For instance, vTurbo~\cite{xu2013vturbo} facilitates I/O processing for virtual machines by offloading the processing to a designated core with a smaller time-slice than usual.
-Several studies, like ELI~\cite{eli} and vIC~\cite{vic} attempt to reduce the aforementioned extra overhead of I/O interrupts in virtual environments.
+Several studies, like ELI~\cite{eli} and vIC~\cite{vic} attempt to reduce the overhead of I/O interrupts in virtual environments.
 
 
 %\emph{Direct I/O}
