@@ -1,9 +1,8 @@
 \section{Conclusion} \label{sec:con}
 The paravirtual guest OS has two important performance issues in page table management : 1) the long execution paths of page table (de)allocations and 2) the additional IOTLB flushes introduced by the DMA validations.
 In this paper, we proposed the \name system to address the above problems.
-Specifically, we introduced a fine-grained validation scheme, which successfully eliminated all additional IOTLB flushes, benefiting the DMA address translation process.
-We also shortened the execution paths of the page table allocations and deallocations by introducing the \cache, which could quickly response to the page table allocation and deallocation requests.
-In addition, the fine-grained validation scheme also saved the time for the DMA validations, which further reduced the execution paths.
+We shortened the execution paths of the page table allocations and deallocations by introducing the \cache, which could quickly response to the page table allocation and deallocation requests.
+We introduced a fine-grained validation scheme, which successfully eliminated all additional IOTLB flushes and saved the time for the DMA validations, which further reduced the execution paths.
 We implemented a prototype of the \name and fully evaluated its performance in miroc- and macro-benchmarks.
 The micro experiment results indicated that \name could \emph{completely eliminate} the additional IOTLB flushes in the most cases, and effectively reduced (de)allocation time of the page table by 47\% on average.
 The macro benchmarks showed that the latencies of the process creations and exits were expectedly reduced by 16\% on average.
