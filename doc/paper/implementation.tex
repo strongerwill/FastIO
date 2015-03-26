@@ -10,12 +10,12 @@ In this section, we present the implementation details of the \module and the \c
 \end{figure}
 The first main task of the \module is to extend the existing data structure to support semi-writable page.
 As illustrated in Figure~\ref{fig:field-of-page-type-info}, the data structure for labelling page types occupies 32bits, i.e., bits 28 - 31 are allocated for page type, bits 23 - 27 is for others (e.g., bit 26 indicate if this page has been validated), and bits 0 - 22 are for reference count of page type.
-The existing page types have occupied all page type bits, and there is no extra bit for semi-writable page.
+The existing page types have occupied all page type bits, and there is no extra bit available for semi-writable page.
 Facing this problem, we do not choose to introduce new data structures, as it would increase the management complexity and result in many modifications of all related management functions.
 Instead, we choose to borrow a bit from \emph{reference count}.
 In particular, the \emph{reference count} field has 23 bits, recording the number of type references for a page as its current type.
 %presenting how many references on a page.
-In fact, the system usually does not build so many references (i.e., $2^{23}-1$) on one page. Thus, we borrow the highest bit (bit 22) as the semi-page table bit (as illustrated in Figure~\ref{fig:field-of-semi-type}).
+In fact, the system usually does not build so many references (i.e., $2^{23}-1$) to one page. Thus, we borrow the highest bit (bit 22) as the semi-page table bit (as illustrated in Figure~\ref{fig:field-of-semi-type}).
 As a consequence, it still supports more than 4 million reference counts, enough for almost all cases.
 Actually, the hypervisor with \name is functioning well in our experiments.
 
@@ -41,10 +41,11 @@ As the page table allocations and deallocations could happen at any time on any 
 %interfaces
 The \cache has two interfaces for the runtime page table allocations and deallocations.
 The \emph{pop} interface is for the page table allocations.
-When this interface is invoked, the \cache will fetch the top node of the corresponding list, extract the base address of the cached page, and then returns it to the caller.
+When this interface is invoked, the \cache fetches the top node of the corresponding list, extracts the base address of the cached page, and then returns it to the caller.
 Correspondingly, the \emph{push} interface is serving the page table deallocations.
 In the \emph{push} interface, the \cache saves the base address of the deallocated page into a node, and inserts it onto the top of the list.
-Obviously, the \emph{pop} and \emph{push} interfaces are extremely fast as they could response to the allocation and deallocation requests in a constant time.
+Obviously, the \emph{pop} and \emph{push} interfaces are extremely fast as they could response the requests in a constant time.
+In addition, the \cache also exports an interface for the memory management daemon for explicitly shrinking the cached pages. 
 
 %provide interfaces for end user
 The \cache also adds several virtual files in \emph{sysfs}~\cite{love2004linux,mochel2005sysfs} that is a virtual file system provided by the Linux kernel.
@@ -56,8 +57,8 @@ For instance, the end user could explicitly ask the \cache to release all the ca
 % handle cache shrinking and page type update
 The \cache mediates all page type updates related to the semi-writable pages.
 For each page type update, the \cache would issue the hypercall exported by the \module to explicitly inform the hypervisor to perform security validations.
-In certain cases, such as shrinking the cached semi-writable pages to writable pages, the \cache could submit a batch of requests through the hypercall.
-In such cases, the hypervisor would update the I/O page tables as well as flush IOTLBs in one time, saving time for the cache shrinking.
+In certain cases, such as shrinking the cached semi-writable pages to writable pages, the \cache could submit a batch of requests in one hypercall.
+In such case, the hypervisor would update the I/O page tables as well as flush IOTLBs in one time, saving time of the cache shrinking.
 
 % shrinking parameters
 
