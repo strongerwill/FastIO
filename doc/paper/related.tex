@@ -27,15 +27,15 @@
 %In paravirtualization, the hypervisor and guest OS are sharing the same virtual space.
 %As a result, the guest page table becomes the security critical data structure.
 In paravirtualization, the guest page table becomes the security critical data structure.
-To protect the integrity of the page table and allow legitimate updates, Xen~\cite{barham2003xen} sets the guest page table as read-only and validates every update of guest page tables so as to prevent any malicious access.
+To protect the integrity of the page table and allow legitimate updates, Xen~\cite{barham2003xen} sets the guest page table read-only and validates every update of guest page tables so as to prevent any malicious access.
 However, the protected guest page table is still writable for DMA requests~\cite{disaggregation,adams2006comparison}.
-To fix this gap, the hypervisor has to enable the I/O virtualization (AMD-Vi~\cite{amdvt} or Intel VT-d~\cite{intelvt}) technology, preventing any DMA access on the guest page table.
-In this paper, we do not break or downgrade the page-table base security, instead we keep its security and accelerate the performance in the page table management.
+To fix this gap, the hypervisor has to enable the I/O virtualization (AMD-Vi~\cite{amdvt} or Intel VT-d~\cite{intelvt}) technology, preventing any DMA access to the guest page table.
+In this paper, we do not break or downgrade the page-table based security, instead we keep its security and accelerate the performance in the page table management.
 
 
 \mypara{IOTLB Misses Reduction}
-There are some existing approaches~\cite{amit2012iommu, malka2015riommu, willmann2008protection} analyzing and reducing the negative effects of the IOTLB misses.
-Amit et al.~\cite{amit2012iommu} firstly analyze the role of the IOTLB in DMA operations and quantifies the performance overhead of IOTLB misses. Then they present new strategies of both software and hardware enhancements to reduce IOTLB miss rate in order to facilitate DMA address translation. rIOMMU~\cite{malka2015riommu} re-designs the architecture of IOMMU to achieve high performance in DMA transactions, during which the IOTLB misses are also largely reduced. Willmann et al.~\cite{willmann2008protection} proposes new strategies for Xen to re-configure the addressing mode of IOMMU, resulting in fewer IOTLB misses.
+There are some existing approaches~\cite{amit2012iommu, malka2015riommu, willmann2008protection} analyzing and reducing the negative effects due to the IOTLB misses.
+Amit et al.~\cite{amit2012iommu} firstly analyze the role of the IOTLB in DMA operations and quantify the performance overhead of IOTLB misses. Then they present new strategies of both software and hardware enhancements to reduce IOTLB miss rate in order to facilitate DMA address translation. rIOMMU~\cite{malka2015riommu} re-designs the architecture of IOMMU to achieve high performance in DMA transactions, during which the IOTLB misses are also largely reduced. Willmann et al.~\cite{willmann2008protection} proposes new strategies for Xen to re-configure the addressing mode of IOMMU, resulting in fewer IOTLB misses.
 Different from the previous approaches that attempt to reduce the overall IOTLB misses, our approach mainly focuses on eliminating the additional IOTLB misses introduced by the security validations (i.e., the DMA validation) during the guest page table allocations and deallocations.
 
 \mypara{Other I/O Performance Improvements}

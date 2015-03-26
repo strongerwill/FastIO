@@ -4,10 +4,10 @@
 \subsection{IOTLB Misses}
 According to IOMMU specification~\cite{intelvt, amdvt}, a typical IOMMU is able to provide three types of IOTLB invalidation schemes, i.e., global invalidation, domain-selective invalidation, page-selective invalidation, which differ in granularity.
 Specifically, the global invalidation will always invalidate all IOTLB entries as a whole.
-The domain-selective invalidation only invalidates the selected VM domain's IOTLBs, whose performance is a little better than the global invalidation.
+The domain-selective invalidation only invalidates the selected VM domain's IOTLBs, whose performance is better than that of the global invalidation.
 The page-selective invalidation that only invalidates the corresponding IOTLB entry could achieve the best performance, compared to the previous two schemes.
 
-If the IOMMU is configured to do the global or domain-selective invalidation, an IOTLB flush will invalidate all related IOTLB entries, inevitably resulting in multiple IOTLB misses for the DMA address translations. However, if the IOMMU is working with the page-selective invalidation scheme, one IOTLB flush will only invalidate one IOTLB entry, which may not be used immediately, which means that the current DMA request may not be affected, but the invalidation will badly affect DMA transfers in the near future .
+If the IOMMU is configured to do the global or domain-selective invalidation, an IOTLB flush will invalidate all IOTLB entries for at lease one domain, inevitably resulting in IOTLB misses for DMA address translations of the domain. However, if the IOMMU is working with the page-selective invalidation scheme, one IOTLB flush will only invalidate one IOTLB entry that may not be used immediately, which means that the current DMA request may not be affected, but the invalidation will badly affect DMA transfers in the near future .
 %Currently, we do not evaluate the relationship between the IOTLB flushes and IOTLB misses in the page selective invalidation scheme, and we plan to put it into the future work.
 
 \subsection{Threshold for \name Cache Shrinking}
@@ -18,12 +18,12 @@ An interesting solution is to upgrade the \cache to allow itself to be aware of 
 It is not that easy to propose the self-adaption algorithm as there are many factors affecting the workload in a real system.
 Another practical solution is to run a training tool in the guest kernel to calculate the number and the proportion of the needed semi-writable pages and the page table pages.
 However, this approach requires that the workload is relatively stable, otherwise the end user has to do the training over and over again.
-Fortunately, if the workload is updated in a regular way and the update pattern is known to the end user, the end user could have a shell script that automatically updates the threshold using the exported virtual file.
+Fortunately, if the workload is updated in a regular way and the update pattern is known to the end user, the end user could use a shell script to automatically update the threshold with the help of the exported virtual files.
 
 %When users dynamically enable the cache for the application, the algorithm is also invoked to record the memory usage by scanning and then determine the proportion between them. If IOTLB-flush occurs during the period, increase the cache size. If the cache exceeds a particular percentage of , it is not supposed to be any higher even if IOTLB still flushes.
 
 \subsection{\name Cache on the Bare-metal OS}
-We believe that the design of the \cache could benefit the page table allocations and deallocation on the bare-metal OSes that work directly on hardware.
+We believe that the design of the \cache could benefit the page table allocations and deallocations on the bare-metal OSes that work directly on hardware.
 The usage pattern of the page table pages in paravirtual environment is similar if not the same to the one on the bare-metal OS.
 Based on this feature, the deallocated page table pages are likely to be used in the near future by newly created processes.
 By caching the deallocated page-table pages, the \cache could quickly response to the upcoming allocation requests, without the need to invoke the system allocators every time.
