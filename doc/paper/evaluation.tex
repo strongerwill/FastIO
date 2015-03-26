@@ -2,8 +2,8 @@
 We have implemented the prototype of \name on our experiment platform.
 Xen version 4.2.1 is the hypervisor while the guest VM (i.e., Dom0) is Ubuntu version 12.04 with Linux kernel version 3.2.0.
 %The \cache introduces $350$ SLoC in the Linux kernel and the \module adds $166$ SLoC in Xen.
-\name added or changed $350$ SLoC in the Linux kernel and $166$ SLoC in Xen, respectively.
-To fully evaluate the performance and its effects on the whole system, we measured the \name in both micro-benchamrks (e.g., the frequency of IOTLB flushes, the execution time of page table allocation) and macro-benchmarks (e.g., \emph{SPECINT}, \emph{netperf} and \emph{lmbench}).
+The \name added or changed $350$ SLoC in the Linux kernel and $166$ SLoC in Xen.
+To fully evaluate the performance and its effects on the whole system, we measured the \name in both micro-benchamrks (e.g., the frequency of IOTLB flushes, the execution time of page table (de)allocations, and the memory usage of the \cache) and macro-benchmarks (e.g., \emph{SPECINT}, \emph{netperf} and \emph{lmbench}).
 
 \subsection{Experiment Setting}
 The experiment platform is a LENOVO QiTian M4390 PC with four CPU cores (i.e., Intel Core i5-3470) running at 3.20 GHz.
@@ -22,10 +22,10 @@ At this moment, the memory usage of the browser reaches to $284.1$ MB on average
 %Both micro- and macro-benchmark measurements are performed under this environment. in which micro tests are utilized to evaluate the frequency of IOTLB-flush, CPU usage and memory size while macro-benchmarks give an assessment on overall system performance.
 
 \subsection{Micro-Benchmarks}
-The micro-benchmark measurements are to evaluate the frequency of the IOTLB flushes, as well as the CPU usage and the memory usage of the \name.
+The micro-benchmark measurements are to evaluate the frequency of the IOTLB flushes, as well as the execution time of the page table (de)allocations and the memory usage of the \cache.
 For each measurement, there are two control groups and one baseline/normal group.
 In the baseline group, we run the workload emulation in the guest VM with default settings, without enabling the \name mechanism.
-On the contrary, the two control groups are: 1) the \prename group, where the \name is enabled before the workload emulation starts and 2) the \dynname group, where the \name is dynamically enabled (e.g., five minutes after the workload emulation launches). The \dynname group is to evaluate if 1) the \name is able to enter a stable state as the \prename group, and 2) how fast the \name is able to enter the stable state.
+On the contrary, the two control groups are: 1) the \prename group, where the \name is enabled before the workload emulation starts, and 2) the \dynname group, where the \name is dynamically enabled (e.g., five minutes after the workload emulation launches). The \dynname group is to evaluate if 1) the \name is able to enter a stable state as the \prename group, and 2) how fast the \name is able to enter the stable state.
 
 \begin{figure}[ht]
 \centering
@@ -39,8 +39,8 @@ On the contrary, the two control groups are: 1) the \prename group, where the \n
 In this test, we aim to evaluate the effectiveness of the fine-grained validation on the addition IOTLB flushes.
 We sample the frequency of the IOTLB flushes in 30 minutes.
 The measurement results are illustrated in Figure~\ref{fig:iotlbflush}.
-In the baseline group, the frequency of the IOTLB flushes is increasing in the first five minutes, and then keeps at a high flush rate until the test finishes.
-In the \prename group, the flush frequency quickly decreases to zero level in about one minute and keeps at the level.
+In the baseline group, the frequency of the IOTLB flushes is increasing in the first five minutes, and then keeps at a high flush rate (i.e., 9050 flushes per minute) until the test finishes.
+In the \prename group, the flush frequency quickly decreases from a low level (i.e., 332 flushes per minute) to zero level in about one minute and keeps at the level.
 In the \dynname group, the flush frequency sharply decreases to zero when the \name is enabled. The \name roughly spends two minutes entering the stable state.
 Thus, we can conclude that the fine-grained validation scheme is able to efficiently and effectively eliminate the IOTLB flushes introduced by the DMA validations.
 
@@ -61,7 +61,7 @@ Thus, we can conclude that the fine-grained validation scheme is able to efficie
         \caption{Execution time of L1 deallocation is reduced by 47\%.}
         \label{fig:l1b}
     \end{subfigure}
-    \caption{The execution time of L1 allocation and deallocation. The \name in the \dynname group can quickly enter the stable state in 2 minutes.}
+    \caption{The execution time of L1 (i.e., the top level) allocation and deallocation. The \name in the \dynname group can quickly enter the stable state in 2 minutes.}
     \label{fig:PGDtime}
 \end{figure*}
 
@@ -99,29 +99,31 @@ Thus, we can conclude that the fine-grained validation scheme is able to efficie
         \caption{Execution time of L3 deallocation is reduced by 65\%.}
         \label{fig:l3b}
     \end{subfigure}
-    \caption{The execution time of L3 allocation and deallocation. The \name in the \dynname group can quickly enter the stable state in 2 minutes.}
+    \caption{The execution time of L3 (i.e., the bottom level) allocation and deallocation. The \name in the \dynname group can quickly enter the stable state in 2 minutes.}
     \label{fig:PTEtime}
 \end{figure*}
 
-\subsubsection{CPU Usage Measurement}
-€™As there are three levels of the guest page table, and each level has its (de)allocation functions, e.g., pgd\_alloc and pgd\_free for the L1 level.
+\subsubsection{Execution Time Measurement}
+€™As there are three levels of the guest page table, and each level has its (de)allocation functions, e.g., pgd\_alloc and pgd\_free for the L1 (top) level.
 In order to clearly observe the changes of the CPU usage, we measure them separately.
 We continuously measure them in 30 minutes, and calculate the average execution time of each function in each one minute.
-Note that in the \dynname group, we enable the \name 5 minutes after the workload starts to run.
+Note that in the \dynname group, we enable the \name 5 minutes after the workload starts to run. 
+That is why the measurement results of the \dynname group in the beginning 5 minutes are almost overlapped with the baseline results.
 
 
-As shown in Figure~\ref{fig:PGDtime}, \ref{fig:PMDtime}, and \ref{fig:PTEtime}, the execution time in the \prename group, for a pair of allocation and deallocation of the three-level page table, from top to bottom are (622, 196), (424, 242) (260, 217) in nanoseconds, while in the baseline group, the corresponding execution time are (944, 366), (682, 313), (755, 627) in nanoseconds. Correspondingly, the improvements are (34\%, 47\%), (38\%, 22\%) and (65\%, 65\%), from top to bottom.
+As shown in Figure~\ref{fig:PGDtime}, \ref{fig:PMDtime}, and \ref{fig:PTEtime}, the execution time on average in the \prename group, for a pair of allocation and deallocation of the three-level page table, from top to bottom are (622, 196), (424, 242) (260, 217) in nanoseconds, while in the baseline group, the corresponding execution time on average are (944, 366), (682, 313), (755, 627) in nanoseconds. Correspondingly, the improvements are (34\%, 47\%), (38\%, 22\%) and (65\%, 65\%), from top to bottom.
 %putting together
 Putting them together, the page table allocations and deallocation can be improved by 45\% and 55\% on average respectively.
-Note that the \name in the \dynname group can achieve the same performance improvement as the one in the \prename group.
-The transitional stage to the stable state only needs less than 2 minutes, as illustrated in Figure~\ref{fig:PGDtime}, \ref{fig:PMDtime}, and \ref{fig:PTEtime}.
+The results also indicate that the \name in the \dynname group and the \prename group can achieve the same performance improvements.
+The only different is that the \name in the \dynname group need a 2 minutes transitional stage to be stable.
 
 \mypara{The Worst Case}
-With \name enabled, guest kernel firstly goes through the \cache for page table allocations. If the cached semi-writable pages cannot satisfy the requirements (a.k.a, cache miss), the \cache would have to allocate writable pages using the existing memory allocators following the traditional paths,.
+When the \name starts to work, the guest kernel always first invoke the \cache for the page table allocations. 
+If the cached semi-writable pages cannot satisfy the requirements (a.k.a, cache miss), the \cache would have to allocate writable pages form the existing memory allocators following the traditional paths,.
 In this case, the execution time is the traditional execution path plus the path in the \cache.
 As a result, the execution time of the page table allocation is even longer than that of the baseline (Figure~\ref{fig:overview} (a)).
 However, the overhead introduced by the \name path is negligible, as the control flow will immediately return when the list is empty.
-More specifically, the overhead consists of the function innovation provided by the \emph{pop} interface, related stack adjustment and the checking of the cache list and the page type.
+More specifically, the overhead consists of the function invocation, the stack adjustments and the checking of the cache list and the page type.
 Putting them together, the overhead are less than 20 instructions.
 Fortunately, the worst case does not often occur. According to our observations in the \dynname group, the number of the worst cases is $348$, out of $198990$ allocation requests in 30 minutes.
 Note that the page-table deallocation is always completed successfully in a constant time.
@@ -148,7 +150,7 @@ Total & $176$ & $160$ \\ \hline
 \end{table}
 
 \subsubsection{Memory Usage Measurement}
-Besides CPU usage, we also measured the memory consumption of the \cache.
+We also measured the memory consumption of the \cache.
 To clearly see the page usage in each level, we measured the cached page numbers in three levels and results are listed in Table \ref{tab:PGpool}.
 In the \prename group the \cache has $5$, $26$ and $145$ semi-writable pages ready for allocations, totally occupying $704KB$, which is quite similar to the \dynname group, where the cache has $160$ in total, occupying memory $640KB$. As a result, the \cache in both groups consume an insignificant memory usage, always less $1MB$.
 %Also note that the conditions of freeing pages in cache in the dyn-\name group heavily rely on a specific scenario, which may not work for other situations. We will further discuss the conditions in future work.
@@ -165,22 +167,22 @@ All measurements are divided into two groups: 1) the baseline group with the def
 \centering
 %\includegraphics[scale=0.55]{image/iotlbflush.png} \\
 \includegraphics[width=0.4\textwidth]{image/macro/lmbench.png} \\
-\caption{The execution time on average in the \name group is reduced by 11\%, 17\% and 21\%, from left to right.}
+\caption{The latencies on average is reduced by 11\%, 17\% and 21\%, from left to right.}
 \label{fig:lmbench}
 \end{figure}
 
-\subsubsection{Latency Improvements in Process Creations and Exits}
+\subsubsection{Latency of Process Creations and Exits}
 Lmbench is a macro-benchmark tool for measuring the latency of the process creations and exits (i.e., fork+exit, fork+execve, fork+/bin/sh -c), shown in Figure~\ref{fig:lmbench}.
 The Lmbench are configured using the default parameters, except for the parameters of processor MHz and memory range.
 In our experiment platform, the CPU frequency is $3.2$ GHz, memory range is set as $1024$ MB to save measurement time.
 As illustrated in Figure~\ref{fig:lmbench}, the processes of \emph{fork+exit}, \emph{fork+execve} and \emph{fork+/bin/sh -c} in the \name group costs $344$, $365$, and $1567$ in microseconds, $11$\%, $17$\%, $21$\% faster than the ones in the baseline group.
-We believe that the improvement will significantly benefit the workloads that rely on many short-time temporary processes.
+We believe that the improvement will significantly benefit the workloads that rely on many temporary processes.
 
 \begin{figure}[htp]
 \centering
 %\includegraphics[scale=0.55]{image/iotlbflush.png} \\
 \includegraphics[width=0.5\textwidth]{image/macro/spec.png} \\
-\caption{The differences among all the benchmarks are within 0.42\%, indicating that the \name has no negative effect on system performance.}
+\caption{The improvements among all the benchmarks are within 0.42\%, and the \name has no negative impact on the system performance.}
 \label{fig:spec}
 \end{figure}
 
@@ -188,8 +190,9 @@ We believe that the improvement will significantly benefit the workloads that re
 SPEC CINT2006~\cite{specint} is an industry standard benchmark intended for measuring the performance of the CPU and memory.
 In our experiment, the tool version is SPECint 2006 v1.2, which has $12$ benchmarks in total and they are all invoked with the configuration file \emph{linux64-ia32-gcc43+.cfg}.
 All measurement results are listed in Figure~\ref{fig:spec}.
-Among the benchmarks, the time differences between the baseline group and the \name group are very small, e.g., the maximum difference is within 0.42\%, which is produced by the \emph{483.xalancbmk}.
-All of them produce the same or a little better performance results, indicating the \name has no negative effect on system performance.
+Among the benchmarks, all benchmark tools in the \name group produce the same or a little better performance results, indicating the \name has no negative effect on system performance.
+The maximum improvement is about 0.42\%, which is produced by the \emph{483.xalancbmk}.
+%(e.g., \emph{400.perlbench}, \emph{401.bzip2} and \emph{403.gcc}) is the same
 
 \subsubsection{I/O Performance Measurements}
 As we know, IOTLB is used to accelerate the DMA address translation to achieve better performance for I/O devices.
@@ -198,14 +201,14 @@ However,  rIOMMU~\cite{malka2015riommu} claims that the overhead caused by walki
 In addition, Nadav Amit et al.~\cite{amit2012iommu} also has similar statements.
 % that the IOTLB misses cannot be observed under regular circumstances, since the I/O memory (un)mapping operations consume much more time than that of the corresponding DMA transaction.
 
-In this paper, we test the network I/O and disk I/O performances under regular circumstances.
-%, and use these experiments as the revisiting of the problem between the IOTLB misses and I/O performance.
+In this paper, we test the network I/O and disk I/O performances under regular circumstances, and use these experiments to revisit of the problem between the IOTLB misses and I/O performance.
 We measured the network I/O using \emph{netperf} tool. Specifically, we have two machines that are directly connected through the Ethernet cable.
 The client on one machine set a bulk of TCP packets to the server on another machine. Note that emulated workload is also enabled on the client machine to trigger IOTLB flushes.
 The sending buffer is $16KB$ and the test lasts 60 seconds.
 The measurement results are listed in Table~\ref{tab:netperf}.
-By comparing both values of $\mu$ and $\sigma$, we find that there is no detectable negative effect on the network I/O.
-Similarly, we also test the disk I/O using lmbench. The results indicate that the disk I/O speed remains the same.
+By comparing both values of $\mu$ and $\sigma$, we find that there is no detectable improments on the network I/O.
+
+Similarly, we also test the disk I/O using \emph{lmbench}. The results indicate that the disk I/O speed remains the same.
 The above two experiments also as new evidences to support the observations in ~\cite{amit2012iommu, malka2015riommu}.
 
 \begin{table}[!ht]
@@ -223,8 +226,12 @@ Standard Deviation ($\sigma$) &  $0.028$ & $0.021$ \\ \hline
 \label{tab:netperf}
 \end{table}
 
+To evaluate the benefits of the \name on the IOTLB miss reduction, we need a extremely high-speed I/O device, like the one in Intel's I/O Acceleration Technology~\cite{lauritzenintel}.
+In fact, in rIOMMU project, the authors has established a high-performance setting with the ibverbs library~\cite{ibverbsevaluation,kerr2011dissecting} to measure the cost of one IOTLB miss.
+The experiments results indicate that the DMA-copy speed is largely reduced by the IOTLB misses.
+
 In fact, it is suggested that the overhead introduced by the IOTLB misses can be measured by using a high-speed I/O device (i.e., Intel's I/O Acceleration Technology~\cite{lauritzenintel}) so as to do DMA copy operations in a pseudo pass-through mode of IOMMU~\cite{amit2012iommu}. The experiment results indicate that DMA-copy speed is largely reduced by the IOTLB misses.
-Moshe Malka et al. use rIOMMU with ibverbs library~\cite{ibverbsevaluation,kerr2011dissecting} to establish a high-performance setting in order to measure the cost of one IOTLB miss.
+Moshe et al. use rIOMMU with ibverbs library~\cite{ibverbsevaluation,kerr2011dissecting} to establish a high-performance setting in order to measure the cost of one IOTLB miss.
 
 We believe that the \name can effectively reduce the overhead in the above high-speed settings, and we also plan to conduct experiments in the future.
 %However, currently we do not have a machine with the Intel I/O acceleration technology. Thus, we have to postpone this experiment. 
