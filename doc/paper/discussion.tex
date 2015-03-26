@@ -1,54 +1,17 @@
 \section{Discussion}\label{sec:dis}
 %\zhi{Macrobenchmark results of netperf do not reveal IOTLB's impacts on the DMA transactions.}
-\subsection{IOTLB Impacts on I/O Performance}
 
-Intuitively, IOTLB is used to facilitate the DMA address translation to achieve performance for I/O devices. Therefore, IOTLB misses caused by frequent IOTLB-flush will badly affect I/O performance.
-
-Actually, Nadav Amit \emph{et al.}~\cite{amit2012iommu} claims that IOTLB misses cannot be observed under regular circumstances, since the virtual I/O memory (un)mapping operations consume much more time than that of the corresponding DMA transaction.
-
-Also, rIOMMU~\cite{malka2015riommu} demonstrates that the overhead caused by walking IOMMU page tables due to IOTLB misses is so negligible that cannot be measured in the netperf benchmark. The benchmark results show that the main latency induced by I/O interrupt processing and the TCP/IP stack is several orders of magnitude larger than that of walking the page tables.
-
-Although it is ascertained that IOTLB has fewer impacts on I/O performance in previous studies, we also use netperf to evaluate IOTLB performance when system is in a \emph{busy state}. To overcome the adverse effect caused by real network jitter, we physically connect the tested machine directly to a tester machine by a network cable, and then the tester machine as a client measures the network throughput by sending a bulk of TCP packets to the tested machine being a server.
-Specifically, the client connects to the server by building a single TCP connection. Test type is TCP\_STREAM, size of sending buffer is $16KB$ and the connection lasts $60$ seconds. On top of that, the TCP\_STREAM test of netperf is conducted for $30$ runs, results of which are shown in figure\ref{tab:netperf}. By comparing both values of $\mu$ and $\sigma$, we can safely conclude that the throughputs in both groups change little and IOTLB misses affect little on netperf performance, which further supports the viewpoint made by rIOMMU.
-
-%The slight throughput improvement is possibly because that \name spends less CPU cycles executing netperf. Seemingly, benefits of IOTLB-flush eliminations have not been observed so far.
-
-%\times 10^6 bits per second ($1 mbps = 10^6 bits per second$)
-\begin{table}[!ht]
-\footnotesize
-\begin{center}
-\begin{tabular}{|l|l|l|}
-\hline
-{\textbf{Throughput (\emph{Mbps})}} & {\textbf{\name}} & {\textbf{Baseline}}    \\ \hline
-Range & $87.880-88.010$ & $87.880-87.950$ \\ \hline
-Arithmetic Mean ($\mu$)  &  $87.926$ & $87.913$ \\ \hline
-Standard Deviation ($\sigma$) &  $0.028$ & $0.021$ \\ \hline
-\end{tabular}
-\end{center}
-\caption{The throughput values in both groups show few differences by comparing both values of $\mu$ and $\sigma$, indicating that the IOTLB benefits brought by \name have not been observed so far.}
-\label{tab:netperf}
-\end{table}
-
-How to make IOTLB become a dominant factor? Nadav Amit \emph{et al.} proposes a pseudo pass-through mode of IOMMU and utilizes a high-speed I/O device (i.e., Intel's I/O Acceleration Technology~\cite{lauritzenintel}) to do DMA copy operations so as to observe the execution time penalty due to IOTLB misses. While rIOMMU makes use of ibverbs library~\cite{ibverbsevaluation,kerr2011dissecting} to measure the cost of an IOTLB miss in high performance settings where execution time is largely reduced.
-we believe that \name can play an important role in I/O environments requiring high performance, which will be evaluated in our future work by utilizing the previous approaches and the I/O high-speed device.
-%Both studies aim to create high performance settings that reduce the DMA transactions to the magnitude of $\upmu$s so that IOTLB becomes the dominant factor.
-
-\subsection{Close Relationship between IOTLB Flushes and IOTLB Misses}
-
-As mentioned before, we have been aware that the architecture of IOMMU (AMD-Vi~\cite{amdvt} or Intel VT-d~\cite{intelvt}) is supposed to support three types of IOTLB invalidation requests, which differ in granularity. The actual invalidation request is dependent on the hardware implementation. In other words, the request may be performed at a coarser invalidation granularity unless the request granularity is supported. If the specific implementation of IOMMU only supports the global or domain-selective invalidation, an IOTLB flush produced by a page type update will invalidate the whole entries of IOTLB, inevitably resulting in IOTLB misses if the corresponding domain is performing DMA operations. If an IOTLB flush will only invalidate an IOTLB entry through the page-selective invalidation, there exists an uncertainty of whether IOTLB miss will immediately occur. Since the DMA buffer address allocated by the device driver may not be equal to the address that is to be used by guest page tables. We are sure that if IOTLB flushes more frequently, the probability of IOTLB miss is higher. To quantify the bad effect that IOTLB flush imposes on IOTLB miss, we also need to conduct the experiments in high-performance I/O environments where overhead of an IOTLB miss can be observed.
-
-%invalidation requests and invalidation interface
-According to IOMMU specification~\cite{intelvt}, a typical IOMMU is able to provide three types of IOTLB invalidation schemes, i.e., global invalidation, domain-selective invalidation, page-selective invalidation, which differ in granularity.
+\subsection{IOTLB Misses}
+According to IOMMU specification~\cite{intelvt, amdvt}, a typical IOMMU is able to provide three types of IOTLB invalidation schemes, i.e., global invalidation, domain-selective invalidation, page-selective invalidation, which differ in granularity.
 Specifically, the global invalidation will always invalidate all IOTLB entries as a whole.
-The domain-selective invalidation only invalidates the selected VM domain's IOTLBs, whose performance is a little better than the previous global invalidation.
+The domain-selective invalidation only invalidates the selected VM domain's IOTLBs, whose performance is a little better than the global invalidation.
 The page-selective invalidation that only invalidate the corresponding IOTLB could achieve the best performance, comparing with the previous two schemes.
-%Intuitively, when a requested entry that corresponds to a specified DMA address needs to be invalidated, a page-selective invalidation is the best choice for the sake of performance.
-Besides the invalidation scheme, IOMMU also supports two kinds of invalidation interfaces: register based invalidation and queued invalidation interface, between which queued invalidation performs better.
-Whatever granularity IOTLB flushes in, it will inevitably increase the probability of IOTLB misses, thereby introducing negative effects on the I/O performance.
 
+If the IOMMU is configured to do the global or domain-selective invalidation, an IOTLB flush produced by the DMA validations will invalidate all related IOTLB entries, inevitably resulting in IOTLB misses for all DMA address translations. However, if the IOMMU is working with the page-selective invalidation scheme, one IOTLB flush will only invalidate one IOTLB entry, which may not be used immediately. It means the current DMA request may not be affected, but its effects may result in the future DMA transfer.
+%Currently, we do not evaluate the relationship between the IOTLB flushes and IOTLB misses in the page selective invalidation scheme, and we plan to put it into the future work.
 
-\subsection{Conditions of Freeing Pages in Cache}
-
+\subsection{Automatically Shrinking \name Cache}
+In the previous design, the \cache cannot automatically shrink itself.
 As talked before, when to free pages in cache relies on both the memory size of the cache and the proportion between the cache size and page-table size. Default thresholds of the two factors are determined by a particular setting created by a specific stress tool. Therefore, both thresholds may not work in other settings. If the thresholds are not set appropriately, freeing pages will occur often, thus causing IOTLB flush. This is why we provide an interface for users to manually modify the default thresholds. Nevertheless, the optimum tradeoff between cache size and IOTLB-flush is not easy to reach only by the simple interface and we plan to propose a self-adaption algorithm in the future work. Basically, the algorithm has the properties as follows.
 \begin{enumerate}
 \item Memory usage of the cache is under control.
@@ -61,7 +24,9 @@ Firstly, an upper limit to the cache size is set based on the memory usage of a 
 
 %When users dynamically enable the cache for the application, the algorithm is also invoked to record the memory usage by scanning and then determine the proportion between them. If IOTLB-flush occurs during the period, increase the cache size. If the cache exceeds a particular percentage of , it is not supposed to be any higher even if IOTLB still flushes.
 
-\subsection{Benefits for Page Table (De)allocations in the Mainstream Operating Systems}
-
-As stated before, we can break \name into two components, a page table cache and a fine-grained validation module. As the component of page table cache is a specially reserved memory buffer to facilitate the page table (de)allocations in paravirtual environments, intuitively, we believe that the high-performance component can be extended to the mainstream OS so that the execution cost of page table (de)allocations will also be largely reduced, thereby benefitting the performance of process creations and exits as expected. As a result, we will port the component to the OS and evaluate its performance effects in the future work.
-
+\subsection{\name Cache on the Bare-metal OS}
+We believe the design of the \cache could benefit the page table allocations and deallocation on the bare-metal OSes that directly work on hardware.
+The usage pattern of the page table pages in paravirtual environment is similar if not the same to the one on the bare-metal OS.
+Based on this feature, the deallocated page table pages are likely to be used in the near future by a newly created processes.
+By caching the deallocated page-table pages, the \cache could quickly response to the following allocation requests, without needing to invoke the system allocators every time.
+In the future, we plan to port the \cache onto a bare-metal OS, such as Linux, and fully evaluate its benefits.
