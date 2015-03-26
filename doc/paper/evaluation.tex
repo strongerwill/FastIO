@@ -110,7 +110,7 @@ We continuously measure them in 30 minutes, and calculate the average execution 
 Note that in the \dynname group, we enable the \name 5 minutes after the workload starts to run.
 
 
-As shown in Figure~\ref{fig:PGDtime}, \ref{fig:PMDtime}, and \ref{fig:PTEtime}, the execution time in the \prename group, for a pair of allocation and deallocation of the three-level page table, from top to bottom are (622, 196), (424, 242) (260,217) in nanoseconds, while in the baseline group, the corresponding execution time in nanoseconds are (944, 366), (682, 313), (755, 627). Accordingly, the improvements are (34\%, 47\%), (38\%, 22\%) and (65\%, 65\%).
+As shown in Figure~\ref{fig:PGDtime}, \ref{fig:PMDtime}, and \ref{fig:PTEtime}, the execution time in the \prename group, for a pair of allocation and deallocation of the three-level page table, from top to bottom are (622, 196), (424, 242) (260, 217) in nanoseconds, while in the baseline group, the corresponding execution time are (944, 366), (682, 313), (755, 627) in nanoseconds. Correspondingly, the improvements are (34\%, 47\%), (38\%, 22\%) and (65\%, 65\%), from top to bottom.
 %putting together
 Putting them together, the page table allocations and deallocation can be improved by 45\% and 55\% on average respectively.
 Note that the \name in the \dynname group can achieve the same performance improvement as the one in the \prename group.
