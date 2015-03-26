@@ -151,8 +151,8 @@ Total & $176$ & $160$ \\ \hline
 \end{table}
 
 \subsubsection{Memory Usage Measurement}
-We also have measured the memory consumption of the \cache.
-To clearly observe the page usage in each level, we measure the cached page numbers in three levels and the results are listed in Table \ref{tab:PGpool}.
+%We also have measured the memory consumption of the \cache.
+To clearly observe the page usage in each level, we measure the numbers of the cached pages in three levels and the results are listed in Table \ref{tab:PGpool}.
 In the \prename group the \cache has $5$, $26$ and $145$ semi-writable pages ready for allocations, totally occupying $704KB$, which is quite similar to the \dynname group, where the cache has $160$ in total, occupying $640KB$. As a result, the \cache in both groups consume an insignificant memory usage, always less $1MB$.
 %Also note that the conditions of freeing pages in cache in the dyn-\name group heavily rely on a specific scenario, which may not work for other situations. We will further discuss the conditions in future work.
 
