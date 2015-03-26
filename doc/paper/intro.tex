@@ -49,7 +49,7 @@ Interestingly, the semi-writable pages can be smoothly maintained by the \cache 
 We implement a prototype on Xen with Linux as the guest kernel. We do small modifications of Xen version 4.2.1 ($166$ SLoC) and Linux kernel version 3.2.0 ($350$ SLoC).
 We evaluate the I/O performance in both micro and macro ways.
 The micro experiment results indicate that \name is able to completely eliminate the additional IOTLB flushes, and effectively reduces (de)allocation time of the page table.
-There are (34\%, 47\%), (38\%, 22\%) and (65\%, 65\%) improvements for a pair of allocation and deallocation for three-level page table, from top to bottom.
+There are (34\%, 47\%), (38\%, 22\%) and (65\%, 65\%) improvements for a pair of allocation and deallocation for three-level page table, from top to bottom. In certain worst cases where there exists many page-table allocation requests with only a few or no deallocations, the additional performance overhead for page table (de)allocation in \name is less than 20 instructions compared to that of the baseline. According to the experiment, the number of worst cases is only $348$, out of the total allocation requests (i.e., $198990$), thereby imposing negligible impacts on \name.  
 The macro benchmarks show that \name has no negative impact on the CPU computation, network I/O and disk I/O.
 Moreover, the latencies of the process creations and exits are expectedly reduced by 24\% on average.
 

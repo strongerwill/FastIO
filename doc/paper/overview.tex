@@ -3,7 +3,7 @@
 \centering
 \includegraphics[width=0.8\textwidth]{image/overview/arch.pdf} \\
 \caption{\name Architecture. The semi-writable pages are managed by the \name cache, and all page type updates are validated by the \name module.
-Through the cooperation of \name cache and \name module, \name successfully shortens the execution path of the guest page table (de)allocation and eliminates additional IOTLB flushes.}
+Through the cooperation of \name cache and \name module, \name successfully shortens the execution paths of the guest page table (de)allocations and eliminates additional IOTLB flushes.}
 \label{fig:arch}
 \end{figure*}
 
@@ -94,13 +94,13 @@ To increase the flexibility, it is also allowed to dynamically enable it at runt
 
 In the initialization phase, the \cache allocates several pages from writable pages using existing system allocators, converts them into semi-writable pages, and maintains them in a dedicated cache list.
 At runtime, the page table deallocations are always successful by efficiently pushing deallocated pages into the \cache.
-When the guest kernel needs page-table pages, the \cache  will pop out the cached pages to satisfy the requirements.
-In certain extremely cases (e.g., many allocation requests with a few or none of deallocations), if the cached pages are not enough for the requests of a page table allocations, the \cache has to re-invoke the system allocators to get new ones.
+When the guest kernel needs page-table pages, the \cache will pop out the cached pages to satisfy the requirements.
+In certain worst cases (e.g., many allocation requests but only a few or no deallocations), if the cached pages cannot satisfy the requests of page table allocations, the \cache has to re-invoke the system allocators to get new ones. 
 Fortunately, the re-invocations rarely happen in a workflow-stable system.
-In fact, there are almost always several semi-writable pages in the \cache that are ready for page-table allocations after the system is running for a few minutes in our experiments.
+In fact, there are always multiple semi-writable pages in the \cache that are ready for page-table allocations after the system is running for a few minutes in our experiments. Such cases will be evaluated in Section~\ref{sec:eva}.
 
 The \cache works in the whole life cycle of the guest by default, but the end  user is able to explicitly disable it at any time through the exported interface.
-Once the \cache receives the \emph{disable} command, it will release all resources, e.g., deallocating the cached pages assisted by the existing system allocators as well as the \module, and releasing the data structures that are used for managing the cached pages. 
+Once the \cache receives the \emph{disable} command, it will release all resources, e.g., deallocating the cached pages assisted by the existing system allocators as well as the \module, and releasing the data structures that are used for managing the cached pages.
 In addition, it will also issue a hypercall to inform the hypervisor, which will disable the fine-grained validation mechanism and switch back to the original coarse-grained validation scheme.
 %As the disable costs are quite high, we recommend that always keeping the \name running once it starts to work.
 

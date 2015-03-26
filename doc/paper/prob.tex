@@ -1,12 +1,12 @@
 \section{Problem Definition} \label{sec:prob}
-In this section, we describe the necessary background knowledge and highlight the identified two performance issues: 1) long execution paths of the guest page table (de)allocation and 2) the additional IOTLB flushes.
+In this section, we describe the necessary background knowledge and highlight the identified two performance issues: 1) long execution paths of the guest page table (de)allocations and 2) the additional IOTLB flushes.
 As Xen~\cite{XEN-SOSP03} is a typical and popular paravirtual hypervisor, we use Xen in a x86 MMU model~\cite{x86-pv-model} to illustrate the details.
-The presented or similar mechanisms are available on the other paravirtual settings.
+The presented or similar mechanisms are available on other paravirtual settings.
 
 
 \subsection{Long Execution Path}\label{sec:longpath}
 The long execution path issue refers to the execution paths for the guest page table page allocation and deallocation.
-In the existing design, allocating and deallocating a page table page are time costly, as they have to invoke the complex memory allocators and performance both software (i.e., page table) and DMA validations.
+In the existing design, allocating and deallocating a page-table page are time costly, as they have to invoke the complex memory allocators and performance both software (i.e., page table) and DMA validations.
 %In addition, the DMA validations always lead to additional IOTLB flushes, which would reduce the DMA address translation speed and may consequently lower the I/O performances.
 In addition, such allocation and deallocation events frequently occur in the system, i.e., the numerous process creations and exits will result in many page-table page allocations and deallocations.
 Thus, it is necessary to deeply understand the long execution path issue and improve the performance accordingly.
@@ -15,12 +15,12 @@ Thus, it is necessary to deeply understand the long execution path issue and imp
 To allocate a page, the guest kernel has to invoke the system allocators, typically from slab allocator to buddy allocator.
 The slab allocator~\cite{slaballocator} consists of a variable number of caches that are linked together on a doubly linked circular list.
 Each cache maintains blocks of contiguous pages in memory called slabs, which are carved up into small chunks for the data structures and objects.
-When \emph{kmalloc} is called, all it does is searching through the prepared caches.
+When \emph{kmalloc} is called, it will search through the prepared caches.
 If there is no suitable object, the buddy allocator will be involved.
-The Buddy allocator~\cite{buddyallocator} manages all free pages that are managed in blocks as a power of 2.
+The Buddy allocator~\cite{buddyallocator} manages all free pages that are managed in blocks as powers of 2.
 When the allocation function is invoked, it first searches for the block of the requested size.
 If no expected block is free, the allocator will continue to search for the block of the next size (which is twice that of the requested size).
-This process continues until all of the free area has been searched or until a block has been found.
+This process continues until all of the free areas have been searched or until a block has been found.
 
 In contrast to the page allocation, the page deallocation is to return the page back to the system.
 The deallocation process may also invoke slab allocator and/or buddy allocator, and would trigger the updates of the corresponding data structures,
@@ -30,9 +30,9 @@ In brief, the page allocation and deallocation are time costly due to the deep i
 
 
 \subsubsection{Page Table Validations}\label{sec:pv-security}
-Page tables are used by a hardware, i.e., Memory Management Unit (MMU), to translate the linear addresses into physical addresses used by the hardware to execute instructions.
-In the PAE-enabled paging mode, a page table has three levels: L1 level (bottom level), L2 level (middle level) and L3 level (top level).
-The slots in L1, L2 and L3 levels are known as Page Table Entry (PTE), Page Middle Directory (PMD) and Page Global Directory (PGD), respectively.
+Page tables are used by a hardware, i.e., Memory Management Unit (MMU)~\cite{x86}, to translate the linear addresses into physical addresses.
+In the PAE-enabled paging mode, a page table has three levels: L3 level (bottom level), L2 level (middle level) and L1 level (top level).
+The slots in L3, L2 and L1 levels are known as Page Table Entry (PTE), Page Middle Directory (PMD) and Page Global Directory (PGD), respectively.
 A PTE slot could determine the access permissions of a page, e.g., the kernel could set a page as read-only by clearing the bit within a PTE slot that represents the writable permission.
 Typically, each user process has its own page table, and the creation and exit of a user process will be accompanied by the allocation and deallocation of a page table respectively.
 \begin{figure}[ht]
@@ -56,27 +56,27 @@ In addition, it also enforces that only pages with the writable type have a writ
 By doing this it can ensure that the guest OS is not able to directly modify any page-table pages and therefore cannot subvert the security of the whole system.
 
 Whenever a page table is loaded to work, there should be a page type update from writable page to non-writable page (i.e., page-table page).
-First, the hypervisor must ensure the L3 page-table page has a type count of zero.
+First, the hypervisor must ensure that the L3 page-table page has a type reference count of zero.
 In addition, it must be validated to ensure that it follows the following policy:
 for a page with a page-table type to be valid, it is required that any pages referenced
 by a present page table entry in the page have the type of the next level down.
-For instance, any page referenced by a page with type L3 Page Table must itself have the type L2 Page Table.
-This policy is applied recursively down to the L1 page table layer.
-At L1 the invariant is that any data page mapped by a writable page table entry must have the writable page type.
+For instance, any page referenced by a page with type L1 Page Table must itself have the type L2 Page Table.
+This policy is applied recursively down to the L3 page table layer.
+At L3 the invariant is that any data page mapped as writable by an L3 entry must have the writable page type.
 By applying these policies, Xen ensures that all page-table pages as a whole are safe to be loaded.
-The hypervisor also verifies all slots of the page table to ensure that the mappings and access permissions are correct and expected.
-Note that the hypervisor is always involved in all updates of the page tables, the policies on the page table updates are non-bypassable.
+The hypervisor also verifies all slots of the page tables to ensure that the mappings and access permissions are correct and expected.
+Note that the hypervisor is always involved in all updates of the page tables, the policies for the page table updates are non-bypassable.
 
-The validation process in the page table deallocation is contrary to the one in the page table allocation.
-In brief, the hypervisor will validate the page table's type count, access permissions and the slot mappings to ensure that the page table is completely and securely deallocated.
+The validation process for the page table deallocation is contrary to the one for the page table allocation.
+In brief, the hypervisor will validate the page table's type reference count, access permissions and the slot mappings to ensure that the page table is completely and securely deallocated.
 
 \subsection{DMA Validations and IOTLB Flushes}
 \subsubsection{DMA Address Translation}
 The input/output memory management unit (IOMMU)~\cite{intelvt} is a memory management unit (MMU) that connects a DMA-capable I/O bus to the main memory.
 Like a traditional MMU, the IOMMU maps device addresses (also called as I/O addresses) to physical addresses through a dedicated page table.
 %This technique is also known as DMA remapping.
-The IOMMU page table that is created and maintained by the hypervisor in its own space is able to restrict the access on a particular page by configuring the permission bits.
-The hypervisor grants different access permissions for different page types, such as the writable pages are always allowed with full access permissions, while the page-table pages are always inaccessible to any devices.
+The IOMMU page table that is created and maintained by the hypervisor in its own space is able to restrict the access to a particular page by configuring the permission bits.
+The hypervisor grants different access permissions to different page types, such as the writable pages are always allowed with full access permissions, while the page-table pages are always inaccessible to any devices.
 
 However, if the DMA address translation always needs to look up the IOMMU page table, it will be slow and inefficient.
 To accelerate the translation speed, the I/O translation look-aside buffer (IOTLB) is introduced.
@@ -107,7 +107,7 @@ To achieve a better I/O performance, the DMA address translation should avoid ta
 The page table allocation and deallocation always trigger the updates between the writable pages and the page-table pages, and they have different access permission for DMA requests.
 To keep the security of the hypervisor, the DMA validation is necessary.
 Specifically, the hypervisor will update the corresponding entries of the IOMMU page table to set correct access permissions.
-After this, the hypervisor also needs to flush IOTLB entries to invalidate the old entries, without which the security of the hypervisor would be violated, e.g., the DMA requests could write the page-table pages through stale IOTLB entries.
+After that, the hypervisor also needs to flush IOTLB entries to invalidate the old entries, without which the security of the hypervisor would be violated, e.g., the DMA requests could write the page-table pages through stale IOTLB entries.
 
 \begin{figure}[ht]
 \centering
