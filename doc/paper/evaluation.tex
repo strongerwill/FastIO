@@ -25,7 +25,7 @@ At this moment, the memory usage of the browser reaches to $284.1$ MB on average
 The micro-benchmark measurements are to evaluate the frequency of the IOTLB flushes, as well as the CPU usage and the memory usage of the \name.
 For each measurement, there are two control groups and one baseline/normal group.
 In the baseline group, we run the workload emulation in the guest VM with default settings, without enabling the \name mechanism.
-On the contrary, the two control groups are: 1) the \prename group, where the \name is enabled before the workload emulation starts and 2) the \dynname group, where the \name is dynamically enabled (e.g., five minutes after the workload emulation launches). The \dynname group is to evaluate if 1) the \name is able to enter a stable state, and 2) how fast the \name is able to enter the stable state.
+On the contrary, the two control groups are: 1) the \prename group, where the \name is enabled before the workload emulation starts and 2) the \dynname group, where the \name is dynamically enabled (e.g., five minutes after the workload emulation launches). The \dynname group is to evaluate if 1) the \name is able to enter a stable state as the \prename group, and 2) how fast the \name is able to enter the stable state.
 
 \begin{figure}[ht]
 \centering
@@ -51,14 +51,14 @@ Thus, we can conclude that the fine-grained validation scheme is able to efficie
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{image/micro/PGDalloc.png}
-        \caption{Execution time of L1 allocation is improved by 34\%.}
+        \caption{Execution time of L1 allocation is reduced by 34\%.}
         \label{fig:l1a}
     \end{subfigure}%
     ~
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{image/micro/PGDfree.png}
-        \caption{Execution time of L1 deallocation is improved by 47\%.}
+        \caption{Execution time of L1 deallocation is reduced by 47\%.}
         \label{fig:l1b}
     \end{subfigure}
     \caption{The execution time of L1 allocation and deallocation. The \name in the \dynname group can quickly enter the stable state in 2 minutes.}
@@ -70,14 +70,14 @@ Thus, we can conclude that the fine-grained validation scheme is able to efficie
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{image/micro/PMDalloc.png}
-        \caption{Execution time of L2 allocation is improved by 38\%.}
+        \caption{Execution time of L2 allocation is reduced by 38\%.}
         \label{fig:l2a}
     \end{subfigure}%
     ~
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{image/micro/PMDfree.png}
-        \caption{Execution time of L2 deallocation is improved by 22\%.}
+        \caption{Execution time of L2 deallocation is reduced by 22\%.}
         \label{fig:l2b}
     \end{subfigure}
     \caption{The execution time of L2 allocation and deallocation. The \name in the \dynname group can quickly enter the stable state in 2 minutes.}
@@ -89,14 +89,14 @@ Thus, we can conclude that the fine-grained validation scheme is able to efficie
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{image/micro/PTEalloc.png}
-        \caption{Execution time of L3 allocation is improved by 65\%.}
+        \caption{Execution time of L3 allocation is reduced by 65\%.}
         \label{fig:l3a}
     \end{subfigure}%
     ~
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[height=2.0in]{image/micro/PTEfree.png}
-        \caption{Execution time of L3 deallocation is improved by 65\%.}
+        \caption{Execution time of L3 deallocation is reduced by 65\%.}
         \label{fig:l3b}
     \end{subfigure}
     \caption{The execution time of L3 allocation and deallocation. The \name in the \dynname group can quickly enter the stable state in 2 minutes.}

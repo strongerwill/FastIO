@@ -17,14 +17,12 @@ The slab allocator~\cite{slaballocator} consists of a variable number of caches 
 Each cache maintains blocks of contiguous pages in memory called slabs, which are carved up into small chunks for the data structures and objects.
 When \emph{kmalloc} is called, it will search through the prepared caches.
 If there is no suitable object, the buddy allocator will be involved.
-The Buddy allocator~\cite{buddyallocator} manages all free pages that are managed in blocks as powers of 2.
-When the allocation function is invoked, it first searches for the block of the requested size.
-If no expected block is free, the allocator will continue to search for the block of the next size (which is twice that of the requested size).
-This process continues until all of the free areas have been searched or until a block has been found.
+The buddy allocator~\cite{buddyallocator} manages all free memory blocks of permitted sizes by free lists. The blocks consist of pages and the sizes are usually powers of 2.
+When receiving requests for memory, the allocator firstly checks if the request size is equal to a permitted size. If they are equal, the allocator will return a block from the size's free list. If they are not equal or the free list is empty, the allocator will split a larger block (the permitted size is twice that of the requested size) into multiple sub-blocks and return one sub-block, inserting the rest to the proper free list. 
 
 In contrast to the page allocation, the page deallocation is to return the page back to the system.
 The deallocation process may also invoke slab allocator and/or buddy allocator, and would trigger the updates of the corresponding data structures,
-e.g., the buddy allocator always attempts to recombine the freed pages into larger blocks.
+e.g., the buddy allocator always attempts to merge adjacent freed blocks into a large permitted size.
 
 In brief, the page allocation and deallocation are time costly due to the deep invocations and complex updates of the dependent data structures.
 
