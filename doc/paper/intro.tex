@@ -51,7 +51,7 @@ We implement a prototype on Xen with Linux as the guest kernel. We do small modi
 We evaluate the I/O performance in both micro and macro ways.
 The micro experiment results indicate that \name is able to completely eliminate the additional IOTLB flushes, and effectively reduces (de)allocation time of the page table.
 There are (34\%, 47\%), (38\%, 22\%) and (65\%, 65\%) improvements for a pair of allocation and deallocation for three-level page table, from top to bottom. 
-Even in the worst cases when the \name has to go through the traditional path to allocate pages, the performance overhead for page table allocation is very small, only adding about 20 instructions. Fortunately, the worst cases are rarely happened. According to our experiment results, the number of worst cases is only $348$, out of the total allocation requests (i.e., $198990$), in 30 minutes execution.  
+Even in the worst cases when the \name has to go through the traditional path to allocate pages, the performance overhead for one page table allocation is still very small, only adding about 20 instructions. Fortunately, the worst cases are rarely happened. According to our experiment results, the number of worst cases is only $348$, out of the total allocation requests (i.e., $198990$), in 30 minutes execution.  
 The macro benchmarks show that \name has no negative impact on the CPU computation, network I/O and disk I/O.
 In particular, the latencies of the process creations and exits are expectedly reduced by 24\% on average.
 
@@ -59,8 +59,7 @@ In summary, we make the following contributions:
 \begin{enumerate}
 \item We identify two significant performance issues in the page table management. In particular, we are the first, to the best of our knowledge, to identify the performance issue between guest page table (de)allocations and the IOTLB flushes.
 \item We proposed a novel approach - called \name, to shorten the execution paths of the page table allocation and deallocations, and eliminate the additional IOTLB flushes, without sacrificing the system security.
-\item We implemented a prototype of the page table cache and evaluated the performance in both micro and macro ways.
-\item The experiment results indicate the design of \name can benefit the page table (de)allocation of the paravirtual system.
+\item We implemented a prototype of the page table cache and evaluated the performance in both micro and macro ways. The experiment results indicate the \name can benefit the page table (de)allocations, without no negative performance impacts on the system.
 \end{enumerate}
 
 The rest of the paper is structured as follows: In Section~\ref{sec:prob}, we briefly describe the background knowledge, and highlight the performance issues. Then we describe the system overview and implementation in Section~\ref{sec:overview} and Section~\ref{sec:impl}. In Section~\ref{sec:eva}, we evaluate the performance of the \name system, and discuss several issues in Section~\ref{sec:dis}. At last, we discuss the related work in Section~\ref{sec:related}, and conclude the whole paper in Section~\ref{sec:con}.
