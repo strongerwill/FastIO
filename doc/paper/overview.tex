@@ -10,10 +10,10 @@ Through the cooperation of \name cache and \name module, \name successfully shor
 \subsection{Design Requirements}\label{sec:req}
 In the design of \name, we consider several requirements, which are summarized and listed as follows.
 \begin{enumerate}
-\item Unaltered system security. The new scheme should not sacrifice the system security to obtain benefits from I/O performance. No one likes to use a system with known design loopholes.
+\item Unaltered system security. The new scheme should not sacrifice the system security to obtain performance benefits. No one likes to use a system with known design loopholes.
 \item Compatible with legacy applications. The new scheme should limit the modifications on the guest kernel and the hypervisor, without any modifications on the existing applications.
 \item Small modifications. The new scheme should minimize the development cost on the guest kernel and the hypervisor.
-\item Minimizing additional IOTLB flushes. The new scheme should minimize the number of IOTLB flushes, such as reducing the number to zero.
+%\item Minimizing additional IOTLB flushes. The new scheme should minimize the number of IOTLB flushes, such as reducing the number to zero.
 \end{enumerate}
 
 \subsection{\name Architecture}
@@ -86,7 +86,7 @@ At least, those additional checking operations will lower the (de)allocation eff
 Second, the existing size-oriented management of the slab does not distinguish the page-table pages from other pages that have the same size, and the customization of this management mechanism would need lots of development costs, such as interface updates, internal data structure updates.
 In addition, the related components that rely on the slab allocator may also be affected.
 At last, adding the fine-grained validation mechanism only for one object (i.e., page-table page) will subvert the generality of the slab allocator.
-Considering the above three reasons, we give up reusing the existing slab allocator and aim to build a dedicated one, called \cache, serving the page table allocations and deallocations.
+Considering the above three reasons, we give up reusing the existing slab allocator and aim to build a dedicated one, maintained by \cache, serving the page table allocations and deallocations.
 
 \subsubsection{\name Cache Initialization and Destruction}
 The \cache is enabled in the system bootup phase by default.
@@ -99,7 +99,7 @@ But the cases for the page table allocation is a little bit complex.
 Normally, the \cache could serves all page table allocation requests using the cached pages.
 However, in the worst cases, the cached pages may not be able to satisfy the allocation requests.
 In such conditions, the \cache will have to re-invoke the system allocators to get new pages.
-Fortunately, the re-invocations could be avoid by carefully setting the number of the initial pages.
+Fortunately, the reinvocations could be avoided by carefully setting the number of the initial pages.
 In fact, the re-invocations rarely happen in a workflow stable system.
 In our experiments, there are always several  semi-writable pages in the \cache ready for the page-table allocations after the \name is running for a few minutes.
 All these cases are evaluated in Section~\ref{sec:eva}.

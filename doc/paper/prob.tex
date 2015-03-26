@@ -13,7 +13,7 @@ Thus, it is necessary to deeply understand the long execution path issue and imp
 
 \subsubsection{Page Allocation and Deallocation}
 To allocate a page, the guest kernel has to invoke the system allocators, typically from the slab allocator to the buddy allocator.
-The slab allocator~\cite{slaballocator} consists of a variable number of caches that are linked together on a doubly linked circular list.
+The slab allocator~\cite{slaballocator} manages a variable number of caches that are linked together by a doubly linked circular list.
 Each cache maintains blocks of contiguous pages in memory called slabs, which are carved up into small chunks for data structures and objects of specific sizes.
 When \emph{kmalloc} is called, the allocator will search through the prepared caches.
 If there is no suitable object, the buddy allocator will be involved.
@@ -31,7 +31,7 @@ In brief, the page allocation and deallocation are time costly due to the deep i
 Page tables are used by the hardware, i.e., Memory Management Unit (MMU), to translate the linear addresses into physical addresses.
 In the PAE-enabled paging mode, a page table has three levels: L3 level (bottom level), L2 level (middle level) and L1 level (top level).
 The slots in L3, L2 and L1 levels are known as Page Table Entry (PTE), Page Middle Directory (PMD) and Page Global Directory (PGD), respectively.
-A PTE slot could determine the access permissions of a page, e.g., the kernel could set a page as read-only by clearing the bit within a PTE slot that represents the writable permission.
+A PTE slot could determine the access permissions of a page, e.g., the kernel could set a page read-only by clearing the bit within a PTE slot that represents the writable permission.
 Typically, each user process has its own page table, and the creation and exit of a user process will be accompanied by the allocation and deallocation of a page table respectively.
 \begin{figure}[ht]
 \centering

@@ -7,7 +7,8 @@ To fully evaluate the performance and its effects on the whole system, we measur
 
 \subsection{Experiment Setting}
 The experiment platform is a LENOVO QiTian M4390 PC with four CPU cores (i.e., Intel Core i5-3470) running at 3.20 GHz.
-We enable the Intel VT-d feature through BIOS and grub configuration file. The IOMMU supports queue-based invalidation interface in the granularity of page invalidation.
+We enable the Intel VT-d feature through BIOS and grub configuration file. 
+%The IOMMU supports queue-based invalidation interface in the granularity of page invalidation.
 
 %In the original design of Xen, page table (de)allocations will give rise to page type updates, upon which the function iotlb\_flush\_qi will be invoked to flush corresponding IOTLB entries. Thus, a global counter is placed into the function body to record invocation times of the function and then an average counter per minute is calculated as a frequency of IOTLB-flush. When the IOTLB-flush stays at zero level, it means that no page table is (de)allocated, indicating that no process creation/exit occurs then. In a nutshell, there exists a mutually positive effect between a process creation/exit and IOTLB-flush.
 
