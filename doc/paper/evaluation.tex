@@ -144,17 +144,13 @@ Total & $176$ & $160$ \\ \hline
 \end{center}
 \caption{Cache usages in both groups of \prename and \dynname are small, occupying 176 pages and 160 pages, respectively.}
 %And the memory size of cached pages only takes up to 0.2\% of the tool's memory.
-\label{tab:prePGpool}
+\label{tab:PGpool}
 \end{table}
 
 \subsubsection{Memory Usage Measurement}
 Besides CPU usage, we also measured the memory consumption of the \cache.
-To clearly see the page usage in different levels, we measured the numbers of the semi-writable pages and the page-table pages in three levels.
-The measurement results are listed in Table \ref{tab:prePGpool}.
-In the \prename group the \cache has $5$, $26$ and $145$ semi-writable pages ready for allocations, totally occupying memory $704KB$.
-In addition, it has already popped out $193$ page-table pages for serving 4 user processes. Roughly each process needs $48.25$ page-table pages.
-The conditions is quite similar In the \dynname group, where the cache has $160$ semi-writable pages ready for allocations, totally occupying memory $640KB$.
-In the both groups, the \cache consumes an insignificant memory usage, always less $1MB$.
+To clearly see the page usage in each level, we measured the cached page numbers in three levels and results are listed in Table \ref{tab:PGpool}.
+In the \prename group the \cache has $5$, $26$ and $145$ semi-writable pages ready for allocations, totally occupying $704KB$, which is quite similar to the \dynname group, where the cache has $160$ in total, occupying memory $640KB$. As a result, the \cache in both groups consume an insignificant memory usage, always less $1MB$.
 %Also note that the conditions of freeing pages in cache in the dyn-\name group heavily rely on a specific scenario, which may not work for other situations. We will further discuss the conditions in future work.
 
 %And the reason why the dyn-\name group has fewer cached pages than that of the pre-\name group is that a certain number of page table pages has been freed to the memory allocator before the \name is enabled.
@@ -162,7 +158,7 @@ In the both groups, the \cache consumes an insignificant memory usage, always le
 
 
 \subsection{Macro-Benchmarks}
-The purpose of the macro-benchmarks are to evaluate the effects of \name on the overall system.
+The purpose of the macro-benchmarks is to evaluate the effects of \name on the overall system.
 All measurements are divided into two groups: 1) the baseline group with the default settings, and 2) the \name group with the \name enabled.
 
 \begin{figure}[htp]
@@ -174,11 +170,11 @@ All measurements are divided into two groups: 1) the baseline group with the def
 \end{figure}
 
 \subsubsection{Latency Improvements in Process Creations and Exits}
-Lmbench is the macro-benchmark tool for measuring the latency of the process creations and exits (i.e., fork+exit, fork+execve, fork+/bin/sh -c), shown in Figure~\ref{fig:lmbench}.
+Lmbench is a macro-benchmark tool for measuring the latency of the process creations and exits (i.e., fork+exit, fork+execve, fork+/bin/sh -c), shown in Figure~\ref{fig:lmbench}.
 The Lmbench are configured using the default parameters, except for the parameters of processor MHz and memory range.
 In our experiment platform, the CPU frequency is $3.2$ GHz, memory range is set as $1024$ MB to save measurement time.
 As illustrated in Figure~\ref{fig:lmbench}, the processes of \emph{fork+exit}, \emph{fork+execve} and \emph{fork+/bin/sh -c} in the \name group costs $344$, $365$, and $1567$ in microseconds, $11$\%, $17$\%, $21$\% faster than the ones in the baseline group.
-We believe this improvement will significantly benefit the workloads that rely on many short-time temporary processes.
+We believe that the improvement will significantly benefit the workloads that rely on many short-time temporary processes.
 
 \begin{figure}[htp]
 \centering
@@ -191,26 +187,26 @@ We believe this improvement will significantly benefit the workloads that rely o
 \subsubsection{SPECINT}
 SPEC CINT2006~\cite{specint} is an industry standard benchmark intended for measuring the performance of the CPU and memory.
 In our experiment, the tool version is SPECint 2006 v1.2, which has $12$ benchmarks in total and they are all invoked with the configuration file \emph{linux64-ia32-gcc43+.cfg}.
-All measurement results are list in Figure~\ref{fig:spec}.
+All measurement results are listed in Figure~\ref{fig:spec}.
 Among the benchmarks, the time differences between the baseline group and the \name group are very small, e.g., the maximum difference is within 0.42\%, which is produced by the \emph{483.xalancbmk}.
 All of them produce the same or a little better performance results, indicating the \name has no negative effect on system performance.
 
-\subsubsection{I/O Performance Measurments}
+\subsubsection{I/O Performance Measurements}
 As we know, IOTLB is used to accelerate the DMA address translation to achieve better performance for I/O devices.
 Therefore, if there are many IOTLB misses caused by frequent IOTLB flushes will introduce negative effects on the  I/O performance.
-However,  rIOMMU~\cite{malka2015riommu} claims that the overhead caused by walking IOMMU page tables due to IOTLB misses is so negligible that cannot be measured in the \emph{netperf}, because the main latency induced by I/O interrupt processing and the TCP/IP stack is several orders of magnitude larger than that of walking the page tables.
-In addition, Nadav Amit \emph{et al.}~\cite{amit2012iommu} also has the similar statements.
+However,  rIOMMU~\cite{malka2015riommu} claims that the overhead caused by walking the IOMMU page tables due to IOTLB misses is so negligible that cannot be measured in the \emph{netperf}, because the main latency induced by I/O interrupt processing and the TCP/IP stack is several orders of magnitude larger than that of walking the page tables.
+In addition, Nadav Amit \emph{et al.}~\cite{amit2012iommu} also has similar statements.
 % that the IOTLB misses cannot be observed under regular circumstances, since the I/O memory (un)mapping operations consume much more time than that of the corresponding DMA transaction.
 
 In this paper, we test the network I/O and disk I/O performances under regular circumstances.
 %, and use these experiments as the revisiting of the problem between the IOTLB misses and I/O performance.
 We measured the network I/O using \emph{netperf} tool. Specifically, we have two machines that are directly connected through the Ethernet cable.
-The client on one machine set a bulk of TCP packets to the server on another machine. Note that emulated workload is also enabled on the client machine to trigger IOTLB flushes and misses.
+The client on one machine set a bulk of TCP packets to the server on another machine. Note that emulated workload is also enabled on the client machine to trigger IOTLB flushes.
 The sending buffer is $16KB$ and the test lasts 60 seconds.
 The measurement results are listed in Table~\ref{tab:netperf}.
 By comparing both values of $\mu$ and $\sigma$, we find that there is no detectable negative effect on the network I/O.
-Similarly, we also test the disk I/O using lmbench. The results indicate that the disk I/O speed is kept the same.
-The above two experiments also as the new evidences to support the observations in \cite{amit2012iommu}  and  \cite{malka2015riommu}.
+Similarly, we also test the disk I/O using lmbench. The results indicate that the disk I/O speed remains the same.
+The above two experiments also as new evidences to support the observations in ~\cite{amit2012iommu, malka2015riommu}.
 
 \begin{table}[!ht]
 \footnotesize
@@ -223,14 +219,14 @@ Arithmetic Mean ($\mu$)  &  $87.926$ & $87.913$ \\ \hline
 Standard Deviation ($\sigma$) &  $0.028$ & $0.021$ \\ \hline
 \end{tabular}
 \end{center}
-\caption{The netperf results for network I/O. The results indicate the overhead introduced by the IOTLB misses is negligible.}
+\caption{The netperf results of network I/O indicate that the overhead introduced by the IOTLB misses is negligible.}
 \label{tab:netperf}
 \end{table}
 
-In fact, we can measure the overhead introduced by the IOTLB misses using a a high-speed I/O device (i.e., Intel's I/O Acceleration Technology~\cite{lauritzenintel}) to do DMA copy operations in a pseudo pass-through mode of IOMMU, as suggested in \cite{amit2012iommu}.
-In rIOMMU project, the authors make use of ibverbs library~\cite{ibverbsevaluation,kerr2011dissecting} to measure the cost of an IOTLB miss in the above setting.
-The results indicate that DMA-copy speed is largely reduced by the IOTLB misses.
-We believe that the \name can effectively reduce the overhead in the above high-speed setting, and we also plan to do the experiment in the future.
+In fact, it is suggested that the overhead introduced by the IOTLB misses can be measured by using a high-speed I/O device (i.e., Intel's I/O Acceleration Technology~\cite{lauritzenintel}) so as to do DMA copy operations in a pseudo pass-through mode of IOMMU~\cite{amit2012iommu}. The experiment results indicate that DMA-copy speed is largely reduced by the IOTLB misses.
+Moshe Malka \emph{et al.} use rIOMMU with ibverbs library~\cite{ibverbsevaluation,kerr2011dissecting} to establish a high-performance setting in order to measure the cost of one IOTLB miss.
+
+We believe that the \name can effectively reduce the overhead in the above high-speed settings, and we also plan to conduct experiments in the future.
 %However, currently we do not have a machine with the Intel I/O acceleration technology. Thus, we have to postpone this experiment. 
 
 %play an important role in I/O environments requiring high performance, which will be evaluated in our future work by utilizing the previous approaches and the I/O high-speed device.
