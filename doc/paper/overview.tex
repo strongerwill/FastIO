@@ -34,6 +34,7 @@ In the fine-grained validation scheme, both semi-writable pages and page-table p
 Thus, the hypervisor never needs to do the IOTLB flushes or IOMMU page table updates (i.e., vanished channel), which will benefit the I/O performance of the peripheral devices.
 Moreover, it also saves the time of the whole security validation, further reducing the execution time of the page table allocations and deallocations.
 
+
 \subsection{Fine-Grained Validation}\label{sec:fine-grained}
 %To reduce the number of the IOTLB flushes, a possible approach is to let the hypervisor to manage the page table in its own space.
 %In this way, there is no need for flushing IOTLB, but it will dramatically increase the size of the hypervisor, and consequently reduce the system security level.
@@ -66,11 +67,15 @@ By doing so, the \module could reuse the existing interfaces.
 In particular, we find that the page-type data structure could be extended by borrowing a bit from \emph{type reference count} for \emph{semi-writable page}.
 
 The second task of the \module is to perform the fine-grained security validations for all page type update requests.
-Specifically, the \module separates the page table validations and the DMA validations, and does them independently.
-For the DMA validations, they can be skipped, as both semi-writable page and page-table page are always non-writable for all DMA requests.
-The DMA requests are never able to subvert the integrity of the page table pages.
-This is why the additional IOTLB flushes are vanished.
-However, the page table validations are always necessary, as the semi-writable pages are writable for the guest OS, and the modifications from the untrusted guest OS could subvert the enforced policies.
+The main logic is to check page type first, and then determine to perform one validation or both of them.
+Specifically, if the page type update occurs between writable page and semi-writable page, it will perform both page table and DMA validations.
+However, if the page type update occurs between semi-writable page and page-table page, the \module only perform the page table validations, skipping the DMA validations.
+Note that the page table validations are always necessary, as the semi-writable pages are writable for the guest OS, and the modifications from the untrusted guest OS could subvert the enforced security policies.
+
+%For the DMA validations, they can be skipped, as both semi-writable page and page-table page are always non-writable for all DMA requests.
+%The DMA requests are never able to subvert the integrity of the page table pages.
+%This is why the additional IOTLB flushes are vanished.
+%However, the page table validations are always necessary, as the semi-writable pages are writable for the guest OS, and the modifications from the untrusted guest OS could subvert the enforced policies.
 
 The \module also exports a new hypercall interface for the \cache to facilitate their communications.
 Through the new interface, the \cache could explicitly invoke the \module to perform security validations on specific page type updates.
