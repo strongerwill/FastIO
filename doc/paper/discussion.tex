@@ -10,16 +10,15 @@ The page-selective invalidation that only invalidate the corresponding IOTLB cou
 If the IOMMU is configured to do the global or domain-selective invalidation, an IOTLB flush produced by the DMA validations will invalidate all related IOTLB entries, inevitably resulting in IOTLB misses for all DMA address translations. However, if the IOMMU is working with the page-selective invalidation scheme, one IOTLB flush will only invalidate one IOTLB entry, which may not be used immediately. It means the current DMA request may not be affected, but its effects may result in the future DMA transfer.
 %Currently, we do not evaluate the relationship between the IOTLB flushes and IOTLB misses in the page selective invalidation scheme, and we plan to put it into the future work.
 
-\subsection{Automatically Shrinking \name Cache}
-In the previous design, the \cache cannot automatically shrink itself.
-As talked before, when to free pages in cache relies on both the memory size of the cache and the proportion between the cache size and page-table size. Default thresholds of the two factors are determined by a particular setting created by a specific stress tool. Therefore, both thresholds may not work in other settings. If the thresholds are not set appropriately, freeing pages will occur often, thus causing IOTLB flush. This is why we provide an interface for users to manually modify the default thresholds. Nevertheless, the optimum tradeoff between cache size and IOTLB-flush is not easy to reach only by the simple interface and we plan to propose a self-adaption algorithm in the future work. Basically, the algorithm has the properties as follows.
-\begin{enumerate}
-\item Memory usage of the cache is under control.
-\item Frequency of IOTLB-flush will drop to a lowest level.
-\item The frequency will reach the level as soon as possible.
-\end{enumerate}
-
-Firstly, an upper limit to the cache size is set based on the memory usage of a target application. Under the limit, the algorithm manages to eliminate IOTLB-flush with a fewest cache usage. By scanning the the frequency of IOTLB-flush periodically, the algorithm will appropriately adjust the cache size based on both the memory pages in cache and in page tables residing in the target application.
+\subsection{Threshold for \name Cache Shrinking}
+Besides the end user could send command to explicitly shrink the \cache, the \cache itself could shrink itself according to the predefined threshold.
+However, the threshold is likely to be different for different workload environments. 
+Thus, we should adjust the threshold according to the specific workload feature.
+An interesting solution is to upgrade the \cache to allow itself to be aware of the workload updates and adjust the threshold accordingly.
+It is not that easy to propose the self-adaption algorithm as there are many factors affecting the workload in a real system.
+Another practical solution is run a training tool in the guest kernel to calculate the number and the proportion of the needed semi-writable pages and the page table pages.
+However, this approach requires the workload is relatively stable, otherwise the end user has to do the training over and over again.
+Fortunately, if the workload is updated in a regular way and the update pattern is known to the end user, the end user could have a shell script that updates the threshold using the exported virtual file in a proper time.
 
 
 %When users dynamically enable the cache for the application, the algorithm is also invoked to record the memory usage by scanning and then determine the proportion between them. If IOTLB-flush occurs during the period, increase the cache size. If the cache exceeds a particular percentage of , it is not supposed to be any higher even if IOTLB still flushes.
