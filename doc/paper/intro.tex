@@ -53,7 +53,7 @@ The micro experiment results indicate that \name is able to completely eliminate
 There are (34\%, 47\%), (38\%, 22\%) and (65\%, 65\%) improvements for a pair of allocation and deallocation for three-level page table, from top to bottom.
 Even in the worst cases when the \name has to go through the traditional path to allocate pages, the performance overhead for one page table allocation is still very small, only adding about 20 instructions. Fortunately, the worst cases are rarely happened. According to our experiment results, the number of worst cases is only $348$, out of the total allocation requests (i.e., $198990$), in 30 minutes execution.
 The macro benchmarks show that \name has no negative impact on the CPU computation, network I/O and disk I/O.
-In particular, the latencies of the process creations and exits are expectedly reduced by 24\% on average.
+In particular, the latencies of the process creations and exits are expectedly reduced by 16\% on average.
 
 In summary, we make the following contributions:
 \begin{enumerate}
