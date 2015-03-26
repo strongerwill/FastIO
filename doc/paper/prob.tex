@@ -1,11 +1,11 @@
 \section{Problem Definition} \label{sec:prob}
 In this section, we describe the necessary background knowledge and highlight the identified two performance issues: 1) long execution paths of the guest page table (de)allocations and 2) the additional IOTLB flushes.
-As Xen~\cite{XEN-SOSP03} is a typical and popular paravirtual hypervisor, we use Xen in a x86 MMU model~\cite{x86-pv-model} to illustrate the details.
+As Xen~\cite{XEN-SOSP03} is a typical and popular paravirtual hypervisor, we use Xen in the x86 MMU model~\cite{x86-pv-model} to illustrate the details.
 The presented mechanisms are also available on other paravirtual platforms.
 
 
 \subsection{Long Execution Path}\label{sec:longpath}
-The long execution path issue refers to the execution paths for the guest page table page allocations and deallocations.
+The long execution path issue refers to the execution paths of the guest page table allocations and deallocations.
 In the traditional design, allocating and deallocating a page-table page are time costly, as they have to invoke the complex memory allocators and perform both software (i.e., page table) and DMA validations.
 %In addition, the DMA validations always lead to additional IOTLB flushes, which would reduce the DMA address translation speed and may consequently lower the I/O performances.
 In addition, such allocation and deallocation events frequently occur in a system, i.e., the numerous process creations and exits will result in many page-table allocations and deallocations.
@@ -14,11 +14,11 @@ Thus, it is necessary to deeply understand the long execution path issue and imp
 \subsubsection{Page Allocation and Deallocation}
 To allocate a page, the guest kernel has to invoke the system allocators, typically from the slab allocator to the buddy allocator.
 The slab allocator~\cite{slaballocator} consists of a variable number of caches that are linked together on a doubly linked circular list.
-Each cache maintains blocks of contiguous pages in memory called slabs, which are carved up into small chunks for the data structures and objects.
-When \emph{kmalloc} is called, it will search through the prepared caches.
+Each cache maintains blocks of contiguous pages in memory called slabs, which are carved up into small chunks for data structures and objects of specific sizes.
+When \emph{kmalloc} is called, the allocator will search through the prepared caches.
 If there is no suitable object, the buddy allocator will be involved.
 The buddy allocator~\cite{buddyallocator} manages all free memory blocks of permitted sizes by free lists. The blocks consist of pages and the sizes are usually powers of 2.
-When receiving requests for memory, the allocator firstly checks if the request size is equal to a permitted size. If they are equal, the allocator will return a block from the corresponding free list. If they are not equal or the free list is empty, the allocator will split a larger block (e.g., the permitted size is twice that of the requested size) into multiple sub-blocks and return one sub-block, inserting the rest to the proper free list. 
+When receiving requests for memory, the allocator firstly checks if the request size is equal to a permitted size. If they are equal, the allocator will return a block from the corresponding free list. If they are not equal or the free list is empty, the allocator will split a larger block (e.g., the permitted size is twice that of the requested size) into multiple sub-blocks and return one sub-block, inserting the rest to the proper free list.
 
 In contrast to the page allocation, the page deallocation is to return the page back to the system.
 The deallocation process may also invoke slab allocator and/or buddy allocator, and would trigger the updates of the corresponding data structures,
@@ -28,7 +28,7 @@ In brief, the page allocation and deallocation are time costly due to the deep i
 
 
 \subsubsection{Page Table Validations}\label{sec:pv-security}
-Page tables are used by a hardware, i.e., Memory Management Unit (MMU), to translate the linear addresses into physical addresses.
+Page tables are used by the hardware, i.e., Memory Management Unit (MMU), to translate the linear addresses into physical addresses.
 In the PAE-enabled paging mode, a page table has three levels: L3 level (bottom level), L2 level (middle level) and L1 level (top level).
 The slots in L3, L2 and L1 levels are known as Page Table Entry (PTE), Page Middle Directory (PMD) and Page Global Directory (PGD), respectively.
 A PTE slot could determine the access permissions of a page, e.g., the kernel could set a page as read-only by clearing the bit within a PTE slot that represents the writable permission.
@@ -47,15 +47,15 @@ Typically, each user process has its own page table, and the creation and exit o
 %This prevents the guest OS from executing privileged instructions, e.g., the guest OS cannot directly update control registers.
 
 The hypervisor defines two page types 1) \emph{writable page} that is writable for both software and DMA, and 2) \emph{non-writable page} that is non-writable for both software and DMA.
-The non-writable page has several sub-page types, such as page-table page and GDT/LDT pages.
+The non-writable page has several sub-page types, such as page-table pages and GDT/LDT pages.
 In addition, the hypervisor also requires that every page type update only occur between writable and non-writable pages, as summarized in Figure~\ref{fig:page-type-updates}.
 The hypervisor maintains a type reference count for each page, and enforces the policy that any given page has exactly one type at any given time.
 In addition, it also enforces that only pages with the writable type have a writable mapping in the page tables.
 By doing this it can ensure that the guest OS is not able to directly modify any page-table pages and therefore cannot subvert the security of the hypervisor.
 
 Whenever a page table is loaded to work, there should be some page type updates from writable pages to non-writable pages (i.e., page-table page).
-First, the hypervisor must ensure that the L1 page-table page has a type reference count of zero.
-In addition, it must be validated to ensure that it follows the following policy:
+First, the hypervisor must ensure that the page-table page has a type reference count of zero.
+In addition, it must be validated to ensure that it complies with the following policy:
 for a page with a page-table type to be valid, it is required that any pages referenced
 by a present page table entry in the page have the type of the next level down.
 For instance, any page referenced by a page with type L1 Page Table must itself have the type L2 Page Table.
@@ -80,7 +80,7 @@ However, if the DMA address translation always needs to look up the IOMMU page t
 To accelerate the translation speed, the I/O translation look-aside buffer (IOTLB) is introduced.
 The IOTLB is used to cache frequently accessed page table entries.
 By doing so, the IOTLB is very likely to be accessed, indicating that the physical address of a queried DMA address will be immediately fetched through the IOTLB path (Figure~\ref{fig:iotlbpath}).
-If unlikely the IOTLB miss occurs, the DMA address translation still can go the slow I/O page-table path to get the physical address (Figure~\ref{fig:ioptpath}).
+If unlikely the IOTLB miss occurs, the DMA address translation still can go along the slow I/O page-table path to get the physical address (Figure~\ref{fig:ioptpath}).
 To achieve a better I/O performance, the DMA address translation should avoid taking the I/O page-table path.
 
 \begin{figure}[!t]
@@ -118,7 +118,7 @@ After that, the hypervisor also needs to flush IOTLB entries to invalidate the s
 In addition, the additional IOTLB flushes are likely to let the DMA address
 translations take the slow and inefficient page-table path,
 instead of taking the fast and efficient IOTLB path (Figure~\ref{fig:pro-ill}), due to the additional IOTLB misses.
-Numerous IOTLB misses would lower the speed of the DMA transferring, especially for the high performance devices, such as the Intel I/OAT ~\cite{lauritzenintel}.
+Numerous IOTLB misses would lower the speed of the DMA transferring, especially for the high performance devices, such as Intel I/OAT ~\cite{lauritzenintel}.
 %Moreover, the DMA validations are frequently triggered if there are many creations and exits of user processes due to certain cases.
 %In fact, it
 
