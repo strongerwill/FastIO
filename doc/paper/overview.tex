@@ -59,54 +59,58 @@ By doing this, we can keep the modifications as small as possible by reusing exi
 
 
 \subsection{\name Module}\label{sec:module}
-The \module works in the hypervisor space, extended from the original coarse-gained validation module.
-The first task of the \module is to trace the page type.
-Instead of adding a new data structure for tracing the semi-writable pages, the \module chooses to reuse the existing ones.
-By extending the existing page-type data structure, the \module adds a new bit for \emph{semi-writable page}.
-By doing so, the \module could reuse all existing interfaces.
+The \module works in the hypervisor space, extended from the traditional coarse-gained validation module.
+The first task of the \module is to add the support for the \emph{semi-writable page}.
+Instead of adding a new data structure for marking the semi-writable pages, the \module chooses to reuse the existing one.
+By doing so, the \module could reuse the existing interfaces.
+In particular, we find that the page-type data structure could be extended by borrowing a bit from \emph{type reference count} for \emph{semi-writable page}. 
 
-The second task of the \module is perform the security validations on all page type update requests.
-The purpose of the security validations is to prevent software and DMA attacks on the hypervisor.
-As the semi-writable pages are writable for the guest OS, the updates on the page table may violate the security policies. Thus, the page table validations are always necessary.
-However, the DMA validations can be skipped, as both semi-writable page and page-table page are non-writable for DMA.
-This is why the page type updates between two of them do not trigger any additional IOTLB flushes.
+The second task of the \module is perform the fine-grained security validations on all page type update requests.
+Specifically, the \module separates the page table validations and the DMA validations, and does them independently.
+For the DMA validations, they can be skipped, as both semi-writable page and page-table page are always non-writable for all DMA requests.
+The DMA requests are never able to subvert the integrity of the page table pages.
+This is why the additional IOTLB flushes are vanished.
+However, the page table validations are always necessary, as the semi-writable pages are writable for the guest OS, and the modifications from the untrusted guest OS could subvert the enforced policies.
 
 The \module also exports a new hypercall interface for the \cache to facilitate their communications.
-Through the new interface, the \cache could explicitly invoke the \module to perform the security validation according to its demand.
+Through the new interface, the \cache could explicitly invoke the \module to perform the security validations on the specific page-type updates.
 
 \subsection{\name Cache}\label{sec:cache}
 The basic idea behind the \cache is to have caches of semi-writable pages available for page table allocations and deallocations.
-Without the page oriented \cache, the kernel will spend much of its time allocating, initializing and freeing page-table pages.
+Without the page-oriented \cache, the kernel will spend much of its time allocating, initializing and freeing page-table pages.
 The slab allocator that is similar to the \cache is not used in our settings, due to the following reasons.
 %unaware of the page type updates
-First, it violates one of security requirements of the page-table pages enforced by the hypervisor.
-In particular, the type count should be zero when a page is updated among the writable page, the semi-writable page and the page-table page.
-However, the pages in the slab allocator do not always satisfy this restriction, as it may build multiple mappings for one page.
-
+First, it is not aware of the page type or the security requirements, which would lead to unexpected crashes of the guest OS.
+Adding such functionalities would introduce many internal checking operations that are necessary for other objects maintained by the slab allocator.
+At least, those additional checking operations will lower the (de)allocation efficiency of other objects.
 Second, the existing size-oriented management of the slab does not distinguish the page-table pages from other pages that have the same size, and the customization of this management mechanism would need lots of development costs, such as interface updates, internal data structure updates.
 In addition, the related components that rely on the slab allocators may also be affected.
 At last, adding the fine-grained validation mechanism only for one object (i.e., page-table page) will subvert the generality of the slab allocator.
-Considering the above three reasons, we give up reusing the existing slab allocator and aim to build a dedicated one, called \cache, for page table allocation and deallocation.
+Considering the above three reasons, we give up reusing the existing slab allocator and aim to build a dedicated one, called \cache, serving the page table allocations and deallocations.
 
 \subsubsection{\name Cache Initialization and Destruction}
 The \cache is enabled in the system bootup phase by default.
-By doing so, the page tables of all user processes are maintained by the \cache from the very beginning.
-To increase the flexibility, it is also allowed to dynamically enable it at runtime through the prepared interface.
+By doing so, the page tables of all user processes are served by the \cache from the very beginning.
+To increase the flexibility, it also allows dynamical activation at runtime through the exported interface.
 
-In the initialization phase, the \cache allocates several pages from writable pages using existing system allocators, converts them into semi-writable pages, and maintains them in a dedicated cache list.
+In the initialization phase, the \cache allocates several pages from the existing system allocators, converts them into semi-writable pages, and maintains them in a dedicated cache list.
 At runtime, the page table deallocations are always successful by efficiently pushing deallocated pages into the \cache.
-When the guest kernel needs page-table pages, the \cache will pop out the cached pages to satisfy the requirements.
-In certain worst cases (e.g., many allocation requests but only a few or no deallocations), if the cached pages cannot satisfy the requests of page table allocations, the \cache has to re-invoke the system allocators to get new ones. 
-Fortunately, the re-invocations rarely happen in a workflow-stable system.
-In fact, there are always multiple semi-writable pages in the \cache that are ready for page-table allocations after the system is running for a few minutes in our experiments. Such cases will be evaluated in Section~\ref{sec:eva}.
+But the cases for the page table allocation is a little bit complex.
+Normally, the \cache could serves all page table allocation requests using the cached pages.
+However, in the worst cases, the cached pages may not be able to satisfy the allocation requests.
+In such condition, the \cache will have to re-invoke the system allocators to get new pages.
+Fortunately, the re-invocations could be avoid by carefully setting the number of the initial pages.
+In fact, the re-invocations rarely happen in a workflow stable system.
+In our experiments, there are always several  semi-writable pages in the \cache ready for the page-table allocations after the \name is running for a few minutes.
+All these cases are evaluated in Section~\ref{sec:eva}.
 
 The \cache works in the whole life cycle of the guest by default, but the end  user is able to explicitly disable it at any time through the exported interface.
 Once the \cache receives the \emph{disable} command, it will release all resources, e.g., deallocating the cached pages assisted by the existing system allocators as well as the \module, and releasing the data structures that are used for managing the cached pages.
-In addition, it will also issue a hypercall to inform the hypervisor, which will disable the fine-grained validation mechanism and switch back to the original coarse-grained validation scheme.
+In addition, it will also issue a hypercall to inform the hypervisor, which will disable the fine-grained validation mechanism and switch it back to the traditional coarse-grained validation scheme.
 %As the disable costs are quite high, we recommend that always keeping the \name running once it starts to work.
 
 \subsubsection{Cache Shrinking}
-When the memory management daemon (e.g., \emph{kswapd}) notices that memory is tight, it will explicitly call the exported interfaces of the \cache to free some memory.
+When the memory management daemon (e.g., \emph{kswapd}) notices that memory is tight, it will explicitly call the exported interfaces of the \cache to free some cached pages.
 %talk about the interface
 There are two interfaces to shrink the cache pages. One is based on the page number. The memory management daemon can specify a number to ask the \cache to release.
 The other one is based on the percentage. For instance, the kernel could ask the \cache to release 50\% cached pages.
