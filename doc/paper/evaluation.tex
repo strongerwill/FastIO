@@ -127,7 +127,8 @@ However, the overhead introduced by the \name path is negligible, as the control
 More specifically, the overhead consists of the function invocation, the stack adjustments and the checking logic of both the cache list and the page type.
 Putting them together, the overhead are less than 20 instructions.
 Fortunately, the worst case does not often occur. According to our observations in the \dynname group, the number of the worst cases is $348$, out of $198990$ allocation requests in 30 minutes.
-Note that the page-table deallocation is always deallocated into the \cache in a constant time.
+%Fortunately, the worst case could be avoided by carefully setting the number of the initial pages of the \cache.
+Note that the page-table deallocation is always successful in a constant time.
 
 %\zhi{In the pre-\name group, the probabilities of cache miss are 9/550 (1\% PGD), 38/2200(1\% PMD), 322/6633(4\% PTE),respectively. In the dyn-\name group, the probabilities of cache miss are 7/540 (1\% PGD), 24/2160(1\% PMD), 320/6333(5\% PTE),respectively.}
 

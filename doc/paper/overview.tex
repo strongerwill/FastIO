@@ -105,7 +105,7 @@ Normally, the \cache could serves all page table allocation requests using the c
 However, in the worst cases, the cached pages may not be able to satisfy the allocation requests.
 In such conditions, the \cache will have to re-invoke the system allocators to get new pages.
 Fortunately, the reinvocations could be avoided by carefully setting the number of the initial pages.
-In fact, the re-invocations rarely happen in a workflow stable system.
+In fact, the re-invocations rarely occur in a workflow stable system.
 In our experiments, there are always several  semi-writable pages in the \cache ready for the page-table allocations after the \name is running for a few minutes.
 All these cases are evaluated in Section~\ref{sec:eva}.
 
