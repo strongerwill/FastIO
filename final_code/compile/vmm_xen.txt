@@ -1,0 +1,26 @@
+      
+ 1679  ls
+ 1680  ./configure 
+ 1681  sudo apt-get build-dep xen
+ 1682  sudo apt-get install transfig wget texi2html libaio-devel dev86 glibc-devel e2fsprogs-devel gitk mkinitrd iasl xz-devel bzip2-devel pciutils-libs pciutils-devel SDL-devel libX11-devel gtk2-devel bridge-utils PyXML qemu-common qemu-img mercurial glibc-devel.i686
+ 1683  vim README 
+ 1684  sudo apt-get install transfig wget texi2html libaio-devel dev86 glibc-devel e2fsprogs-devel gitk mkinitrd iasl xz-devel bzip2-devel pciutils-libs pciutils-devel SDL-devel libX11-devel gtk2-devel bridge-utils PyXML qemu-common qemu-img mercurial 
+ 1687  sudo update-rc.d xencommons defaults 19 18
+ 1688  sudo update-rc.d xendomains defaults 21 20
+ 1689  sudo update-rc.d xen-watchdog defaults 22 23
+       sudo apt-get install zlib-dev python-dev libncurses-dev openssl-dev xorg-x11-dev uuid-dev libyajl-dev
+ 1702  make world -j8
+ 1707  sudo make xen-install
+ 1708  sudo make install-xen 
+ 1709  sudo make install-tools
+ 1712  sudo mv /boot/grub.cfg /boot/backup_grub.cfg
+ 1713  sudo update-grub
+ 1714  sudo vim /boot/grub/grub.cfg 
+ 1715  edit grub.cfg
+
+ It is time to download kernel image and source code which supports pae
+ Before doing that, we need to compile grub.cfg
+ 1721  sudo cp /boot/grub/grub.cfg /boot/backup_grub.cfg  
+ 1724  sudo apt-get install linux-image-3.0.0-32-generic-pae linux-headers-3.0.0-32-generic-pae  
+ 1726  sudo reboot
+  

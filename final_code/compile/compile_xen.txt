@@ -1,0 +1,1000 @@
+  748  ls
+  749  cd kernel/
+  750  ls
+  751  cat start.c
+  752  cat kernel.S
+  753  ls
+  754  cat start.c
+  755  cat ../lib/kliba.S
+  756  gedit start.c
+  757  gedit kernel.S
+  758  gedit start.c
+  759  cat kernel.S
+  760  gedit start.c
+  761  gedit ../Makefile 
+  762  gedit start.c
+  763  ls
+  764  cd SmuHvisor/
+  765  ls
+  766  cd boot/
+  767  ls
+  768  make clean
+  769  ls
+  770  make 
+  771  sudo make copy
+  772  ls
+  773  su
+  774  ls
+  775  cd /root
+  776  su
+  777  ls
+  778  su
+  779  ls
+  780  cd SmuHvisor/
+  781  ls
+  782  su
+  783  ls
+  784  eclipse.sh 
+  785  which eclipse.sh 
+  786  gedit /usr/local/bin/eclipse.sh 
+  787  sudo gedit /usr/local/bin/eclipse.sh 
+  788  eclipse.sh 
+  789  sudo gedit /usr/local/bin/eclipse.sh 
+  790  eclipse.sh 
+  791  ls
+  792  cd /opt/
+  793  ls
+  794  cd eclipse/
+  795  ls
+  796  vim eclipse.ini 
+  797  chmod 777 eclipse.ini 
+  798  sudo chmod 777 eclipse.ini 
+  799  ls
+  800  vim eclipse.ini
+  801  eclipse.sh 
+  802  vim eclipse.ini
+  803  eclipse.sh 
+  804  vim eclipse.ini
+  805  eclipse.sh 
+  806  ls
+  807  ./eclipse
+  808  su
+  809  ls
+  810  cd ~
+  811  l
+  812  vi .bashrc 
+  813  su
+  814  ls
+  815  cd SmuHvisor/
+  816  ls
+  817  cd boot/
+  818  ls
+  819  make clean
+  820  ls
+  821  make
+  822  ls
+  823  cat Makefile 
+  824  ls
+  825  ls -l Makefile 
+  826  make
+  827  make clean
+  828  ls
+  829  cat Makefile 
+  830  ls
+  831  cat Makefile 
+  832  make clean
+  833  make
+  834  make boot.img 
+  835  ls
+  836  cd..
+  837  cd ..
+  838  ls
+  839  ls -l
+  840  chmod 777 boot/
+  841  ls
+  842  cd boot/
+  843  ls
+  844  make clean
+  845  make
+  846  ls
+  847  cat Makefile 
+  848  ls
+  849  make clean
+  850  ls
+  851  make
+  852  ls
+  853  ls -l
+  854  gedit Makefile 
+  855  make clean
+  856  make
+  857  ls
+  858  cat Makefile 
+  859  ls
+  860  make clean
+  861  ls
+  862  cat x86_loader.ld 
+  863  ls
+  864  cat Makefile 
+  865  gedit Makefile 
+  866  make clean
+  867  make
+  868  ls
+  869  ls -l
+  870  cat Makefile 
+  871  gedit Makefile 
+  872  make clean
+  873  gedit Makefile 
+  874  make clean
+  875  make
+  876  ls
+  877  cd include/
+  878  ls
+  879  cd ..
+  880  ls
+  881  pwd
+  882  su
+  883  gedit Makefile 
+  884  make
+  885  sudo make clean
+  886  make
+  887  vim Makefile 
+  888  make
+  889  ls
+  890  cat Makefile 
+  891  ls
+  892  sudo make copy
+  893  ls
+  894  vim Makefile 
+  895  sudo make copy
+  896  ls
+  897  bochs -f bochsrc.txt 
+  898  ls
+  899  ls -l 
+  900  chmod 777 parport.out 
+  901  sudo chmod 777 parport.out 
+  902  ls
+  903  make
+  904  make clean
+  905  make
+  906  sudo make copy
+  907  ls
+  908  bochs -f bochsrc.txt 
+  909  mount -o loop boot.img /mnt/floppy/
+  910  su
+  911  su 
+  912  su
+  913  ls
+  914  su
+  915  ls
+  916  su
+  917  ls
+  918  su
+  919  ls
+  920  su
+  921  ls
+  922  cd bitvisor
+  923  ls
+  924  mkdir tmp
+  925  su
+  926  reboot
+  927  su
+  928  ls
+  929  cd Downloads/
+  930  ls
+  931  cp bitvisor-1.2.tar.gz /home/wqj/bitvisor/
+  932  su
+  933  ls
+  934  su
+  935  ls
+  936  cd ..
+  937  su
+  938  ls
+  939  su
+  940  ls
+  941  su
+  942  ls
+  943  su
+  944  ls
+  945  cat /proc/cpuinfo 
+  946  cat /proc/meminfo 
+  947  cat /proc/cpuinfo 
+  948  su
+  949  ls
+  950  su
+  951  ls
+  952  su
+  953  ls
+  954  cd bitvisor-1.1/
+  955  ls
+  956  cd core/
+  957  ls
+  958  gedit arith.s
+  959  cp arith.h arith.s /home/wqj/bitvisor/bitvisor-1.1/core/
+  960  su
+  961  ls
+  962  su
+  963  cd ..
+  964  su
+  965  ls
+  966  su
+  967  ls
+  968  su
+  969  ifconfig
+  970  su
+  971  ping 10.4.0.53
+  972  su
+  973  ls
+  974  su
+  975  echo "HELLO" >> /dev/tty0
+  976  sudo echo "HELLO" >> /dev/tty0
+  977  sudo ls
+  978  sudo echo "HELLO" >> /dev/tty0
+  979  sudo cat /dev/tty0
+  980  sudo cat /dev/tty1
+  981  sudo cat /dev/ttyS0
+  982  sudo vim /dev/ttyS0
+  983  su
+  984  ls
+  985  cd boo
+  986  cd /boot/grub/
+  987  ls
+  988  cp grub.cfg.bak  grub.cfg
+  989  cat grub.cfg
+  990  more grub.cfg
+  991  reboot
+  992  sudo reboot
+  993  cd /boot/grub/
+  994  lls
+  995  sudo cp grub.cfg.bak  grub.cfg
+  996  sudo reboot
+  997  su
+  998  ls
+  999  cat /proc/mtrr
+ 1000  ls
+ 1001  cd ..
+ 1002  su
+ 1003  ls
+ 1004  cd bitvisor
+ 1005  ls
+ 1006  cd bitvisor-1.1
+ 1007  ls
+ 1008  su
+ 1009  ls
+ 1010  su
+ 1011  ls
+ 1012  su
+ 1013  ls
+ 1014  su
+ 1015  ls
+ 1016  su
+ 1017  ls
+ 1018  cd bitvisor
+ 1019  ls
+ 1020  cd /home
+ 1021  ls
+ 1022  cd MyBitvisorBakup/
+ 1023  ls
+ 1024  cd bitvisor1.1
+ 1025  ls
+ 1026  su
+ 1027  ls
+ 1028  cd /home
+ 1029  ls
+ 1030  cd MyBitvisorBakup/
+ 1031  ls
+ 1032  cd bitvisor1.1
+ 1033  ls
+ 1034  cd 20111229112350_vmentry_failure/
+ 1035  ls
+ 1036  cd core/
+ 1037  ls
+ 1038  vi main.c
+ 1039  ls
+ 1040  cd ..
+ 1041  ls
+ 1042  cd ..
+ 1043  ls
+ 1044  cd ..
+ 1045  ls
+ 1046  cd /home/wqj/bitvisor
+ 1047  ls
+ 1048  cd test/
+ 1049  ls
+ 1050  cd bitvisor-1.1
+ 1051  ls
+ 1052  cat defconfig
+ 1053  ls
+ 1054  cat defconfig.tmpl 
+ 1055  ls
+ 1056  cp defconfig defconfig.tmpl  /home/wqj/bitvisor/bitvisor-1.1/
+ 1057  ls
+ 1058  cd include/
+ 1059  ls
+ 1060  cd core/
+ 1061  ls
+ 1062  cat config.h 
+ 1063  su
+ 1064  ls
+ 1065  su
+ 1066  su
+ 1067  dmidecode 
+ 1068  sudo dmidecode 
+ 1069  man dmidecode 
+ 1070  man dmidecode |less
+ 1071  sudo dmidecode |less
+ 1072  sudo reboot
+ 1073  su
+ 1074  ls
+ 1075  su
+ 1076  ssh 10.4.0.68
+ 1077  ssh wqj@10.4.0.68
+ 1078  ls
+ 1079  su
+ 1080  lsusb
+ 1081  ls -lu /dev/input/by-path/
+ 1082  lspci
+ 1083  lspci|grep USB
+ 1084  su
+ 1085  exit
+ 1086  su
+ 1087  ls
+ 1088  su
+ 1089  dmesg |less
+ 1090  su
+ 1091  ls
+ 1092  su
+ 1093  cat /proc/iomem 
+ 1094  su
+ 1095  cd /boot/
+ 1096  ls
+ 1097  su
+ 1098  su 
+ 1099  cd /boot/
+ 1100  ls
+ 1101  cp
+ 1102  su
+ 1103  uname -r
+ 1104  su
+ 1105  cd /usr/src/
+ 1106  ls
+ 1107  cd linux-2.6.33.20/
+ 1108  ls
+ 1109  locate ehci-orion
+ 1110  ls
+ 1111  cat ./drivers/usb/host/ehci-orion.c
+ 1112  vim ./drivers/usb/host/ehci-orion.c
+ 1113  vim ./drivers/usb/host/ehci-pci.c 
+ 1114  ls
+ 1115  cd drivers/usb/host/
+ 1116  ls
+ 1117  ls ehci-pci.c 
+ 1118  ls -l ehci-pci.c 
+ 1119  su
+ 1120  ls
+ 1121  su
+ 1122  ls
+ 1123  su
+ 1124  ls
+ 1125  su
+ 1126  ls
+ 1127  su
+ 1128  us
+ 1129  su
+ 1130  putty &
+ 1131  sudo reboot
+ 1132  su
+ 1133  ifconfig
+ 1134  su
+ 1135  dmesg | less
+ 1136  dmesg | more
+ 1137  dmesg > log.txt
+ 1138  vi log.txt 
+ 1139  su
+ 1140  ls
+ 1141  su
+ 1142  cd /home/wqj
+ 1143  ls
+ 1144  cd 3g
+ 1145  ls
+ 1146  gcc -I/home/wqj/pbc-0.5.12/include 3g.c -lpbc -lgmp -o 3g -O2 -L/usr/local/lib
+ 1147  gcc -I/home/wqj/3g/pbc-0.5.12/include 3g.c -lpbc -lgmp -o 3g -O2 -L/usr/local/lib
+ 1148  ls
+ 1149  cd ..
+ 1150  ls
+ 1151  chmod 777 3g
+ 1152  sudo chmod 777 3g
+ 1153  cd 3g
+ 1154  ls
+ 1155  gcc -I/home/wqj/3g/pbc-0.5.12/include 3g.c -lpbc -lgmp -o 3g -O2 -L/usr/local/lib
+ 1156  ./3g
+ 1157  cd /usr/local/lib/
+ 1158  ls
+ 1159  ls -l
+ 1160  chmod 777 libpbc.so.1.0.0 
+ 1161  sudo chmod 777 libpbc.so.1.0.0 
+ 1162  ls
+ 1163  cd /home/wqj/3g
+ 1164  ls
+ 1165  gcc -I/home/wqj/3g/pbc-0.5.12/include 3g.c -lpbc -lgmp -o 3g -O2 -L/usr/local/lib
+ 1166  ./3g
+ 1167  sudo ldconfig /usr/local/lib/
+ 1168  ./3g
+ 1169  ls
+ 1170  ./3g
+ 1171  ls
+ 1172  ./3g 3g.c > output.txt
+ 1173  vim output.txt 
+ 1174  vim 3g.c 
+ 1175  ls
+ 1176  vim 3g.c
+ 1177  ls
+ 1178  cd /home/wqj/3g
+ 1179  ls
+ 1180  gcc -I/home/wqj/3g/pbc-0.5.12/include 3g.c -lpbc -lgmp -o 3g -O2 -L/usr/local/lib
+ 1181  ./3g output.txt 
+ 1182  ls
+ 1183  cat output.txt 
+ 1184  ls
+ 1185  rm output.txt 
+ 1186  ls
+ 1187  vim output.txt
+ 1188  ls
+ 1189  ./3g output.txt > result.txt
+ 1190  ls
+ 1191  cat result.txt 
+ 1192  ls
+ 1193  ps -axf
+ 1194  su
+ 1195  gconf-editor 
+ 1196  ssh sun@10.4.4.29
+ 1197  ssh sun@10.4.4.29
+ 1198  service
+ 1199  ssh sun@10.4.4.29
+ 1200  su
+ 1201  ls
+ 1202  su
+ 1203  ls
+ 1204  su
+ 1205  cd /boot/grub
+ 1206  cd ..
+ 1207  ls
+ 1208  cd grub
+ 1209  vim grbu.cfg
+ 1210  ls
+ 1211  vim grub.cfg
+ 1212  su
+ 1213  fdisk -l
+ 1214  su
+ 1215  df -l
+ 1216  cat /etc/fstab 
+ 1217  ll /dev/disk/by-uuid/
+ 1218  sudo fdisk -l
+ 1219  su
+ 1220  ls
+ 1221  su
+ 1222  putty &
+ 1223  ls /dev/disk/by-path/
+ 1224  su
+ 1225  ls
+ 1226  vim haha.txt
+ 1227  ls
+ 1228  rm haha.txt 
+ 1229  l
+ 1230  su
+ 1231  ls
+ 1232  cd su
+ 1233  su
+ 1234  sudo reboot 
+ 1235  su
+ 1236  ls
+ 1237  cd /boot/
+ 1238  cd grub/
+ 1239  ls
+ 1240  ls normal.mod 
+ 1241  ls -l
+ 1242  putty &
+ 1243  ifconfig
+ 1244  ls
+ 1245  ls -l
+ 1246  ls
+ 1247  su
+ 1248  ls
+ 1249  cd grub
+ 1250  vim mulitboot.txt
+ 1251  su
+ 1252  ls
+ 1253  su
+ 1254  ls
+ 1255  su
+ 1256  us
+ 1257  su
+ 1258  sudo reboot
+ 1259  su
+ 1260  suu
+ 1261  su
+ 1262  ls
+ 1263  su
+ 1264  cat /proc/ioports 
+ 1265  ls
+ 1266  jjj
+ 1267  su
+ 1268  ud
+ 1269  su
+ 1270  l
+ 1271  sudo reboot
+ 1272  su
+ 1273  ls
+ 1274  su
+ 1275  ls
+ 1276  su
+ 1277  sudo hdparm -I /dev/sda
+ 1278  sudo hdparm -B 128 /dev/sda
+ 1279  sudo hdparm -B 1 /dev/sda
+ 1280  sudo hdparm -S 1 /dev/sda
+ 1281  vim hello
+ 1282  cat hello 
+ 1283  rm hello 
+ 1284  sudo hdparm -B 254 /dev/sda
+ 1285  ls
+ 1286  su
+ 1287  sudo ls
+ 1288  sudo hdparm -B 1 /dev/sda
+ 1289  sudo hdparm -S 1 /dev/sda
+ 1290  sudo hdparm -B 254 /dev/sda
+ 1291  ls
+ 1292  su
+ 1293  sudo apt-get install bonnie++
+ 1294  sudo apt-get install iozone3 
+ 1295  ls
+ 1296  mkdir disktest
+ 1297  bonnie++ -d ./disktest/ -s 64 -m hello
+ 1298  bonnie++ -d ./disktest/ -s 7000 -m hello
+ 1299  vi result.txt
+ 1300  vim result.txt
+ 1301  ls
+ 1302  su
+ 1303  bonnie++ -d ./disktest/ -s 7000 -m hello
+ 1304  vim result.txt 
+ 1305  ifconfig
+ 1306  su
+ 1307  bonnie++ -d ./disktest/ -s 7000 -m hello
+ 1308  vim result.txt 
+ 1309  su
+ 1310  eclipse
+ 1311  su
+ 1312  ifconfig
+ 1313  su
+ 1314  ls
+ 1315  su
+ 1316  ls
+ 1317  su
+ 1318  ls
+ 1319  eclipse.sh 
+ 1320  su
+ 1321  ls
+ 1322  su
+ 1323  ls
+ 1324  su
+ 1325  ls
+ 1326  su
+ 1327  ifconfig
+ 1328  ping 10.4.36.1
+ 1329  sudo reboot
+ 1330  su
+ 1331  ls
+ 1332  ifconfig 
+ 1333  ping 10.4.4.27
+ 1334  ifconfig
+ 1335  su
+ 1336  df
+ 1337  su
+ 1338  ls /media/2d2e729a-0849-4b33-bd73-246d328e81de/
+ 1339  su
+ 1340  ifconfig
+ 1341  su
+ 1342  123456
+ 1343  su
+ 1344  ping 10.4.4.27
+ 1345  ls
+ 1346  su
+ 1347  ls
+ 1348  ifconfig
+ 1349  su
+ 1350  cd ../yunfeiyang/
+ 1351  ls
+ 1352  cp attest user_attest /home/wqj/netguard_ok/test/
+ 1353  cp -rf attest user_attest /home/wqj/netguard_ok/test/
+ 1354  su
+ 1355  vi .bashrc 
+ 1356  ls
+ 1357  cd /bin/
+ 1358  ls
+ 1359  cd /usr/bin/
+ 1360  ls
+ 1361  su
+ 1362  ls
+ 1363  cd /home/wqj/
+ 1364  ls
+ 1365  cd Downloads/
+ 1366  ls
+ 1367  sudo chmod +x VMware-Workstation-6.5.1-126130.i386.bundle 
+ 1368  ls
+ 1369  ./VMware-Workstation-6.5.1-126130.i386.bundle 
+ 1370  sudo ./VMware-Workstation-6.5.1-126130.i386.bundle 
+ 1371  sudo invoke-rc.d qemu-kvm stop
+ 1372  sudo stop qemu-kvm
+ 1373  ls
+ 1374  ps -ef | grep kvm
+ 1375  sudo invoke-rc.d qemu-kvm stop
+ 1376  sudo ./VMware-Workstation-6.5.1-126130.i386.bundle 
+ 1377  ls /tmp/vmware-root/
+ 1378  sudo ls /tmp/vmware-root/
+ 1379  sudo vim /tmp/vmware-root/setup-11168.log
+ 1380  gcc --version
+ 1381  su
+ 1382  gcc -v
+ 1383  gcc --version
+ 1384  su
+ 1385  gcc -v
+ 1386  su
+ 1387  cd /home/wqj/vmware/
+ 1388  ls
+ 1389  cp -rf vm1/ vm2
+ 1390  ls
+ 1391  du vm1
+ 1392  ls
+ 1393  cp -rf vm2/ vm3
+ 1394  ls
+ 1395  fdisk -l
+ 1396  su
+ 1397  cd ../yunfeiyang/
+ 1398  ls
+ 1399  ll
+ 1400  ifconfig
+ 1401  su
+ 1402  ls
+ 1403  cd netguard_ok
+ 1404  ls
+ 1405  make clean
+ 1406  su
+ 1407  ls
+ 1408  su
+ 1409  ifconfig
+ 1410  ping 10.106.128.42
+ 1411  ssh smu@10.106.128.42
+ 1412  ls
+ 1413  pwd
+ 1414  vim putty.log 
+ 1415  su
+ 1416  ls
+ 1417  su
+ 1418  eclipse.sh 
+ 1419  su
+ 1420  ls
+ 1421  su
+ 1422  sudo reboot
+ 1423  su
+ 1424  ls
+ 1425  sudo reboot
+ 1426  su
+ 1427  sudo reboot
+ 1428  su
+ 1429  ps fxa
+ 1430  ps fxa|grep firefox
+ 1431  top
+ 1432  su
+ 1433  ps fxa
+ 1434  su
+ 1435  sudo reboot
+ 1436  su
+ 1437  ls
+ 1438  su
+ 1439  cat /boot/grub/grub.cfg
+ 1440  su
+ 1441  l
+ 1442  su
+ 1443  sudo reboot
+ 1444  cd Downloads/
+ 1445  ls
+ 1446  ls 
+ 1447  mkdir ../tboot
+ 1448  mv trousers-0.3.5.tar.gz ../tboot/
+ 1449  cd ../tboot/
+ 1450  ls
+ 1451  tar zxvf trousers-0.3.5.tar.gz 
+ 1452  ls
+ 1453  cd trousers-0.3.5git/
+ 1454  ls
+ 1455  sh bootstrap.sh
+ 1456  cat install-sh 
+ 1457  ls
+ 1458  ./install-sh 
+ 1459  . install-sh 
+ 1460  cd tboot/
+ 1461  ls
+ 1462  cd trousers-0.3.5git/
+ 1463  ls
+ 1464  ./configure
+ 1465  ls
+ 1466  make 
+ 1467  make install
+ 1468  su
+ 1469  su
+ 1470  cat /boot/grub/grub.cfg
+ 1471  ls
+ 1472  su
+ 1473  sudo reboot
+ 1474  su
+ 1475  su
+ 1476  ls
+ 1477  cd kuber/smuvmm/test
+ 1478  ls
+ 1479  cd pthread_case/
+ 1480  ls
+ 1481  vim condl.c 
+ 1482  cd /home/wqj
+ 1483  ls
+ 1484  cd kuber
+ 1485  ls
+ 1486  cd smuvmm/
+ 1487  ls
+ 1488  cd ..
+ 1489  ls
+ 1490  su
+ 1491  cd
+ 1492  ls
+ 1493  cd final/
+ 1494  ls
+ 1495  cd singlethread/
+ 1496  ls
+ 1497  vim interl.c 
+ 1498  ls
+ 1499  cd ..
+ 1500  ls
+ 1501  cd protectapp/
+ 1502  ls
+ 1503  su
+ 1504  ls
+ 1505  cd /usr/
+ 1506  ls
+ 1507  cd src/
+ 1508  ls
+ 1509  cd /home/wqj
+ 1510  cd Down
+ 1511  cd Downloads/
+ 1512  ls
+ 1513  su
+ 1514  vim /proc/kallsyms 
+ 1515  sudo reboot
+ 1516  su
+ 1517  su
+ 1518  sudo rmmod kubera
+ 1519  cd kuber/smuvmm/test
+ 1520  vim interl.c
+ 1521  ls
+ 1522  ps fxa |grep vim
+ 1523  kill -9 3064
+ 1524  kill -9 2969
+ 1525  sudo kill -9 2969
+ 1526  ps fxa |grep vim
+ 1527  sudo kill 2969
+ 1528  ps fxa |grep vim
+ 1529  cd kuber/smuvmm/test
+ 1530  make
+ 1531  su
+ 1532  make
+ 1533  cd pthread_case/
+ 1534  make
+ 1535  sudo reboot
+ 1536  su
+ 1537  su
+ 1538  sudo cat /proc/kmsg 
+ 1539  su
+ 1540  su
+ 1541  sud
+ 1542  su
+ 1543  sudo cat /proc/kmsg 
+ 1544  su
+ 1545  ls
+ 1546  sudo cat /proc/kmsg 
+ 1547  ps -axf
+ 1548  cat /proc/lmsg
+ 1549  cat /proc/kmsg
+ 1550  su
+ 1551  ifconfig
+ 1552  su
+ 1553  quit
+ 1554  exit
+ 1555  su
+ 1556  su
+ 1557  ls
+ 1558  cd /
+ 1559  ls
+ 1560  cd /home/wqj
+ 1561  ls
+ 1562  su
+ 1563  cat /sys/devices/platform/tpm_tis/pcrs 
+ 1564  su
+ 1565  ks
+ 1566  cd /home/wqj/
+ 1567  ls
+ 1568  cd work
+ 1569  cd smu/
+ 1570  ls
+ 1571  cd flicker-0.7/
+ 1572  ls
+ 1573  cd kmod/
+ 1574  ls
+ 1575  make clean
+ 1576  su
+ 1577  make
+ 1578  insmod flicker.ko
+ 1579  sudo insmod flicker.ko
+ 1580  cd ..
+ 1581  ls
+ 1582  cd pal
+ 1583  ls
+ 1584  su
+ 1585  ls
+ 1586  make
+ 1587  ls
+ 1588  ./go.sh 
+ 1589  sudo ./go.sh 
+ 1590  sudo dmesg | less
+ 1591  sudo rmmod flicker
+ 1592  su
+ 1593  ls
+ 1594  su
+ 1595  ls
+ 1596  su
+ 1597  quit
+ 1598  su
+ 1599  uname -r
+ 1600  su
+ 1601  ls
+ 1602  cd /usr/src/
+ 1603  ls
+ 1604  cd linux-3.2.2/
+ 1605  ls
+ 1606  cd /home/wqj/Downloads/
+ 1607  ls
+ 1608  ifconfig
+ 1609  ls
+ 1610  pwd
+ 1611  cat /boot/grub/grub.cfg
+ 1612  ifconfig
+ 1613  ls
+ 1614  su
+ 1615  sudo -i
+ 1616  su
+ 1617  sudo -i
+ 1618  sudo -i
+ 1619  cd /boot
+ 1620  ls -l
+ 1621  cd /home/wqj/zhang/tboot-1.7.3/
+ 1622  ls
+ 1623  cd tboot/
+ 1624  ls
+ 1625  ls -l
+ 1626  cp tboot.gz /boot
+ 1627  sudo cp tboot.gz /boot
+ 1628  sudo -i
+ 1629  ls
+ 1630  cd ~
+ 1631  sudo -i
+ 1632  uname -r
+ 1633  sudo -i
+ 1634  cat /proc/cpuinfo
+ 1635  lscpu
+ 1636  sudo -i
+ 1637  uname -a
+ 1638  dmesg
+ 1639  sudo -i
+ 1640  dmesg
+ 1641  sudo -i
+ 1642  sudo -
+ 1643  sudo -i
+ 1644  fdisk -l
+ 1645  sudo -i
+ 1646  cd ~
+ 1647  pwd
+ 1648  cd /root
+ 1649  sudo /root
+ 1650  cd root
+ 1651  sudo -i
+ 1652  vim /boot/config-3.2.2
+ 1653  vim /boot/config-2.6.32-33-generic 
+ 1654  sudo -i
+ 1655  sudo -i
+ 1656  ls
+ 1657  cd /home/wqj/
+ 1658  ls
+ 1659  cd zhang/
+ 1660  ls
+ 1661  sudo apt-get install build-essential 
+ 1662  sudo apt-get build-dep xen
+ 1663  cp /home/wqj/Downloads/xen-4.2.1.tar.gz .
+ 1664  ls
+ 1665  cd ../
+ 1666  sudo chown -R wqj zhang/
+ 1667  cd zhang/
+ 1668  cp /home/wqj/Downloads/xen-4.2.1.tar.gz .
+ 1669  tar zxvf xen-4.2.1.tar.gz 
+ 1670  cd xen-4.2.1/
+ 1671  cd ..
+ 1672  mkdir hypervisor
+ 1673  mv xen-4.2.1 hypervisor/
+ 1674  mv xen-3.4.4 hypervisor/
+ 1675  cd hypervisor/
+ 1676  ls
+ 1677  cd xen-4.2.1/
+ 1678  sudo apt-get build-dep xen
+ 1679  ls
+ 1680  ./configure 
+ 1681  sudo apt-get build-dep xen
+ 1682  sudo apt-get install transfig wget texi2html libaio-devel dev86 glibc-devel e2fsprogs-devel gitk mkinitrd iasl xz-devel bzip2-devel pciutils-libs pciutils-devel SDL-devel libX11-devel gtk2-devel bridge-utils PyXML qemu-common qemu-img mercurial glibc-devel.i686
+ 1683  vim README 
+ 1684  sudo apt-get install transfig wget texi2html libaio-devel dev86 glibc-devel e2fsprogs-devel gitk mkinitrd iasl xz-devel bzip2-devel pciutils-libs pciutils-devel SDL-devel libX11-devel gtk2-devel bridge-utils PyXML qemu-common qemu-img mercurial 
+ 1685  ls /boot
+ 1686  uname -r
+ 1687  sudo update-rc.d xencommons defaults 19 18
+ 1688  sudo update-rc.d xendomains defaults 21 20
+ 1689  sudo update-rc.d xen-watchdog defaults 22 23
+ 1690  sudo apt-get install zlib-dev python-dev libncurses-dev openssl-dev xorg-x11-dev uuid-dev libyajl-d|=================
+ 1691  [A
+ 1692  sudo apt-get install zlib-dev python-dev libncurses-dev openssl-dev xorg-x11-dev uuid-dev libyajl-dev
+ 1693  sudo apt-get update
+ 1694  sudo apt-get install zlib-dev python-dev libncurses-dev openssl-dev xorg-x11-dev uuid-dev libyajl-dev
+ 1695  vim README 
+ 1696  sudo apt-get install python-dev libncurses-dev openssl-dev xorg-x11-dev uuid-dev libyajl-dev
+ 1697  sudo apt-get install python-dev libncurses-dev xorg-x11-dev uuid-dev libyajl-dev
+ 1698  sudo apt-get install python-dev  xorg-x11-dev uuid-dev libyajl-dev
+ 1699  sudo apt-get install xorg-x11-dev uuid-dev libyajl-dev
+ 1700  sudo apt-get install  uuid-dev libyajl-dev
+ 1701  ./configure 
+ 1702  make world -j8
+ 1703  vim configure 
+ 1704  vim tools/.configure
+ 1705  vim configure 
+ 1706  ls
+ 1707  sudo make xen-install
+ 1708  sudo make install-xen 
+ 1709  sudo make install-tools 
+ 1710  sudo cp /boot/grub/grub.cfg /boot/
+ 1711  ls /boot
+ 1712  sudo mv /boot/grub.cfg /boot/backup_grub.cfg
+ 1713  sudo update-grub
+ 1714  sudo vim /boot/grub/grub.cfg 
+ 1715  ls /boot
+ 1716  vim /boot/backup_grub.cfg 
+ 1717  sudo vim /boot/backup_grub.cfg 
+ 1718  sudo cp /boot/backup_grub.cfg /boot/grub/grub.cfg 
+ 1719  sudo vim /boot/grub/grub.cfg 
+ 1720  sudo reboot
+ 1721  sudo cp /boot/grub/grub.cfg /boot/backup_grub.cfg 
+ 1722  vim /boot/backup_grub.cfg 
+ 1723  sudo vim /boot/backup_grub.cfg 
+ 1724  sudo apt-get install linux-image-3.0.0-32-generic-pae linux-headers-3.0.0-32-generic-pae 
+ 1725  sudo vim /boot/backup_grub.cfg 
+ 1726  sudo reboot
+ 1727  sudo vim /boot/grub/grub.cfg 
+ 1728  sudo reboot
+ 1729  ls
+ 1730  cd zhang/
+ 1731  ls
+ 1732  cd hypervisor/
+ 1733  ls
+ 1734  xm list
+ 1735  sudo xm list
+ 1736  xend start
+ 1737  sudo xend start
+ 1738  sudo /etc/init.d/xendomains start
+ 1739  sudo /etc/init.d/xend start
+ 1740  sudo /etc/init.d/xend restart
+ 1741  sudo xend restart
+ 1742  firefox &
+ 1743  cd xen-4.2.1/
+ 1744  sudo make install-tools PYTHON_PREFIX_ARG=
+ 1745  sudo reboot
+ 1746  history
+ 1747  history 1>complile_xen.txt
