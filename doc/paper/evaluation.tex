@@ -189,7 +189,7 @@ We believe that the improvement will significantly benefit the workloads that re
 \end{figure}
 
 \subsubsection{SPECINT}
-SPEC CINT2006~\cite{specint} is an industry standard benchmark intended for measuring the performance of the CPU and memory.
+SPECint2006~\cite{specint} is an industry standard benchmark intended for measuring the performance of the CPU and memory.
 In our experiment, the tool version is SPECint 2006 v1.2, which has $12$ benchmarks in total and they are all invoked with the configuration file \emph{linux64-ia32-gcc43+.cfg}.
 All measurement results are listed in Figure~\ref{fig:spec}.
 Among the benchmarks, all benchmark tools in the \name group produce the same or a little better performance results, indicating that the \name has no negative effect on system performance.
@@ -230,7 +230,7 @@ Standard Deviation ($\sigma$) &  $0.028$ & $0.021$ \\ \hline
 
 In fact, the effects of the IOTLB misses are measurable, it relies on an extremely high-speed I/O device, e.g., Intel's I/O Acceleration Technology~\cite{lauritzenintel}, or a newly designed IOMMU.
 For instance, the rIOMMU project~\cite{malka2015riommu} establishes a high-performance setting with a newly designed IOMMU and the ibverbs library~\cite{ibverbsevaluation,kerr2011dissecting}.
-We believe that the \name can effectively reduce the overhead in the above high-speed settings by eliminating the additional IOTLb misses, and we also plan to conduct experiments in the future.
+We believe that the \name can effectively reduce the overhead in the above high-speed settings by eliminating the additional IOTLB misses, and we also plan to conduct experiments in the future.
 %However, currently we do not have a machine with the Intel I/O acceleration technology. Thus, we have to postpone this experiment. 
 
 %play an important role in I/O environments requiring high performance, which will be evaluated in our future work by utilizing the previous approaches and the I/O high-speed device.

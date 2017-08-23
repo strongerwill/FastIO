@@ -32,7 +32,7 @@ The baseline of Figure~\ref{fig:overview} (a) illustrates the two issues taking 
 
 \mypara{Solution}
 %introduce our approach
-The above identified performance issues urge us to revise the design of the page table management to improve the performance without sacrifcing the security guarantees.
+The above identified performance issues urge us to revise the design of the page table management to improve the performance without sacrificing the security guarantees.
 In response to the appeal, in this paper we propose \name, a novel software-only lightweight approach for improving performance in page table management.
 First, \name shortens the execution paths of the page table (de)allocations by the \cache, which maintains dedicated buffers for serving page table (de)allocations (Figure~\ref{fig:overview} (b)).
 The \cache queues the deallocated page-table pages in a constant time, with the hope that

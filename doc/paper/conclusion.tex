@@ -3,7 +3,7 @@ The paravirtual guest OS has two important performance issues in page table mana
 In this paper, we proposed the \name system to address the above problems.
 We shortened the execution paths of the page table (de)allocations by introducing the \cache, which could quickly response to the page table (de)allocation requests.
 We introduced a fine-grained validation scheme, which successfully eliminated all additional IOTLB flushes and saved the time cost of enforcing the DMA validations, which further reduced the execution paths.
-We implemented a prototype of the \name and fully evaluated its performance in miroc- and macro-benchmarks.
+We implemented a prototype of the \name and fully evaluated its performance in micro- and macro-benchmarks.
 The micro experiment results indicated that \name could \emph{completely eliminate} the additional IOTLB flushes in the workload stable environments, and effectively reduced (de)allocation time of the page table by 47\% on average.
 The macro benchmarks showed that the latencies of the process creations and exits were expectedly reduced by 16\% on average.
 Moreover, the \emph{SPECINT}, \emph{lmbench} and \emph{netperf} results indicated that \name had \emph{no} negative impacts on CPU computation, network I/O, and disk I/O.

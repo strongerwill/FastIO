@@ -16,7 +16,7 @@ Instead, we choose to borrow a bit from \emph{reference count}.
 In particular, the \emph{reference count} field has 23 bits, recording the number of type references for a page as its current type.
 %presenting how many references on a page.
 In fact, the system usually does not build so many references (i.e., $2^{23}-1$) to one page. Thus, we borrow the highest bit (bit 22) as the semi-page table bit (as illustrated in Figure~\ref{fig:field-of-semi-type}).
-As a consequence, it still supports more than 4 million reference counts, enough for almost all cases.
+As a consequence, it still supports more than 4 million reference counts, enough for almost all cases. And the hypervisor will always do a check for the \emph{reference count} whenever doing operations on it so as to avoid count overflows. 
 Actually, the hypervisor with \name is functioning well in our experiments.
 
 The \module also needs to patch the page type checking functions, e.g., \_\_get\_page\_type, to adjust the checking logic.
